@@ -9,7 +9,7 @@
 
 int main()
 {
-	std::cout << "tst" << std::endl;
+	std::cout << "tsat" << std::endl;
 }
 
 
