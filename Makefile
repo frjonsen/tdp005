@@ -1,26 +1,22 @@
-CXXFLAGS=-Wall -Wextra -Weffc++ -Wold-style-cast -Woverloaded-virtual -fdiagnostics-color=always -std=c++11 -pedantic -Werror -g
-SDLFLAGS=-lSDL2
+CXXFLAGS=-Wall -Wextra -Weffc++ -Wold-style-cast -Woverloaded-virtual -fdiagnostics-color=always -std=c++11 -pedantic -Werror
+CXXFLAGS_DEBUG= $(CXXFLAGS) -g
+LIB=-lSDL2
 SRCDIR=src
 BUILDDIR=build
+TARGET=bin/app
+
+INC=-I include
 CC=g++-4.9
 
-all: main.o window.o texture.o surface.o renderer.o rectangle.o
-	$(CC) window.o main.o texture.o surface.o renderer.o rectangle.o -o app $(SDLFLAGS)
+SRCEXT=cc
+SOURCES=$(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
+OBJECTS=$(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
 
-window.o: window.cc
-	$(CC) $(CXXFLAGS) -c window.cc
+$(TARGET): $(OBJECTS)
+	@echo " Linking..."
+	@echo " $(CC) $^ -o $(TARGET) $(LIB)"; $(CC) $^ -o $(TARGET) $(LIB)
 
-main.o: main.cc
-	$(CC) $(CXXFLAGS) -c main.cc
+$(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
+	@mkdir -p $(BUILDDIR)
+	@echo " $(CC) $(CXXFLAGS) $(INC) -c -o $@ $<"; $(CC) $(CXXFLAGS) $(INC) -c -o $@ $<
 
-surface.o: surface.cc
-	$(CC) $(CXXFLAGS) -c surface.cc
-
-texture.o: texture.cc	
-	$(CC) $(CXXFLAGS) -c texture.cc
-
-renderer.o: renderer.cc
-	$(CC) $(CXXFLAGS) -c renderer.cc
-
-clean:
-	rm -rf *.o
