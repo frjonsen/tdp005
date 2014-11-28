@@ -3,7 +3,8 @@ CXXFLAGS_DEBUG= $(CXXFLAGS) -g
 LIB=-lSDL2
 SRCDIR=src
 BUILDDIR=build
-TARGET=bin/app
+TARGETDIR=bin
+TARGET=$(TARGETDIR)/app
 
 INC=-I include
 CC=g++
@@ -16,6 +17,7 @@ OBJECTS=$(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
 
 $(TARGET): $(OBJECTS)
 	@echo " Linking..."
+	@mkdir -p $(TARGETDIR)
 	@echo " $(CC) $^ -o $(TARGET) $(LIB)"; $(CC) $^ -o $(TARGET) $(LIB)
 
 $(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
@@ -25,4 +27,3 @@ $(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
 clean:
 	@echo " Cleaning...";
 	@echo " $(RM) -r $(BUILDDIR) $(TARGET)"; $(RM) -r $(BUILDDIR) $(TARGET)
- 	
