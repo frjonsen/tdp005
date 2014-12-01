@@ -16,7 +16,7 @@ void initialize(int height, int width) {
 	Renderer renderer(window);
 
 	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "linear");
-	SDL_RenderSetLogicalSize(renderer.get_renderer(), width, height);
+	renderer.set_logical_size(width, height);
 	renderer.set_render_draw_color(0, 0, 0);
 	renderer.clear();
 	renderer.render_present();
