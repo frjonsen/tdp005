@@ -13,6 +13,7 @@
 #include <texture.h>
 #include <rectangle.h>
 
+
 void initialize(int width, int height) {
 	Window window("title", width, height);
 	Renderer renderer(window);
