@@ -7,15 +7,17 @@
 
 #include "surface.h"
 
-Surface::Surface(SDL_Surface* surface) : surface_{surface}
-{ }
-
-SDL_Surface* Surface::get_surface()
+Surface::Surface (SDL_Surface* surface)
+    : surface_ { surface }
 {
-	return surface_;
 }
 
-Surface::~Surface()
+SDL_Surface* Surface::get_surface ()
 {
-	SDL_FreeSurface(surface_);
+  return surface_;
+}
+
+Surface::~Surface ()
+{
+  SDL_FreeSurface (surface_);
 }

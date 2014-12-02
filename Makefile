@@ -1,6 +1,6 @@
 CXXFLAGS=-Wall -Wextra -Weffc++ -Wold-style-cast -Woverloaded-virtual -std=c++11 -pedantic -Werror
 CXXFLAGS_DEBUG= $(CXXFLAGS) -g
-LIB=-lSDL2
+LIB=-lSDL2 -lSDL2_image
 SRCDIR=src
 BUILDDIR=build
 TARGETDIR=bin
