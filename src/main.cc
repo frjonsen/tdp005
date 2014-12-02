@@ -6,12 +6,13 @@
  */
 
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 #include <iostream>
 #include <window.h>
 #include <renderer.h>
 
 void initialize(int height, int width) {
-	Window window("title", height, width);
+	Window window("GEEK HERO", height, width);
 
 	Renderer renderer(window);
 
@@ -25,7 +26,8 @@ void initialize(int height, int width) {
 
 }
 
-int main() {
+int main()
+{
 	const int kWindowHeight = 800;
 	const int kWindowWidth = 600;
 
