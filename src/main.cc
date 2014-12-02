@@ -31,6 +31,7 @@ void initialize(int width, int height) {
 
 }
 
+
 int main() {
 	const int kWindowHeight = 600;
 	const int kWindowWidth = 800;
