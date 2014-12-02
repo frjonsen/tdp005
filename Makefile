@@ -1,4 +1,4 @@
-CXXFLAGS=-Wall -Wextra -Weffc++ -Wold-style-cast -Woverloaded-virtual -std=c++11 -pedantic -Werror
+CXXFLAGS=-Wall -Wextra -Weffc++ -Wold-style-cast -Woverloaded-virtual -std=c++11 -pedantic -Werror -Wno-unused-variable -Wno-unused-parameter
 CXXFLAGS_DEBUG= $(CXXFLAGS) -g
 LIB=-lSDL2 -lSDL2_image
 SRCDIR=src

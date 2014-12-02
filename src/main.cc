@@ -13,18 +13,15 @@
 #include <texture.h>
 #include <rectangle.h>
 
-void initialize(int height, int width) {
-	Window window("title", height, width);
-
+void initialize(int width, int height) {
+	Window window("title", width, height);
 	Renderer renderer(window);
-
-	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "linear");
 	renderer.set_logical_size(width, height);
 	renderer.set_render_draw_color(0, 0, 0);
 	renderer.clear();
-	SDL_Surface* temp = IMG_Load("blue.png");
+	SDL_Surface* temp = IMG_Load("Geek_background.jpg");
 	Texture text(renderer, temp);
-	Rectangle rect(10, 10, temp->w, temp->h);
+	Rectangle rect(0, 0, temp->w, temp->h);
 	renderer.render_copy(text, rect, rect);
 	renderer.render_present();
 
@@ -34,16 +31,14 @@ void initialize(int height, int width) {
 }
 
 int main() {
-	const int kWindowHeight = 800;
-	const int kWindowWidth = 600;
+	const int kWindowHeight = 600;
+	const int kWindowWidth = 800;
 
-	SDL_Delay(3000);
 	if (SDL_Init(SDL_INIT_VIDEO) != 0) {
 		std::cerr << "Error initializing SDL" << std::endl;
 		exit(1);
 	}
-	SDL_Delay(3000);
-	initialize(kWindowHeight, kWindowWidth);
+	initialize(kWindowWidth, kWindowHeight);
 
 	SDL_Quit();
 }
