@@ -35,7 +35,7 @@ void Renderer::clear()
 	SDL_RenderClear(renderer_);
 }
 
-void Renderer::render_copy(Texture texture, Rectangle const& srcrect,
+void Renderer::render_copy(Texture const& texture, Rectangle const& srcrect,
 		Rectangle const& dstrect)
 {
 	SDL_RenderCopy(renderer_, texture.get_texture(), srcrect.get_rect(),

@@ -6,7 +6,6 @@
  */
 
 #include "rectangle.h"
-#include <algorithm>
 
 Rectangle::Rectangle(const int x, const int y, const int width,
                      const int height)
