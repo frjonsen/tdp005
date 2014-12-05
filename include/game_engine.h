@@ -5,32 +5,31 @@
  *      Author: frejo105
  */
 
-#ifndef INCLUDE_GAME_ENGINE_H_
-#define INCLUDE_GAME_ENGINE_H_
+#ifndef GAME_ENGINE_H_
+#define GAME_ENGINE_H_
 
-class GameEngine
-{
-	AbstractGameState* activate_state;
+#include <SDL2/SDL.h>
+
+class AbstractGameState;
+
+class GameEngine {
+	AbstractGameState *const active_state_;
+
+	// TODO: Better constants
+	const int kGravity;
+	const int kFrameTimeGoal;
 
 	IntroState is;
 	PlayState ps;
 	GameOverState gos;
 
-	GameEngine()
-	{
-		activate_state = &is;
+	GameEngine() :
+			kGravity { 5 }, kFrameTimeGoal { 1000 / 60 } {
+		active_state_ = &is;
 	}
 
-	void run()
-	{
-		state->update();
-		if ( ... )
-		{
-			activate_state = &ps;
-		}
-	}
+	void run();
+
 };
 
-
-
-#endif /* INCLUDE_GAME_ENGINE_H_ */
+#endif /* GAME_ENGINE_H_ */
