@@ -55,3 +55,10 @@ void Renderer::set_logical_size(int width, int height)
 {
 	SDL_RenderSetLogicalSize(renderer_, width, height);
 }
+
+// Must be run BEFORE set_logical_size. Will otherwise be reset
+// to cover whole window
+void Renderer::set_viewport(Rectangle const& viewport)
+{
+  SDL_RenderSetViewport(renderer_, viewport.get_rect());
+}

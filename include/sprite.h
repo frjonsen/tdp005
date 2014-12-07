@@ -5,19 +5,31 @@
  *      Author: vakz
  */
 
-#ifndef INCLUDE_SPRITE_H_
-#define INCLUDE_SPRITE_H_
+#ifndef SPRITE_H_
+#define SPRITE_H_
+
+#include "rectangle.h"
+#include "texture.h"
 
 class Texture;
 
 class Sprite : public Rectangle
 {
 public:
-  Sprite(Surface surface, const int y, const int width, const int height);
+  Sprite(Renderer& renderer, Surface& surface, const int x,
+         const int y, const int width, const int height);
+  virtual ~Sprite();
+
+  Sprite(Sprite const&) = delete;
+  Sprite(Sprite const&&) = delete;
+
+  Sprite& operator=(Sprite const&) = delete;
+  Sprite& operator=(Sprite&&) = delete;
+
+  virtual void update();
+  const Texture& get_texture() const;
 protected:
   Texture texture_;
 };
 
-
-
-#endif /* INCLUDE_SPRITE_H_ */
+#endif /* SPRITE_H_ */

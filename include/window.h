@@ -13,7 +13,10 @@ public:
 
 	Window& operator=(Window const&) = delete;
 
-	SDL_Window* get_window();
+	SDL_Window* get_window() const;
+
+  const int kWidth;
+  const int kHeight;
 
 private:
 	SDL_Window* window_;

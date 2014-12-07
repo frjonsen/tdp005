@@ -17,7 +17,7 @@ class Texture
 {
 public:
 	Texture(Renderer& renderer, SDL_Surface* surface);
-	Texture(Renderer& renderer, Surface surface);
+	Texture(Renderer& renderer, Surface& surface);
 	Texture(Texture const&) = delete;
 	~Texture();
 

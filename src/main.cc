@@ -12,19 +12,29 @@
 #include <renderer.h>
 #include <texture.h>
 #include <rectangle.h>
+#include <utility>
+#include <tuple>
+
+using namespace std;
 
 void initialize(int width, int height) {
+
 	Window window("GEEK HERO", width, height);
 	Renderer renderer(window);
+
+	Rectangle viewport(250, 0, width, height);
+
+
 	renderer.set_logical_size(width, height);
 	renderer.set_render_draw_color(0, 0, 0);
+
 	renderer.clear();
+
 	SDL_Surface* temp = IMG_Load("Geek_background.png");
 	Texture text(renderer, temp);
 	Rectangle rect(0, 0, temp->w, temp->h);
 	renderer.render_copy(text, rect, rect);
 	renderer.render_present();
-
 
 	SDL_Delay(3000);
 
