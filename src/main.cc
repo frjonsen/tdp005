@@ -13,8 +13,8 @@
 #include <texture.h>
 #include <rectangle.h>
 
-void initialize(int width, int height) {
-	Window window("GEEK HERO", width, height);
+/*void initialize(int width, int height) {
+	Window window("hej HERO", width, height);
 	Renderer renderer(window);
 	renderer.set_logical_size(width, height);
 	renderer.set_render_draw_color(0, 0, 0);
@@ -25,10 +25,96 @@ void initialize(int width, int height) {
 	renderer.render_copy(text, rect, rect);
 	renderer.render_present();
 
-
 	SDL_Delay(3000);
+}*/
+enum class menupointer
+{
+	kplay,
+	khighscore,
+	kcontrols
+};
 
+
+void testeru(int width, int height)
+{
+	/*menupointer selected{kplay};
+
+	map <menupointer, pair<int,int>>
+	*/
+	SDL_Window* window = SDL_CreateWindow("GEEK HERO", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_RESIZABLE);
+	SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, 0);
+        
+	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "linear");
+	SDL_RenderSetLogicalSize(renderer, width, height);
+
+	SDL_Texture* wallpaper{nullptr};
+	SDL_Texture* coffe_cup{nullptr};
+	int wallpaper_width{0};
+	int wallpaper_height{0};
+	int coffe_width{0};
+	int coffe_height{0};
+
+        {    
+          SDL_Surface* temp = IMG_Load("Geek_background.png");
+          
+          wallpaper = SDL_CreateTextureFromSurface(renderer, temp);
+          std::cout << "tmp: " << temp << "rnd: " << renderer << "wlp: " << wallpaper << std::endl;
+          wallpaper_width = temp->w;
+          wallpaper_height = temp->h;
+          SDL_FreeSurface(temp);
+
+          temp = IMG_Load("coffe.png");
+          coffe_cup = SDL_CreateTextureFromSurface(renderer, temp);
+          coffe_width = temp->w;
+          coffe_height = temp->h;
+          SDL_FreeSurface(temp);
+          std::cout << "img_load->temp" << std::endl;
+        }
+
+	SDL_Rect coffe_rect;
+
+	coffe_rect.x = 260;  //1: 310x240 2: 240x315 3: 260x385
+	coffe_rect.y = 385;
+	coffe_rect.w = coffe_width;
+	coffe_rect.h = coffe_height;
+
+    SDL_Rect wall_rect;
+
+    wall_rect.x = 0;
+	wall_rect.y = 0;
+	wall_rect.w = wallpaper_width;
+	wall_rect.h = wallpaper_height;
+
+	bool running{true};
+	while (running)	{
+		SDL_Event event;
+		while (SDL_PollEvent(&event)) {
+			if (event.type == SDL_QUIT) {
+				running = false;
+			}
+		}
+                SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+                SDL_RenderClear(renderer);
+
+                SDL_RenderCopy(renderer, wallpaper, nullptr, &wall_rect);
+                SDL_RenderCopy(renderer, coffe_cup, nullptr, &coffe_rect);
+                  
+                SDL_RenderPresent(renderer);
+                SDL_Delay(10);
+	}
+
+	
+
+	SDL_DestroyTexture(wallpaper);
+	wallpaper = nullptr;
+	SDL_DestroyTexture(coffe_cup);
+	coffe_cup = nullptr;
+	SDL_DestroyRenderer(renderer);
+	SDL_DestroyWindow(window);
+
+//	SDL_Quit();
 }
+
 
 
 int main() {
@@ -39,7 +125,8 @@ int main() {
 		std::cerr << "Error initializing SDL" << std::endl;
 		exit(1);
 	}
-	initialize(kWindowWidth, kWindowHeight);
+	//initialize(kWindowWidth, kWindowHeight);
+	testeru(kWindowWidth, kWindowHeight);
 
 	SDL_Quit();
 }
