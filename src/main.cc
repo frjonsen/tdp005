@@ -7,16 +7,14 @@
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
-#include <iostream>
-#include <window.h>
-#include <renderer.h>
-#include <texture.h>
+#include <sprite.h>
+#include <surface.h>
 #include <rectangle.h>
-#include <utility>
-#include <tuple>
+#include <vector>
+#include <graphics_engine.h>
+#include <iostream>
 
-using namespace std;
-
+/*
 void initialize(int width, int height) {
 
 	Window window("GEEK HERO", width, height);
@@ -40,6 +38,26 @@ void initialize(int width, int height) {
 
 }
 
+*/
+
+void initialize(int width, int height)
+{
+  Window window("Geek Hero", width, height);
+  Renderer renderer (window);
+  GraphicsEngine::Viewport v{10, 0};
+
+  renderer.set_logical_size(width, height);
+  renderer.set_render_draw_color(0, 0, 0);
+
+  GraphicsEngine ge("Geek Hero", width, height);
+  Surface sur{IMG_Load("Geek_background.png")};
+  Sprite s{ge.get_renderer(), sur, 0, 0, sur.get_width(), sur.get_height()};
+  std::vector<Sprite const*> sprites;
+  sprites.push_back(&s);
+
+  ge.set_viewport(v);
+  ge.redraw_screen(sprites);
+}
 
 int main() {
 	const int kWindowHeight = 600;

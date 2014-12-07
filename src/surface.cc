@@ -21,3 +21,13 @@ Surface::~Surface ()
 {
   SDL_FreeSurface (surface_);
 }
+
+int Surface::get_width() const
+{
+  return surface_->w;
+}
+
+int Surface::get_height() const
+{
+  return surface_->h;
+}
