@@ -14,11 +14,14 @@ class Surface
 {
 public:
 	Surface(SDL_Surface* surface);
+	Surface& operator=(Surface const&) = delete;
 	~Surface();
-	SDL_Surface* get_surface();
+
 	Surface(Surface const&) = delete;
 
-	Surface& operator=(Surface const&) = delete;
+	SDL_Surface* get_surface();
+	int get_width() const;
+	int get_height() const;
 
 private:
 	SDL_Surface* surface_;

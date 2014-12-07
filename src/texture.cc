@@ -14,7 +14,7 @@ Texture::Texture(Renderer& renderer, SDL_Surface* surface)
 {
 }
 
-Texture::Texture(Renderer& renderer, Surface surface)
+Texture::Texture(Renderer& renderer, Surface& surface)
 	: Texture(renderer, surface.get_surface()) {}
 
 Texture::~Texture()

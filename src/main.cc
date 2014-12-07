@@ -7,18 +7,28 @@
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
-#include <iostream>
-#include <window.h>
-#include <renderer.h>
-#include <texture.h>
+#include <sprite.h>
+#include <surface.h>
 #include <rectangle.h>
+#include <vector>
+#include <graphics_engine.h>
+#include <iostream>
 
-/*void initialize(int width, int height) {
-	Window window("hej HERO", width, height);
+
+/*
+void initialize(int width, int height) {
+
+	Window window("GEEK HERO", width, height);
 	Renderer renderer(window);
+
+	Rectangle viewport(250, 0, width, height);
+
+
 	renderer.set_logical_size(width, height);
 	renderer.set_render_draw_color(0, 0, 0);
+
 	renderer.clear();
+
 	SDL_Surface* temp = IMG_Load("Geek_background.png");
 	Texture text(renderer, temp);
 	Rectangle rect(0, 0, temp->w, temp->h);
@@ -115,6 +125,25 @@ void testeru(int width, int height)
 //	SDL_Quit();
 }
 
+
+void initialize(int width, int height)
+{
+  Window window("Geek Hero", width, height);
+  Renderer renderer (window);
+  GraphicsEngine::Viewport v{10, 0};
+
+  renderer.set_logical_size(width, height);
+  renderer.set_render_draw_color(0, 0, 0);
+
+  GraphicsEngine ge("Geek Hero", width, height);
+  Surface sur{IMG_Load("Geek_background.png")};
+  Sprite s{ge.get_renderer(), sur, 0, 0, sur.get_width(), sur.get_height()};
+  std::vector<Sprite const*> sprites;
+  sprites.push_back(&s);
+
+  ge.set_viewport(v);
+  ge.redraw_screen(sprites);
+}
 
 
 int main() {

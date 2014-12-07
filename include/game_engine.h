@@ -12,23 +12,24 @@
 
 class AbstractGameState;
 
-class GameEngine {
-	AbstractGameState *const active_state_;
+class GameEngine
+{
+  AbstractGameState * const active_state_;
 
-	// TODO: Better constants
-	const int kGravity;
-	const int kFrameTimeGoal;
+  const int kGravity;
+  const size_t kFrameTimeGoal;
 
-	IntroState is;
-	PlayState ps;
-	GameOverState gos;
+  //IntroState is_;
+  //PlayState ps_;
+  //GameOverState gos_;
 
-	GameEngine() :
-			kGravity { 5 }, kFrameTimeGoal { 1000 / 60 } {
-		active_state_ = &is;
-	}
+  bool engine_running_;
 
-	void run();
+  void handle_state_command(AbstractGameState::StateCommand cmd);
+
+public:
+  GameEngine();
+  void run();
 
 };
 

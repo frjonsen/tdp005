@@ -9,12 +9,26 @@
 #define ABSTRACT_GAME_STATE_H_
 
 #include <vector>
-#include "gameinput.h"
 
 class AbstractGameState
 {
-	virtual void update(std::vector<GameInput> const&) = 0;
-};
+public:
+  virtual ~AbstractGameState();
 
+  enum class StateCommand
+  {
+    kPlay, kMenu, kExit, kGameOver,
+  };
+
+  enum class GameInput
+  {
+    kUp, kRight, kLeft, kSpace, kEscape, kReturn
+  };
+
+  virtual StateCommand update(std::vector<GameInput> const&) = 0;
+  virtual int get_viewport_x() const;
+  virtual int get_viewport_y() const;
+
+};
 
 #endif /* ABSTRACT_GAME_STATE_H_ */

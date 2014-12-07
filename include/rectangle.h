@@ -14,7 +14,7 @@ class Rectangle
 {
 public:
   Rectangle(const int x, const int y, const int width, const int height);
-  ~Rectangle();
+  virtual ~Rectangle();
 
   Rectangle(Rectangle const&);
   Rectangle(Rectangle&&);
@@ -36,6 +36,7 @@ public:
 
   bool contain(const int x, const int y) const;
   bool intersect(Rectangle const& other) const;
+  bool intersecting_area(Rectangle const& other, Rectangle& overlapping) const;
 
 private:
   SDL_Rect* rect_;

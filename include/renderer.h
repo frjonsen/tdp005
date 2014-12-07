@@ -23,6 +23,7 @@ public:
 	void render_copy_ex(Texture const& texture, Rectangle const& srcrect, Rectangle const& dstrect,
 			double angle, SDL_Point* center, SDL_RendererFlip flip);
 	void set_logical_size(int width, int height);
+	void set_viewport(Rectangle const& viewport);
 	void render_present();
 	void clear();
 
