@@ -14,6 +14,7 @@
 #include <vector>
 #include "window.h"
 #include "renderer.h"
+#include <tuple>
 
 using visible_sprite_rect = std::tuple<Sprite const*, Rectangle>;
 
