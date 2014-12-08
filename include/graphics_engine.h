@@ -29,18 +29,31 @@ private:
   Window window_;
   Renderer renderer_;
   Viewport viewport_;
+  Texture* background_;
 
   bool calc_visible_area(Sprite const* sprite, Rectangle& out) const;
   void get_visible_sprites(std::vector<Sprite const*> const& sprites,
                            std::vector<Sprite const*>& visible) const;
   void draw_screen(std::vector<Sprite const*> const& sprites);
+  void draw_background();
 
 public:
   GraphicsEngine(std::string window_title, const int window_width,
                  const int window_height);
-  void redraw_screen(std::vector<Sprite const*> const& sprites);
-  void set_viewport(Viewport viewport);
+  ~GraphicsEngine();
+
+  GraphicsEngine(GraphicsEngine const&) = delete;
+  GraphicsEngine(GraphicsEngine&&) = delete;
+
+  GraphicsEngine& operator=(GraphicsEngine const&) = delete;
+  GraphicsEngine& operator=(GraphicsEngine&&) = delete;
+
   Renderer& get_renderer();
+
+  void set_viewport(Viewport viewport);
+  void set_background(Texture* texture);
+
+  void redraw_screen(std::vector<Sprite const*> const& sprites);
 };
 
 #endif /* GRAPHICS_ENGINE_H_ */
