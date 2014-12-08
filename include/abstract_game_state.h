@@ -9,11 +9,13 @@
 #define ABSTRACT_GAME_STATE_H_
 
 #include <vector>
+#include <sprite.h>
+#include <utility>
 
 class AbstractGameState
 {
 public:
-  virtual ~AbstractGameState();
+  virtual ~AbstractGameState() {}
 
   enum class StateCommand
   {
@@ -26,8 +28,8 @@ public:
   };
 
   virtual StateCommand update(std::vector<GameInput> const&) = 0;
-  virtual int get_viewport_x() const;
-  virtual int get_viewport_y() const;
+  virtual std::pair<int, int> get_viewport() const { return std::make_pair(0,0); }
+  virtual std::vector<Sprite const*> get_sprites() const = 0;
 
 };
 

@@ -33,6 +33,7 @@ public:
   void set_x(const int x);
   void set_width(const int width);
   void set_height(const int height);
+  Rectangle get_enclosing_rect() const;
 
   bool contain(const int x, const int y) const;
   bool intersect(Rectangle const& other) const;
