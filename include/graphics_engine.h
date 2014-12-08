@@ -15,8 +15,6 @@
 #include "window.h"
 #include "renderer.h"
 
-using visible_sprite_rect = std::tuple<Sprite const*, Rectangle>;
-
 class GraphicsEngine
 {
 public:
@@ -33,9 +31,8 @@ private:
 
   bool calc_visible_area(Sprite const* sprite, Rectangle& out) const;
   void get_visible_sprites(std::vector<Sprite const*> const& sprites,
-                           std::vector<visible_sprite_rect>& visible) const;
-  void translate_coords_to_viewport(
-      std::vector<visible_sprite_rect>& sprites) const;
+                           std::vector<Sprite const*>& visible) const;
+  void draw_screen(std::vector<Sprite const*> const& sprites);
 
 public:
   GraphicsEngine(std::string window_title, const int window_width,
