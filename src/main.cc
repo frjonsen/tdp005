@@ -125,7 +125,7 @@ void testeru(int width, int height)
 //	SDL_Quit();
 }
 
-
+/*
 void initialize(int width, int height)
 {
   Window window("Geek Hero", width, height);
@@ -143,7 +143,7 @@ void initialize(int width, int height)
 
   ge.set_viewport(v);
   ge.redraw_screen(sprites);
-}
+} */
 
 
 int main() {
