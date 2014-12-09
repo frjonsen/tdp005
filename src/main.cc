@@ -13,6 +13,7 @@
 #include <vector>
 #include <graphics_engine.h>
 #include <iostream>
+#include <tuple>
 
 
 /*
@@ -32,11 +33,14 @@ void initialize(int width, int height) {
 	SDL_Surface* temp = IMG_Load("Geek_background.png");
 	Texture text(renderer, temp);
 	Rectangle rect(0, 0, temp->w, temp->h);
-	renderer.render_copy(text, rect, rect);
+	Rectangle r = rect;
+	r.set_x(-100);
+	renderer.render_copy(text, rect, r);
 	renderer.render_present();
 
 	SDL_Delay(3000);
-}*/
+}
+*/
 enum class menupointer
 {
 	kplay,
@@ -128,34 +132,35 @@ void testeru(int width, int height)
 /*
 void initialize(int width, int height)
 {
-  Window window("Geek Hero", width, height);
-  Renderer renderer (window);
   GraphicsEngine::Viewport v{10, 0};
-
-  renderer.set_logical_size(width, height);
-  renderer.set_render_draw_color(0, 0, 0);
 
   GraphicsEngine ge("Geek Hero", width, height);
   Surface sur{IMG_Load("Geek_background.png")};
-  Sprite s{ge.get_renderer(), sur, 0, 0, sur.get_width(), sur.get_height()};
   std::vector<Sprite const*> sprites;
-  sprites.push_back(&s);
 
   ge.set_viewport(v);
   ge.redraw_screen(sprites);
-} */
+
+} 
+
+
+  SDL_Delay(3000);
+  } */
+
 
 
 int main() {
 	const int kWindowHeight = 600;
 	const int kWindowWidth = 800;
 
+	std::tuple<int> c;
+
 	if (SDL_Init(SDL_INIT_VIDEO) != 0) {
 		std::cerr << "Error initializing SDL" << std::endl;
 		exit(1);
 	}
-	//initialize(kWindowWidth, kWindowHeight);
-	testeru(kWindowWidth, kWindowHeight);
+	initialize(kWindowWidth, kWindowHeight);
+	//testeru(kWindowWidth, kWindowHeight);
 
 	SDL_Quit();
 }

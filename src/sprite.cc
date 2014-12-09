@@ -9,9 +9,8 @@
 #include "surface.h"
 #include "rectangle.h"
 
-Sprite::Sprite(Renderer& renderer, Surface& surface, const int x,
-               const int y, const int width, const int height)
-    : Rectangle (x, y, width, height), texture_ { renderer, surface }
+Sprite::Sprite(Renderer& renderer, Surface& surface, Rectangle const& rectangle, Velocity velocity)
+    : Rectangle (rectangle), texture_ { renderer, surface }, velocity_{velocity.x, velocity.y}
 {
 
 }
@@ -28,4 +27,13 @@ void Sprite::update()
 const Texture& Sprite::get_texture() const
 {
   return texture_;
+}
+
+float Sprite::get_moving_angle() const
+{
+	return 0;
+}
+
+void Sprite::handle_gravity(const int gravity)
+{
 }
