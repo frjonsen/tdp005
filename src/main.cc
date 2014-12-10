@@ -11,18 +11,19 @@
 #include <surface.h>
 #include <rectangle.h>
 #include <vector>
-#include <graphics_engine.h>
+#include "game_engine.h"
 #include <iostream>
 #include <tuple>
-
+#include <map>
+#include <utility>
+/*
 void initialize(int width, int height)
 {
 
-  Window window ("GEEK HERO", width, height);
-  Renderer renderer (window);
+ Window window("GEEK HERO", width, height);
+ Renderer renderer(window);
 
-  Rectangle viewport (250, 0, width, height);
-
+ Rectangle viewport(250, 0, width, height);
   renderer.set_logical_size (width, height);
   renderer.set_render_draw_color (0, 0, 0);
 
@@ -38,18 +39,23 @@ void initialize(int width, int height)
 
   SDL_Delay (3000);
 }
+*/
 
 enum class menupointer
 {
-  kplay, khighscore, kcontrols
+  kPlay, kHighscore, kControls
 };
+// värden 0-2
 
 void testeru(int width, int height)
 {
-  /*menupointer selected{kplay};
+  menupointer selected { menupointer::kPlay };
 
-   map <menupointer, pair<int,int>>
-   */
+  std::map<menupointer, std::pair<int, int>> FREIDRICH { { menupointer::kPlay, {
+      310, 240 } }, { menupointer::kHighscore, { 240, 315 } }, {
+      menupointer::kControls, { 260, 385 } } };
+
+
   SDL_Window* window = SDL_CreateWindow ("GEEK HERO", SDL_WINDOWPOS_UNDEFINED,
                                          SDL_WINDOWPOS_UNDEFINED, width, height,
                                          SDL_WINDOW_RESIZABLE);
@@ -69,8 +75,7 @@ void testeru(int width, int height)
     SDL_Surface* temp = IMG_Load ("Geek_background.png");
 
     wallpaper = SDL_CreateTextureFromSurface (renderer, temp);
-    std::cout << "tmp: " << temp << "rnd: " << renderer << "wlp: " << wallpaper
-        << std::endl;
+
     wallpaper_width = temp->w;
     wallpaper_height = temp->h;
     SDL_FreeSurface (temp);
@@ -80,13 +85,12 @@ void testeru(int width, int height)
     coffe_width = temp->w;
     coffe_height = temp->h;
     SDL_FreeSurface (temp);
-    std::cout << "img_load->temp" << std::endl;
   }
 
   SDL_Rect coffe_rect;
 
-  coffe_rect.x = 260;  //1: 310x240 2: 240x315 3: 260x385
-  coffe_rect.y = 385;
+  coffe_rect.x = std::get < 0 > (FREIDRICH.at (selected)); //1: 310x240 2: 240x315 3: 260x385
+  coffe_rect.y = std::get < 1 > (FREIDRICH.at (selected));
   coffe_rect.w = coffe_width;
   coffe_rect.h = coffe_height;
 
@@ -106,6 +110,24 @@ void testeru(int width, int height)
       if (event.type == SDL_QUIT)
       {
         running = false;
+      }
+      else if (event.type == SDL_KEYDOWN)
+      {
+        if (event.key.keysym.sym == SDLK_UP)
+        {
+          selected = menupointer::kHighscore;
+          std::cout << "upp" << std::endl;
+        }
+        if (event.key.keysym.sym == SDLK_RIGHT)
+        {
+          selected = menupointer::kControls;
+          std::cout << "höger" << std::endl;
+        }
+        if (event.key.keysym.sym == SDLK_DOWN)
+        {
+          selected = menupointer::kPlay;
+          std::cout << "ned" << std::endl;
+        }
       }
     }
     SDL_SetRenderDrawColor (renderer, 0, 0, 0, 255);
@@ -129,37 +151,42 @@ void testeru(int width, int height)
 }
 
 /*
- void initialize(int width, int height)
- {
- GraphicsEngine::Viewport v{10, 0};
+void initialize(int width, int height)
+{
+  GraphicsEngine::Viewport v { 120, 0 };
 
- GraphicsEngine ge("Geek Hero", width, height);
- Surface sur{IMG_Load("Geek_background.png")};
- std::vector<Sprite const*> sprites;
+  GraphicsEngine ge ("Geek Hero", width, height);
+  Surface sur { IMG_Load ("TESTGROUND.png") };
+  std::vector<Sprite const*> sprites;
 
- ge.set_viewport(v);
- ge.redraw_screen(sprites);
+  ge.set_background(new Texture(ge.get_renderer(), sur));
+  Surface s{IMG_Load("Hero_Standing.png")};
+  Rectangle enclosing{ 110, 395 - s.get_height(), s.get_width(), s.get_height()};
+  Sprite sf{ge.get_renderer(), s, enclosing, {0, 0} };
+  sprites.push_back(&sf);
 
- }
+
+  ge.set_viewport (v);
+  ge.redraw_screen (sprites);
 
 
- SDL_Delay(3000);
- } */
-
+  SDL_Delay(3000);
+}
+*/
 int main()
 {
-  const int kWindowHeight = 600;
-  const int kWindowWidth = 800;
-
-  std::tuple<int> c;
 
   if (SDL_Init (SDL_INIT_VIDEO) != 0)
   {
     std::cerr << "Error initializing SDL" << std::endl;
     exit (1);
   }
-  initialize (kWindowWidth, kWindowHeight);
+  
+  //initialize (kWindowWidth, kWindowHeight);
   //testeru(kWindowWidth, kWindowHeight);
+
+  GameEngine game_engine;
+  game_engine.run();
 
   SDL_Quit ();
 }

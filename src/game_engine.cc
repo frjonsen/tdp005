@@ -5,8 +5,8 @@
  *      Author: vakz
  */
 
-#include "abstract_game_state.h"
 #include "game_engine.h"
+#include "graphics_engine.h"
 #include <vector>
 
 GameEngine::GameEngine()
@@ -20,6 +20,7 @@ GameEngine::GameEngine()
 void GameEngine::run()
 {
   using GameInput = AbstractGameState::GameInput;
+  GraphicsEngine ge{kGameTitle, kWindowWidth, kWindowHeight};
 
   while (engine_running_)
   {

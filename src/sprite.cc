@@ -9,8 +9,8 @@
 #include "surface.h"
 #include "rectangle.h"
 
-Sprite::Sprite(Renderer& renderer, Surface& surface, Rectangle const& rectangle, Velocity velocity)
-    : Rectangle (rectangle), texture_ { renderer, surface }, velocity_{velocity.x, velocity.y}
+Sprite::Sprite(Renderer& renderer, Surface& surface, Rectangle const& rectangle, Velocity velocity, const int top_velocity)
+    : Rectangle (rectangle), texture_ { renderer, surface }, velocity_{velocity.x, velocity.y}, kTopXVelocity{top_velocity}
 {
 
 }

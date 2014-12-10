@@ -40,8 +40,9 @@ public:
 private:
   const int kJumpVelocity;
 
-  int frames_since_firing_;
-  bool jumping_;
+	int frames_since_firing_;
+	bool jumping_;
+	bool stunned_;
 };
 
 #endif /* PLAYER_H_ */

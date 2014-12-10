@@ -9,8 +9,8 @@
 
 Player::Player(Renderer& renderer, Surface& surface, Rectangle const& rectangle,
                Velocity velocity)
-    : Sprite (renderer, surface, rectangle, velocity), kJumpVelocity { 20 }, frames_since_firing_ {
-        -1 }, jumping_ { false }
+    : Sprite (renderer, surface, rectangle, velocity, 20), kJumpVelocity { 20 }, frames_since_firing_ {
+        -1 }, jumping_ { false }, stunned_ { false }
 {
 
 }
@@ -23,6 +23,8 @@ Player::~Player()
 void Player::update()
 {
   ++frames_since_firing_;
+  set_x (get_x () + velocity_.x);
+  if (!stunned_) velocity_.x = 0;
   set_y (get_y () + velocity_.y);
 }
 
@@ -40,10 +42,10 @@ void Player::order_player(std::vector<MovementCommand> moves)
         }
         break;
       case MovementCommand::kMoveLeft:
-        set_x (get_x () - velocity_.x);
+        if (!stunned_) velocity_.x = -kTopXVelocity;
         break;
       case MovementCommand::kMoveRight:
-        set_x (get_x () + velocity_.x);
+        if (!stunned_) velocity_.x = kTopXVelocity;
         break;
     }
   }
