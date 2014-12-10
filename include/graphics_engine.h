@@ -20,10 +20,10 @@ class GraphicsEngine
 {
 public:
   struct Viewport
-      {
-        int x;
-        int y;
-      };
+  {
+    int x;
+    int y;
+  };
 private:
 
   Window window_;

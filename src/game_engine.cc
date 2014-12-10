@@ -10,8 +10,8 @@
 #include <vector>
 
 GameEngine::GameEngine()
-    : active_state_ { nullptr }, kGravity { 5 }, kFrameTimeGoal { 1000 / 60 },
-      engine_running_ { true }
+    : active_state_ { nullptr }, kGravity { 5 }, kFrameTimeGoal { 1000 / 60 }, engine_running_ {
+        true }
 
 {
   //active_state_ = &is_;
@@ -85,7 +85,7 @@ void GameEngine::handle_state_command(AbstractGameState::StateCommand cmd)
     case StateCommand::kMenu:
       // TODO: Add some way to set whether "Resume" or "Start New Game"
       // (Overload () operator to take a string and return *this?
-      //active_state_ = &is_;
+      //active_state_ = &(is_("Resume"));
       break;
     case StateCommand::kGameOver:
       // TODO: Add reset
