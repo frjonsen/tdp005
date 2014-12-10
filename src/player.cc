@@ -47,7 +47,7 @@ void Player::order_player(std::vector<MovementCommand> moves) {
 }
 
 void Player::handle_gravity(const int gravity) {
-	velocity_.y
+	velocity_.y = 5;
 }
 
 float Player::get_moving_angle() const {
