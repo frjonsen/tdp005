@@ -11,27 +11,32 @@
 #include <SDL2/SDL.h>
 #include <string>
 #include "abstract_game_state.h"
+#include "graphics_engine.h"
 
 class AbstractGameState;
 
 class GameEngine
 {
-  AbstractGameState * const active_state_;
 
-  const std::string kGameTitle{"Geek Hero"};
-  const int kWindowHeight{600};
-  const int kWindowWidth{800};
 
-  const int kGravity;
-  const size_t kFrameTimeGoal;
+  // Constants
+  const std::string kGameTitle { "Geek Hero" };
+  const int kWindowHeight { 600 };
+  const int kWindowWidth { 800 };
+  const int kGravity { 5 };
+  const size_t kFrameTimeGoal { 1000 / 60 };
+
+  GraphicsEngine graphics_engine_;
+  bool engine_running_ { true };
+  AbstractGameState * const active_state_{nullptr};
 
   //IntroState is_;
   //PlayState ps_;
   //GameOverState gos_;
 
-  bool engine_running_;
-
   void handle_state_command(AbstractGameState::StateCommand cmd);
+  void handle_input_translation(
+      std::vector<AbstractGameState::GameInput>&) const;
 
 public:
   GameEngine();

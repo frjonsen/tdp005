@@ -98,6 +98,5 @@ Renderer& GraphicsEngine::get_renderer()
 
 void GraphicsEngine::set_background(Texture* texture)
 {
-  delete background_;
   background_ = texture;
 }

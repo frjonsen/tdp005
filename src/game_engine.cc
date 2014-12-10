@@ -6,12 +6,10 @@
  */
 
 #include "game_engine.h"
-#include "graphics_engine.h"
 #include <vector>
 
 GameEngine::GameEngine()
-    : active_state_ { nullptr }, kGravity { 5 }, kFrameTimeGoal { 1000 / 60 }, engine_running_ {
-        true }
+    : graphics_engine_ { kGameTitle, kWindowWidth, kWindowHeight }
 
 {
   //active_state_ = &is_;
@@ -20,46 +18,20 @@ GameEngine::GameEngine()
 void GameEngine::run()
 {
   using GameInput = AbstractGameState::GameInput;
-  GraphicsEngine ge{kGameTitle, kWindowWidth, kWindowHeight};
 
   while (engine_running_)
   {
     size_t start_time { SDL_GetTicks () };
 
     std::vector<GameInput> tick_input;
-
-    SDL_Event event;
-    while (SDL_PollEvent (&event))
-    {
-      if (event.type == SDL_KEYDOWN)
-      {
-        switch (event.key.keysym.sym)
-        {
-          case SDLK_ESCAPE:
-            tick_input.push_back (GameInput::kEscape);
-            break;
-          case SDLK_SPACE:
-            tick_input.push_back (GameInput::kSpace);
-            break;
-          case SDLK_RETURN:
-            tick_input.push_back (GameInput::kReturn);
-            break;
-          case SDLK_UP:
-            tick_input.push_back (GameInput::kUp);
-            break;
-          case SDLK_RIGHT:
-            tick_input.push_back (GameInput::kRight);
-            break;
-          case SDLK_LEFT:
-            tick_input.push_back (GameInput::kLeft);
-            break;
-        }
-      }
-    }
+    handle_input_translation (tick_input);
 
     // Ask activate state to update for this tick
     AbstractGameState::StateCommand cmd { active_state_->update (tick_input) };
     handle_state_command (cmd);
+
+    graphics_engine_.set_background(active_state_->get_background());
+    graphics_engine_.redraw_screen(active_state_->get_sprites());
 
     size_t end_time { SDL_GetTicks () };
     size_t difference { end_time - start_time };
@@ -91,6 +63,43 @@ void GameEngine::handle_state_command(AbstractGameState::StateCommand cmd)
     case StateCommand::kGameOver:
       // TODO: Add reset
       break;
+    case StateCommand::kNone:
+      // Do nothing
+      break;
+  }
+}
+
+void GameEngine::handle_input_translation(
+    std::vector<AbstractGameState::GameInput>& tick_input) const
+{
+  using GameInput = AbstractGameState::GameInput;
+  SDL_Event event;
+  while (SDL_PollEvent (&event))
+  {
+    if (event.type == SDL_KEYDOWN)
+    {
+      switch (event.key.keysym.sym)
+      {
+        case SDLK_ESCAPE:
+          tick_input.push_back (GameInput::kEscape);
+          break;
+        case SDLK_SPACE:
+          tick_input.push_back (GameInput::kSpace);
+          break;
+        case SDLK_RETURN:
+          tick_input.push_back (GameInput::kReturn);
+          break;
+        case SDLK_UP:
+          tick_input.push_back (GameInput::kUp);
+          break;
+        case SDLK_RIGHT:
+          tick_input.push_back (GameInput::kRight);
+          break;
+        case SDLK_LEFT:
+          tick_input.push_back (GameInput::kLeft);
+          break;
+      }
+    }
   }
 }
 
