@@ -51,8 +51,8 @@ void GraphicsEngine::draw_background()
 {
   Rectangle window { 0, 0, window_.kWidth, window_.kHeight };
   Rectangle viewport { viewport_.x, viewport_.y, window_.kWidth, window_.kHeight };
-  Texture* background{texture_handler_.get_texture(s->get_texture())};
-  renderer_.render_copy (background_, viewport, window);
+  Texture* background{texture_handler_.get_texture(background_)};
+  renderer_.render_copy (background, viewport, window);
 }
 
 void GraphicsEngine::get_visible_sprites(
@@ -94,7 +94,7 @@ Renderer& GraphicsEngine::get_renderer()
   return renderer_;
 }
 
-void GraphicsEngine::set_background(Texture* texture)
+void GraphicsEngine::set_background(std::string texture)
 {
   background_ = texture;
 }

@@ -157,13 +157,11 @@ void initialize(int width, int height)
   GraphicsEngine::Viewport v { 120, 0 };
 
   GraphicsEngine ge ("Geek Hero", width, height);
-  Surface sur { IMG_Load ("TESTGROUND.png") };
   std::vector<Sprite const*> sprites;
 
-  ge.set_background(new Texture(ge.get_renderer(), sur));
-  Surface s{IMG_Load("Hero_Standing_R.png")};
-  Rectangle enclosing{ 110, 395 - s.get_height(), s.get_width(), s.get_height()};
-  Sprite sf{ge.get_renderer(), s, enclosing, {0, 0} };
+  ge.set_background("TESTGROUND.png");
+  Rectangle enclosing{ 110, 395 - 50, 30, 50};
+  Sprite sf{"Hero_Standing_R.png", enclosing, {0, 0} };
   sprites.push_back(&sf);
 
 
@@ -172,7 +170,7 @@ void initialize(int width, int height)
 
   SDL_Delay(3000);
 }
-*/
+
 int main()
 {
   if (SDL_Init (SDL_INIT_VIDEO) != 0)
@@ -184,7 +182,5 @@ int main()
   GameEngine game_engine;
   game_engine.run();
   */
-  GraphicsEngine ge("hej", 800, 600);
-  TextureHandler th{ge.get_renderer(), "images/"};
-  th.get_texture("coffe.png");
+  initialize(800,600);
 }

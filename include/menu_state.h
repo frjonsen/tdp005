@@ -8,6 +8,8 @@
 #ifndef MENU_STATE_H_
 #define MENU_STATE_H_
 
+#include <abstract_game_state.h>
+
 class MenuState : public AbstractGameState
 {
 

@@ -71,29 +71,10 @@ int Rectangle::get_height() const {
 }
 
 void Rectangle::set_y(const int y) {
-	/*
-	 if (y >= 0)
-	 {
-	 rect_->y = y;
-	 }
-	 else
-	 {
-	 throw "Y coordinate must be positive";
-	 }
-	 */
 	rect_->y = y;
 }
 
-void Rectangle::set_x(const int x) { /*
- if (x >= 0)
- {
- rect_->x = x;
- }
- else
- {
- throw "X coordinate must be positive";
- }
- */
+void Rectangle::set_x(const int x) {
 	rect_->x = x;
 }
 
@@ -142,7 +123,6 @@ bool Rectangle::intersecting_area(Rectangle const& other,
 	return false;
 }
 
-Rectangle Rectangle::get_enclosing_rect() const
-{
-	return Rectangle{0, 0, get_width(), get_height()};
+Rectangle Rectangle::get_enclosing_rect() const {
+	return Rectangle { 0, 0, get_width(), get_height() };
 }

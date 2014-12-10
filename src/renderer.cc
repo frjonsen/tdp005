@@ -42,12 +42,11 @@ void Renderer::render_copy(Texture* texture, Rectangle const& srcrect,
 			dstrect.get_rect());
 }
 
-void Renderer::render_copy_ex(Texture const& texture, Rectangle const& srcrect,
+void Renderer::render_copy_ex(Texture* texture, Rectangle const& srcrect,
 		Rectangle const& dstrect, double angle, SDL_Point* center,
 		SDL_RendererFlip flip)
 {
-
-	SDL_RenderCopyEx(renderer_, texture.get_texture(), srcrect.get_rect(),
+	SDL_RenderCopyEx(renderer_, texture->get_texture(), srcrect.get_rect(),
 			dstrect.get_rect(), angle, center, flip);
 }
 

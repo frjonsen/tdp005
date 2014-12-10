@@ -54,7 +54,7 @@ public:
   Renderer& get_renderer();
 
   void set_viewport(Viewport viewport);
-  void set_background(Texture* texture);
+  void set_background(std::string texture);
 
   void redraw_screen(std::vector<Sprite const*> const& sprites);
 };
