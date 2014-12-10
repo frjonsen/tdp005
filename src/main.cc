@@ -151,7 +151,7 @@ void testeru(int width, int height)
 //	SDL_Quit();
 }
 
-/*
+
 void initialize(int width, int height)
 {
   GraphicsEngine::Viewport v { 120, 0 };
@@ -161,7 +161,7 @@ void initialize(int width, int height)
   std::vector<Sprite const*> sprites;
 
   ge.set_background(new Texture(ge.get_renderer(), sur));
-  Surface s{IMG_Load("Hero_Standing.png")};
+  Surface s{IMG_Load("Hero_Standing_R.png")};
   Rectangle enclosing{ 110, 395 - s.get_height(), s.get_width(), s.get_height()};
   Sprite sf{ge.get_renderer(), s, enclosing, {0, 0} };
   sprites.push_back(&sf);
@@ -169,7 +169,6 @@ void initialize(int width, int height)
 
   ge.set_viewport (v);
   ge.redraw_screen (sprites);
-
 
   SDL_Delay(3000);
 }
