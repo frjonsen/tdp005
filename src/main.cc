@@ -144,11 +144,15 @@ void initialize(int width, int height)
   Sprite sf{ge.get_renderer(), s, enclosing, {0, 0} };
   sprites.push_back(&sf);
 
+
   ge.set_viewport (v);
   ge.redraw_screen (sprites);
 
-  SDL_Delay (3000);
-}
+  SDL_Delay(3000);
+} 
+
+
+
 
 int main()
 {
