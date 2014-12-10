@@ -11,37 +11,36 @@
 #include <surface.h>
 #include <rectangle.h>
 #include <vector>
-#include <graphics_engine.h>
+#include "game_engine.h"
 #include <iostream>
 #include <tuple>
 #include <map>
 #include <utility>
-
 /*
- void initialize(int width, int height) {
+void initialize(int width, int height)
+{
 
  Window window("GEEK HERO", width, height);
  Renderer renderer(window);
 
  Rectangle viewport(250, 0, width, height);
+  renderer.set_logical_size (width, height);
+  renderer.set_render_draw_color (0, 0, 0);
 
+  renderer.clear ();
 
- renderer.set_logical_size(width, height);
- renderer.set_render_draw_color(0, 0, 0);
+  SDL_Surface* temp = IMG_Load ("Geek_background.png");
+  Texture text (renderer, temp);
+  Rectangle rect (0, 0, temp->w, temp->h);
+  Rectangle r = rect;
+  r.set_x (-100);
+  renderer.render_copy (text, rect, r);
+  renderer.render_present ();
 
- renderer.clear();
+  SDL_Delay (3000);
+}
+*/
 
- SDL_Surface* temp = IMG_Load("Geek_background.png");
- Texture text(renderer, temp);
- Rectangle rect(0, 0, temp->w, temp->h);
- Rectangle r = rect;
- r.set_x(-100);
- renderer.render_copy(text, rect, r);
- renderer.render_present();
-
- SDL_Delay(3000);
- }
- */
 enum class menupointer
 {
   kPlay, kHighscore, kControls
@@ -92,7 +91,6 @@ void testeru(int width, int height)
 
   coffe_rect.x = std::get < 0 > (FREIDRICH.at (selected)); //1: 310x240 2: 240x315 3: 260x385
   coffe_rect.y = std::get < 1 > (FREIDRICH.at (selected));
-
   coffe_rect.w = coffe_width;
   coffe_rect.h = coffe_height;
 
@@ -148,6 +146,7 @@ void testeru(int width, int height)
   coffe_cup = nullptr;
   SDL_DestroyRenderer (renderer);
   SDL_DestroyWindow (window);
+
 //	SDL_Quit();
 }
 
@@ -172,14 +171,9 @@ void initialize(int width, int height)
 
   SDL_Delay(3000);
 }
-
-
+*/
 int main()
 {
-  const int kWindowHeight = 600;
-  const int kWindowWidth = 800;
-
-  std::tuple<int> c;
 
   if (SDL_Init (SDL_INIT_VIDEO) != 0)
   {
@@ -187,9 +181,11 @@ int main()
     exit (1);
   }
   
-  initialize (kWindowWidth, kWindowHeight);
+  //initialize (kWindowWidth, kWindowHeight);
   //testeru(kWindowWidth, kWindowHeight);
 
+  GameEngine game_engine;
+  game_engine.run();
 
   SDL_Quit ();
 }

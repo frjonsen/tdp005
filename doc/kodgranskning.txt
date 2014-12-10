@@ -1,0 +1,50 @@
+Projektet i allmänhet:
+        - Ganska rörig mappstuktur. Inte riktigt klart vad som vad de olika mapparna faktiskt innehåller.
+          Dessutom ligger vissa källkodsfiler direkt i roten.
+
+Game:
+        - Klassens namn beskriver väl vad klassen gör.
+        - Dess interface är minimalt, med endast konstruktor och en run-metod som är exposed
+        - Klassen är helt enkapsulerad, eftersom det enda en användare är tänkt att använda är
+          funktionen run()
+        - Klassen innehåller en mängd Menu-pointers som inte ser ut att fylla något syfte, och
+          används aldrig av klassen
+        
+Loader:
+        - Dess interface är bra. Endast de funktioner som är direkt relevanta för en användare
+          är tillgängliga. Användaren har ingen direkt tillgång till de interna medlemmarna.
+        
+
+Game_World:
+        - Använder multiplet arv.
+
+Game_Object:
+        - Uppdelad genom aggregration i ett Render_Object och ett Physics_Objekt, vilket
+          ger väldigt bra abstraktion.
+
+Vec2:
+        - Klassen är tänkt att representera en vector, och har inga interna operationer. Allt
+          är därför public, inklusiv medlemsvariabler, då variablerna inte har några otillåtna
+          värden. Klassen är helt självständig. Klassen är dock rätt dåligt kommenterad, och vissa
+          kunskap om vektoroperationer krävs för att förstå vad de olika operatorerna gör.
+
+Line:
+        - Använder makron för att definiera konstanter som används i klassen. I övrigt väl designad
+          datastruktur med nödvändiga operatorer och liknande definierade. 
+
+AABB:
+        - Hela klassen är public, vilket nog inte är optimalt då det borde finnas restriktioner. Exempelvis
+          borde inte size kunna ha negativa värden, då de representerar boxens sidor.
+
+Physics_Object:
+        - Även här kan den Vec2 som tas in ha negativa värden, fast att vektorn ska användas för att
+          representera den omslutade rektangeln, som inte kan ha negativa sidor. Någon sorts kontroll
+          borde därför göras.
+
+
+Variabler:
+        - I flera fall kontrolleras inte om data som kommer in i konstrukturer är giltig för klassens syfte,
+          i huvudsak de klasser som hanterar en rektangel och då använder en vektor för att lagra datan.
+          
+        - Variabler har bra beskrivande namn, och det är oftast enkelt att förstå vad variablen innehåller
+          och vad dess syfte är.
