@@ -15,6 +15,7 @@
 #include "window.h"
 #include "renderer.h"
 #include <tuple>
+#include <texture_handler.h>
 
 class GraphicsEngine
 {
@@ -29,7 +30,9 @@ private:
   Window window_;
   Renderer renderer_;
   Viewport viewport_;
-  Texture* background_;
+  TextureHandler texture_handler_;
+
+  std::string background_;
 
   bool calc_visible_area(Sprite const* sprite, Rectangle& out) const;
   void get_visible_sprites(std::vector<Sprite const*> const& sprites,

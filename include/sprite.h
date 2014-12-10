@@ -9,7 +9,7 @@
 #define SPRITE_H_
 
 #include "rectangle.h"
-#include "texture.h"
+#include <string>
 
 class Texture;
 
@@ -22,7 +22,7 @@ public:
     int y;
   };
 
-  Sprite(Renderer& renderer, Surface& surface, Rectangle const& rectangle, Velocity velocity, const int top_velocity = 0);
+  Sprite(std::string texture, Rectangle const& rectangle, Velocity velocity, const int top_velocity = 0);
   virtual ~Sprite();
 
   Sprite(Sprite const&) = delete;
@@ -34,10 +34,10 @@ public:
   virtual void update();
   virtual void handle_gravity(const int gravity);
   virtual float get_moving_angle() const;
-  const Texture& get_texture() const;
+  const std::string get_texture() const;
 
 protected:
-  Texture texture_;
+  std::string texture_;
   Velocity velocity_;
 
   const int kTopXVelocity;

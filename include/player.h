@@ -27,8 +27,7 @@ public:
     int cooldown;
   };
 
-  Player(Renderer& renderer, Surface& surface, Rectangle const&,
-         Velocity velocity);
+  Player(std::string texture, Rectangle const&, Velocity velocity);
   ~Player();
 
   void update();

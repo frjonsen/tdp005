@@ -16,6 +16,7 @@
 #include <tuple>
 #include <map>
 #include <utility>
+#include "texture_handler.h"
 /*
 void initialize(int width, int height)
 {
@@ -175,18 +176,16 @@ void initialize(int width, int height)
 */
 int main()
 {
-
   if (SDL_Init (SDL_INIT_VIDEO) != 0)
-  {
-    std::cerr << "Error initializing SDL" << std::endl;
-    exit (1);
-  }
-  
-  //initialize (kWindowWidth, kWindowHeight);
-  //testeru(kWindowWidth, kWindowHeight);
-
+    {
+      std::runtime_error("Failed to initialize SDL");
+      exit (1);
+    }
+  /*
   GameEngine game_engine;
   game_engine.run();
-
-  SDL_Quit ();
+  */
+  GraphicsEngine ge("hej", 800, 600);
+  TextureHandler th{ge.get_renderer(), "images/"};
+  th.get_texture("coffe.png");
 }

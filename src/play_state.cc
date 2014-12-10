@@ -8,6 +8,8 @@
 #include "play_state.h"
 
 PlayState::PlayState(const int gravity)
+    : //player_ { renderer },
+      terrain_ { }
 {
 
 }
@@ -30,4 +32,9 @@ std::pair<int, int> PlayState::get_viewport() const
 std::vector<Sprite const*> PlayState::get_sprites() const
 {
   return std::vector<Sprite const*> ();
+}
+
+std::string PlayState::get_background() const
+{
+  return background_;
 }

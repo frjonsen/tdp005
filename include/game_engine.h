@@ -12,6 +12,7 @@
 #include <string>
 #include "abstract_game_state.h"
 #include "graphics_engine.h"
+#include "play_state.h"
 
 class AbstractGameState;
 
@@ -28,10 +29,10 @@ class GameEngine
 
   GraphicsEngine graphics_engine_;
   bool engine_running_ { true };
-  AbstractGameState * const active_state_{nullptr};
+  AbstractGameState* active_state_{nullptr};
 
   //IntroState is_;
-  //PlayState ps_;
+  PlayState ps_;
   //GameOverState gos_;
 
   void handle_state_command(AbstractGameState::StateCommand cmd);

@@ -6,11 +6,11 @@
  */
 
 #include "sprite.h"
-#include "surface.h"
 #include "rectangle.h"
+#include <string>
 
-Sprite::Sprite(Renderer& renderer, Surface& surface, Rectangle const& rectangle, Velocity velocity, const int top_velocity)
-    : Rectangle (rectangle), texture_ { renderer, surface }, velocity_{velocity.x, velocity.y}, kTopXVelocity{top_velocity}
+Sprite::Sprite(std::string texture, Rectangle const& rectangle, Velocity velocity, const int top_velocity)
+    : Rectangle (rectangle), texture_ { texture }, velocity_{velocity.x, velocity.y}, kTopXVelocity{top_velocity}
 {
 
 }
@@ -24,7 +24,7 @@ void Sprite::update()
 {
 }
 
-const Texture& Sprite::get_texture() const
+const std::string Sprite::get_texture() const
 {
   return texture_;
 }

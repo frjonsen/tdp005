@@ -9,10 +9,10 @@
 #include <vector>
 
 GameEngine::GameEngine()
-    : graphics_engine_ { kGameTitle, kWindowWidth, kWindowHeight }
+    : graphics_engine_ { kGameTitle, kWindowWidth, kWindowHeight }, ps_{kGravity}
 
 {
-  //active_state_ = &is_;
+  active_state_ = &ps_;
 }
 
 void GameEngine::run()
@@ -30,7 +30,7 @@ void GameEngine::run()
     AbstractGameState::StateCommand cmd { active_state_->update (tick_input) };
     handle_state_command (cmd);
 
-    graphics_engine_.set_background(active_state_->get_background());
+    //graphics_engine_.set_background(active_state_->get_background());
     graphics_engine_.redraw_screen(active_state_->get_sprites());
 
     size_t end_time { SDL_GetTicks () };

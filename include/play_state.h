@@ -9,9 +9,11 @@
 #define GAME_STATE_H_
 
 #include "abstract_game_state.h"
+#include <string>
 
 class PlayState : public AbstractGameState
 {
+public:
   PlayState(const int gravity);
   ~PlayState();
 
@@ -24,6 +26,14 @@ class PlayState : public AbstractGameState
   StateCommand update(std::vector<GameInput> const& input);
   std::pair<int, int> get_viewport() const;
   std::vector<Sprite const*> get_sprites() const;
+  std::string get_background() const;
+
+private:
+
+  //Player player_;
+  std::vector<Rectangle> terrain_;
+  std::string background_{"Geek_background.png"};
+
 };
 
 #endif /* GAME_STATE_H_ */
