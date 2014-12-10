@@ -6,7 +6,6 @@
  */
 
 #include "rectangle.h"
-#include <iostream>
 
 Rectangle::Rectangle(const int x, const int y, const int width,
 		const int height) :
@@ -48,7 +47,6 @@ Rectangle& Rectangle::operator=(Rectangle rhs) {
 }
 
 Rectangle::~Rectangle() {
-	std::cout << "called" << std::endl;
 	delete rect_;
 }
 
