@@ -11,7 +11,7 @@
 #include <surface.h>
 #include <rectangle.h>
 #include <vector>
-#include <graphics_engine.h>
+#include "game_engine.h"
 #include <iostream>
 #include <tuple>
 #include <map>
@@ -41,7 +41,7 @@
 
  SDL_Delay(3000);
  }
- */
+*/
 enum class menupointer
 {
   kPlay, kHighscore, kControls
@@ -176,10 +176,6 @@ void initialize(int width, int height)
 
 int main()
 {
-  const int kWindowHeight = 600;
-  const int kWindowWidth = 800;
-
-  std::tuple<int> c;
 
   if (SDL_Init (SDL_INIT_VIDEO) != 0)
   {
@@ -187,9 +183,11 @@ int main()
     exit (1);
   }
   
-  initialize (kWindowWidth, kWindowHeight);
+  //initialize (kWindowWidth, kWindowHeight);
   //testeru(kWindowWidth, kWindowHeight);
 
+  GameEngine game_engine;
+  game_engine.run();
 
   SDL_Quit ();
 }

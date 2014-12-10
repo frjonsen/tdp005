@@ -9,12 +9,18 @@
 #define GAME_ENGINE_H_
 
 #include <SDL2/SDL.h>
+#include <string>
+#include "abstract_game_state.h"
 
 class AbstractGameState;
 
 class GameEngine
 {
   AbstractGameState * const active_state_;
+
+  const std::string kGameTitle{"Geek Hero"};
+  const int kWindowHeight{600};
+  const int kWindowWidth{800};
 
   const int kGravity;
   const size_t kFrameTimeGoal;
@@ -29,6 +35,13 @@ class GameEngine
 
 public:
   GameEngine();
+
+  GameEngine(GameEngine const&) = delete;
+  GameEngine(GameEngine&&) = delete;
+
+  GameEngine& operator=(GameEngine const&) = delete;
+  GameEngine& operator=(GameEngine&&) = delete;
+
   void run();
 
 };
