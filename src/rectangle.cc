@@ -39,7 +39,7 @@ Rectangle& Rectangle::operator=(Rectangle const& rhs) {
 	return *this;
 }
 
-Rectangle& Rectangle::operator=(Rectangle rhs) {
+Rectangle& Rectangle::operator=(Rectangle&& rhs) {
 	rect_ = rhs.rect_;
 	rhs.rect_ = nullptr;
 

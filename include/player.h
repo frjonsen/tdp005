@@ -30,6 +30,8 @@ public:
   Player(std::string texture, Rectangle const&, Velocity velocity);
   ~Player();
 
+  void reset_y_velocity();
+
   void update();
   void order_player(std::vector<MovementCommand>);
   void handle_gravity(const int gravity);

@@ -37,3 +37,8 @@ float Sprite::get_moving_angle() const
 void Sprite::handle_gravity(const int gravity)
 {
 }
+
+void Sprite::reset_y_velocity()
+{
+  velocity_.y = 0;
+}

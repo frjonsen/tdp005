@@ -18,29 +18,29 @@
 #include <utility>
 #include "texture_handler.h"
 /*
-void initialize(int width, int height)
-{
+ void initialize(int width, int height)
+ {
 
  Window window("GEEK HERO", width, height);
  Renderer renderer(window);
 
  Rectangle viewport(250, 0, width, height);
-  renderer.set_logical_size (width, height);
-  renderer.set_render_draw_color (0, 0, 0);
+ renderer.set_logical_size (width, height);
+ renderer.set_render_draw_color (0, 0, 0);
 
-  renderer.clear ();
+ renderer.clear ();
 
-  SDL_Surface* temp = IMG_Load ("Geek_background.png");
-  Texture text (renderer, temp);
-  Rectangle rect (0, 0, temp->w, temp->h);
-  Rectangle r = rect;
-  r.set_x (-100);
-  renderer.render_copy (text, rect, r);
-  renderer.render_present ();
+ SDL_Surface* temp = IMG_Load ("Geek_background.png");
+ Texture text (renderer, temp);
+ Rectangle rect (0, 0, temp->w, temp->h);
+ Rectangle r = rect;
+ r.set_x (-100);
+ renderer.render_copy (text, rect, r);
+ renderer.render_present ();
 
-  SDL_Delay (3000);
-}
-*/
+ SDL_Delay (3000);
+ }
+ */
 
 enum class menupointer
 {
@@ -56,10 +56,9 @@ void testeru(int width, int height)
       310, 240 } }, { menupointer::kHighscore, { 240, 315 } }, {
       menupointer::kControls, { 260, 385 } } };
 
-
   SDL_Window* window = SDL_CreateWindow ("GEEK HERO", SDL_WINDOWPOS_UNDEFINED,
-                                         SDL_WINDOWPOS_UNDEFINED, width, height,
-                                         SDL_WINDOW_RESIZABLE);
+  SDL_WINDOWPOS_UNDEFINED,
+                                         width, height, SDL_WINDOW_RESIZABLE);
   SDL_Renderer* renderer = SDL_CreateRenderer (window, -1, 0);
 
   SDL_SetHint (SDL_HINT_RENDER_SCALE_QUALITY, "linear");
@@ -90,8 +89,8 @@ void testeru(int width, int height)
 
   SDL_Rect coffe_rect;
 
-  coffe_rect.x = std::get < 0 > (FREIDRICH.at (selected)); //1: 310x240 2: 240x315 3: 260x385
-  coffe_rect.y = std::get < 1 > (FREIDRICH.at (selected));
+  coffe_rect.x = std::get<0> (FREIDRICH.at (selected)); //1: 310x240 2: 240x315 3: 260x385
+  coffe_rect.y = std::get<1> (FREIDRICH.at (selected));
   coffe_rect.w = coffe_width;
   coffe_rect.h = coffe_height;
 
@@ -151,7 +150,6 @@ void testeru(int width, int height)
 //	SDL_Quit();
 }
 
-
 void initialize(int width, int height)
 {
   GraphicsEngine::Viewport v { 120, 0 };
@@ -159,28 +157,25 @@ void initialize(int width, int height)
   GraphicsEngine ge ("Geek Hero", width, height);
   std::vector<Sprite const*> sprites;
 
-  ge.set_background("TESTGROUND.png");
-  Rectangle enclosing{ 110, 395 - 50, 30, 50};
-  Sprite sf{"Hero_Standing_R.png", enclosing, {0, 0} };
-  sprites.push_back(&sf);
-
+  ge.set_background ("TESTGROUND.png");
+  Rectangle enclosing { 110, 395 - 50, 30, 50 };
+  Sprite sf { "Hero_Standing_R.png", enclosing, { 0, 0 } };
+  sprites.push_back (&sf);
 
   ge.set_viewport (v);
   ge.redraw_screen (sprites);
 
-  SDL_Delay(3000);
+  SDL_Delay (3000);
 }
 
 int main()
 {
   if (SDL_Init (SDL_INIT_VIDEO) != 0)
-    {
-      std::runtime_error("Failed to initialize SDL");
-      exit (1);
-    }
-  /*
+  {
+    std::runtime_error ("Failed to initialize SDL");
+    exit (1);
+  }
+
   GameEngine game_engine;
-  game_engine.run();
-  */
-  initialize(800,600);
+  game_engine.run ();
 }

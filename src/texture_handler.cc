@@ -13,7 +13,6 @@
 #include "surface.h"
 #include <utility>
 #include <map>
-#include <iostream>
 
 TextureHandler::TextureHandler(Renderer& renderer, std::string resource_path)
     : resource_path_ { resource_path }, renderer_ { renderer }
@@ -36,7 +35,6 @@ void TextureHandler::load_texture(std::string texture_name)
   Surface s (IMG_Load (full_path.c_str ()));
   if (s.get_surface () == NULL)
   {
-    std::cerr << full_path << std::endl;
     throw std::invalid_argument ("File name does not exist");
   }
   loaded_textures_[texture_name] = new Texture(renderer_, s);
@@ -44,7 +42,7 @@ void TextureHandler::load_texture(std::string texture_name)
 
 Texture* TextureHandler::get_texture(std::string texture_name)
 {
-  std::map<std::string, Texture*>::iterator requested_texture { loaded_textures_.find (resource_path_) };
+  std::map<std::string, Texture*>::iterator requested_texture { loaded_textures_.find (texture_name) };
   if (requested_texture == loaded_textures_.end ())
   {
     load_texture (texture_name);

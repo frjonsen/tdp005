@@ -11,6 +11,7 @@
 #include <vector>
 #include <sprite.h>
 #include <utility>
+#include <string>
 
 class AbstractGameState
 {
@@ -30,7 +31,7 @@ public:
   virtual StateCommand update(std::vector<GameInput> const&) = 0;
   virtual std::pair<int, int> get_viewport() const { return std::make_pair(0,0); }
   virtual std::vector<Sprite const*> get_sprites() const = 0;
-  //virtual Texture* get_background() const = 0;
+  virtual std::string get_background() const = 0;
 
 };
 

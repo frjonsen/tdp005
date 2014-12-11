@@ -20,7 +20,7 @@ public:
   Rectangle(Rectangle&&);
 
   Rectangle& operator=(Rectangle const&);
-  Rectangle& operator=(Rectangle);
+  Rectangle& operator=(Rectangle&&);
 
   const SDL_Rect* get_rect() const;
 

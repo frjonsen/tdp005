@@ -32,6 +32,8 @@ public:
 
 	virtual void update();
 	virtual void handle_gravity(const int gravity);
+	virtual void reset_y_velocity();
+
 	virtual float get_moving_angle() const;
 	const std::string get_texture() const;
 
