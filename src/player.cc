@@ -7,9 +7,8 @@
 
 #include "player.h"
 
-Player::Player(Renderer& renderer, Surface& surface, Rectangle const& rectangle,
-               Velocity velocity)
-    : Sprite (renderer, surface, rectangle, velocity, 20), kJumpVelocity { 20 }, frames_since_firing_ {
+Player::Player(std::string texture, Rectangle const& rectangle, Velocity velocity)
+    : Sprite (texture, rectangle, velocity, 10), kJumpVelocity { 20 }, frames_since_firing_ {
         -1 }, jumping_ { false }, stunned_ { false }
 {
 
@@ -54,10 +53,18 @@ void Player::order_player(std::vector<MovementCommand> moves)
 
 void Player::handle_gravity(const int gravity)
 {
-  velocity_.y = gravity;
+  velocity_.y += gravity;
 }
 
 float Player::get_moving_angle() const
 {
   return 0;
 }
+
+void Player::reset_y_velocity()
+{
+  if (jumping_) jumping_ = false;
+  velocity_.y = 0;
+}
+
+

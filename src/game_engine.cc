@@ -9,16 +9,15 @@
 #include <vector>
 
 GameEngine::GameEngine()
-    : graphics_engine_ { kGameTitle, kWindowWidth, kWindowHeight }
+    : graphics_engine_ { kGameTitle, kWindowWidth, kWindowHeight }, ps_{kGravity}
 
 {
-  //active_state_ = &is_;
+  active_state_ = &ps_;
 }
 
 void GameEngine::run()
 {
   using GameInput = AbstractGameState::GameInput;
-
   while (engine_running_)
   {
     size_t start_time { SDL_GetTicks () };
@@ -26,10 +25,11 @@ void GameEngine::run()
     std::vector<GameInput> tick_input;
     handle_input_translation (tick_input);
 
+    if (!engine_running_) break; // Special case to break if player pressed the window close button.
+
     // Ask activate state to update for this tick
     AbstractGameState::StateCommand cmd { active_state_->update (tick_input) };
     handle_state_command (cmd);
-
     graphics_engine_.set_background(active_state_->get_background());
     graphics_engine_.redraw_screen(active_state_->get_sprites());
 
@@ -37,9 +37,8 @@ void GameEngine::run()
     size_t difference { end_time - start_time };
     if (difference < kFrameTimeGoal)
     {
-      SDL_Delay (difference - kFrameTimeGoal);
+      SDL_Delay (kFrameTimeGoal - difference);
     }
-
   }
 }
 
@@ -70,7 +69,7 @@ void GameEngine::handle_state_command(AbstractGameState::StateCommand cmd)
 }
 
 void GameEngine::handle_input_translation(
-    std::vector<AbstractGameState::GameInput>& tick_input) const
+    std::vector<AbstractGameState::GameInput>& tick_input)
 {
   using GameInput = AbstractGameState::GameInput;
   SDL_Event event;
@@ -99,6 +98,10 @@ void GameEngine::handle_input_translation(
           tick_input.push_back (GameInput::kLeft);
           break;
       }
+    }
+    else if (event.type == SDL_QUIT)
+    {
+    	engine_running_ = false;
     }
   }
 }
