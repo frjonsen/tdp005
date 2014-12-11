@@ -13,6 +13,7 @@
 #include "abstract_game_state.h"
 #include "graphics_engine.h"
 #include "play_state.h"
+#include "menu_state.h"
 
 class AbstractGameState;
 

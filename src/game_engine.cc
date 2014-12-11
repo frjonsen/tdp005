@@ -9,7 +9,8 @@
 #include <vector>
 
 GameEngine::GameEngine()
-    : graphics_engine_ { kGameTitle, kWindowWidth, kWindowHeight }, ps_{kGravity}
+    : graphics_engine_ { kGameTitle, kWindowWidth, kWindowHeight }, is_ { }, ps_ {
+        kGravity }
 
 {
   active_state_ = &is_;
@@ -18,26 +19,26 @@ GameEngine::GameEngine()
 void GameEngine::run()
 {
   using GameInput = AbstractGameState::GameInput;
-  while (engine_running_)
+  while( engine_running_ )
   {
     size_t start_time { SDL_GetTicks () };
 
     std::vector<GameInput> tick_input;
-    handle_input_translation (tick_input);
+    handle_input_translation ( tick_input );
 
-    if (!engine_running_) break; // Special case to break if player pressed the window close button.
+    if( !engine_running_ ) break; // Special case to break if player pressed the window close button.
 
     // Ask activate state to update for this tick
-    AbstractGameState::StateCommand cmd { active_state_->update (tick_input) };
-    handle_state_command (cmd);
-    graphics_engine_.set_background(active_state_->get_background());
-    graphics_engine_.redraw_screen(active_state_->get_sprites());
+    AbstractGameState::StateCommand cmd { active_state_->update ( tick_input ) };
+    handle_state_command ( cmd );
+    graphics_engine_.set_background ( active_state_->get_background () );
+    graphics_engine_.redraw_screen ( active_state_->get_sprites () );
 
     size_t end_time { SDL_GetTicks () };
     size_t difference { end_time - start_time };
-    if (difference < kFrameTimeGoal)
+    if( difference < kFrameTimeGoal )
     {
-      SDL_Delay (kFrameTimeGoal - difference);
+      SDL_Delay ( kFrameTimeGoal - difference );
     }
   }
 }
@@ -73,35 +74,35 @@ void GameEngine::handle_input_translation(
 {
   using GameInput = AbstractGameState::GameInput;
   SDL_Event event;
-  while (SDL_PollEvent (&event))
+  while( SDL_PollEvent ( &event ) )
   {
-    if (event.type == SDL_KEYDOWN)
+    if( event.type == SDL_KEYDOWN )
     {
       switch (event.key.keysym.sym)
       {
         case SDLK_ESCAPE:
-          tick_input.push_back (GameInput::kEscape);
+          tick_input.push_back ( GameInput::kEscape );
           break;
         case SDLK_SPACE:
-          tick_input.push_back (GameInput::kSpace);
+          tick_input.push_back ( GameInput::kSpace );
           break;
         case SDLK_RETURN:
-          tick_input.push_back (GameInput::kReturn);
+          tick_input.push_back ( GameInput::kReturn );
           break;
         case SDLK_UP:
-          tick_input.push_back (GameInput::kUp);
+          tick_input.push_back ( GameInput::kUp );
           break;
         case SDLK_RIGHT:
-          tick_input.push_back (GameInput::kRight);
+          tick_input.push_back ( GameInput::kRight );
           break;
         case SDLK_LEFT:
-          tick_input.push_back (GameInput::kLeft);
+          tick_input.push_back ( GameInput::kLeft );
           break;
       }
     }
-    else if (event.type == SDL_QUIT)
+    else if( event.type == SDL_QUIT )
     {
-    	engine_running_ = false;
+      engine_running_ = false;
     }
   }
 }
