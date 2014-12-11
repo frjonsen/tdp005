@@ -14,7 +14,7 @@ GameEngine::GameEngine()
         kWorldHeight }, ps_ { kGravity }
 
 {
-  active_state_ = &ps_;
+  active_state_ = &is_;
 }
 
 void GameEngine::run()

@@ -130,6 +130,7 @@ void testeru(int width, int height)
         }
       }
     }
+
     SDL_SetRenderDrawColor (renderer, 0, 0, 0, 255);
     SDL_RenderClear (renderer);
 
@@ -157,6 +158,9 @@ int main()
     std::runtime_error ("Failed to initialize SDL");
     exit (1);
   }
+  
+  //initialize (kWindowWidth, kWindowHeight);
+ // testeru(800, 600);
 
   GameEngine game_engine;
   game_engine.run ();

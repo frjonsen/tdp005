@@ -24,8 +24,8 @@ public:
   };
 
   enum class GameInput
-  {
-    kUp, kRight, kLeft, kSpace, kEscape, kReturn, kDown  };
+  { kUp, kRight, kLeft, kSpace, kEscape, kReturn, kDown  };
+
 
   virtual StateCommand update(std::vector<GameInput> const&) = 0;
   virtual std::pair<int, int> get_viewport() const { return std::make_pair(0,0); }
