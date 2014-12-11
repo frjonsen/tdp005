@@ -25,7 +25,7 @@ public:
 
   enum class GameInput
   {
-    kUp, kRight, kLeft, kSpace, kEscape, kReturn
+    kUp, kDown, kRight, kLeft, kSpace, kEscape, kReturn
   };
 
   virtual StateCommand update(std::vector<GameInput> const&) = 0;
