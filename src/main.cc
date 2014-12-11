@@ -130,6 +130,10 @@ void testeru(int width, int height)
         }
       }
     }
+    coffe_rect.x = std::get < 0 > (FREIDRICH.at (selected)); //1: 310x240 2: 240x315 3: 260x385
+    coffe_rect.y = std::get < 1 > (FREIDRICH.at (selected));
+
+
     SDL_SetRenderDrawColor (renderer, 0, 0, 0, 255);
     SDL_RenderClear (renderer);
 
@@ -171,7 +175,7 @@ void initialize(int width, int height)
 
   SDL_Delay(3000);
 }
-*/
+
 int main()
 {
 
@@ -182,7 +186,7 @@ int main()
   }
   
   //initialize (kWindowWidth, kWindowHeight);
-  //testeru(kWindowWidth, kWindowHeight);
+  testeru(800, 600);
 
   GameEngine game_engine;
   game_engine.run();
