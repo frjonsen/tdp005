@@ -150,24 +150,6 @@ void testeru(int width, int height)
 //	SDL_Quit();
 }
 
-void initialize(int width, int height)
-{
-  GraphicsEngine::Viewport v { 120, 0 };
-
-  GraphicsEngine ge ("Geek Hero", width, height);
-  std::vector<Sprite const*> sprites;
-
-  ge.set_background ("TESTGROUND.png");
-  Rectangle enclosing { 110, 395 - 50, 30, 50 };
-  Sprite sf { "Hero_Standing_R.png", enclosing, { 0, 0 } };
-  sprites.push_back (&sf);
-
-  ge.set_viewport (v);
-  ge.redraw_screen (sprites);
-
-  SDL_Delay (3000);
-}
-
 int main()
 {
   if (SDL_Init (SDL_INIT_VIDEO) != 0)

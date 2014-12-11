@@ -8,7 +8,7 @@
 #include "player.h"
 
 Player::Player(std::string texture, Rectangle const& rectangle, Velocity velocity)
-    : Sprite (texture, rectangle, velocity, 10), kJumpVelocity { 20 }, frames_since_firing_ {
+    : Sprite (texture, rectangle, velocity, 5), kJumpVelocity { 15 }, frames_since_firing_ {
         -1 }, jumping_ { false }, stunned_ { false }
 {
 
