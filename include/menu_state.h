@@ -59,7 +59,6 @@ private:
     }
   };
 
-
   int coffe_x { std::get < 0 > (selector_coordinates_.at ( selected_ )) };
   int coffe_y { std::get < 1 > (selector_coordinates_.at ( selected_ )) };
 
