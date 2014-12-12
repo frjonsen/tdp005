@@ -37,7 +37,8 @@ private:
   const int kGravity;
 
   Player player_;
-  std::vector<Rectangle> terrain_;
+  std::vector<Rectangle> terrain_{};
+  std::vector<Projectile*> active_projectiles_{};
   std::string background_ { "playstate_background.png" };
 
   std::vector<Player::MovementCommand> translate_input(
@@ -48,6 +49,7 @@ private:
   void handle_collision(Sprite& moving_rect, Rectangle const& moving_from,
                        Rectangle const& collision_target);
   void do_player_update(std::vector<Player::MovementCommand> commands);
+  void do_projectile_updates();
 
 };
 

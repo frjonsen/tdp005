@@ -22,7 +22,6 @@ void GameEngine::run()
   using GameInput = AbstractGameState::GameInput;
   while( engine_running_ )
   {
-    std::cout << "endinge is running" << std::endl;
     size_t start_time { SDL_GetTicks () };
 
     std::vector<GameInput> tick_input;

@@ -20,6 +20,13 @@ public:
 		int y;
 	};
 
+	struct TextureInfo
+	{
+	  std::string texture_name;
+	  bool flip;
+	  int angle;
+	};
+
 	Sprite(std::string texture, Rectangle const& rectangle, Velocity velocity,
 			const int top_velocity = 0);
 	virtual ~Sprite();
@@ -35,10 +42,10 @@ public:
 	virtual void reset_y_velocity();
 
 	virtual float get_moving_angle() const;
-	const std::string get_texture() const;
+	const TextureInfo& get_texture() const;
 
 protected:
-	std::string texture_;
+	TextureInfo texture_;
 	Velocity velocity_;
 
 	const int kTopXVelocity;

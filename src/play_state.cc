@@ -17,7 +17,10 @@ PlayState::PlayState(const int gravity)
 
 PlayState::~PlayState()
 {
-
+  for (Projectile* p : active_projectiles_)
+  {
+    delete p;
+  }
 }
 
 AbstractGameState::StateCommand PlayState::update(
@@ -26,6 +29,7 @@ AbstractGameState::StateCommand PlayState::update(
   std::vector<Player::MovementCommand> commands { translate_input ( input ) };
 
   do_player_update ( commands );
+  do_projectile_updates();
   return StateCommand::kNone;
 }
 
@@ -36,7 +40,12 @@ std::pair<int, int> PlayState::get_viewport() const
 
 std::vector<Sprite const*> PlayState::get_sprites() const
 {
-  std::vector<Sprite const*> all_sprites { &player_ };
+  std::vector<Sprite const*> all_sprites { };
+  for (Projectile* p : active_projectiles_)
+  {
+    all_sprites.push_back(p);
+  }
+  all_sprites.push_back( &player_ );
   return all_sprites;
 }
 
@@ -47,7 +56,7 @@ std::string PlayState::get_background() const
 
 void PlayState::generate_terrain()
 {
-  terrain_.push_back( { -20, 0, 20, 800});
+  terrain_.push_back ( { -20, 0, 20, 800 } );
   terrain_.push_back ( { 0, 301, 135, 163 } );
   terrain_.push_back ( { 136, 449, 527, 20 } );
   terrain_.push_back ( { 300, 227, 153, 14 } );
@@ -59,18 +68,18 @@ void PlayState::generate_terrain()
   terrain_.push_back ( { 2148, 558, 46, 42 } );
   terrain_.push_back ( { 2193, 502, 207, 98 } );
   terrain_.push_back ( { 875, 351, 129, 155 } );
-  terrain_.push_back ( { 875, 506, 223, 14 } );
-  terrain_.push_back ( { 989, 309, 68, 110 } );
-  terrain_.push_back ( { 1057, 349, 739, 77 } );
+  terrain_.push_back ( { 876, 507, 223, 14 } );
+  terrain_.push_back ( { 989, 309, 68, 80 } );
+  terrain_.push_back ( { 990, 349, 806, 77 } );
   terrain_.push_back ( { 1796, 298, 89, 99 } );
-  terrain_.push_back ( { 1747, 397, 332, 63 } );
-  terrain_.push_back ( { 2079, 446, 40, 14 } );
+  terrain_.push_back ( { 1747, 397, 332, 45 } );
+  terrain_.push_back ( { 1747, 446, 372, 14 } );
   terrain_.push_back ( { 1147, 222, 479, 15 } );
   terrain_.push_back ( { 1683, 69, 232, 14 } );
   terrain_.push_back ( { 1996, 216, 93, 15 } );
   terrain_.push_back ( { 2200, 159, 200, 14 } );
   //terrain_.push_back ( { 989, 309, 14, 197 } );
-  terrain_.push_back ( { 2400, 0, 20, 800 });
+  terrain_.push_back ( { 2400, 0, 20, 800 } );
 }
 
 std::vector<Player::MovementCommand> PlayState::translate_input(
@@ -93,12 +102,28 @@ std::vector<Player::MovementCommand> PlayState::translate_input(
       case GameInput::kRight:
         commands.push_back ( MovementCommand::kMoveRight );
         break;
+      case GameInput::kSpace: {
+        Projectile* projectile = player_.fire ();
+        if (projectile != nullptr)
+        {
+          active_projectiles_.push_back ( projectile );
+        }
+      }
+        break;
       default:
         break;
     }
   }
 
   return commands;
+}
+
+void PlayState::do_projectile_updates()
+{
+  for (Projectile* k : active_projectiles_)
+  {
+    k->update();
+  }
 }
 
 void PlayState::do_player_update(std::vector<Player::MovementCommand> commands)
@@ -125,20 +150,21 @@ void PlayState::handle_collision(Sprite& sprite, Rectangle const& moving_from,
   {
     sprite.set_x ( collision_target.get_x () - sprite.get_width () );
   }
-  if (moving_bottom <= collision_target.get_y ()) // Moving object was enteirly above
-  {
-    sprite.set_y ( collision_target.get_y () - sprite.get_height () );
-    sprite.reset_y_velocity ();
-  }
-  if (moving_from.get_x ()
+  else if (moving_from.get_x ()
       >= collision_target.get_x () + collision_target.get_width ()) // Moving object was to the right
   {
     sprite.set_x ( collision_target.get_x () + collision_target.get_width () );
   }
-  if (moving_from.get_y() >= collision_target.get_y() + collision_target.get_height())
+  else if (moving_bottom <= collision_target.get_y ()) // Moving object was enteirly above
   {
-    sprite.set_y(collision_target.get_y() + collision_target.get_height());
-    sprite.reset_y_velocity();
+    sprite.set_y ( collision_target.get_y () - sprite.get_height () );
+    sprite.reset_y_velocity ();
+  }
+  else if (moving_from.get_y ()
+      >= collision_target.get_y () + collision_target.get_height ())
+  {
+    sprite.set_y ( collision_target.get_y () + collision_target.get_height () );
+    sprite.reset_y_velocity ();
   }
 }
 

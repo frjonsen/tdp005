@@ -43,9 +43,12 @@ void GraphicsEngine::draw_screen(std::vector<Sprite const*> const& sprites)
     Rectangle corrected_for_viewport { s->get_x () - viewport_.x, s->get_y ()
         - viewport_.y, s->get_width (), s->get_height () };
 
-    Texture* texture { texture_handler_.get_texture (s->get_texture ()) };
-    renderer_.render_copy (texture, s->get_enclosing_rect (),
-                           corrected_for_viewport);
+    Texture* texture { texture_handler_.get_texture (s->get_texture().texture_name) };
+    //renderer_.render_copy (texture, s->get_enclosing_rect (),
+    //                       corrected_for_viewport);
+    SDL_RendererFlip flip = SDL_FLIP_NONE;
+    if (s->get_texture().flip) flip = SDL_FLIP_HORIZONTAL;
+    renderer_.render_copy_ex (texture, s->get_enclosing_rect(), corrected_for_viewport, 0, NULL, flip);
   }
   renderer_.render_present ();
 }
