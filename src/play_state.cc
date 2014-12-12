@@ -58,9 +58,9 @@ void PlayState::generate_terrain()
   terrain_.push_back ( { 1284, 589, 865, 11 } );
   terrain_.push_back ( { 2148, 558, 46, 42 } );
   terrain_.push_back ( { 2193, 502, 207, 98 } );
-  terrain_.push_back ( { 875, 351, 115, 155 } );
-  terrain_.push_back ( { 1004, 506, 94, 14 } );
-  terrain_.push_back ( { 989, 309, 68, 117 } );
+  terrain_.push_back ( { 875, 351, 129, 155 } );
+  terrain_.push_back ( { 875, 506, 223, 14 } );
+  terrain_.push_back ( { 989, 309, 68, 110 } );
   terrain_.push_back ( { 1057, 349, 739, 77 } );
   terrain_.push_back ( { 1796, 298, 89, 99 } );
   terrain_.push_back ( { 1747, 397, 332, 63 } );
@@ -69,7 +69,7 @@ void PlayState::generate_terrain()
   terrain_.push_back ( { 1683, 69, 232, 14 } );
   terrain_.push_back ( { 1996, 216, 93, 15 } );
   terrain_.push_back ( { 2200, 159, 200, 14 } );
-  terrain_.push_back ( { 989, 309, 14, 197 } );
+  //terrain_.push_back ( { 989, 309, 14, 197 } );
   terrain_.push_back ( { 2400, 0, 20, 800 });
 }
 
