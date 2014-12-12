@@ -24,7 +24,7 @@ class GameEngine
   const std::string kGameTitle { "Geek Hero" };
   const int kWindowHeight { 600 };
   const int kWindowWidth { 800 };
-  const int kWorldWidth { 1600 };
+  const int kWorldWidth { 2400 };
   const int kWorldHeight { 800 };
   const int kGravity { 1 };
   const size_t kFrameTimeGoal { 1000 / 60 };
@@ -33,7 +33,7 @@ class GameEngine
   bool engine_running_ { true };
   AbstractGameState* active_state_ { nullptr };
 
-  MenuState ms_;
+ // MenuState is_;
   PlayState ps_;
   //GameOverState gos_;
 
