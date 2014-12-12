@@ -29,6 +29,9 @@ public:
   std::string get_background() const;
   std::pair<int, int> get_viewport() const;
 
+  const int kWorldWidth{2400};
+  const int kWorldHeight{600};
+
 private:
 
   const int kGravity;

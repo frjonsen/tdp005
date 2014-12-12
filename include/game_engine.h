@@ -24,18 +24,17 @@ class GameEngine
   const std::string kGameTitle { "Geek Hero" };
   const int kWindowHeight { 600 };
   const int kWindowWidth { 800 };
-  const int kWorldWidth { 2400 };
-  const int kWorldHeight { 800 };
   const int kGravity { 1 };
   const size_t kFrameTimeGoal { 1000 / 60 };
 
-  GraphicsEngine graphics_engine_;
   bool engine_running_ { true };
   AbstractGameState* active_state_ { nullptr };
 
  // MenuState is_;
   PlayState ps_;
   //GameOverState gos_;
+
+  GraphicsEngine graphics_engine_;
 
   void handle_state_command(AbstractGameState::StateCommand cmd);
   void handle_input_translation(std::vector<AbstractGameState::GameInput>&);

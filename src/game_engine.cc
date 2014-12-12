@@ -10,8 +10,8 @@
 #include <iostream>
 
 GameEngine::GameEngine()
-    : graphics_engine_ { kGameTitle, kWindowWidth, kWindowHeight, kWorldWidth,
-                         kWorldHeight }, /*is_{},*/ ps_ { kGravity }
+    : /*is_{},*/ ps_ { kGravity }, graphics_engine_ { kGameTitle, kWindowWidth, kWindowHeight, ps_.kWorldWidth,
+      ps_.kWorldHeight }
 
 {
   active_state_ = &ps_;
