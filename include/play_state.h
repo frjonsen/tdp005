@@ -35,7 +35,7 @@ private:
 
   Player player_;
   std::vector<Rectangle> terrain_;
-  std::string background_ { "TESTGROUND.png" };
+  std::string background_ { "playstate_background.png" };
 
   std::vector<Player::MovementCommand> translate_input(
       std::vector<GameInput> const& input);

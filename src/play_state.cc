@@ -10,7 +10,7 @@
 
 PlayState::PlayState(const int gravity)
     : kGravity { gravity }, player_ { "Hero_Standing_R.png",
-        { 50, 340, 30, 50 }, { 1, 0 } }, terrain_ { }
+        { 50, 200, 30, 50 }, { 1, 0 } }, terrain_ { }
 {
   generate_terrain ();
 }
@@ -47,12 +47,27 @@ std::string PlayState::get_background() const
 
 void PlayState::generate_terrain()
 {
-  terrain_.push_back ( { 0, 394, 149, 146 } );
-  terrain_.push_back ( { 145, 540, 584, 20 } );
-  terrain_.push_back ( { 433, 310, 113, 21 } );
-  terrain_.push_back ( { 604, 355, 58, 38 } );
-  terrain_.push_back ( { 733, 440, 82, 100 } );
-  terrain_.push_back ( { 929, 440, 671, 129 } );
+  terrain_.push_back ( { 0, 301, 135, 163 } );
+  terrain_.push_back ( { 136, 449, 527, 20 } );
+  terrain_.push_back ( { 289, 227, 164, 14 } );
+  terrain_.push_back ( { 535, 272, 53, 14 } );
+  terrain_.push_back ( { 662, 353, 93, 247 } );
+  terrain_.push_back ( { 875, 589, 337, 11 } );
+  terrain_.push_back ( { 1211, 546, 73, 54 } );
+  terrain_.push_back ( { 1284, 589, 865, 11 } );
+  terrain_.push_back ( { 2148, 558, 46, 42 } );
+  terrain_.push_back ( { 2193, 502, 207, 98 } );
+  terrain_.push_back ( { 875, 351, 115, 155 } );
+  terrain_.push_back ( { 875, 506, 223, 14 } );
+  terrain_.push_back ( { 989, 309, 68, 117 } );
+  terrain_.push_back ( { 1057, 349, 739, 77 } );
+  terrain_.push_back ( { 1796, 298, 89, 99 } );
+  terrain_.push_back ( { 1747, 397, 332, 63 } );
+  terrain_.push_back ( { 2079, 446, 40, 14 } );
+  terrain_.push_back ( { 1147, 222, 479, 15 } );
+  terrain_.push_back ( { 1683, 69, 232, 14 } );
+  terrain_.push_back ( { 1996, 216, 93, 15 } );
+  terrain_.push_back ( { 2200, 159, 200, 14 } );
 }
 
 std::vector<Player::MovementCommand> PlayState::translate_input(

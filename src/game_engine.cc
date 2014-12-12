@@ -11,10 +11,10 @@
 
 GameEngine::GameEngine()
     : graphics_engine_ { kGameTitle, kWindowWidth, kWindowHeight, kWorldWidth,
-                         kWorldHeight }, is_{}, ps_ { kGravity }
+                         kWorldHeight }, /*is_{},*/ ps_ { kGravity }
 
 {
-  active_state_ = &is_;
+  active_state_ = &ps_;
 }
 
 void GameEngine::run()
