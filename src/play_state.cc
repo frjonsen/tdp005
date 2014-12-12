@@ -47,6 +47,7 @@ std::string PlayState::get_background() const
 
 void PlayState::generate_terrain()
 {
+  terrain_.push_back( { -20, 0, 20, 800});
   terrain_.push_back ( { 0, 301, 135, 163 } );
   terrain_.push_back ( { 136, 449, 527, 20 } );
   terrain_.push_back ( { 300, 227, 153, 14 } );
@@ -69,6 +70,7 @@ void PlayState::generate_terrain()
   terrain_.push_back ( { 1996, 216, 93, 15 } );
   terrain_.push_back ( { 2200, 159, 200, 14 } );
   terrain_.push_back ( { 989, 309, 14, 197 } );
+  terrain_.push_back ( { 2400, 0, 20, 800 });
 }
 
 std::vector<Player::MovementCommand> PlayState::translate_input(

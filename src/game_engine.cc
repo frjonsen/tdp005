@@ -10,8 +10,8 @@
 #include <iostream>
 
 GameEngine::GameEngine()
-    : graphics_engine_ { kGameTitle, kWindowWidth, kWindowHeight, kWorldWidth,
-                         kWorldHeight }, /*is_{}*/ ps_ { kGravity }
+    : /*is_{},*/ ps_ { kGravity }, graphics_engine_ { kGameTitle, kWindowWidth, kWindowHeight, ps_.kWorldWidth,
+      ps_.kWorldHeight }
 
 {
   active_state_ = &ps_;
@@ -72,45 +72,6 @@ void GameEngine::handle_state_command(AbstractGameState::StateCommand cmd)
       break;
   }
 }
-/*
- void GameEngine::handle_input_translation(
- std::vector<AbstractGameState::GameInput>& tick_input)
- {
- using GameInput = AbstractGameState::GameInput;
- SDL_Event event;
- while (SDL_PollEvent (&event))
- {
- if (event.type == SDL_KEYDOWN)
- {
- switch (event.key.keysym.sym)
- {
- case SDLK_ESCAPE:
- tick_input.push_back (GameInput::kEscape);
- break;
- case SDLK_SPACE:
- tick_input.push_back (GameInput::kSpace);
- break;
- case SDLK_RETURN:
- tick_input.push_back (GameInput::kReturn);
- break;
- case SDLK_UP:
- tick_input.push_back (GameInput::kUp);
- break;
- case SDLK_RIGHT:
- tick_input.push_back (GameInput::kRight);
- break;
- case SDLK_LEFT:
- tick_input.push_back (GameInput::kLeft);
- break;
- }
- }
- else if (event.type == SDL_QUIT)
- {
- engine_running_ = false;
- }
- }
- }
- */
 
 void GameEngine::handle_input_translation(
     std::vector<AbstractGameState::GameInput>& tick_input)
