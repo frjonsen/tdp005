@@ -59,11 +59,6 @@ private:
     }
   };
 
-  std::map<MenuDirectory, std::string> current_background_ { {
-      MenuDirectory::kRoot, "images/root_background.png" }, {
-      MenuDirectory::kHighscore, "images/highscore_background.png" }, {
-      MenuDirectory::kControls, "images/controls_background.png" } };
-
   int coffe_x { std::get < 0 > (selector_coordinates_.at ( selected_ )) };
   int coffe_y { std::get < 1 > (selector_coordinates_.at ( selected_ )) };
 

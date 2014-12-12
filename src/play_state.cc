@@ -10,7 +10,7 @@
 
 PlayState::PlayState(const int gravity)
     : kGravity { gravity }, player_ { "Hero_Standing_R.png",
-        { 50, 200, 30, 50 }, { 1, 0 } }, terrain_ { }
+        { 50, 200, 27, 50 }, { 1, 0 } }, terrain_ { }
 {
   generate_terrain ();
 }
@@ -134,6 +134,11 @@ void PlayState::handle_collision(Sprite& sprite, Rectangle const& moving_from,
       >= collision_target.get_x () + collision_target.get_width ()) // Moving object was to the right
   {
     sprite.set_x ( collision_target.get_x () + collision_target.get_width () );
+  }
+  if (moving_from.get_y() >= collision_target.get_y() + collision_target.get_height())
+  {
+    sprite.set_y(collision_target.get_y() + collision_target.get_height());
+    sprite.reset_y_velocity();
   }
 }
 
