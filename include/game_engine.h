@@ -13,6 +13,7 @@
 #include "abstract_game_state.h"
 #include "graphics_engine.h"
 #include "play_state.h"
+#include "menu_state.h"
 
 class AbstractGameState;
 
@@ -26,13 +27,13 @@ class GameEngine
   const int kWorldWidth { 1600 };
   const int kWorldHeight { 800 };
   const int kGravity { 1 };
-  const size_t kFrameTimeGoal { 1000 / 3 };
+  const size_t kFrameTimeGoal { 1000 / 60 };
 
   GraphicsEngine graphics_engine_;
   bool engine_running_ { true };
   AbstractGameState* active_state_ { nullptr };
 
-  MenuState is_;
+  MenuState ms_;
   PlayState ps_;
   //GameOverState gos_;
 

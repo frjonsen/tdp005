@@ -5,6 +5,7 @@
  *      Author: alest170
  */
 
+#include <iostream>
 
 #include <menu_state.h>
 
@@ -28,7 +29,7 @@ MenuState::StateCommand MenuState::return_handler()
 
 MenuState::StateCommand MenuState::update(std::vector<MenuState::GameInput> const& input)
 {
- MenuState::StateCommand nejje{StateCommand::kExit};
+ MenuState::StateCommand nejje{StateCommand::kNone};
 
  std::vector<MenuPointer> menu_select;
 
