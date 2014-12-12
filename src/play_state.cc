@@ -10,7 +10,7 @@
 
 PlayState::PlayState(const int gravity)
     : kGravity { gravity }, player_ { "Hero_Standing_R.png",
-        { 50, 200, 30, 50 }, { 1, 0 } }, terrain_ { }
+        { 50, 200, 30, 53 }, { 1, 0 } }, terrain_ { }
 {
   generate_terrain ();
 }

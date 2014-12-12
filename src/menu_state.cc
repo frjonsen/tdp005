@@ -41,7 +41,7 @@ MenuState::StateCommand MenuState::update(
       case GameInput::kDown:
         selected_ = MenuPointer ( (int ( selected_ ) + 1 % 3) );
         break;
-      case GameInput::kReturn:StateCommand::kMenu;
+      case GameInput::kReturn:
         return_handler ();
         break;
       case GameInput::kEscape:
