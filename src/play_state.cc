@@ -49,7 +49,7 @@ void PlayState::generate_terrain()
 {
   terrain_.push_back ( { 0, 301, 135, 163 } );
   terrain_.push_back ( { 136, 449, 527, 20 } );
-  terrain_.push_back ( { 289, 227, 164, 14 } );
+  terrain_.push_back ( { 300, 227, 153, 14 } );
   terrain_.push_back ( { 535, 272, 53, 14 } );
   terrain_.push_back ( { 662, 353, 93, 247 } );
   terrain_.push_back ( { 875, 589, 337, 11 } );
@@ -58,7 +58,7 @@ void PlayState::generate_terrain()
   terrain_.push_back ( { 2148, 558, 46, 42 } );
   terrain_.push_back ( { 2193, 502, 207, 98 } );
   terrain_.push_back ( { 875, 351, 115, 155 } );
-  terrain_.push_back ( { 875, 506, 223, 14 } );
+  terrain_.push_back ( { 1004, 506, 94, 14 } );
   terrain_.push_back ( { 989, 309, 68, 117 } );
   terrain_.push_back ( { 1057, 349, 739, 77 } );
   terrain_.push_back ( { 1796, 298, 89, 99 } );
@@ -68,6 +68,7 @@ void PlayState::generate_terrain()
   terrain_.push_back ( { 1683, 69, 232, 14 } );
   terrain_.push_back ( { 1996, 216, 93, 15 } );
   terrain_.push_back ( { 2200, 159, 200, 14 } );
+  terrain_.push_back ( { 989, 309, 14, 197 } );
 }
 
 std::vector<Player::MovementCommand> PlayState::translate_input(

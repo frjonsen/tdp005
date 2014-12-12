@@ -6,6 +6,7 @@
  */
 
 #include <menu_state.h>
+#include <iostream>
 
 //Handles the return key for the update function.
 MenuState::StateCommand MenuState::return_handler()
@@ -39,7 +40,7 @@ MenuState::StateCommand MenuState::update(
       case GameInput::kDown:
         selected_ = MenuPointer ( (int ( selected_ ) + 1 % 3) );
         break;
-      case GameInput::kReturn:
+      case GameInput::kReturn:StateCommand::kMenu;
         return_handler ();
         break;
       case GameInput::kEscape:
@@ -65,5 +66,6 @@ std::vector<Sprite const*> MenuState::get_sprites() const
 std::string MenuState::get_background() const
 {
   return background_src_;
+  std::cout << "bakgrund " << background_src_ << std::endl;
 }
 

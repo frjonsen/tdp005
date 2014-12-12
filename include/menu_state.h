@@ -18,6 +18,8 @@ class MenuState : public AbstractGameState
 {
 
 public:
+  //MenuState();
+
   StateCommand update(std::vector<GameInput> const&);
 
   std::vector<Sprite const*> get_sprites() const;
@@ -45,6 +47,11 @@ private:
       MenuPointer::kPlay, { 310, 240 } }, { MenuPointer::kHighscore,
       { 240, 315 } }, { MenuPointer::kControls, { 260, 385 } } };
 
+  std::map<MenuDirectory, std::string> current_background_ { {
+      MenuDirectory::kRoot, "images/root_background.png" }, {
+      MenuDirectory::kHighscore, "images/highscore_background.png" }, {
+      MenuDirectory::kControls, "images/controls_background.png" } };
+
   int coffe_x { std::get < 0 > (selector_coordinates_.at ( selected_ )) };
   int coffe_y { std::get < 1 > (selector_coordinates_.at ( selected_ )) };
 
@@ -52,9 +59,6 @@ private:
 
   StateCommand return_handler();
 
-  std::map<MenuDirectory, std::string> current_background_ { {
-      MenuDirectory::kRoot, "images/root_background.png" }, {
-      MenuDirectory::kHighscore, "images/highscore_background.png" }, {
-      MenuDirectory::kControls, "images/controls_background.png" } };
+
 };
 #endif /* INCLUDE_MENU_STATE_H_ */

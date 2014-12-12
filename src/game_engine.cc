@@ -11,7 +11,7 @@
 
 GameEngine::GameEngine()
     : graphics_engine_ { kGameTitle, kWindowWidth, kWindowHeight, kWorldWidth,
-                         kWorldHeight }, /*is_{},*/ ps_ { kGravity }
+                         kWorldHeight }, /*is_{}*/ ps_ { kGravity }
 
 {
   active_state_ = &ps_;
@@ -22,6 +22,7 @@ void GameEngine::run()
   using GameInput = AbstractGameState::GameInput;
   while( engine_running_ )
   {
+    std::cout << "endinge is running" << std::endl;
     size_t start_time { SDL_GetTicks () };
 
     std::vector<GameInput> tick_input;
@@ -52,7 +53,7 @@ void GameEngine::handle_state_command(AbstractGameState::StateCommand cmd)
   switch (cmd)
   {
     case StateCommand::kPlay:
-      //active_state_ = &ps_;
+      active_state_ = &ps_;
       break;
     case StateCommand::kExit:
       engine_running_ = false;
@@ -61,6 +62,7 @@ void GameEngine::handle_state_command(AbstractGameState::StateCommand cmd)
       // TODO: Add some way to set whether "Resume" or "Start New Game"
       // (Overload () operator to take a string and return *this?
       //active_state_ = &(is_("Resume"));
+      //active_state_ = &is_;
       break;
     case StateCommand::kGameOver:
       // TODO: Add reset
