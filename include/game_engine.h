@@ -30,7 +30,7 @@ class GameEngine
   bool engine_running_ { true };
   AbstractGameState* active_state_ { nullptr };
 
- // MenuState is_;
+  MenuState is_;
   PlayState ps_;
   //GameOverState gos_;
 

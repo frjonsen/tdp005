@@ -37,12 +37,15 @@ MenuState::StateCommand MenuState::update(
     {
       case GameInput::kUp:
         selected_ = MenuPointer ( (int ( selected_ ) - 1 % 3) );
+        std::cout << "UPP FÖR FAN" << std::endl;
         break;
       case GameInput::kDown:
         selected_ = MenuPointer ( (int ( selected_ ) + 1 % 3) );
+        std::cout << "NER FÖR FAN" << std::endl;
         break;
       case GameInput::kReturn:
-        return_handler ();
+        std::cout << "ENTER! :(" << std::endl;
+        return return_handler ();
         break;
       case GameInput::kEscape:
         current_ = MenuDirectory::kRoot;
@@ -51,7 +54,8 @@ MenuState::StateCommand MenuState::update(
         break;
     }
   }
-  return StateCommand::kMenu;
+  std::cout << int(selected_) << std::endl;
+  return StateCommand::kNone;
 }
 
 //Returns the menu selector as a vector of sprites
