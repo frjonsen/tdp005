@@ -8,6 +8,11 @@
 #include "play_state.h"
 #include <iostream>
 
+/*
+PlayState::PlayState(const int gravity)
+    : kGravity { gravity }, player_ { "Hero_Standing_R.png",
+        { 50, 200, 27, 53 }, { 1, 0 } }, terrain_ { }
+*/
 PlayState::PlayState()
 {
   generate_terrain();

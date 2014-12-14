@@ -8,6 +8,7 @@
 
 #include <menu_state.h>
 #include <iostream>
+#include <SDL2/SDL.h>
 
 //Handles the return key for the update function.
 MenuState::StateCommand MenuState::return_handler()
@@ -31,18 +32,21 @@ MenuState::StateCommand MenuState::return_handler()
 MenuState::StateCommand MenuState::update(
     std::list<MenuState::GameInput> const& input)
 {
+  background_src_ = {current_background_.at (current_) };
+  coffe_cup_.update();
+
   for (GameInput i : input)
   {
     switch (i)
     {
       case GameInput::kUp:
-        selected_ = MenuPointer ( (int ( selected_ ) - 1 % 3) );
+        selected_ = MenuPointer ( ((int ( selected_ ) + 2) % 3) );
         break;
       case GameInput::kDown:
-        selected_ = MenuPointer ( (int ( selected_ ) + 1 % 3) );
+        selected_ = MenuPointer ( ((int ( selected_ ) + 1) % 3) );
         break;
       case GameInput::kReturn:
-        return_handler ();
+        return return_handler ();
         break;
       case GameInput::kEscape:
         current_ = MenuDirectory::kRoot;
@@ -51,7 +55,8 @@ MenuState::StateCommand MenuState::update(
         break;
     }
   }
-  return StateCommand::kMenu;
+  std::cout << int(selected_) << std::endl;
+  return StateCommand::kNone;
 }
 
 //Returns the menu selector as a vector of sprites
@@ -61,7 +66,6 @@ std::list<Sprite const*> MenuState::get_sprites() const
   {
     &coffe_cup_
   };
-
   return CoffeVector;
 }
 
@@ -69,6 +73,6 @@ std::list<Sprite const*> MenuState::get_sprites() const
 std::string MenuState::get_background() const
 {
   return background_src_;
-  std::cout << "bakgrund " << background_src_ << std::endl;
+
 }
 
