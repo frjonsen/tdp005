@@ -35,7 +35,7 @@ class GameEngine
   AbstractGameState* active_state_ { nullptr };
 
   MenuState is_;
-  PlayState ps_;
+  PlayState ps_{};
 
   //GameOverState gos_;
 

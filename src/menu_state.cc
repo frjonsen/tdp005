@@ -8,6 +8,7 @@
 
 #include <menu_state.h>
 #include <iostream>
+#include <SDL2/SDL.h>
 
 //Handles the return key for the update function.
 MenuState::StateCommand MenuState::return_handler()
@@ -31,20 +32,20 @@ MenuState::StateCommand MenuState::return_handler()
 MenuState::StateCommand MenuState::update(
     std::list<MenuState::GameInput> const& input)
 {
+  background_src_ = {current_background_.at (current_) };
+  coffe_cup_.update();
+
   for (GameInput i : input)
   {
     switch (i)
     {
       case GameInput::kUp:
-        selected_ = MenuPointer ( (int ( selected_ ) - 1 % 3) );
-        std::cout << "UPP FÖR FAN" << std::endl;
+        selected_ = MenuPointer ( ((int ( selected_ ) + 2) % 3) );
         break;
       case GameInput::kDown:
-        selected_ = MenuPointer ( (int ( selected_ ) + 1 % 3) );
-        std::cout << "NER FÖR FAN" << std::endl;
+        selected_ = MenuPointer ( ((int ( selected_ ) + 1) % 3) );
         break;
       case GameInput::kReturn:
-        std::cout << "ENTER! :(" << std::endl;
         return return_handler ();
         break;
       case GameInput::kEscape:
@@ -65,7 +66,6 @@ std::list<Sprite const*> MenuState::get_sprites() const
   {
     &coffe_cup_
   };
-
   return CoffeVector;
 }
 
@@ -73,6 +73,6 @@ std::list<Sprite const*> MenuState::get_sprites() const
 std::string MenuState::get_background() const
 {
   return background_src_;
-  std::cout << "bakgrund " << background_src_ << std::endl;
+
 }
 

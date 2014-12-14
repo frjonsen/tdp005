@@ -63,9 +63,10 @@ void GameEngine::handle_state_command(AbstractGameState::StateCommand cmd)
       // TODO: Add some way to set whether "Resume" or "Start New Game"
       // (Overload () operator to take a string and return *this?
       //active_state_ = &(is_("Resume"));
-      active_state_ = &is_;
+     active_state_ = &is_;
       break;
     case StateCommand::kGameOver:
+      break;
     case StateCommand::kOutOfTime:
       // TODO: Add reset
       break;
@@ -103,6 +104,8 @@ void GameEngine::handle_input_translation(
   if (state[SDL_SCANCODE_ESCAPE])
   {
     tick_input.push_back (GameInput::kEscape);
+    active_state_ = &is_;
+
   }
   if (state[SDL_SCANCODE_RETURN])
   {
