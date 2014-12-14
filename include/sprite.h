@@ -20,7 +20,14 @@ public:
 		int y;
 	};
 
-	Sprite(std::string texture, Rectangle const& rectangle, Velocity velocity,
+	struct TextureInfo
+	{
+	  std::string texture_name;
+	  bool flip;
+	  int angle;
+	};
+
+	Sprite(std::string texture, Rectangle const& rectangle, int hp,
 			const int top_velocity = 0);
 	virtual ~Sprite();
 
@@ -34,14 +41,15 @@ public:
 	virtual void handle_gravity(const int gravity);
 	virtual void reset_y_velocity();
 
-	virtual float get_moving_angle() const;
-	const std::string get_texture() const;
+	const TextureInfo& get_texture() const;
 
 protected:
-	std::string texture_;
-	Velocity velocity_;
+	TextureInfo texture_;
+	Velocity velocity_{0,0};
 
 	const int kTopXVelocity;
+
+	int hp_;
 };
 
 #endif /* SPRITE_H_ */

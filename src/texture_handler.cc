@@ -35,7 +35,8 @@ void TextureHandler::load_texture(std::string texture_name)
   Surface s (IMG_Load (full_path.c_str ()));
   if (s.get_surface () == NULL)
   {
-    throw std::invalid_argument ("File name does not exist");
+    std::string error = "File name '" + texture_name + "' does not exist";
+    throw std::invalid_argument (error.c_str());
   }
   loaded_textures_[texture_name] = new Texture(renderer_, s);
 }

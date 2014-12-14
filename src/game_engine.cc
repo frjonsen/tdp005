@@ -10,8 +10,10 @@
 #include <iostream>
 
 GameEngine::GameEngine()
-    : is_{}, ps_ { kGravity }, graphics_engine_ { kGameTitle, kWindowWidth, kWindowHeight, ps_.kWorldWidth,
-      ps_.kWorldHeight }
+    : is_{}, graphics_engine_ {
+        kGameTitle, kWindowWidth, kWindowHeight, ps_.kWorldWidth,
+        ps_.kWorldHeight }
+
 
 {
   active_state_ = &is_;
@@ -20,14 +22,14 @@ GameEngine::GameEngine()
 void GameEngine::run()
 {
   using GameInput = AbstractGameState::GameInput;
-  while( engine_running_ )
+  size_t time_per_frame { 1000 / ps_.kFPSGoal };
+
+  while (engine_running_)
   {
     size_t start_time { SDL_GetTicks () };
 
-    std::vector<GameInput> tick_input;
-    handle_input_translation ( tick_input );
-
-    if( !engine_running_ ) break; // Special case to break if player pressed the window close button.
+    std::list<GameInput> tick_input;
+    handle_input_translation (tick_input);
 
     // Ask activate state to update for this tick
     AbstractGameState::StateCommand cmd { active_state_->update (tick_input) };
@@ -38,9 +40,9 @@ void GameEngine::run()
 
     size_t end_time { SDL_GetTicks () };
     size_t difference { end_time - start_time };
-    if( difference < kFrameTimeGoal )
+    if (difference < time_per_frame)
     {
-      SDL_Delay ( kFrameTimeGoal - difference );
+      SDL_Delay (time_per_frame - difference);
     }
   }
 }
@@ -64,6 +66,7 @@ void GameEngine::handle_state_command(AbstractGameState::StateCommand cmd)
       active_state_ = &is_;
       break;
     case StateCommand::kGameOver:
+    case StateCommand::kOutOfTime:
       // TODO: Add reset
       break;
     case StateCommand::kNone:
@@ -73,7 +76,7 @@ void GameEngine::handle_state_command(AbstractGameState::StateCommand cmd)
 }
 
 void GameEngine::handle_input_translation(
-    std::vector<AbstractGameState::GameInput>& tick_input)
+    std::list<AbstractGameState::GameInput>& tick_input)
 {
   using GameInput = AbstractGameState::GameInput;
 
