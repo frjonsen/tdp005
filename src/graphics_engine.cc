@@ -27,14 +27,14 @@ GraphicsEngine::~GraphicsEngine()
 {
 }
 
-void GraphicsEngine::redraw_screen(std::vector<Sprite const*> const& sprites)
+void GraphicsEngine::redraw_screen(std::list<Sprite const*> const& sprites)
 {
-  std::vector<Sprite const*> visible_sprites;
+  std::list<Sprite const*> visible_sprites;
   get_visible_sprites (sprites, visible_sprites);
   draw_screen (sprites);
 }
 
-void GraphicsEngine::draw_screen(std::vector<Sprite const*> const& sprites)
+void GraphicsEngine::draw_screen(std::list<Sprite const*> const& sprites)
 {
   renderer_.clear ();
   draw_background ();
@@ -62,8 +62,8 @@ void GraphicsEngine::draw_background()
 }
 
 void GraphicsEngine::get_visible_sprites(
-    std::vector<Sprite const*> const& sprites,
-    std::vector<Sprite const*>& visible) const
+    std::list<Sprite const*> const& sprites,
+    std::list<Sprite const*>& visible) const
 {
 
   Rectangle window { viewport_.x, viewport_.y, window_.kWidth, window_.kHeight };
@@ -77,14 +77,6 @@ void GraphicsEngine::get_visible_sprites(
   }
 }
 
-bool GraphicsEngine::calc_visible_area(Sprite const* sprite,
-                                       Rectangle& out) const
-{
-  Rectangle window { viewport_.x, viewport_.y, window_.kWidth, window_.kHeight };
-
-  return sprite->intersecting_area (window, out);
-}
-
 void GraphicsEngine::set_viewport(Viewport viewport)
 {
   if (viewport.x < 0) viewport.x = 0;
@@ -94,11 +86,6 @@ void GraphicsEngine::set_viewport(Viewport viewport)
   if (viewport.y + window_.kHeight > kWorldHeight) viewport.y = kWorldHeight
       - window_.kHeight;
   viewport_ = viewport;
-}
-
-Renderer& GraphicsEngine::get_renderer()
-{
-  return renderer_;
 }
 
 void GraphicsEngine::set_background(std::string texture)

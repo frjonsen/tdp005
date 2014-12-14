@@ -1,0 +1,4 @@
+<map id="AbstractGameState" name="AbstractGameState">
+<area shape="rect" id="node2" href="$classMenuState.html" title="MenuState" alt="" coords="5,80,91,107"/>
+<area shape="rect" id="node3" href="$classPlayState.html" title="PlayState" alt="" coords="115,80,193,107"/>
+</map>

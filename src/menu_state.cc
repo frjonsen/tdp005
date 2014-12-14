@@ -29,7 +29,7 @@ MenuState::StateCommand MenuState::return_handler()
 }
 //Updates background, selector location and if game state should change.
 MenuState::StateCommand MenuState::update(
-    std::vector<MenuState::GameInput> const& input)
+    std::list<MenuState::GameInput> const& input)
 {
   for (GameInput i : input)
   {
@@ -55,10 +55,12 @@ MenuState::StateCommand MenuState::update(
 }
 
 //Returns the menu selector as a vector of sprites
-std::vector<Sprite const*> MenuState::get_sprites() const
+std::list<Sprite const*> MenuState::get_sprites() const
 {
-  std::vector<Sprite const*> CoffeVector;
-  CoffeVector.push_back ( &coffe_cup_ );
+  std::list<Sprite const*> CoffeVector
+  {
+    &coffe_cup_
+  };
 
   return CoffeVector;
 }

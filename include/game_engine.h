@@ -15,39 +15,51 @@
 #include "play_state.h"
 #include "menu_state.h"
 
-class AbstractGameState;
 
+/**
+ * Game engine handling input and game loop
+ */
 class GameEngine
 {
 
   // Constants
+  /// Window title
   const std::string kGameTitle { "Geek Hero" };
+  /// Window Height
   const int kWindowHeight { 600 };
+  /// Window Width
   const int kWindowWidth { 800 };
-  const int kGravity { 1 };
   const size_t kFrameTimeGoal { 1000 / 60 };
 
   bool engine_running_ { true };
   AbstractGameState* active_state_ { nullptr };
 
  // MenuState is_;
-  PlayState ps_;
+  PlayState ps_{};
   //GameOverState gos_;
 
   GraphicsEngine graphics_engine_;
 
   void handle_state_command(AbstractGameState::StateCommand cmd);
-  void handle_input_translation(std::vector<AbstractGameState::GameInput>&);
+  void handle_input_translation(std::list<AbstractGameState::GameInput>&);
 
 public:
   GameEngine();
 
+  /// Deleted copy constructor
   GameEngine(GameEngine const&) = delete;
+  /// Deleted move constructor
   GameEngine(GameEngine&&) = delete;
 
+  /// Deleted assignment operator
   GameEngine& operator=(GameEngine const&) = delete;
+
+  /// Deleted move-assignment operator
   GameEngine& operator=(GameEngine&&) = delete;
 
+  /**
+   * Start the game engine
+   */
   void run();
 
 };

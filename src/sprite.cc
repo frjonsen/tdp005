@@ -9,10 +9,9 @@
 #include "rectangle.h"
 #include <string>
 
-Sprite::Sprite(std::string texture, Rectangle const& rectangle,
-               Velocity velocity, const int top_velocity)
-    : Rectangle ( rectangle ), texture_ { texture, false, 0 }, velocity_ {
-        velocity.x, velocity.y }, kTopXVelocity { top_velocity }
+Sprite::Sprite(std::string texture, Rectangle const& rectangle, int hp,
+               const int top_velocity)
+    : Rectangle ( rectangle ), texture_ { texture, false, 0 }, kTopXVelocity { top_velocity }, hp_{hp}
 {
 
 }
@@ -29,11 +28,6 @@ void Sprite::update()
 const Sprite::TextureInfo& Sprite::get_texture() const
 {
   return texture_;
-}
-
-float Sprite::get_moving_angle() const
-{
-  return 0;
 }
 
 void Sprite::handle_gravity(const int gravity)

@@ -27,7 +27,7 @@ public:
 	  int angle;
 	};
 
-	Sprite(std::string texture, Rectangle const& rectangle, Velocity velocity,
+	Sprite(std::string texture, Rectangle const& rectangle, int hp,
 			const int top_velocity = 0);
 	virtual ~Sprite();
 
@@ -41,14 +41,15 @@ public:
 	virtual void handle_gravity(const int gravity);
 	virtual void reset_y_velocity();
 
-	virtual float get_moving_angle() const;
 	const TextureInfo& get_texture() const;
 
 protected:
 	TextureInfo texture_;
-	Velocity velocity_;
+	Velocity velocity_{0,0};
 
 	const int kTopXVelocity;
+
+	int hp_;
 };
 
 #endif /* SPRITE_H_ */

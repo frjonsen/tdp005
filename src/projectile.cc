@@ -7,13 +7,14 @@
 
 #include "projectile.h"
 
-Projectile::Projectile(const std::string texture, Rectangle const& rect, const int damage, const Velocity velocity)
-: Sprite(texture, rect, velocity), damage_{damage}
+Projectile::Projectile(const std::string texture, Rectangle const& rect,
+                       const int damage, const Velocity velocity, ProjectileOwner owner)
+    : Sprite (texture, rect, 0), damage_ { damage }, owner_{owner}
 {
-
+  velocity_ = velocity;
 }
 
 void Projectile::update()
 {
-  set_x(get_x() + velocity_.x);
+  set_x (get_x () + velocity_.x);
 }
