@@ -25,18 +25,8 @@ void Player::update()
   if (frames_since_firing_ >= 0) ++frames_since_firing_;
   if (frames_since_firing_ > current_weapon_.cooldown) frames_since_firing_ =
       -1;
-  set_x (get_x () + velocity_.x);
-  if (stunned_)
-  {
-    --stunned_timer_;
-    if (stunned_timer_ == 0) stunned_ = false;
-  }
-  else
-  {
-    velocity_.x = 0;
-  }
-
-  set_y (get_y () + velocity_.y);
+  handle_animation();
+  handle_move ();
 }
 
 void Player::order_player(std::list<MovementCommand> moves)
@@ -108,4 +98,45 @@ void Player::set_stunned(const size_t time, int velocity_x = 0)
   stunned_timer_ = time;
   stunned_ = true;
   velocity_.x = velocity_x;
+}
+
+void Player::handle_move()
+{
+  set_x (get_x () + velocity_.x);
+  if (stunned_)
+  {
+    --stunned_timer_;
+    if (stunned_timer_ == 0)
+    {
+      stunned_ = false;
+
+    }
+  }
+  else
+  {
+    velocity_.x = 0;
+
+  }
+
+  set_y (get_y () + velocity_.y);
+}
+
+void Player::handle_animation()
+{
+  if (velocity_.x != 0)
+  {
+    texture_.texture_name = animations.at (current_animation);
+    ++animation_timer_;
+    if (animation_timer_ > animation_change_frequency)
+    {
+      current_animation = (current_animation + 1) % animations.size ();
+      animation_timer_ = 0;
+    }
+  }
+  else
+  {
+    texture_.texture_name = "Hero_Standing_R.png";
+    animation_timer_ = 0;
+    current_animation = 0;
+  }
 }

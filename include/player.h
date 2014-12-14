@@ -12,6 +12,7 @@
 #include <list>
 #include <map>
 #include "projectile.h"
+#include <vector>
 
 /**
  * Representation of the actual player in the game
@@ -110,6 +111,25 @@ private:
 
   /// The weapon player is currently using
   Weapon current_weapon_ { weapons_.at (WeaponName::kIfGun) };
+
+  const std::vector<std::string> animations
+  {
+    "Hero_Run_1_R.png",
+    "Hero_Run_2_R.png",
+    "Hero_Run_3_R.png",
+    "Hero_Run_4_R.png",
+    "Hero_Run_5_R.png",
+    "Hero_Run_6_R.png",
+    "Hero_Run_7_R.png",
+    "Hero_Run_8_R.png"
+  };
+
+  int current_animation{0};
+  size_t animation_timer_{0};
+  size_t animation_change_frequency{10};
+
+  void handle_move();
+  void handle_animation();
 
 public:
   /**
