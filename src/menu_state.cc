@@ -33,7 +33,6 @@ MenuState::StateCommand MenuState::update(
     std::list<MenuState::GameInput> const& input)
 {
   background_src_ = {current_background_.at (current_) };
-  coffe_cup_.update();
 
   for (GameInput i : input)
   {
@@ -55,7 +54,9 @@ MenuState::StateCommand MenuState::update(
         break;
     }
   }
-  std::cout << int(selected_) << std::endl;
+  coffe_cup_.set_x(std::get<0> (selector_coordinates_.at (selected_)));
+  coffe_cup_.set_y(std::get<1> (selector_coordinates_.at (selected_)));
+
   return StateCommand::kNone;
 }
 
