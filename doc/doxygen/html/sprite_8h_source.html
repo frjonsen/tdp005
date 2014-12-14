@@ -80,58 +80,78 @@ $(document).ready(function(){initNavTree('sprite_8h_source.html','');});
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">class </span><a class="code" href="classTexture.html">Texture</a>;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classSprite.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSprite.html">Sprite</a>: <span class="keyword">public</span> <a class="code" href="classRectangle.html">Rectangle</a> {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structSprite_1_1Velocity.html">   18</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structSprite_1_1Velocity.html">Velocity</a> {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordtype">int</span> x;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordtype">int</span> y;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    };</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="structSprite_1_1TextureInfo.html">   23</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structSprite_1_1TextureInfo.html">TextureInfo</a></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;      std::string texture_name;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;      <span class="keywordtype">bool</span> flip;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;      <span class="keywordtype">int</span> angle;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    };</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="classSprite.html">Sprite</a>(std::string texture, <a class="code" href="classRectangle.html">Rectangle</a> <span class="keyword">const</span>&amp; rectangle, <span class="keywordtype">int</span> hp,</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">int</span> top_velocity = 0);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classSprite.html">Sprite</a>();</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="classSprite.html">Sprite</a>(<a class="code" href="classSprite.html">Sprite</a> <span class="keyword">const</span>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="classSprite.html">Sprite</a>(<a class="code" href="classSprite.html">Sprite</a> <span class="keyword">const</span>&amp;&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="classSprite.html">Sprite</a>&amp; operator=(<a class="code" href="classSprite.html">Sprite</a> <span class="keyword">const</span>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="classSprite.html">Sprite</a>&amp; operator=(<a class="code" href="classSprite.html">Sprite</a>&amp;&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> update();</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> handle_gravity(<span class="keyword">const</span> <span class="keywordtype">int</span> gravity);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> reset_y_velocity();</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">const</span> <a class="code" href="structSprite_1_1TextureInfo.html">TextureInfo</a>&amp; get_texture() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classSprite.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSprite.html">Sprite</a>: <span class="keyword">public</span> <a class="code" href="classRectangle.html">Rectangle</a> {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="structSprite_1_1Velocity.html">   25</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structSprite_1_1Velocity.html">Velocity</a> {</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="structSprite_1_1Velocity.html#a7e0317303c060aa579812918becf6fcc">   28</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="structSprite_1_1Velocity.html#a7e0317303c060aa579812918becf6fcc">x</a>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="structSprite_1_1Velocity.html#a0c62d454a8fb25c32c8180992708b400">   30</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="structSprite_1_1Velocity.html#a0c62d454a8fb25c32c8180992708b400">y</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    };</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="structSprite_1_1TextureInfo.html">   36</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structSprite_1_1TextureInfo.html">TextureInfo</a></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    {</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="structSprite_1_1TextureInfo.html#ab0d10d65ef5a0a2cda866ca698279e5f">   39</a></span>&#160;      std::string <a class="code" href="structSprite_1_1TextureInfo.html#ab0d10d65ef5a0a2cda866ca698279e5f">texture_name</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="structSprite_1_1TextureInfo.html#aef21810239c613f1fffbca8cbf9ce6a1">   41</a></span>&#160;      <span class="keywordtype">bool</span> <a class="code" href="structSprite_1_1TextureInfo.html#aef21810239c613f1fffbca8cbf9ce6a1">flip</a>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="structSprite_1_1TextureInfo.html#ad6c83f46542dbe1e8abd1db1236bec2c">   43</a></span>&#160;      <span class="keywordtype">int</span> <a class="code" href="structSprite_1_1TextureInfo.html#ad6c83f46542dbe1e8abd1db1236bec2c">angle</a>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    };</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="structSprite_1_1TextureInfo.html">TextureInfo</a> texture_;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="structSprite_1_1Velocity.html">Velocity</a> velocity_{0,0};</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> kTopXVelocity;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">int</span> hp_;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;};</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SPRITE_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="structSprite_1_1Velocity_html"><div class="ttname"><a href="structSprite_1_1Velocity.html">Sprite::Velocity</a></div><div class="ttdef"><b>Definition:</b> sprite.h:18</div></div>
-<div class="ttc" id="classSprite_html"><div class="ttname"><a href="classSprite.html">Sprite</a></div><div class="ttdef"><b>Definition:</b> sprite.h:16</div></div>
-<div class="ttc" id="classTexture_html"><div class="ttname"><a href="classTexture.html">Texture</a></div><div class="ttdef"><b>Definition:</b> texture.h:16</div></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="classSprite.html#ac6a5b4877de59d3e6d651f4ab93e4d1c">Sprite</a>(std::string texture, <a class="code" href="classRectangle.html">Rectangle</a> <span class="keyword">const</span>&amp; rectangle, <span class="keywordtype">int</span> hp,</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">int</span> top_velocity = 0);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classSprite.html">Sprite</a>();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="classSprite.html#ac6a5b4877de59d3e6d651f4ab93e4d1c">Sprite</a>(<a class="code" href="classSprite.html">Sprite</a> <span class="keyword">const</span>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="classSprite.html#ac6a5b4877de59d3e6d651f4ab93e4d1c">Sprite</a>(<a class="code" href="classSprite.html">Sprite</a> <span class="keyword">const</span>&amp;&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="classSprite.html">Sprite</a>&amp; <a class="code" href="classSprite.html#a4522745fccce3140a92bf64d6e6e6e1a">operator=</a>(<a class="code" href="classSprite.html">Sprite</a> <span class="keyword">const</span>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="code" href="classSprite.html">Sprite</a>&amp; <a class="code" href="classSprite.html#a4522745fccce3140a92bf64d6e6e6e1a">operator=</a>(<a class="code" href="classSprite.html">Sprite</a>&amp;&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classSprite.html#a7449245a6f62a7897a54e9853b6cbec5">update</a>();</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classSprite.html#aae90c46c311149d17397dfa7ff95d9c2">handle_gravity</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> gravity);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classSprite.html#aceb6c3f93ebc20ae50fcdcf878128483">reset_y_velocity</a>();</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keyword">const</span> <a class="code" href="structSprite_1_1TextureInfo.html">TextureInfo</a>&amp; <a class="code" href="classSprite.html#a639174d8280b2ab3d20953e01218e2ca">get_texture</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="classSprite.html#a141f2dc3c854ce41840a15ad59b2347d">   92</a></span>&#160;    <a class="code" href="structSprite_1_1TextureInfo.html">TextureInfo</a> <a class="code" href="classSprite.html#a141f2dc3c854ce41840a15ad59b2347d">texture_</a>;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="classSprite.html#a0681d04c4245af4e1d1def55bac685b9">   95</a></span>&#160;    <a class="code" href="structSprite_1_1Velocity.html">Velocity</a> <a class="code" href="classSprite.html#a0681d04c4245af4e1d1def55bac685b9">velocity_</a>{0,0};</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="classSprite.html#a8bd7a5481b14d05924eab4894ab80057">   98</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="classSprite.html#a8bd7a5481b14d05924eab4894ab80057">kTopXVelocity</a>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="classSprite.html#aa6e3422fdb5300bb233db0178659a29d">  101</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classSprite.html#aa6e3422fdb5300bb233db0178659a29d">hp_</a>;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;};</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SPRITE_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="structSprite_1_1Velocity_html_a0c62d454a8fb25c32c8180992708b400"><div class="ttname"><a href="structSprite_1_1Velocity.html#a0c62d454a8fb25c32c8180992708b400">Sprite::Velocity::y</a></div><div class="ttdeci">int y</div><div class="ttdoc">Vertical velocity. A positive value will move an object down, a negative up. </div><div class="ttdef"><b>Definition:</b> sprite.h:30</div></div>
+<div class="ttc" id="structSprite_1_1Velocity_html"><div class="ttname"><a href="structSprite_1_1Velocity.html">Sprite::Velocity</a></div><div class="ttdef"><b>Definition:</b> sprite.h:25</div></div>
+<div class="ttc" id="structSprite_1_1TextureInfo_html_aef21810239c613f1fffbca8cbf9ce6a1"><div class="ttname"><a href="structSprite_1_1TextureInfo.html#aef21810239c613f1fffbca8cbf9ce6a1">Sprite::TextureInfo::flip</a></div><div class="ttdeci">bool flip</div><div class="ttdoc">Whether texture should be flipper horizontally. </div><div class="ttdef"><b>Definition:</b> sprite.h:41</div></div>
+<div class="ttc" id="classSprite_html"><div class="ttname"><a href="classSprite.html">Sprite</a></div><div class="ttdef"><b>Definition:</b> sprite.h:20</div></div>
+<div class="ttc" id="classTexture_html"><div class="ttname"><a href="classTexture.html">Texture</a></div><div class="ttdef"><b>Definition:</b> texture.h:19</div></div>
+<div class="ttc" id="classSprite_html_a639174d8280b2ab3d20953e01218e2ca"><div class="ttname"><a href="classSprite.html#a639174d8280b2ab3d20953e01218e2ca">Sprite::get_texture</a></div><div class="ttdeci">const TextureInfo &amp; get_texture() const </div></div>
+<div class="ttc" id="classSprite_html_aceb6c3f93ebc20ae50fcdcf878128483"><div class="ttname"><a href="classSprite.html#aceb6c3f93ebc20ae50fcdcf878128483">Sprite::reset_y_velocity</a></div><div class="ttdeci">virtual void reset_y_velocity()</div></div>
 <div class="ttc" id="classRectangle_html"><div class="ttname"><a href="classRectangle.html">Rectangle</a></div><div class="ttdef"><b>Definition:</b> rectangle.h:16</div></div>
-<div class="ttc" id="structSprite_1_1TextureInfo_html"><div class="ttname"><a href="structSprite_1_1TextureInfo.html">Sprite::TextureInfo</a></div><div class="ttdef"><b>Definition:</b> sprite.h:23</div></div>
+<div class="ttc" id="structSprite_1_1TextureInfo_html"><div class="ttname"><a href="structSprite_1_1TextureInfo.html">Sprite::TextureInfo</a></div><div class="ttdef"><b>Definition:</b> sprite.h:36</div></div>
+<div class="ttc" id="classSprite_html_a8bd7a5481b14d05924eab4894ab80057"><div class="ttname"><a href="classSprite.html#a8bd7a5481b14d05924eab4894ab80057">Sprite::kTopXVelocity</a></div><div class="ttdeci">const int kTopXVelocity</div><div class="ttdoc">Top horizontal velocity. </div><div class="ttdef"><b>Definition:</b> sprite.h:98</div></div>
+<div class="ttc" id="classSprite_html_a4522745fccce3140a92bf64d6e6e6e1a"><div class="ttname"><a href="classSprite.html#a4522745fccce3140a92bf64d6e6e6e1a">Sprite::operator=</a></div><div class="ttdeci">Sprite &amp; operator=(Sprite const &amp;)=delete</div><div class="ttdoc">Deleted assignment constructor. </div></div>
+<div class="ttc" id="classSprite_html_a141f2dc3c854ce41840a15ad59b2347d"><div class="ttname"><a href="classSprite.html#a141f2dc3c854ce41840a15ad59b2347d">Sprite::texture_</a></div><div class="ttdeci">TextureInfo texture_</div><div class="ttdoc">Information regarding the visual representation of the sprite. </div><div class="ttdef"><b>Definition:</b> sprite.h:92</div></div>
+<div class="ttc" id="classSprite_html_aae90c46c311149d17397dfa7ff95d9c2"><div class="ttname"><a href="classSprite.html#aae90c46c311149d17397dfa7ff95d9c2">Sprite::handle_gravity</a></div><div class="ttdeci">virtual void handle_gravity(const int gravity)</div></div>
+<div class="ttc" id="structSprite_1_1TextureInfo_html_ad6c83f46542dbe1e8abd1db1236bec2c"><div class="ttname"><a href="structSprite_1_1TextureInfo.html#ad6c83f46542dbe1e8abd1db1236bec2c">Sprite::TextureInfo::angle</a></div><div class="ttdeci">int angle</div><div class="ttdoc">Angle in degrees the texture should be rotated. </div><div class="ttdef"><b>Definition:</b> sprite.h:43</div></div>
+<div class="ttc" id="classSprite_html_a0681d04c4245af4e1d1def55bac685b9"><div class="ttname"><a href="classSprite.html#a0681d04c4245af4e1d1def55bac685b9">Sprite::velocity_</a></div><div class="ttdeci">Velocity velocity_</div><div class="ttdoc">Current horizontal and vertical velocity. </div><div class="ttdef"><b>Definition:</b> sprite.h:95</div></div>
+<div class="ttc" id="classSprite_html_aa6e3422fdb5300bb233db0178659a29d"><div class="ttname"><a href="classSprite.html#aa6e3422fdb5300bb233db0178659a29d">Sprite::hp_</a></div><div class="ttdeci">int hp_</div><div class="ttdoc">Current health. </div><div class="ttdef"><b>Definition:</b> sprite.h:101</div></div>
+<div class="ttc" id="classSprite_html_a7449245a6f62a7897a54e9853b6cbec5"><div class="ttname"><a href="classSprite.html#a7449245a6f62a7897a54e9853b6cbec5">Sprite::update</a></div><div class="ttdeci">virtual void update()</div><div class="ttdoc">Request sprite to update for new frame. </div></div>
+<div class="ttc" id="classSprite_html_ac6a5b4877de59d3e6d651f4ab93e4d1c"><div class="ttname"><a href="classSprite.html#ac6a5b4877de59d3e6d651f4ab93e4d1c">Sprite::Sprite</a></div><div class="ttdeci">Sprite(std::string texture, Rectangle const &amp;rectangle, int hp, const int top_velocity=0)</div></div>
+<div class="ttc" id="structSprite_1_1Velocity_html_a7e0317303c060aa579812918becf6fcc"><div class="ttname"><a href="structSprite_1_1Velocity.html#a7e0317303c060aa579812918becf6fcc">Sprite::Velocity::x</a></div><div class="ttdeci">int x</div><div class="ttdef"><b>Definition:</b> sprite.h:28</div></div>
+<div class="ttc" id="structSprite_1_1TextureInfo_html_ab0d10d65ef5a0a2cda866ca698279e5f"><div class="ttname"><a href="structSprite_1_1TextureInfo.html#ab0d10d65ef5a0a2cda866ca698279e5f">Sprite::TextureInfo::texture_name</a></div><div class="ttdeci">std::string texture_name</div><div class="ttdoc">Filename of texture. </div><div class="ttdef"><b>Definition:</b> sprite.h:39</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><b>sprite.h</b></li>
-    <li class="footer">Generated on Sun Dec 14 2014 16:06:02 for HackerGame by
+    <li class="footer">Generated on Sun Dec 14 2014 18:44:38 for HackerGame by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

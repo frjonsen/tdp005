@@ -67,8 +67,10 @@
       <li><a href="#index_p"><span>p</span></a></li>
       <li><a href="#index_r"><span>r</span></a></li>
       <li><a href="#index_s"><span>s</span></a></li>
+      <li><a href="#index_t"><span>t</span></a></li>
       <li><a href="#index_u"><span>u</span></a></li>
-      <li class="current"><a href="#index_v"><span>v</span></a></li>
+      <li><a href="#index_v"><span>v</span></a></li>
+      <li class="current"><a href="#index_w"><span>w</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -90,6 +92,9 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 &#160;
 
 <h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
+<li>clear()
+: <a class="el" href="classRenderer.html#ac46720b3fc0dbb2fc37674766490a8c4">Renderer</a>
+</li>
 <li>contain()
 : <a class="el" href="classRectangle.html#a89181f8221c743d4ed97612296f4306a">Rectangle</a>
 </li>
@@ -117,14 +122,26 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 </li>
 <li>get_height()
 : <a class="el" href="classRectangle.html#a250c174f88cfbbbc238d2f8b7e28aed6">Rectangle</a>
+, <a class="el" href="classSurface.html#a80093b6cb587bb6ced448d547b3f8fd4">Surface</a>
 </li>
 <li>get_rect()
 : <a class="el" href="classRectangle.html#a6fa293b74d0e8041a066fd4e1b7706f3">Rectangle</a>
+</li>
+<li>get_renderer()
+: <a class="el" href="classRenderer.html#ac58a71fbb02f2c7a92382f4ff2577f65">Renderer</a>
 </li>
 <li>get_sprites()
 : <a class="el" href="classAbstractGameState.html#a685c7a21cf8265b1c91595d4381fb5da">AbstractGameState</a>
 , <a class="el" href="classMenuState.html#ac6a300ff843af9f4a1e6605c33f1b83c">MenuState</a>
 , <a class="el" href="classPlayState.html#aa5f9a2e6144826d5c848222cc43c060f">PlayState</a>
+</li>
+<li>get_surface()
+: <a class="el" href="classSurface.html#a2d70ec8ca4a14004bab2d9883baf7bf8">Surface</a>
+</li>
+<li>get_texture()
+: <a class="el" href="classSprite.html#a639174d8280b2ab3d20953e01218e2ca">Sprite</a>
+, <a class="el" href="classTexture.html#addaf7b8cba9dbfa25928c1be46b9a41c">Texture</a>
+, <a class="el" href="classTextureHandler.html#a795a5a12b04c49d4bc22a48a73acde16">TextureHandler</a>
 </li>
 <li>get_viewport()
 : <a class="el" href="classAbstractGameState.html#a5f0d0bdb54f5e2a502eced5dae7fb7fd">AbstractGameState</a>
@@ -132,6 +149,10 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 </li>
 <li>get_width()
 : <a class="el" href="classRectangle.html#acabbcf4b6cdf8910b214e10c1c87063c">Rectangle</a>
+, <a class="el" href="classSurface.html#a33458a94ec29dd95cf9e46269ad8d38f">Surface</a>
+</li>
+<li>get_window()
+: <a class="el" href="classWindow.html#afc679867884c202fd7611f068c96b45f">Window</a>
 </li>
 <li>get_x()
 : <a class="el" href="classRectangle.html#a8baa9bed55ec6be6c55f4e8cddfd4da1">Rectangle</a>
@@ -148,6 +169,7 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <h3><a class="anchor" id="index_h"></a>- h -</h3><ul>
 <li>handle_gravity()
 : <a class="el" href="classPlayer.html#a614d5ea79246d37f52601022efe6e7ca">Player</a>
+, <a class="el" href="classSprite.html#aae90c46c311149d17397dfa7ff95d9c2">Sprite</a>
 </li>
 </ul>
 
@@ -168,6 +190,12 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 , <a class="el" href="classGraphicsEngine.html#a9b003adc14b36b5d36b36a1d709cfe2f">GraphicsEngine</a>
 , <a class="el" href="classPlayState.html#aaef6cf4f832b97407714051c60ac1b09">PlayState</a>
 , <a class="el" href="classRectangle.html#a58117fd6ff856fe26f21d95f667df86b">Rectangle</a>
+, <a class="el" href="classRenderer.html#a28f3e34c1127d4230c3f5479e716c853">Renderer</a>
+, <a class="el" href="classSprite.html#a4522745fccce3140a92bf64d6e6e6e1a">Sprite</a>
+, <a class="el" href="classSurface.html#a5c7c9341756dffc92d63a61933a4f480">Surface</a>
+, <a class="el" href="classTexture.html#a02f96ca28b4b433e762876d8a85a7c33">Texture</a>
+, <a class="el" href="classTextureHandler.html#adb37fce7620b391fd3ee6b1c2d8596e5">TextureHandler</a>
+, <a class="el" href="classWindow.html#aa7371b17fe255209eeb1215c6836af36">Window</a>
 </li>
 <li>order_player()
 : <a class="el" href="classPlayer.html#a5ee5f3e2f612178cc7e0e710e5e5d80d">Player</a>
@@ -195,8 +223,21 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>redraw_screen()
 : <a class="el" href="classGraphicsEngine.html#a8c4123d727436b45c4287d6d4077dab8">GraphicsEngine</a>
 </li>
+<li>render_copy()
+: <a class="el" href="classRenderer.html#a75704fadd0d726bbfbb276a7d470b5c2">Renderer</a>
+</li>
+<li>render_copy_ex()
+: <a class="el" href="classRenderer.html#afb59b176502f52d516c82aa0429b2179">Renderer</a>
+</li>
+<li>render_present()
+: <a class="el" href="classRenderer.html#af116d7590f1e5f232ceb1d84b35286aa">Renderer</a>
+</li>
+<li>Renderer()
+: <a class="el" href="classRenderer.html#a8e2bcfa82886cdc399254ea39b34da7f">Renderer</a>
+</li>
 <li>reset_y_velocity()
 : <a class="el" href="classPlayer.html#aea2ebc5767c484a88b4bbb185b44dc48">Player</a>
+, <a class="el" href="classSprite.html#aceb6c3f93ebc20ae50fcdcf878128483">Sprite</a>
 </li>
 <li>run()
 : <a class="el" href="classGameEngine.html#ab01970da2c68fefbf48b98c59d5627ae">GameEngine</a>
@@ -211,11 +252,18 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>set_height()
 : <a class="el" href="classRectangle.html#aa213d73a69967007ace682e75b2c6f5c">Rectangle</a>
 </li>
+<li>set_logical_size()
+: <a class="el" href="classRenderer.html#a6b7c6e1f593cfadd763efdf52a57b37f">Renderer</a>
+</li>
+<li>set_render_draw_color()
+: <a class="el" href="classRenderer.html#ab8ab7b2844c928bcc162113ad6ed7f91">Renderer</a>
+</li>
 <li>set_stunned()
 : <a class="el" href="classPlayer.html#ae1857d3a17170037c97e26ba2822abcb">Player</a>
 </li>
 <li>set_viewport()
 : <a class="el" href="classGraphicsEngine.html#a2453a8122ecebeca65027567dcd87390">GraphicsEngine</a>
+, <a class="el" href="classRenderer.html#ab7188c058a13daea4e848d4afa35cfee">Renderer</a>
 </li>
 <li>set_width()
 : <a class="el" href="classRectangle.html#a03a961a0c4c9b0acdb187592d3aa6cad">Rectangle</a>
@@ -225,6 +273,22 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 </li>
 <li>set_y()
 : <a class="el" href="classRectangle.html#a8131965d0faba223a45e600cb0e77d30">Rectangle</a>
+</li>
+<li>Sprite()
+: <a class="el" href="classSprite.html#a871c0994839f8f589d8d4f90706c740c">Sprite</a>
+</li>
+<li>Surface()
+: <a class="el" href="classSurface.html#ae241769d4af11466aeca70c73a40cfb3">Surface</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_t"></a>- t -</h3><ul>
+<li>Texture()
+: <a class="el" href="classTexture.html#afdc0b34a549bfec4576cc6ac019a1ebc">Texture</a>
+</li>
+<li>TextureHandler()
+: <a class="el" href="classTextureHandler.html#a597685005576239c98b2a1b6ae6761c4">TextureHandler</a>
 </li>
 </ul>
 
@@ -236,6 +300,7 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 , <a class="el" href="classPlayer.html#a82c3476f3e65a4e2ac6bcd040771bdd4">Player</a>
 , <a class="el" href="classPlayState.html#a22a67c736d953e613236f99cbb58eb2d">PlayState</a>
 , <a class="el" href="classProjectile.html#a8b32ce7d21ec9032812b528e5cb87cc7">Projectile</a>
+, <a class="el" href="classSprite.html#a7449245a6f62a7897a54e9853b6cbec5">Sprite</a>
 </li>
 </ul>
 
@@ -245,12 +310,19 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 : <a class="el" href="structGraphicsEngine_1_1Viewport.html#ad41781cd1bcba8447f73515a3ab3ec0e">GraphicsEngine::Viewport</a>
 </li>
 </ul>
+
+
+<h3><a class="anchor" id="index_w"></a>- w -</h3><ul>
+<li>Window()
+: <a class="el" href="classWindow.html#a60ba4cb171066b70f03b6485521d162e">Window</a>
+</li>
+</ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Dec 14 2014 16:06:02 for HackerGame by
+    <li class="footer">Generated on Sun Dec 14 2014 18:44:38 for HackerGame by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

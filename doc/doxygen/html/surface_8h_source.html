@@ -77,33 +77,41 @@ $(document).ready(function(){initNavTree('surface_8h_source.html','');});
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL.h&gt;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classSurface.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSurface.html">Surface</a></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="classSurface.html">Surface</a>(SDL_Surface* surface);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="classSurface.html">Surface</a>&amp; operator=(<a class="code" href="classSurface.html">Surface</a> <span class="keyword">const</span>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    ~<a class="code" href="classSurface.html">Surface</a>();</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="classSurface.html">Surface</a>(<a class="code" href="classSurface.html">Surface</a> <span class="keyword">const</span>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    SDL_Surface* get_surface();</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">int</span> get_width() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">int</span> get_height() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classSurface.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSurface.html">Surface</a></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="classSurface.html#ae241769d4af11466aeca70c73a40cfb3">Surface</a>(SDL_Surface* surface);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    ~<a class="code" href="classSurface.html">Surface</a>();</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    SDL_Surface* surface_;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;};</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SURFACE_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="classSurface_html"><div class="ttname"><a href="classSurface.html">Surface</a></div><div class="ttdef"><b>Definition:</b> surface.h:13</div></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="classSurface.html#ae241769d4af11466aeca70c73a40cfb3">Surface</a>(<a class="code" href="classSurface.html">Surface</a> <span class="keyword">const</span>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="classSurface.html">Surface</a>&amp; <a class="code" href="classSurface.html#a5c7c9341756dffc92d63a61933a4f480">operator=</a>(<a class="code" href="classSurface.html">Surface</a> <span class="keyword">const</span>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    SDL_Surface* <a class="code" href="classSurface.html#a2d70ec8ca4a14004bab2d9883baf7bf8">get_surface</a>();</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classSurface.html#a33458a94ec29dd95cf9e46269ad8d38f">get_width</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classSurface.html#a80093b6cb587bb6ced448d547b3f8fd4">get_height</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    SDL_Surface* surface_;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;};</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SURFACE_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="classSurface_html_a2d70ec8ca4a14004bab2d9883baf7bf8"><div class="ttname"><a href="classSurface.html#a2d70ec8ca4a14004bab2d9883baf7bf8">Surface::get_surface</a></div><div class="ttdeci">SDL_Surface * get_surface()</div><div class="ttdoc">Get the internal SDL_Surface pointer. </div></div>
+<div class="ttc" id="classSurface_html"><div class="ttname"><a href="classSurface.html">Surface</a></div><div class="ttdef"><b>Definition:</b> surface.h:16</div></div>
+<div class="ttc" id="classSurface_html_a80093b6cb587bb6ced448d547b3f8fd4"><div class="ttname"><a href="classSurface.html#a80093b6cb587bb6ced448d547b3f8fd4">Surface::get_height</a></div><div class="ttdeci">int get_height() const </div><div class="ttdoc">Get surface hight. </div></div>
+<div class="ttc" id="classSurface_html_a33458a94ec29dd95cf9e46269ad8d38f"><div class="ttname"><a href="classSurface.html#a33458a94ec29dd95cf9e46269ad8d38f">Surface::get_width</a></div><div class="ttdeci">int get_width() const </div><div class="ttdoc">Get surface width. </div></div>
+<div class="ttc" id="classSurface_html_a5c7c9341756dffc92d63a61933a4f480"><div class="ttname"><a href="classSurface.html#a5c7c9341756dffc92d63a61933a4f480">Surface::operator=</a></div><div class="ttdeci">Surface &amp; operator=(Surface const &amp;)=delete</div><div class="ttdoc">Deleted assignment operator. </div></div>
+<div class="ttc" id="classSurface_html_ae241769d4af11466aeca70c73a40cfb3"><div class="ttname"><a href="classSurface.html#ae241769d4af11466aeca70c73a40cfb3">Surface::Surface</a></div><div class="ttdeci">Surface(SDL_Surface *surface)</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><b>surface.h</b></li>
-    <li class="footer">Generated on Sun Dec 14 2014 16:06:02 for HackerGame by
+    <li class="footer">Generated on Sun Dec 14 2014 18:44:38 for HackerGame by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

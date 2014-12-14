@@ -13,18 +13,36 @@
 class Renderer;
 class Surface;
 
+/**
+ * Wrapper class for SDL_Texture
+ */
 class Texture
 {
 public:
+  /**
+   * Initialize texture
+   * @param renderer Renderer used to initialize the texture
+   * @param surface Surface to copy texture data from
+   */
 	Texture(Renderer& renderer, SDL_Surface* surface);
+
+  /**
+   * Initialize texture
+   * @param renderer Renderer used to initialize the texture
+   * @param surface Surface to copy texture data from
+   */
 	Texture(Renderer& renderer, Surface& surface);
+
+	/// Deleted copy constructor
 	Texture(Texture const&) = delete;
 	~Texture();
-
+	/// Deleted assignment operator
 	Texture& operator=(Texture const&) = delete;
 
+	/// Get the internal SDL_Texture
 	SDL_Texture* get_texture() const;
 private:
+	/// Internal SDL_Texture
 	SDL_Texture* texture_;
 };
 

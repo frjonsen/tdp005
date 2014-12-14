@@ -10,20 +10,36 @@
 
 #include <SDL2/SDL.h>
 
+/**
+ * Wrapper for SDL_Surface
+ */
 class Surface
 {
 public:
+  /**
+   * Initialize surface
+   * @param surface Pointer to SDL_Surface* to handle
+   */
 	Surface(SDL_Surface* surface);
-	Surface& operator=(Surface const&) = delete;
 	~Surface();
 
+	/// Deleted copy constructor
 	Surface(Surface const&) = delete;
 
+	/// Deleted assignment operator
+	Surface& operator=(Surface const&) = delete;
+
+	/// Get the internal SDL_Surface pointer
 	SDL_Surface* get_surface();
+
+	/// Get surface width
 	int get_width() const;
+
+	/// Get surface hight
 	int get_height() const;
 
 private:
+	/// Internal SDL_Surface pointer
 	SDL_Surface* surface_;
 };
 

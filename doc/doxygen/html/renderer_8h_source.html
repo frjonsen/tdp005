@@ -73,43 +73,59 @@ $(document).ready(function(){initNavTree('renderer_8h_source.html','');});
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">class </span><a class="code" href="classRectangle.html">Rectangle</a>;</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">class </span><a class="code" href="classWindow.html">Window</a>;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="classRenderer.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="classRenderer.html">Renderer</a></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="classRenderer.html">Renderer</a>(<a class="code" href="classWindow.html">Window</a>&amp; window);</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    ~<a class="code" href="classRenderer.html">Renderer</a>();</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="classRenderer.html">Renderer</a>(<a class="code" href="classRenderer.html">Renderer</a> <span class="keyword">const</span>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="classRenderer.html">Renderer</a>&amp; operator=(<a class="code" href="classRenderer.html">Renderer</a> <span class="keyword">const</span>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    SDL_Renderer* get_renderer();</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">void</span> set_render_draw_color(uint8_t r, uint8_t g, uint8_t b, uint8_t a = 255);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">void</span> render_copy(<a class="code" href="classTexture.html">Texture</a>* texture, <a class="code" href="classRectangle.html">Rectangle</a> <span class="keyword">const</span>&amp; srcrect,</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            <a class="code" href="classRectangle.html">Rectangle</a> <span class="keyword">const</span>&amp; dstrect);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">void</span> render_copy_ex(<a class="code" href="classTexture.html">Texture</a>* texture, <a class="code" href="classRectangle.html">Rectangle</a> <span class="keyword">const</span>&amp; srcrect, <a class="code" href="classRectangle.html">Rectangle</a> <span class="keyword">const</span>&amp; dstrect,</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            <span class="keywordtype">double</span> angle, SDL_Point* center, SDL_RendererFlip flip);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">void</span> set_logical_size(<span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">void</span> set_viewport(<a class="code" href="classRectangle.html">Rectangle</a> <span class="keyword">const</span>&amp; viewport);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">void</span> render_present();</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">void</span> clear();</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classRenderer.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="classRenderer.html">Renderer</a></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="classRenderer.html#ab754154ec14584667ea0319d69c438f9">Renderer</a>(<a class="code" href="classWindow.html">Window</a>&amp; window);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    ~<a class="code" href="classRenderer.html">Renderer</a>();</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="classRenderer.html#ab754154ec14584667ea0319d69c438f9">Renderer</a>(<a class="code" href="classRenderer.html">Renderer</a> <span class="keyword">const</span>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="classRenderer.html">Renderer</a>&amp; <a class="code" href="classRenderer.html#a28f3e34c1127d4230c3f5479e716c853">operator=</a>(<a class="code" href="classRenderer.html">Renderer</a> <span class="keyword">const</span>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    SDL_Renderer* <a class="code" href="classRenderer.html#ac58a71fbb02f2c7a92382f4ff2577f65">get_renderer</a>();</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    SDL_Renderer* renderer_;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;};</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="classRenderer_html"><div class="ttname"><a href="classRenderer.html">Renderer</a></div><div class="ttdef"><b>Definition:</b> renderer.h:9</div></div>
-<div class="ttc" id="classWindow_html"><div class="ttname"><a href="classWindow.html">Window</a></div><div class="ttdef"><b>Definition:</b> window.h:7</div></div>
-<div class="ttc" id="classTexture_html"><div class="ttname"><a href="classTexture.html">Texture</a></div><div class="ttdef"><b>Definition:</b> texture.h:16</div></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classRenderer.html#ab8ab7b2844c928bcc162113ad6ed7f91">set_render_draw_color</a>(uint8_t r, uint8_t g, uint8_t b, uint8_t a = 255);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classRenderer.html#a75704fadd0d726bbfbb276a7d470b5c2">render_copy</a>(<a class="code" href="classTexture.html">Texture</a>* texture, <a class="code" href="classRectangle.html">Rectangle</a> <span class="keyword">const</span>&amp; srcrect,</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <a class="code" href="classRectangle.html">Rectangle</a> <span class="keyword">const</span>&amp; dstrect);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classRenderer.html#afb59b176502f52d516c82aa0429b2179">render_copy_ex</a>(<a class="code" href="classTexture.html">Texture</a>* texture, <a class="code" href="classRectangle.html">Rectangle</a> <span class="keyword">const</span>&amp; srcrect, <a class="code" href="classRectangle.html">Rectangle</a> <span class="keyword">const</span>&amp; dstrect,</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keywordtype">double</span> angle, SDL_Point* center, SDL_RendererFlip flip);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classRenderer.html#a6b7c6e1f593cfadd763efdf52a57b37f">set_logical_size</a>(<span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classRenderer.html#ab7188c058a13daea4e848d4afa35cfee">set_viewport</a>(<a class="code" href="classRectangle.html">Rectangle</a> <span class="keyword">const</span>&amp; viewport);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classRenderer.html#af116d7590f1e5f232ceb1d84b35286aa">render_present</a>();</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classRenderer.html#ac46720b3fc0dbb2fc37674766490a8c4">clear</a>();</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    SDL_Renderer* renderer_;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;};</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="classRenderer_html_ab7188c058a13daea4e848d4afa35cfee"><div class="ttname"><a href="classRenderer.html#ab7188c058a13daea4e848d4afa35cfee">Renderer::set_viewport</a></div><div class="ttdeci">void set_viewport(Rectangle const &amp;viewport)</div></div>
+<div class="ttc" id="classRenderer_html"><div class="ttname"><a href="classRenderer.html">Renderer</a></div><div class="ttdef"><b>Definition:</b> renderer.h:12</div></div>
+<div class="ttc" id="classRenderer_html_af116d7590f1e5f232ceb1d84b35286aa"><div class="ttname"><a href="classRenderer.html#af116d7590f1e5f232ceb1d84b35286aa">Renderer::render_present</a></div><div class="ttdeci">void render_present()</div></div>
+<div class="ttc" id="classRenderer_html_ab754154ec14584667ea0319d69c438f9"><div class="ttname"><a href="classRenderer.html#ab754154ec14584667ea0319d69c438f9">Renderer::Renderer</a></div><div class="ttdeci">Renderer(Window &amp;window)</div></div>
+<div class="ttc" id="classWindow_html"><div class="ttname"><a href="classWindow.html">Window</a></div><div class="ttdef"><b>Definition:</b> window.h:10</div></div>
+<div class="ttc" id="classTexture_html"><div class="ttname"><a href="classTexture.html">Texture</a></div><div class="ttdef"><b>Definition:</b> texture.h:19</div></div>
+<div class="ttc" id="classRenderer_html_ac46720b3fc0dbb2fc37674766490a8c4"><div class="ttname"><a href="classRenderer.html#ac46720b3fc0dbb2fc37674766490a8c4">Renderer::clear</a></div><div class="ttdeci">void clear()</div></div>
+<div class="ttc" id="classRenderer_html_ab8ab7b2844c928bcc162113ad6ed7f91"><div class="ttname"><a href="classRenderer.html#ab8ab7b2844c928bcc162113ad6ed7f91">Renderer::set_render_draw_color</a></div><div class="ttdeci">void set_render_draw_color(uint8_t r, uint8_t g, uint8_t b, uint8_t a=255)</div></div>
+<div class="ttc" id="classRenderer_html_a6b7c6e1f593cfadd763efdf52a57b37f"><div class="ttname"><a href="classRenderer.html#a6b7c6e1f593cfadd763efdf52a57b37f">Renderer::set_logical_size</a></div><div class="ttdeci">void set_logical_size(int width, int height)</div></div>
 <div class="ttc" id="classRectangle_html"><div class="ttname"><a href="classRectangle.html">Rectangle</a></div><div class="ttdef"><b>Definition:</b> rectangle.h:16</div></div>
+<div class="ttc" id="classRenderer_html_a75704fadd0d726bbfbb276a7d470b5c2"><div class="ttname"><a href="classRenderer.html#a75704fadd0d726bbfbb276a7d470b5c2">Renderer::render_copy</a></div><div class="ttdeci">void render_copy(Texture *texture, Rectangle const &amp;srcrect, Rectangle const &amp;dstrect)</div></div>
+<div class="ttc" id="classRenderer_html_afb59b176502f52d516c82aa0429b2179"><div class="ttname"><a href="classRenderer.html#afb59b176502f52d516c82aa0429b2179">Renderer::render_copy_ex</a></div><div class="ttdeci">void render_copy_ex(Texture *texture, Rectangle const &amp;srcrect, Rectangle const &amp;dstrect, double angle, SDL_Point *center, SDL_RendererFlip flip)</div></div>
+<div class="ttc" id="classRenderer_html_a28f3e34c1127d4230c3f5479e716c853"><div class="ttname"><a href="classRenderer.html#a28f3e34c1127d4230c3f5479e716c853">Renderer::operator=</a></div><div class="ttdeci">Renderer &amp; operator=(Renderer const &amp;)=delete</div><div class="ttdoc">Deleted assignment constructor. </div></div>
+<div class="ttc" id="classRenderer_html_ac58a71fbb02f2c7a92382f4ff2577f65"><div class="ttname"><a href="classRenderer.html#ac58a71fbb02f2c7a92382f4ff2577f65">Renderer::get_renderer</a></div><div class="ttdeci">SDL_Renderer * get_renderer()</div><div class="ttdoc">Return the internal SDL_Renderer. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><b>renderer.h</b></li>
-    <li class="footer">Generated on Sun Dec 14 2014 16:06:02 for HackerGame by
+    <li class="footer">Generated on Sun Dec 14 2014 18:44:38 for HackerGame by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

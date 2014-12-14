@@ -71,43 +71,307 @@ $(document).ready(function(){initNavTree('classRenderer.html','');});
 <div class="title">Renderer Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="renderer_8h_source.html">renderer.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab754154ec14584667ea0319d69c438f9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab754154ec14584667ea0319d69c438f9"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Renderer</b> (<a class="el" href="classWindow.html">Window</a> &amp;window)</td></tr>
+<tr class="memitem:ab754154ec14584667ea0319d69c438f9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderer.html#ab754154ec14584667ea0319d69c438f9">Renderer</a> (<a class="el" href="classWindow.html">Window</a> &amp;window)</td></tr>
 <tr class="separator:ab754154ec14584667ea0319d69c438f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e2bcfa82886cdc399254ea39b34da7f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8e2bcfa82886cdc399254ea39b34da7f"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Renderer</b> (<a class="el" href="classRenderer.html">Renderer</a> const &amp;)=delete</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderer.html#a8e2bcfa82886cdc399254ea39b34da7f">Renderer</a> (<a class="el" href="classRenderer.html">Renderer</a> const &amp;)=delete</td></tr>
+<tr class="memdesc:a8e2bcfa82886cdc399254ea39b34da7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted copy constructor. <br/></td></tr>
 <tr class="separator:a8e2bcfa82886cdc399254ea39b34da7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28f3e34c1127d4230c3f5479e716c853"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a28f3e34c1127d4230c3f5479e716c853"></a>
-<a class="el" href="classRenderer.html">Renderer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classRenderer.html">Renderer</a> const &amp;)=delete</td></tr>
+<a class="el" href="classRenderer.html">Renderer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderer.html#a28f3e34c1127d4230c3f5479e716c853">operator=</a> (<a class="el" href="classRenderer.html">Renderer</a> const &amp;)=delete</td></tr>
+<tr class="memdesc:a28f3e34c1127d4230c3f5479e716c853"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted assignment constructor. <br/></td></tr>
 <tr class="separator:a28f3e34c1127d4230c3f5479e716c853"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac58a71fbb02f2c7a92382f4ff2577f65"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac58a71fbb02f2c7a92382f4ff2577f65"></a>
-SDL_Renderer *&#160;</td><td class="memItemRight" valign="bottom"><b>get_renderer</b> ()</td></tr>
+SDL_Renderer *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderer.html#ac58a71fbb02f2c7a92382f4ff2577f65">get_renderer</a> ()</td></tr>
+<tr class="memdesc:ac58a71fbb02f2c7a92382f4ff2577f65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the internal SDL_Renderer. <br/></td></tr>
 <tr class="separator:ac58a71fbb02f2c7a92382f4ff2577f65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8ab7b2844c928bcc162113ad6ed7f91"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab8ab7b2844c928bcc162113ad6ed7f91"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>set_render_draw_color</b> (uint8_t r, uint8_t g, uint8_t b, uint8_t a=255)</td></tr>
+<tr class="memitem:ab8ab7b2844c928bcc162113ad6ed7f91"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderer.html#ab8ab7b2844c928bcc162113ad6ed7f91">set_render_draw_color</a> (uint8_t r, uint8_t g, uint8_t b, uint8_t a=255)</td></tr>
 <tr class="separator:ab8ab7b2844c928bcc162113ad6ed7f91"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75704fadd0d726bbfbb276a7d470b5c2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a75704fadd0d726bbfbb276a7d470b5c2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>render_copy</b> (<a class="el" href="classTexture.html">Texture</a> *texture, <a class="el" href="classRectangle.html">Rectangle</a> const &amp;srcrect, <a class="el" href="classRectangle.html">Rectangle</a> const &amp;dstrect)</td></tr>
+<tr class="memitem:a75704fadd0d726bbfbb276a7d470b5c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderer.html#a75704fadd0d726bbfbb276a7d470b5c2">render_copy</a> (<a class="el" href="classTexture.html">Texture</a> *texture, <a class="el" href="classRectangle.html">Rectangle</a> const &amp;srcrect, <a class="el" href="classRectangle.html">Rectangle</a> const &amp;dstrect)</td></tr>
 <tr class="separator:a75704fadd0d726bbfbb276a7d470b5c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb59b176502f52d516c82aa0429b2179"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afb59b176502f52d516c82aa0429b2179"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>render_copy_ex</b> (<a class="el" href="classTexture.html">Texture</a> *texture, <a class="el" href="classRectangle.html">Rectangle</a> const &amp;srcrect, <a class="el" href="classRectangle.html">Rectangle</a> const &amp;dstrect, double angle, SDL_Point *center, SDL_RendererFlip flip)</td></tr>
+<tr class="memitem:afb59b176502f52d516c82aa0429b2179"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderer.html#afb59b176502f52d516c82aa0429b2179">render_copy_ex</a> (<a class="el" href="classTexture.html">Texture</a> *texture, <a class="el" href="classRectangle.html">Rectangle</a> const &amp;srcrect, <a class="el" href="classRectangle.html">Rectangle</a> const &amp;dstrect, double angle, SDL_Point *center, SDL_RendererFlip flip)</td></tr>
 <tr class="separator:afb59b176502f52d516c82aa0429b2179"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b7c6e1f593cfadd763efdf52a57b37f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6b7c6e1f593cfadd763efdf52a57b37f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>set_logical_size</b> (int width, int height)</td></tr>
+<tr class="memitem:a6b7c6e1f593cfadd763efdf52a57b37f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderer.html#a6b7c6e1f593cfadd763efdf52a57b37f">set_logical_size</a> (int width, int height)</td></tr>
 <tr class="separator:a6b7c6e1f593cfadd763efdf52a57b37f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7188c058a13daea4e848d4afa35cfee"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab7188c058a13daea4e848d4afa35cfee"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>set_viewport</b> (<a class="el" href="classRectangle.html">Rectangle</a> const &amp;viewport)</td></tr>
+<tr class="memitem:ab7188c058a13daea4e848d4afa35cfee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderer.html#ab7188c058a13daea4e848d4afa35cfee">set_viewport</a> (<a class="el" href="classRectangle.html">Rectangle</a> const &amp;viewport)</td></tr>
 <tr class="separator:ab7188c058a13daea4e848d4afa35cfee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af116d7590f1e5f232ceb1d84b35286aa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af116d7590f1e5f232ceb1d84b35286aa"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>render_present</b> ()</td></tr>
+<tr class="memitem:af116d7590f1e5f232ceb1d84b35286aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderer.html#af116d7590f1e5f232ceb1d84b35286aa">render_present</a> ()</td></tr>
 <tr class="separator:af116d7590f1e5f232ceb1d84b35286aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac46720b3fc0dbb2fc37674766490a8c4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac46720b3fc0dbb2fc37674766490a8c4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> ()</td></tr>
+<tr class="memitem:ac46720b3fc0dbb2fc37674766490a8c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderer.html#ac46720b3fc0dbb2fc37674766490a8c4">clear</a> ()</td></tr>
 <tr class="separator:ac46720b3fc0dbb2fc37674766490a8c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Wrapper class for SDL_Renderer </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ab754154ec14584667ea0319d69c438f9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Renderer::Renderer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classWindow.html">Window</a> &amp;&#160;</td>
+          <td class="paramname"><em>window</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Initialize renderer </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window</td><td><a class="el" href="classWindow.html">Window</a> to draw in </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ac46720b3fc0dbb2fc37674766490a8c4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Renderer::clear </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Use this function to clear the current rendering target with the drawing color. </p>
+
+</div>
+</div>
+<a class="anchor" id="a75704fadd0d726bbfbb276a7d470b5c2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Renderer::render_copy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classTexture.html">Texture</a> *&#160;</td>
+          <td class="paramname"><em>texture</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classRectangle.html">Rectangle</a> const &amp;&#160;</td>
+          <td class="paramname"><em>srcrect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classRectangle.html">Rectangle</a> const &amp;&#160;</td>
+          <td class="paramname"><em>dstrect</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Use this function to copy a portion of the texture to the current rendering target. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">texture</td><td>the source texture </td></tr>
+    <tr><td class="paramname">srcrect</td><td>the source <a class="el" href="classRectangle.html">Rectangle</a> structure </td></tr>
+    <tr><td class="paramname">dstrect</td><td>the destination <a class="el" href="classRectangle.html">Rectangle</a> structure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="afb59b176502f52d516c82aa0429b2179"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Renderer::render_copy_ex </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classTexture.html">Texture</a> *&#160;</td>
+          <td class="paramname"><em>texture</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classRectangle.html">Rectangle</a> const &amp;&#160;</td>
+          <td class="paramname"><em>srcrect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classRectangle.html">Rectangle</a> const &amp;&#160;</td>
+          <td class="paramname"><em>dstrect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>angle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Point *&#160;</td>
+          <td class="paramname"><em>center</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_RendererFlip&#160;</td>
+          <td class="paramname"><em>flip</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Use this function to copy a portion of the texture to the current rendering target, optionally rotating it by angle around the given center and also flipping it top-bottom and/or left-right </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">texture</td><td>the source texture </td></tr>
+    <tr><td class="paramname">srcrect</td><td>the source <a class="el" href="classRectangle.html">Rectangle</a> structure </td></tr>
+    <tr><td class="paramname">dstrect</td><td>the destination <a class="el" href="classRectangle.html">Rectangle</a> structure </td></tr>
+    <tr><td class="paramname">angle</td><td>an angle in degrees that indicates the rotation that will be applied to dstrect </td></tr>
+    <tr><td class="paramname">center</td><td>a pointer to a point indicating the point around which dstrect will be rotated (if NULL, rotation will be done aroud dstrect.w/2, dstrect.h/2) </td></tr>
+    <tr><td class="paramname">flip</td><td>an SDL_RendererFlip value stating which flipping actions should be performed on the texture </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="af116d7590f1e5f232ceb1d84b35286aa"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Renderer::render_present </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Use this function to update the screen with any rendering performed since the previous call. </p>
+
+</div>
+</div>
+<a class="anchor" id="a6b7c6e1f593cfadd763efdf52a57b37f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Renderer::set_logical_size </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>height</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Use this function to set a device independent resolution for rendering. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">width</td><td>the width of the logical resolution </td></tr>
+    <tr><td class="paramname">height</td><td>the height of the logical resolution </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ab8ab7b2844c928bcc162113ad6ed7f91"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Renderer::set_render_draw_color </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>a</em> = <code>255</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Use this function to set the color used for drawing operations (Rect, Line and Clear). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r</td><td>the red value used to draw on the rendering target </td></tr>
+    <tr><td class="paramname">g</td><td>the green value used to draw on the rendering target </td></tr>
+    <tr><td class="paramname">b</td><td>the blue value used to draw on the rendering target </td></tr>
+    <tr><td class="paramname">a</td><td>the alpha value used to draw on the rendering target </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ab7188c058a13daea4e848d4afa35cfee"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Renderer::set_viewport </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classRectangle.html">Rectangle</a> const &amp;&#160;</td>
+          <td class="paramname"><em>viewport</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the drawing area for rendering on the current target. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">viewport</td><td>the <a class="el" href="classRectangle.html">Rectangle</a> structure representing the drawing area </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>/home/vakz/tdp005/include/<a class="el" href="renderer_8h_source.html">renderer.h</a></li>
 </ul>
@@ -117,7 +381,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> ()</td></tr
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classRenderer.html">Renderer</a></li>
-    <li class="footer">Generated on Sun Dec 14 2014 16:06:02 for HackerGame by
+    <li class="footer">Generated on Sun Dec 14 2014 18:44:38 for HackerGame by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
