@@ -9,7 +9,7 @@
 #include <iostream>
 
 GameEngine::GameEngine()
-    : is_{}, graphics_engine_ {
+    : is_{}, go_{}, graphics_engine_ {
         kGameTitle, kWindowWidth, kWindowHeight, ps_.kWorldWidth,
         ps_.kWorldHeight }
 
@@ -64,7 +64,18 @@ void GameEngine::handle_state_command(AbstractGameState::StateCommand cmd)
       //active_state_ = &(is_("Resume"));
      active_state_ = &is_;
       break;
-    case StateCommand::kGameOver:
+    case StateCommand::kWin:
+      go_.set_end_type("kWin");
+      active_state_ = &go_;
+      break;
+    case StateCommand::kKilled:
+      go_.set_end_type("kKilled");
+      active_state_ = &go_;
+      // TODO: Change variable to see what kind
+      break;
+    case StateCommand::kFell:
+      go_.set_end_type("kFell");
+      active_state_ = &go_;
       break;
     case StateCommand::kOutOfTime:
       // TODO: Add reset

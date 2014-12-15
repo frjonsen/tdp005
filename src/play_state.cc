@@ -35,6 +35,15 @@ AbstractGameState::StateCommand PlayState::update(
   do_projectile_updates ();
   --time_;
   if (time_ == 0) return StateCommand::kOutOfTime;
+  if ( ((player_.get_x()) > 2280) && ((player_.get_y()) < 110) )
+    {
+     return StateCommand::kWin;
+    }
+  if ( (player_.get_y()) > 600 )
+  {
+    return StateCommand::kFell;
+  }
+
   return StateCommand::kNone;
 }
 

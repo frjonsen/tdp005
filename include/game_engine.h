@@ -14,6 +14,7 @@
 #include "graphics_engine.h"
 #include "play_state.h"
 #include "menu_state.h"
+#include "end_state.h"
 
 
 /**
@@ -35,7 +36,9 @@ class GameEngine
   AbstractGameState* active_state_ { nullptr };
 
   MenuState is_;
+  EndState go_;
   PlayState ps_{};
+
 
   //GameOverState gos_;
 

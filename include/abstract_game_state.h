@@ -30,7 +30,7 @@ public:
    */
   enum class StateCommand
   {
-    kPlay, kMenu, kExit, kGameOver, kNone, kOutOfTime
+    kPlay, kMenu, kExit, kKilled, kFell, kWin, kNone, kOutOfTime
   };
 
   /**

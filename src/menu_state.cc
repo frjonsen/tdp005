@@ -7,7 +7,6 @@
 
 
 #include <menu_state.h>
-#include <iostream>
 #include <SDL2/SDL.h>
 
 //Handles the return key for the update function.
