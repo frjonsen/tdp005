@@ -14,7 +14,6 @@
 #include "surface.h"
 #include <utility>
 #include <map>
-#include <iostream>
 
 TextureHandler::TextureHandler(Renderer& renderer, std::string resource_path)
     : resource_path_ { resource_path }, renderer_ ( renderer )

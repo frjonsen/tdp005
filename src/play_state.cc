@@ -6,7 +6,7 @@
  */
 
 #include "play_state.h"
-#include <iostream>
+
 
 /*
 PlayState::PlayState(const int gravity)
