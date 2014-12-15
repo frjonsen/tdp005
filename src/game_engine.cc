@@ -35,7 +35,7 @@ void GameEngine::run()
     handle_state_command (cmd);
     graphics_engine_.set_background (active_state_->get_background ());
     graphics_engine_.set_viewport (active_state_->get_viewport ());
-    graphics_engine_.redraw_screen (active_state_->get_sprites ());
+    graphics_engine_.redraw_screen (active_state_->get_sprites (), active_state_->get_texts());
 
     size_t end_time { SDL_GetTicks () };
     size_t difference { end_time - start_time };

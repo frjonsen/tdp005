@@ -17,6 +17,7 @@
 #include <map>
 #include <utility>
 #include "texture_handler.h"
+#include <SDL2/SDL_ttf.h>
 /*
  void initialize(int width, int height)
  {
@@ -158,7 +159,7 @@ int main()
     std::runtime_error ("Failed to initialize SDL");
     exit (1);
   }
-
+  TTF_Init();
   GameEngine game_engine;
   game_engine.run ();
 }

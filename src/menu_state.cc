@@ -93,6 +93,12 @@ std::list<Sprite const*> MenuState::get_sprites() const
   }
 }
 
+std::list<TextTexture> MenuState::get_texts() const
+{
+  std::list<TextTexture> empty;
+  return empty;
+}
+
 //Returns the location of the currently used background as a string.
 std::string MenuState::get_background() const
 {

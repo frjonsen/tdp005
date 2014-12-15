@@ -54,6 +54,12 @@ std::list<Sprite const*> PlayState::get_sprites() const
   return all_sprites;
 }
 
+std::list<TextTexture> PlayState::get_texts() const
+{
+  TextTexture t("hej", 300, 400);
+  return std::list<TextTexture> { t };
+}
+
 std::string PlayState::get_background() const
 {
   return background_;

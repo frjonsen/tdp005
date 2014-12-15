@@ -24,6 +24,7 @@ public:
 
   StateCommand update(std::list<GameInput> const&);
   std::list<Sprite const*> get_sprites() const;
+  std::list<TextTexture> get_texts() const;
   std::string get_background() const;
 
   void set_background();

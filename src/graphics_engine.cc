@@ -9,6 +9,7 @@
 #include "window.h"
 #include <stdexcept>
 #include <iostream>
+#include "text_texture.h"
 
 GraphicsEngine::GraphicsEngine(const std::string window_title,
                                const int window_width, const int window_height,
@@ -31,27 +32,37 @@ void GraphicsEngine::redraw_screen(std::list<Sprite const*> const& sprites)
 {
   std::list<Sprite const*> visible_sprites;
   get_visible_sprites (sprites, visible_sprites);
+  renderer_.clear ();
+  draw_background ();
   draw_screen (sprites);
+}
+
+void GraphicsEngine::redraw_screen(std::list<Sprite const*> const& sprites, std::list<TextTexture> const& texts)
+{
+  redraw_screen(sprites);
+  render_text(texts);
+  renderer_.render_present ();
 }
 
 void GraphicsEngine::draw_screen(std::list<Sprite const*> const& sprites)
 {
-  renderer_.clear ();
-  draw_background ();
+
   for (Sprite const* s : sprites)
   {
-    Texture* texture { texture_handler_.get_texture (s->get_texture().texture_name) };
+    Texture* texture { texture_handler_.get_texture (
+        s->get_texture ().texture_name) };
     Rectangle corrected_for_viewport { s->get_x () - viewport_.x, s->get_y ()
         - viewport_.y, texture->kWidth, texture->kHeight };
-
 
     //renderer_.render_copy (texture, s->get_enclosing_rect (),
     //                       corrected_for_viewport);
     SDL_RendererFlip flip = SDL_FLIP_NONE;
-    if (s->get_texture().flip) flip = SDL_FLIP_HORIZONTAL;
-    renderer_.render_copy_ex (texture, {0,0,texture->kWidth, texture->kHeight}, corrected_for_viewport, 0, NULL, flip);
+    if (s->get_texture ().flip) flip = SDL_FLIP_HORIZONTAL;
+    renderer_.render_copy_ex (texture,
+                              { 0, 0, texture->kWidth, texture->kHeight },
+                              corrected_for_viewport, 0, NULL, flip);
   }
-  renderer_.render_present ();
+
 }
 
 void GraphicsEngine::draw_background()
@@ -92,4 +103,22 @@ void GraphicsEngine::set_viewport(Viewport viewport)
 void GraphicsEngine::set_background(std::string texture)
 {
   background_ = texture;
+}
+
+void GraphicsEngine::render_text(TextTexture text)
+{
+  Texture* t { texture_handler_.create_text_texture (text) };
+  Rectangle enclosing{ 0, 0, t->kWidth, t->kHeight };
+  Rectangle position { text.kX, text.kY, t->kWidth, t->kHeight };
+  std::cerr << enclosing.get_height() << std::endl;
+  renderer_.render_copy (t, enclosing, position);
+  delete t;
+}
+
+void GraphicsEngine::render_text(std::list<TextTexture> texts)
+{
+  for (TextTexture& t : texts)
+  {
+    render_text(t);
+  }
 }

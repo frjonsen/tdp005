@@ -8,16 +8,18 @@
 #include "texture_handler.h"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+
 #include <stdexcept>
 #include "texture.h"
 #include "surface.h"
 #include <utility>
 #include <map>
+#include <iostream>
 
 TextureHandler::TextureHandler(Renderer& renderer, std::string resource_path)
     : resource_path_ { resource_path }, renderer_ ( renderer )
 {
-
+      font_ = TTF_OpenFont("UbuntuMono-R.ttf", 40);
 }
 
 TextureHandler::~TextureHandler()
@@ -27,6 +29,7 @@ TextureHandler::~TextureHandler()
     delete t.second;
     t.second = nullptr;
   }
+  TTF_CloseFont(font_);
 }
 
 void TextureHandler::load_texture(std::string texture_name)
@@ -51,3 +54,9 @@ Texture* TextureHandler::get_texture(std::string texture_name)
   return loaded_textures_.at(texture_name);
 }
 
+Texture* TextureHandler::create_text_texture(TextTexture text)
+{
+  SDL_Color color{255, 255, 255, 255};
+  Surface s(TTF_RenderText_Solid(font_, text.kText.c_str(), color));
+  return new Texture(renderer_, s, s.get_width(), s.get_height());
+}

@@ -12,6 +12,8 @@
 #include <map>
 #include "texture.h"
 #include "renderer.h"
+#include "text_texture.h"
+#include <SDL2/SDL_ttf.h>
 
 /**
  * Used to handle loading and caching textures from harddrive
@@ -23,6 +25,9 @@ class TextureHandler
 
   /// Renderer used to initialize textures
   Renderer& renderer_;
+
+  /// Font used to render text
+  TTF_Font* font_{nullptr};
 
   /// Cached textures
   std::map<std::string, Texture*> loaded_textures_{};
@@ -58,6 +63,8 @@ public:
    * @return A pointer to the request Texture
    */
   Texture* get_texture(std::string texture_name);
+
+  Texture* create_text_texture(TextTexture text);
 };
 
 #endif /* INCLUDE_TEXTURE_HANDLER_H_ */

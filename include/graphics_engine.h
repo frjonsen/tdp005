@@ -61,7 +61,7 @@ private:
   Renderer renderer_;
 
   /// The current viewport
-  Viewport viewport_ { std::make_pair(0, 0) };
+  Viewport viewport_ { std::make_pair (0, 0) };
 
   /// The texture handler, used to load and cache textures
   TextureHandler texture_handler_;
@@ -82,6 +82,7 @@ private:
    * @param sprites All active sprites
    */
   void draw_screen(std::list<Sprite const*> const& sprites);
+
 
   /**
    * Draw the background, taking viewport into account
@@ -130,6 +131,11 @@ public:
    * @param sprites A list of all sprites to be drawn.
    */
   void redraw_screen(std::list<Sprite const*> const& sprites);
+  void redraw_screen(std::list<Sprite const*> const& sprites,
+                     std::list<TextTexture> const& texts);
+
+  void render_text(TextTexture text);
+  void render_text(std::list<TextTexture> texts);
 };
 
 #endif /* GRAPHICS_ENGINE_H_ */

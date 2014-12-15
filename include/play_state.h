@@ -34,6 +34,7 @@ public:
 
   StateCommand update(std::list<GameInput> const& input);
   std::list<Sprite const*> get_sprites() const;
+  std::list<TextTexture> get_texts() const;
   std::string get_background() const;
   std::pair<int, int> get_viewport() const;
 

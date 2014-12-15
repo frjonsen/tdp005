@@ -12,6 +12,7 @@
 #include <sprite.h>
 #include <utility>
 #include <string>
+#include <text_texture.h>
 
 /**
  * Common base class for all state classes
@@ -19,7 +20,9 @@
 class AbstractGameState
 {
 public:
-  virtual ~AbstractGameState() {}
+  virtual ~AbstractGameState()
+  {
+  }
 
   /**
    *  All commands states can returned to be handled
@@ -35,20 +38,25 @@ public:
    * to be handled by the state.
    */
   enum class GameInput
-  { kUp, kRight, kLeft, kSpace, kEscape, kReturn, kDown  };
+  {
+    kUp, kRight, kLeft, kSpace, kEscape, kReturn, kDown
+  };
 
-/**
- * Request the state to update itself
- * @param input All input from the game engine to the state
- * @return A StateCommand to be handled by the engine
- */
+  /**
+   * Request the state to update itself
+   * @param input All input from the game engine to the state
+   * @return A StateCommand to be handled by the engine
+   */
   virtual StateCommand update(std::list<GameInput> const& input) = 0;
 
   /**
    * The current viewport of the state.
    * @return x and y coordinates for the upper left corner of the viewport
    */
-  virtual std::pair<int, int> get_viewport() const { return std::make_pair(0,0); }
+  virtual std::pair<int, int> get_viewport() const
+  {
+    return std::make_pair (0, 0);
+  }
 
   /**
    * Get all active sprites
@@ -61,6 +69,8 @@ public:
    * @return Filename of background
    */
   virtual std::string get_background() const = 0;
+
+  virtual std::list<TextTexture> get_texts() const = 0;
 
 };
 
