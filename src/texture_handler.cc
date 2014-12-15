@@ -38,7 +38,7 @@ void TextureHandler::load_texture(std::string texture_name)
     std::string error = "File name '" + texture_name + "' does not exist";
     throw std::invalid_argument (error.c_str());
   }
-  loaded_textures_[texture_name] = new Texture(renderer_, s);
+  loaded_textures_[texture_name] = new Texture(renderer_, s, s.get_width(), s.get_height());
 }
 
 Texture* TextureHandler::get_texture(std::string texture_name)

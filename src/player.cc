@@ -25,7 +25,7 @@ void Player::update()
   if (frames_since_firing_ >= 0) ++frames_since_firing_;
   if (frames_since_firing_ > current_weapon_.cooldown) frames_since_firing_ =
       -1;
-  handle_animation();
+  handle_animation ();
   handle_move ();
 }
 
@@ -109,13 +109,11 @@ void Player::handle_move()
     if (stunned_timer_ == 0)
     {
       stunned_ = false;
-
     }
   }
   else
   {
     velocity_.x = 0;
-
   }
 
   set_y (get_y () + velocity_.y);

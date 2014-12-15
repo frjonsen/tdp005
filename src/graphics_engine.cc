@@ -40,15 +40,16 @@ void GraphicsEngine::draw_screen(std::list<Sprite const*> const& sprites)
   draw_background ();
   for (Sprite const* s : sprites)
   {
-    Rectangle corrected_for_viewport { s->get_x () - viewport_.x, s->get_y ()
-        - viewport_.y, s->get_width (), s->get_height () };
-
     Texture* texture { texture_handler_.get_texture (s->get_texture().texture_name) };
+    Rectangle corrected_for_viewport { s->get_x () - viewport_.x, s->get_y ()
+        - viewport_.y, texture->kWidth, texture->kHeight };
+
+
     //renderer_.render_copy (texture, s->get_enclosing_rect (),
     //                       corrected_for_viewport);
     SDL_RendererFlip flip = SDL_FLIP_NONE;
     if (s->get_texture().flip) flip = SDL_FLIP_HORIZONTAL;
-    renderer_.render_copy_ex (texture, s->get_enclosing_rect(), corrected_for_viewport, 0, NULL, flip);
+    renderer_.render_copy_ex (texture, {0,0,texture->kWidth, texture->kHeight}, corrected_for_viewport, 0, NULL, flip);
   }
   renderer_.render_present ();
 }
