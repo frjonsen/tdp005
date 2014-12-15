@@ -33,16 +33,26 @@ MenuState::StateCommand MenuState::update(
     std::list<MenuState::GameInput> const& input)
 {
   background_src_ = {current_background_.at (current_) };
-
+  bool keydown = false;
   for (GameInput i : input)
   {
     switch (i)
     {
       case GameInput::kUp:
+        if (!keydown)
+        {
         selected_ = MenuPointer ( ((int ( selected_ ) + 2) % 3) );
+        keydown = true;
+        break;
+        }
         break;
       case GameInput::kDown:
+        if (!keydown)
+        {
         selected_ = MenuPointer ( ((int ( selected_ ) + 1) % 3) );
+        keydown = true;
+        break;
+        }
         break;
       case GameInput::kReturn:
         return return_handler ();
@@ -51,6 +61,7 @@ MenuState::StateCommand MenuState::update(
         current_ = MenuDirectory::kRoot;
         break;
       default:
+        keydown = false;
         break;
     }
   }
