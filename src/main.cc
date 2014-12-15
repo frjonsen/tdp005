@@ -7,15 +7,7 @@
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
-#include <sprite.h>
-#include <surface.h>
-#include <rectangle.h>
-#include <vector>
 #include "game_engine.h"
-#include <iostream>
-#include <tuple>
-#include <map>
-#include <utility>
 #include "texture_handler.h"
 #include <SDL2/SDL_ttf.h>
 /*
@@ -74,83 +66,9 @@ void testeru(int width, int height)
 
   {
     SDL_Surface* temp = IMG_Load ("Geek_background.png");
-
-    wallpaper = SDL_CreateTextureFromSurface (renderer, temp);
-
-    wallpaper_width = temp->w;
-    wallpaper_height = temp->h;
-    SDL_FreeSurface (temp);
-
-    temp = IMG_Load ("coffe.png");
-    coffe_cup = SDL_CreateTextureFromSurface (renderer, temp);
-    coffe_width = temp->w;
-    coffe_height = temp->h;
-    SDL_FreeSurface (temp);
   }
-
-  SDL_Rect coffe_rect;
-
-  coffe_rect.x = std::get<0> (FREIDRICH.at (selected)); //1: 310x240 2: 240x315 3: 260x385
-  coffe_rect.y = std::get<1> (FREIDRICH.at (selected));
-  coffe_rect.w = coffe_width;
-  coffe_rect.h = coffe_height;
-
-  SDL_Rect wall_rect;
-
-  wall_rect.x = 0;
-  wall_rect.y = 0;
-  wall_rect.w = wallpaper_width;
-  wall_rect.h = wallpaper_height;
-
-  bool running { true };
-  while (running)
-  {
-    SDL_Event event;
-    while (SDL_PollEvent (&event))
-    {
-      if (event.type == SDL_QUIT)
-      {
-        running = false;
-      }
-      else if (event.type == SDL_KEYDOWN)
-      {
-        if (event.key.keysym.sym == SDLK_UP)
-        {
-          selected = menupointer::kHighscore;
-          std::cout << "upp" << std::endl;
-        }
-        if (event.key.keysym.sym == SDLK_RIGHT)
-        {
-          selected = menupointer::kControls;
-          std::cout << "höger" << std::endl;
-        }
-        if (event.key.keysym.sym == SDLK_DOWN)
-        {
-          selected = menupointer::kPlay;
-          std::cout << "ned" << std::endl;
-        }
-      }
-    }
-
-    SDL_SetRenderDrawColor (renderer, 0, 0, 0, 255);
-    SDL_RenderClear (renderer);
-
-    SDL_RenderCopy (renderer, wallpaper, nullptr, &wall_rect);
-    SDL_RenderCopy (renderer, coffe_cup, nullptr, &coffe_rect);
-
-    SDL_RenderPresent (renderer);
-    SDL_Delay (10);
-  }
-
-  SDL_DestroyTexture (wallpaper);
-  wallpaper = nullptr;
-  SDL_DestroyTexture (coffe_cup);
-  coffe_cup = nullptr;
-  SDL_DestroyRenderer (renderer);
-  SDL_DestroyWindow (window);
-
-//	SDL_Quit();
 }
+
 
 int main()
 {
