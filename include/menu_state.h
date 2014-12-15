@@ -52,6 +52,8 @@ private:
 
   /// Current active menu section
   MenuDirectory current_ { MenuDirectory::kRoot };
+
+  /// Background image
   std::string background_src_ { current_background_.at (current_) };
 
   /// Map of x:y coordinates for menu selector
@@ -65,6 +67,9 @@ private:
 
   /// Y coordinate for menu selector
   int coffe_y { std::get<1> (selector_coordinates_.at (selected_)) };
+
+  /// Controls if a key is pressed
+  bool keydown_{false};
 
   /// Texture of the menu selector
   Sprite coffe_cup_ { "coffe.png", { coffe_x, coffe_y, 51, 40 }, 0 };

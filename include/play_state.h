@@ -56,7 +56,7 @@ private:
   size_t time_ { 60 * kFPSGoal };
 
   /// The player
-  Player player_ { "Hero_Standing_R.png", { 50, 200, 30, 53 } };
+  Player player_ { "Hero_Standing_R.png", { 50, 200, 33, 53 } };
 
   /// A list of all terrain rectangles in the world
   std::list<Rectangle> terrain_ {};
