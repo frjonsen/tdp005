@@ -91,8 +91,10 @@ private:
    * Weapon properties
    */
   std::map<WeaponName, Weapon> weapons_ { { WeaponName::kWhileGun, Weapon (
-      "while_gun.png", 1, 15, 10, 10, 27, 38) }, { WeaponName::kIfGun, Weapon (
-      "normal_projectile.png", 1, 15, 15, 35, 7, 6) } };
+      "normal_projectile.png", 1, 15, 10, 10, 7, 6) }, { WeaponName::kIfGun, Weapon (
+      "big_projectile.png", 1, 8, 15, 50, 25, 25) } };
+
+ // nr, velocity, dmg, cd, w, h
 
   /// The vertical velocity a jump has
   const int kJumpVelocity;
