@@ -38,7 +38,7 @@ void Player::order_player(std::list<MovementCommand> moves)
       case MovementCommand::kJump:
         if (!jumping_ && !stunned_)
         {
-          jumping_ = true;
+          jump();          jumping_ = true;
           velocity_.y = -kJumpVelocity;
         }
         break;
@@ -137,4 +137,10 @@ void Player::handle_animation()
     animation_timer_ = 0;
     current_animation = 0;
   }
+}
+
+void Player::jump()
+{
+  jumping_ = true;
+  velocity_.y = -kJumpVelocity;
 }

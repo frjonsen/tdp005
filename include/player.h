@@ -140,6 +140,7 @@ public:
    * nullptr if weapon is on cooldown or player is stunned.
    */
   Projectile* fire();
+  void jump();
 };
 
 #endif /* PLAYER_H_ */
