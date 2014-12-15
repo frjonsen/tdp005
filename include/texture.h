@@ -24,14 +24,14 @@ public:
    * @param renderer Renderer used to initialize the texture
    * @param surface Surface to copy texture data from
    */
-	Texture(Renderer& renderer, SDL_Surface* surface);
+	Texture(Renderer& renderer, SDL_Surface* surface, int width, int height);
 
   /**
    * Initialize texture
    * @param renderer Renderer used to initialize the texture
    * @param surface Surface to copy texture data from
    */
-	Texture(Renderer& renderer, Surface& surface);
+	Texture(Renderer& renderer, Surface& surface, int width, int height);
 
 	/// Deleted copy constructor
 	Texture(Texture const&) = delete;
@@ -41,9 +41,13 @@ public:
 
 	/// Get the internal SDL_Texture
 	SDL_Texture* get_texture() const;
+	int kWidth;
+	int kHeight;
 private:
 	/// Internal SDL_Texture
 	SDL_Texture* texture_;
+
+
 };
 
 
