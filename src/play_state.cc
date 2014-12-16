@@ -245,7 +245,7 @@ void PlayState::do_enemy_update()
         --it;
         delete *temp;
         enemies_.erase (temp);
-
+        player_.jump();
       }
       else
       {
@@ -274,6 +274,7 @@ void PlayState::do_enemy_update()
           {
             delete *it;
             enemies_.erase (it);
+
           }
           delete_projectile (p_it);
           break;
