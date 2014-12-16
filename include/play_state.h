@@ -12,6 +12,7 @@
 #include <string>
 #include <player.h>
 #include <list>
+#include <walker_enemy.h>
 
 /**
  * State representing the actual game
@@ -45,6 +46,12 @@ public:
   /// Maximum amount of frames per second
   const size_t kFPSGoal { 60 };
 
+  enum class Direction
+  {
+    kHorizontal,
+    kVertical
+  };
+
 private:
 
   /// Game world gravity
@@ -65,6 +72,9 @@ private:
   /// All projectiles currently in existance
   std::list<Projectile*> active_projectiles_ {};
 
+  /// A list of all active enemies in the world
+  std::list<Enemy*> enemies_{};
+
   /// Background image
   std::string background_ { "playstate_background.png" };
 
@@ -76,8 +86,10 @@ private:
   std::list<Player::MovementCommand> translate_input(
       std::list<GameInput> const& input);
   /// Generate the game world terrain
-
   void generate_terrain();
+
+  /// Generate enemies in the world
+  void generate_enemies();
 
   /**
    * Check if any terrain is currently colliding with rectangle r
@@ -94,7 +106,7 @@ private:
    * @param moving_from Original position of the moving rect. Used to figure out direction
    * @param collision_target The rectangle the moving rect is colliding with
    */
-  void handle_collision(Sprite& moving_rect, Rectangle const& moving_from,
+  Direction handle_collision(Sprite& moving_rect, Rectangle const& moving_from,
                         Rectangle const& collision_target);
 
   /**
@@ -102,6 +114,8 @@ private:
    * @param commands  All actions requested by the human player
    */
   void do_player_update(std::list<Player::MovementCommand> commands);
+
+  void do_enemy_update();
 
   /**
    * Request all projectiles to update for current tick

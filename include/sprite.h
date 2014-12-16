@@ -87,6 +87,9 @@ public:
 	 */
 	const TextureInfo& get_texture() const;
 
+	int get_hp() const;
+	virtual void take_damage(int dmg);
+
 protected:
 	/// Information regarding the visual representation of the sprite
 	TextureInfo texture_;

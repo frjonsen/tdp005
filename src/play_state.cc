@@ -16,6 +16,7 @@ PlayState::PlayState(const int gravity)
 PlayState::PlayState()
 {
   generate_terrain();
+  generate_enemies();
 }
 
 PlayState::~PlayState()
@@ -24,11 +25,16 @@ PlayState::~PlayState()
   {
     delete p;
   }
+  for (Enemy* e : enemies_)
+  {
+    delete e;
+  }
 }
 
 AbstractGameState::StateCommand PlayState::update(
     std::list<GameInput> const& input)
 {
+  do_enemy_update();
   std::list<Player::MovementCommand> commands { translate_input (input) };
 
   do_player_update (commands);
@@ -58,6 +64,10 @@ std::list<Sprite const*> PlayState::get_sprites() const
   for (Projectile* p : active_projectiles_)
   {
     all_sprites.push_back (p);
+  }
+  for (Enemy* e : enemies_)
+  {
+    all_sprites.push_back(e);
   }
   all_sprites.push_back (&player_);
   return all_sprites;
@@ -98,6 +108,11 @@ void PlayState::generate_terrain()
   terrain_.push_back ( { 1996, 216, 93, 15 });
   terrain_.push_back ( { 2200, 159, 200, 14 });
   terrain_.push_back ( { 2400, 0, 50, 800 });
+}
+
+void PlayState::generate_enemies()
+{
+  enemies_.push_back(new WalkerEnemy(400, 100));
 }
 
 std::list<Player::MovementCommand> PlayState::translate_input(
@@ -179,30 +194,56 @@ void PlayState::do_player_update(std::list<Player::MovementCommand> commands)
   }
 }
 
-void PlayState::handle_collision(Sprite& sprite, Rectangle const& moving_from,
+void PlayState::do_enemy_update()
+{
+  for (Enemy* e : enemies_)
+  {
+    Rectangle before {*e};
+    e->update();
+    e->handle_gravity(kGravity);
+    std::list<Rectangle *> collisions{check_terrain_collision (*e)};
+      if (collisions.size () != 0)
+      {
+        for (Rectangle * r : collisions)
+        {
+          Direction d{handle_collision (*e, before, *r)};
+          if (d == Direction::kHorizontal) e->reverse_direction();
+        }
+      }
+  }
+}
+
+PlayState::Direction PlayState::handle_collision(Sprite& sprite, Rectangle const& moving_from,
                                  Rectangle const& collision_target)
 {
   int moving_bottom { moving_from.get_y () + moving_from.get_height () };
   int moving_right { moving_from.get_x () + moving_from.get_width () };
+  Direction direction;
   if (moving_right <= collision_target.get_x ()) // Moving object was enteirly to the left
   {
     sprite.set_x (collision_target.get_x () - sprite.get_width ());
+    return Direction::kHorizontal;
   }
   else if (moving_from.get_x ()
       >= collision_target.get_x () + collision_target.get_width ()) // Moving object was to the right
   {
     sprite.set_x (collision_target.get_x () + collision_target.get_width ());
+    return Direction::kHorizontal;
   }
   else if (moving_bottom <= collision_target.get_y ()) // Moving object was enteirly above
   {
     sprite.set_y (collision_target.get_y () - sprite.get_height ());
     sprite.reset_y_velocity ();
+    return Direction::kVertical;
   }
+  /*
   else if (moving_from.get_y () // Moving object was enteirly below
-  >= collision_target.get_y () + collision_target.get_height ())
+  >= collision_target.get_y () + collision_target.get_height ())*/
+  else
   {
     sprite.set_y (collision_target.get_y () + collision_target.get_height ());
     sprite.reset_y_velocity ();
+    return Direction::kVertical;
   }
 }
 
