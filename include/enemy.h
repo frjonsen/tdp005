@@ -9,6 +9,7 @@
 #define ENEMY_H_
 
 #include <sprite.h>
+#include <projectile.h>
 
 class Enemy : public Sprite
 {
@@ -21,12 +22,14 @@ public:
   };
 
   const EnemyType kType;
+  const bool kIsRanged;
 
   void reverse_direction();
+  virtual Projectile* fire(Sprite const& player);
 
 protected:
   Enemy(std::string texture, Rectangle const& rectangle, int hp,
-        const int top_velocity, EnemyType type);
+        const int top_velocity, EnemyType type, bool ranged);
 
 };
 

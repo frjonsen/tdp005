@@ -17,4 +17,5 @@ Projectile::Projectile(const std::string texture, Rectangle const& rect,
 void Projectile::update()
 {
   set_x (get_x () + velocity_.x);
+  set_y (get_y () + velocity_.y);
 }

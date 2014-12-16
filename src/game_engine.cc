@@ -78,7 +78,7 @@ void GameEngine::handle_state_command(AbstractGameState::StateCommand cmd)
       active_state_ = &go_;
       break;
     case StateCommand::kOutOfTime:
-      // TODO: Add reset
+      active_state_ = &go_;
       break;
     case StateCommand::kNone:
       // Do nothing

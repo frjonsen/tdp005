@@ -13,6 +13,7 @@
 #include <player.h>
 #include <list>
 #include <walker_enemy.h>
+#include <spitter_enemy.h>
 
 /**
  * State representing the actual game

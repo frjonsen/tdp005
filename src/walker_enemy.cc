@@ -8,7 +8,7 @@
 #include <walker_enemy.h>
 
 WalkerEnemy::WalkerEnemy(const int x, const int y)
-  : Enemy("enemy_walker_1.png", {x, y, 25, 35}, 15, 2, EnemyType::kWalker)
+  : Enemy("enemy_walker_1.png", {x, y, 25, 35}, 15, 2, EnemyType::kWalker, false)
 {
   velocity_.x = kTopXVelocity;
 }
@@ -39,7 +39,6 @@ void WalkerEnemy::handle_animation()
   }
   else
   {
-    texture_.texture_name = "Hero_Standing_R.png";
     animation_timer_ = 0;
     current_animation = 0;
   }
