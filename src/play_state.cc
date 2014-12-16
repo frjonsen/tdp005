@@ -123,6 +123,7 @@ void PlayState::generate_enemies()
   e->reverse_direction ();
   enemies_.push_back (e);
   enemies_.push_back (new SpitterEnemy (1300, 225));
+  enemies_.push_back (new RunnerEnemy (1350, 450));
 }
 
 std::list<Player::MovementCommand> PlayState::translate_input(

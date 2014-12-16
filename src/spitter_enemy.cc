@@ -36,24 +36,34 @@ void SpitterEnemy::handle_animation()
 Projectile* SpitterEnemy::fire(Sprite const& player)
 {
   if (projectile_timer_ > kProjectileCooldown) projectile_timer_ = -1;
-  if (projectile_timer_ >= 0){
+  if (projectile_timer_ >= 0)
+  {
     ++projectile_timer_;
     return nullptr;
   }
-  int player_x{abs(get_x() - player.get_x())};
-  int player_y{abs(get_y() - player.get_y())};
-  double player_distance{sqrt(player_x*player_x + player_y*player_y)};
+  // Calculate player distance
+  int player_x { abs (get_x () - player.get_x ()) };
+  int player_y { abs (get_y () - player.get_y ()) };
+  double player_distance { sqrt (player_x * player_x + player_y * player_y) };
+  // If greater than 400 units away, don't fire
   if (player_distance > 400)
   {
     return nullptr;
   }
-  int longest{std::max(player_x, player_y)};
-  int shortest{std::min(player_x, player_y)};
+  int longest { std::max (player_x, player_y) };
+  int shortest { std::min (player_x, player_y) };
 
-  double factor{double(shortest) / longest};
-  int x_velocity{kProjectileVelocity};
-  if (player.get_x() < get_x()) x_velocity *= -1;
-  Projectile *p = new Projectile{"normal_projectile.png", {get_x(), get_y() + 20, 7, 6}, 40, {x_velocity, -int(ceil(x_velocity*factor))}, Projectile::ProjectileOwner::kEnemy};
+  // Calculate the factor between the distance in x and y, to ensure the projectile
+  // has the correct trajectory
+  double factor { double (shortest) / longest };
+  int x_velocity { kProjectileVelocity };
+  int y_velocity { int (round (x_velocity * factor)) };
+  if (player.get_y () < get_y ()) y_velocity *= -1;
+  if (player.get_x () < get_x ()) x_velocity *= -1;
+
+  Projectile *p = new Projectile {
+      "normal_projectile.png", { get_x (), get_y () + 20, 7, 6 }, 40, {
+          x_velocity, y_velocity }, Projectile::ProjectileOwner::kEnemy };
   ++projectile_timer_;
   return p;
 }

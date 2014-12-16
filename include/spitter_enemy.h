@@ -28,7 +28,7 @@ public:
 private:
   void handle_animation();
 
-  int kProjectileVelocity{10};
+  int kProjectileVelocity{5};
   int kProjectileCooldown{60};
 
   int projectile_timer_{-1};
