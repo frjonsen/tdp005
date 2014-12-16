@@ -21,7 +21,7 @@ GameEngine::GameEngine()
 void GameEngine::run()
 {
   using GameInput = AbstractGameState::GameInput;
-  size_t time_per_frame { 1000 / ps_.kFPSGoal };
+  size_t time_per_frame { 1000 / size_t(ps_.kFPSGoal) };
 
   while (engine_running_)
   {

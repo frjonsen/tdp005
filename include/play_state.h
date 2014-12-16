@@ -46,7 +46,9 @@ public:
   /// Height of the game world
   const int kWorldHeight { 600 };
   /// Maximum amount of frames per second
-  const size_t kFPSGoal { 60 };
+  const int kFPSGoal { 60 };
+
+  const int kTimeLimit{ 60 *  kFPSGoal};
 
   enum class Direction
   {
@@ -59,10 +61,10 @@ private:
   const int kGravity { 1 };
 
   /// Amount of score accumulated by the player
-  int score_ { 0 };
+  int score_ { 1000 };
 
   /// Maximum number of frames the player has to finish the game
-  size_t time_ { 60 * kFPSGoal };
+  int time_ { kTimeLimit };
 
   /// The player
   Player player_ { "Hero_Standing_R.png", { 50, 200, 33, 53 } };
@@ -135,6 +137,8 @@ private:
    * @param it Iterator currently pointing at the element to be deleted
    */
   void delete_projectile(std::list<Projectile*>::iterator& it);
+
+  int get_score() const;
 
 };
 

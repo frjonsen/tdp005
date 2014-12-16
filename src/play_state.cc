@@ -80,8 +80,9 @@ std::list<Sprite const*> PlayState::get_sprites() const
 std::list<TextTexture> PlayState::get_texts() const
 {
   return std::list<TextTexture> {
-      { std::to_string (player_.get_hp ()), 100, 100 }, { std::to_string (
-          time_ / 60), 500, 100 } };
+      { std::to_string (player_.get_hp ()), 100, 10 },
+      { std::to_string(get_score()), 300, 10},
+      { std::to_string ( time_ / 60), 500, 10 } };
 }
 
 std::string PlayState::get_background() const
@@ -198,6 +199,7 @@ void PlayState::do_projectile_updates()
 
           }
           delete_projectile (p_it);
+          score_ += 200;
           break;
         }
       }
@@ -268,6 +270,7 @@ void PlayState::do_enemy_update()
         delete *temp;
         enemies_.erase (temp);
         player_.jump ();
+        score_ += 400;
       }
       else
       {
@@ -362,4 +365,10 @@ PlayState::Direction PlayState::get_collision_direction(
     return Direction::kLeft;
   }
   return Direction::kRight;
+}
+
+int PlayState::get_score() const
+{
+  double time_factor{ double(time_) / kTimeLimit };
+  return score_*time_factor;
 }
