@@ -37,7 +37,7 @@ public:
   void update();
 
   /// Damage caused by the weapon
-  const int damage_;
+  const int kDamage;
 
   /// Projectile owner
   const ProjectileOwner owner_;

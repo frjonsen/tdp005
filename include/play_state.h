@@ -48,8 +48,7 @@ public:
 
   enum class Direction
   {
-    kHorizontal,
-    kVertical
+    kLeft, kRight, kAbove, kBelow
   };
 
 private:
@@ -73,7 +72,7 @@ private:
   std::list<Projectile*> active_projectiles_ {};
 
   /// A list of all active enemies in the world
-  std::list<Enemy*> enemies_{};
+  std::list<Enemy*> enemies_ {};
 
   /// Background image
   std::string background_ { "playstate_background.png" };
@@ -98,6 +97,10 @@ private:
    */
   std::list<Rectangle *> check_terrain_collision(Rectangle const& r);
 
+  Direction get_collision_direction(Rectangle const& moving_rect,
+                                    Rectangle const& moving_from,
+                                    Rectangle const& collision_target);
+
   /**
    * Solve collisions between a moving rect and whatever it was colliding with.
    * Will attempt to figure out which direction the moving rect is colliding from,
@@ -107,7 +110,7 @@ private:
    * @param collision_target The rectangle the moving rect is colliding with
    */
   Direction handle_collision(Sprite& moving_rect, Rectangle const& moving_from,
-                        Rectangle const& collision_target);
+                             Rectangle const& collision_target);
 
   /**
    * Request the player to update for current tick

@@ -6,17 +6,17 @@
  */
 
 #include "play_state.h"
-
+#include <iostream>
 
 /*
-PlayState::PlayState(const int gravity)
-    : kGravity { gravity }, player_ { "Hero_Standing_R.png",
-        { 50, 200, 27, 53 }, { 1, 0 } }, terrain_ { }
-*/
+ PlayState::PlayState(const int gravity)
+ : kGravity { gravity }, player_ { "Hero_Standing_R.png",
+ { 50, 200, 27, 53 }, { 1, 0 } }, terrain_ { }
+ */
 PlayState::PlayState()
 {
-  generate_terrain();
-  generate_enemies();
+  generate_terrain ();
+  generate_enemies ();
 }
 
 PlayState::~PlayState()
@@ -34,20 +34,24 @@ PlayState::~PlayState()
 AbstractGameState::StateCommand PlayState::update(
     std::list<GameInput> const& input)
 {
-  do_enemy_update();
+  do_enemy_update ();
   std::list<Player::MovementCommand> commands { translate_input (input) };
 
   do_player_update (commands);
   do_projectile_updates ();
   --time_;
   if (time_ == 0) return StateCommand::kOutOfTime;
-  if ( ((player_.get_x()) > 2280) && ((player_.get_y()) < 110) )
-    {
-     return StateCommand::kWin;
-    }
-  if ( (player_.get_y()) > 600 )
+  if (((player_.get_x ()) > 2280) && ((player_.get_y ()) < 110))
+  {
+    return StateCommand::kWin;
+  }
+  if ((player_.get_y ()) > 600)
   {
     return StateCommand::kFell;
+  }
+  if (player_.get_hp() < 0)
+  {
+    return StateCommand::kKilled;
   }
 
   return StateCommand::kNone;
@@ -67,7 +71,7 @@ std::list<Sprite const*> PlayState::get_sprites() const
   }
   for (Enemy* e : enemies_)
   {
-    all_sprites.push_back(e);
+    all_sprites.push_back (e);
   }
   all_sprites.push_back (&player_);
   return all_sprites;
@@ -75,7 +79,7 @@ std::list<Sprite const*> PlayState::get_sprites() const
 
 std::list<TextTexture> PlayState::get_texts() const
 {
-  return std::list<TextTexture> { };
+  return std::list<TextTexture> {};
 }
 
 std::string PlayState::get_background() const
@@ -112,7 +116,10 @@ void PlayState::generate_terrain()
 
 void PlayState::generate_enemies()
 {
-  enemies_.push_back(new WalkerEnemy(400, 100));
+  enemies_.push_back (new WalkerEnemy (400, 100));
+  Enemy* e{new WalkerEnemy(350, 300)};
+  e->reverse_direction();
+  enemies_.push_back (e);
 }
 
 std::list<Player::MovementCommand> PlayState::translate_input(
@@ -164,7 +171,7 @@ void PlayState::do_projectile_updates()
 
     if (terrain_collisions.size () > 0)
     {
-      delete_projectile(it);
+      delete_projectile (it);
     }
 
   }
@@ -184,6 +191,8 @@ void PlayState::do_player_update(std::list<Player::MovementCommand> commands)
   Rectangle before { player_ };
   player_.order_player (commands);
   player_.handle_gravity (kGravity);
+
+  // Do terrain collision
   std::list<Rectangle *> collisions { check_terrain_collision (player_) };
   if (collisions.size () != 0)
   {
@@ -192,59 +201,112 @@ void PlayState::do_player_update(std::list<Player::MovementCommand> commands)
       handle_collision (player_, before, *r);
     }
   }
+
+  // Do projectile collision
+  for (Projectile*& p : active_projectiles_)
+  {
+    if (p->owner_ == Projectile::ProjectileOwner::kEnemy
+        && p->intersect (player_))
+    {
+      player_.take_damage (p->kDamage);
+    }
+  }
 }
 
 void PlayState::do_enemy_update()
 {
-  for (Enemy* e : enemies_)
+
+  for (std::list<Enemy*>::iterator it { enemies_.begin () };
+      it != enemies_.end (); ++it)
   {
-    Rectangle before {*e};
-    e->update();
-    e->handle_gravity(kGravity);
-    std::list<Rectangle *> collisions{check_terrain_collision (*e)};
-      if (collisions.size () != 0)
+    Rectangle before { **it };
+    (*it)->update ();
+    (*it)->handle_gravity (kGravity);
+
+    // Do terrain collision
+    std::list<Rectangle *> collisions { check_terrain_collision (**it) };
+    if (collisions.size () != 0)
+    {
+      for (Rectangle * r : collisions)
       {
-        for (Rectangle * r : collisions)
+        Direction d { handle_collision (**it, before, *r) };
+        if (d == Direction::kLeft || d == Direction::kRight) (*it)->reverse_direction ();
+      }
+    }
+
+    // Do player collision
+    if ((*it)->intersect (player_))
+    {
+      Direction direction { handle_collision (**it, before, player_) };
+      if ((*it)->kType == Enemy::EnemyType::kWalker
+          && direction == Direction::kBelow) // Player hit enemy from above
+      {
+        std::list<Enemy*>::iterator temp { it };
+        --it;
+        delete *temp;
+        enemies_.erase (temp);
+
+      }
+      else
+      {
+        int x_velocity{ direction == Direction::kLeft ? 10 : -10 };
+        player_.take_damage (10);
+        player_.set_stunned (30, x_velocity);
+      }
+    }
+  }
+
+  using p_list = std::list<Projectile*>;
+  // Do projectile collision
+  for (p_list::iterator p_it { active_projectiles_.begin () };
+      p_it != active_projectiles_.end (); ++p_it)
+  {
+
+    if ((*p_it)->owner_ == Projectile::ProjectileOwner::kPlayer)
+    {
+      for (std::list<Enemy*>::iterator it { enemies_.begin () };
+          it != enemies_.end (); ++it)
+      {
+        if ((*p_it)->intersect (**it))
         {
-          Direction d{handle_collision (*e, before, *r)};
-          if (d == Direction::kHorizontal) e->reverse_direction();
+          (*it)->take_damage ((*p_it)->kDamage);
+          if ((*it)->get_hp () < 0)
+          {
+            delete *it;
+            enemies_.erase (it);
+          }
+          delete_projectile (p_it);
+          break;
         }
       }
+    }
   }
 }
 
-PlayState::Direction PlayState::handle_collision(Sprite& sprite, Rectangle const& moving_from,
-                                 Rectangle const& collision_target)
+PlayState::Direction PlayState::handle_collision(
+    Sprite& sprite, Rectangle const& moving_from,
+    Rectangle const& collision_target)
 {
-  int moving_bottom { moving_from.get_y () + moving_from.get_height () };
-  int moving_right { moving_from.get_x () + moving_from.get_width () };
-  Direction direction;
-  if (moving_right <= collision_target.get_x ()) // Moving object was enteirly to the left
+  Direction direction{get_collision_direction(sprite, moving_from, collision_target)};
+  switch(direction)
   {
+  case Direction::kLeft: // Moving object was enteirly to the left
     sprite.set_x (collision_target.get_x () - sprite.get_width ());
-    return Direction::kHorizontal;
-  }
-  else if (moving_from.get_x ()
-      >= collision_target.get_x () + collision_target.get_width ()) // Moving object was to the right
-  {
+    break;
+  case Direction::kRight: // Moving object was to the right
     sprite.set_x (collision_target.get_x () + collision_target.get_width ());
-    return Direction::kHorizontal;
-  }
-  else if (moving_bottom <= collision_target.get_y ()) // Moving object was enteirly above
-  {
+    break;
+  case Direction::kAbove:
+
     sprite.set_y (collision_target.get_y () - sprite.get_height ());
     sprite.reset_y_velocity ();
-    return Direction::kVertical;
-  }
-  /*
-  else if (moving_from.get_y () // Moving object was enteirly below
-  >= collision_target.get_y () + collision_target.get_height ())*/
-  else
-  {
+    break;
+  case Direction::kBelow:
     sprite.set_y (collision_target.get_y () + collision_target.get_height ());
     sprite.reset_y_velocity ();
-    return Direction::kVertical;
+    break;
   }
+  return direction;
 }
 
 std::list<Rectangle*> PlayState::check_terrain_collision(Rectangle const& r)
@@ -258,4 +320,26 @@ std::list<Rectangle*> PlayState::check_terrain_collision(Rectangle const& r)
     }
   }
   return collisions;
+}
+
+PlayState::Direction PlayState::get_collision_direction(Rectangle const& moving_rect,
+                                  Rectangle const& moving_from,
+                                  Rectangle const& collision_target)
+{
+  int moving_bottom { moving_from.get_y () + moving_from.get_height () };
+  int moving_right { moving_from.get_x () + moving_from.get_width () };
+  if (moving_right <= collision_target.get_x ()) // Moving object was enteirly to the left
+  {
+    return Direction::kLeft;
+  }
+  else if (moving_from.get_x ()
+      >= collision_target.get_x () + collision_target.get_width ()) // Moving object was to the right
+  {
+    return Direction::kRight;
+  }
+  else if (moving_bottom <= collision_target.get_y ()) // Moving object was enteirly above
+  {
+    return Direction::kAbove;
+  }
+  return Direction::kBelow;
 }

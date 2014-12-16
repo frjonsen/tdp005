@@ -110,7 +110,6 @@ void GraphicsEngine::render_text(TextTexture text)
   Texture* t { texture_handler_.create_text_texture (text) };
   Rectangle enclosing{ 0, 0, t->kWidth, t->kHeight };
   Rectangle position { text.kX, text.kY, t->kWidth, t->kHeight };
-  std::cerr << enclosing.get_height() << std::endl;
   renderer_.render_copy (t, enclosing, position);
   delete t;
 }

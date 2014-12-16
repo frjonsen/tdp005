@@ -9,7 +9,7 @@
 
 Projectile::Projectile(const std::string texture, Rectangle const& rect,
                        const int damage, const Velocity velocity, ProjectileOwner owner)
-    : Sprite (texture, rect, 0), damage_ { damage }, owner_{owner}
+    : Sprite (texture, rect, 0), kDamage { damage }, owner_{owner}
 {
   velocity_ = velocity;
 }
