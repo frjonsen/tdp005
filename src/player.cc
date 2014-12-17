@@ -74,11 +74,11 @@ void Player::reset_y_velocity()
   velocity_.y = 0;
 }
 
-Projectile* Player::fire()
+std::list<Projectile*> Player::fire()
 {
   if (frames_since_firing_ >= 0)
   {
-    return nullptr;
+    std::list<Projectile*>{};
   }
   int spawn_x { texture_.flip ? get_x () : get_x () + get_width () };
   int spawn_y { get_y () + 30 - current_weapon_.projectile_height };
@@ -89,9 +89,9 @@ Projectile* Player::fire()
   Rectangle projectile_rect (spawn_x, spawn_y, current_weapon_.projectile_width,
                              current_weapon_.projectile_height);
   frames_since_firing_ = 0;
-  return new Projectile (current_weapon_.projectile_texture, projectile_rect,
+  return std::list<Projectile*> {new Projectile (current_weapon_.projectile_texture, projectile_rect,
                          current_weapon_.damage, { velocity, 0 },
-                         Projectile::ProjectileOwner::kPlayer);
+                         Projectile::ProjectileOwner::kPlayer) };
 }
 
 void Player::set_stunned(const size_t time, int velocity_x = 0)
@@ -124,11 +124,11 @@ void Player::handle_animation()
 {
   if (velocity_.x != 0)
   {
-    texture_.texture_name = animations.at (current_animation);
+    texture_.texture_name = animations_.at (current_animation);
     ++animation_timer_;
     if (animation_timer_ > animation_change_frequency)
     {
-      current_animation = (current_animation + 1) % animations.size ();
+      current_animation = (current_animation + 1) % animations_.size ();
       animation_timer_ = 0;
     }
   }
@@ -144,4 +144,9 @@ void Player::jump()
 {
   jumping_ = true;
   velocity_.y = -kJumpVelocity;
+}
+
+void Player::randomize_weapon()
+{
+
 }

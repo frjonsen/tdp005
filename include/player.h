@@ -90,9 +90,15 @@ private:
   /**
    * Weapon properties
    */
-  std::map<WeaponName, Weapon> weapons_ { { WeaponName::kWhileGun, Weapon (
-      "normal_projectile.png", 1, 15, 10, 10, 7, 6) }, { WeaponName::kIfGun, Weapon (
-      "big_projectile.png", 1, 8, 15, 50, 25, 25) } };
+  std::map<WeaponName, Weapon> weapons_ {
+    { WeaponName::kWhileGun, Weapon (
+      "normal_projectile.png", 1, 15, 10, 10, 7, 6) },
+      { WeaponName::kIfGun, Weapon (
+      "big_projectile.png", 1, 8, 15, 50, 25, 25) },
+      { WeaponName::kForGun, Weapon(
+      "normal_projectile.png", 3, 7, 20, 60, 7, 6)
+      }
+  };
 
  // nr, velocity, dmg, cd, w, h
 
@@ -114,7 +120,7 @@ private:
   /// The weapon player is currently using
   Weapon current_weapon_ { weapons_.at (WeaponName::kIfGun) };
 
-  const std::vector<std::string> animations
+  const std::vector<std::string> animations_
   {
     "Hero_Run_1_R.png",
     "Hero_Run_2_R.png",
@@ -139,8 +145,9 @@ public:
    * @return If possible, and active projectile.
    * nullptr if weapon is on cooldown or player is stunned.
    */
-  Projectile* fire();
+  std::list<Projectile*> fire();
   void jump();
+  void randomize_weapon();
 };
 
 #endif /* PLAYER_H_ */

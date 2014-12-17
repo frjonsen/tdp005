@@ -45,11 +45,14 @@ public:
   const int kWorldWidth { 2400 };
   /// Height of the game world
   const int kWorldHeight { 600 };
+
   /// Maximum amount of frames per second
   const int kFPSGoal { 60 };
 
+  /// Maximum amount of frames before player gets no score
   const int kTimeLimit{ 60 *  kFPSGoal};
 
+  ///
   enum class Direction
   {
     kLeft, kRight, kAbove, kBelow
@@ -77,6 +80,12 @@ private:
 
   /// A list of all active enemies in the world
   std::list<Enemy*> enemies_ {};
+
+  ///A list of all chests still in the world
+  std::list<Sprite*> chests_{};
+
+  /// A list of all malware in the world
+  std::list<Sprite*> malware_{};
 
   /// Background image
   std::string background_ { "playstate_background.png" };

@@ -46,6 +46,14 @@ int Sprite::get_hp() const
   return hp_;
 }
 
+void Sprite::gain_hp(const int hp)
+{
+  if (hp > 0)
+  {
+    hp_ += hp;
+  }
+}
+
 void Sprite::take_damage(int dmg)
 {
    hp_ -= dmg;

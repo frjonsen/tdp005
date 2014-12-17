@@ -88,6 +88,7 @@ public:
 	const TextureInfo& get_texture() const;
 
 	int get_hp() const;
+	void gain_hp(const int hp);
 	virtual void take_damage(int dmg);
 
 protected:
