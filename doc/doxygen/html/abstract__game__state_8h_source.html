@@ -4,17 +4,10 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>HackerGame: /home/vakz/tdp005/include/abstract_game_state.h Source File</title>
+<title>My Project: /home/frejo105/TDP005/tdp005/include/abstract_game_state.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-  $(window).load(resizeHeight);
-</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,7 +17,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">HackerGame
+   <div id="projectname">My Project
    </div>
   </td>
  </tr>
@@ -37,29 +30,13 @@
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
-      <li class="current"><a href="files.html"><span>Files</span></a></li>
     </ul>
   </div>
-  <div id="navrow2" class="tabs2">
-    <ul class="tablist">
-      <li><a href="files.html"><span>File&#160;List</span></a></li>
-    </ul>
-  </div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
 </div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('abstract__game__state_8h_source.html','');});
-</script>
-<div id="doc-content">
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">abstract_game_state.h</div>  </div>
@@ -79,48 +56,54 @@ $(document).ready(function(){initNavTree('abstract__game__state_8h_source.html',
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;sprite.h&gt;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classAbstractGameState.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="classAbstractGameState.html">AbstractGameState</a></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="keyword">virtual</span> ~<a class="code" href="classAbstractGameState.html">AbstractGameState</a>() {}</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classAbstractGameState.html#a1e8c2c693a073cc029d146cb4fb468cc">   28</a></span>&#160;  <span class="keyword">enum class</span> <a class="code" href="classAbstractGameState.html#a1e8c2c693a073cc029d146cb4fb468cc">StateCommand</a></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    kPlay, kMenu, kExit, kGameOver, kNone, kOutOfTime</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  };</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classAbstractGameState.html#aab5001a3cefd81f386ddd818d26b59aa">   37</a></span>&#160;  <span class="keyword">enum class</span> <a class="code" href="classAbstractGameState.html#aab5001a3cefd81f386ddd818d26b59aa">GameInput</a></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  { kUp, kRight, kLeft, kSpace, kEscape, kReturn, kDown  };</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="classAbstractGameState.html#a1e8c2c693a073cc029d146cb4fb468cc">StateCommand</a> <a class="code" href="classAbstractGameState.html#a04f5c709c18c4658f818bed6c2e62c9d">update</a>(std::list&lt;GameInput&gt; <span class="keyword">const</span>&amp; input) = 0;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classAbstractGameState.html#a5f0d0bdb54f5e2a502eced5dae7fb7fd">   51</a></span>&#160;  <span class="keyword">virtual</span> std::pair&lt;int, int&gt; <a class="code" href="classAbstractGameState.html#a5f0d0bdb54f5e2a502eced5dae7fb7fd">get_viewport</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> std::make_pair(0,0); }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keyword">virtual</span> std::list&lt;Sprite const*&gt; <a class="code" href="classAbstractGameState.html#a685c7a21cf8265b1c91595d4381fb5da">get_sprites</a>() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keyword">virtual</span> std::string <a class="code" href="classAbstractGameState.html#a6e2c383ac0bababbabdc3ef4e4be5699">get_background</a>() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;};</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;text_texture.h&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_abstract_game_state.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_abstract_game_state.html">AbstractGameState</a></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keyword">virtual</span> ~<a class="code" href="class_abstract_game_state.html">AbstractGameState</a>()</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  }</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="class_abstract_game_state.html#a1e8c2c693a073cc029d146cb4fb468cc">   31</a></span>&#160;  <span class="keyword">enum class</span> <a class="code" href="class_abstract_game_state.html#a1e8c2c693a073cc029d146cb4fb468cc">StateCommand</a></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    kPlay, kMenu, kExit, kKilled, kFell, kWin, kNone, kOutOfTime</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  };</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="class_abstract_game_state.html#aab5001a3cefd81f386ddd818d26b59aa">   40</a></span>&#160;  <span class="keyword">enum class</span> <a class="code" href="class_abstract_game_state.html#aab5001a3cefd81f386ddd818d26b59aa">GameInput</a></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    kUp, kRight, kLeft, kSpace, kEscape, kReturn, kDown</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  };</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="class_abstract_game_state.html#a1e8c2c693a073cc029d146cb4fb468cc">StateCommand</a> <a class="code" href="class_abstract_game_state.html#a04f5c709c18c4658f818bed6c2e62c9d">update</a>(std::list&lt;GameInput&gt; <span class="keyword">const</span>&amp; input) = 0;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="class_abstract_game_state.html#a5f0d0bdb54f5e2a502eced5dae7fb7fd">   56</a></span>&#160;  <span class="keyword">virtual</span> std::pair&lt;int, int&gt; <a class="code" href="class_abstract_game_state.html#a5f0d0bdb54f5e2a502eced5dae7fb7fd">get_viewport</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">return</span> std::make_pair (0, 0);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keyword">virtual</span> std::list&lt;Sprite const*&gt; <a class="code" href="class_abstract_game_state.html#a685c7a21cf8265b1c91595d4381fb5da">get_sprites</a>() <span class="keyword">const</span> = 0;</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* ABSTRACT_GAME_STATE_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="classAbstractGameState_html_a1e8c2c693a073cc029d146cb4fb468cc"><div class="ttname"><a href="classAbstractGameState.html#a1e8c2c693a073cc029d146cb4fb468cc">AbstractGameState::StateCommand</a></div><div class="ttdeci">StateCommand</div><div class="ttdef"><b>Definition:</b> abstract_game_state.h:28</div></div>
-<div class="ttc" id="classAbstractGameState_html_a04f5c709c18c4658f818bed6c2e62c9d"><div class="ttname"><a href="classAbstractGameState.html#a04f5c709c18c4658f818bed6c2e62c9d">AbstractGameState::update</a></div><div class="ttdeci">virtual StateCommand update(std::list&lt; GameInput &gt; const &amp;input)=0</div></div>
-<div class="ttc" id="classAbstractGameState_html_a685c7a21cf8265b1c91595d4381fb5da"><div class="ttname"><a href="classAbstractGameState.html#a685c7a21cf8265b1c91595d4381fb5da">AbstractGameState::get_sprites</a></div><div class="ttdeci">virtual std::list&lt; Sprite const * &gt; get_sprites() const =0</div></div>
-<div class="ttc" id="classAbstractGameState_html_a5f0d0bdb54f5e2a502eced5dae7fb7fd"><div class="ttname"><a href="classAbstractGameState.html#a5f0d0bdb54f5e2a502eced5dae7fb7fd">AbstractGameState::get_viewport</a></div><div class="ttdeci">virtual std::pair&lt; int, int &gt; get_viewport() const </div><div class="ttdef"><b>Definition:</b> abstract_game_state.h:51</div></div>
-<div class="ttc" id="classAbstractGameState_html_aab5001a3cefd81f386ddd818d26b59aa"><div class="ttname"><a href="classAbstractGameState.html#aab5001a3cefd81f386ddd818d26b59aa">AbstractGameState::GameInput</a></div><div class="ttdeci">GameInput</div><div class="ttdef"><b>Definition:</b> abstract_game_state.h:37</div></div>
-<div class="ttc" id="classAbstractGameState_html_a6e2c383ac0bababbabdc3ef4e4be5699"><div class="ttname"><a href="classAbstractGameState.html#a6e2c383ac0bababbabdc3ef4e4be5699">AbstractGameState::get_background</a></div><div class="ttdeci">virtual std::string get_background() const =0</div></div>
-<div class="ttc" id="classAbstractGameState_html"><div class="ttname"><a href="classAbstractGameState.html">AbstractGameState</a></div><div class="ttdef"><b>Definition:</b> abstract_game_state.h:19</div></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="keyword">virtual</span> std::string <a class="code" href="class_abstract_game_state.html#a6e2c383ac0bababbabdc3ef4e4be5699">get_background</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="keyword">virtual</span> std::list&lt;TextTexture&gt; get_texts() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;};</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* ABSTRACT_GAME_STATE_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="class_abstract_game_state_html"><div class="ttname"><a href="class_abstract_game_state.html">AbstractGameState</a></div><div class="ttdef"><b>Definition:</b> abstract_game_state.h:20</div></div>
+<div class="ttc" id="class_abstract_game_state_html_a1e8c2c693a073cc029d146cb4fb468cc"><div class="ttname"><a href="class_abstract_game_state.html#a1e8c2c693a073cc029d146cb4fb468cc">AbstractGameState::StateCommand</a></div><div class="ttdeci">StateCommand</div><div class="ttdef"><b>Definition:</b> abstract_game_state.h:31</div></div>
+<div class="ttc" id="class_abstract_game_state_html_a04f5c709c18c4658f818bed6c2e62c9d"><div class="ttname"><a href="class_abstract_game_state.html#a04f5c709c18c4658f818bed6c2e62c9d">AbstractGameState::update</a></div><div class="ttdeci">virtual StateCommand update(std::list&lt; GameInput &gt; const &amp;input)=0</div></div>
+<div class="ttc" id="class_abstract_game_state_html_a6e2c383ac0bababbabdc3ef4e4be5699"><div class="ttname"><a href="class_abstract_game_state.html#a6e2c383ac0bababbabdc3ef4e4be5699">AbstractGameState::get_background</a></div><div class="ttdeci">virtual std::string get_background() const =0</div></div>
+<div class="ttc" id="class_abstract_game_state_html_aab5001a3cefd81f386ddd818d26b59aa"><div class="ttname"><a href="class_abstract_game_state.html#aab5001a3cefd81f386ddd818d26b59aa">AbstractGameState::GameInput</a></div><div class="ttdeci">GameInput</div><div class="ttdef"><b>Definition:</b> abstract_game_state.h:40</div></div>
+<div class="ttc" id="class_abstract_game_state_html_a685c7a21cf8265b1c91595d4381fb5da"><div class="ttname"><a href="class_abstract_game_state.html#a685c7a21cf8265b1c91595d4381fb5da">AbstractGameState::get_sprites</a></div><div class="ttdeci">virtual std::list&lt; Sprite const * &gt; get_sprites() const =0</div></div>
+<div class="ttc" id="class_abstract_game_state_html_a5f0d0bdb54f5e2a502eced5dae7fb7fd"><div class="ttname"><a href="class_abstract_game_state.html#a5f0d0bdb54f5e2a502eced5dae7fb7fd">AbstractGameState::get_viewport</a></div><div class="ttdeci">virtual std::pair&lt; int, int &gt; get_viewport() const </div><div class="ttdef"><b>Definition:</b> abstract_game_state.h:56</div></div>
 </div><!-- fragment --></div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><b>abstract_game_state.h</b></li>
-    <li class="footer">Generated on Sun Dec 14 2014 18:44:38 for HackerGame by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated on Wed Dec 17 2014 12:18:22 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.6
+</small></address>
 </body>
 </html>

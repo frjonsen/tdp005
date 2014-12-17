@@ -1,4 +1,0 @@
-<map id="Projectile" name="Projectile">
-<area shape="rect" id="node2" href="$classSprite.html" title="Sprite" alt="" coords="17,80,72,107"/>
-<area shape="rect" id="node3" href="$classRectangle.html" title="Rectangle" alt="" coords="5,5,85,32"/>
-</map>

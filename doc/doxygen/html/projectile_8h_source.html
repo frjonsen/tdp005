@@ -4,17 +4,10 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>HackerGame: /home/vakz/tdp005/include/projectile.h Source File</title>
+<title>My Project: /home/frejo105/TDP005/tdp005/include/projectile.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-  $(window).load(resizeHeight);
-</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,7 +17,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">HackerGame
+   <div id="projectname">My Project
    </div>
   </td>
  </tr>
@@ -37,29 +30,13 @@
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
-      <li class="current"><a href="files.html"><span>Files</span></a></li>
     </ul>
   </div>
-  <div id="navrow2" class="tabs2">
-    <ul class="tablist">
-      <li><a href="files.html"><span>File&#160;List</span></a></li>
-    </ul>
-  </div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
 </div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('projectile_8h_source.html','');});
-</script>
-<div id="doc-content">
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">projectile.h</div>  </div>
@@ -77,44 +54,40 @@ $(document).ready(function(){initNavTree('projectile_8h_source.html','');});
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;sprite.h&quot;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classProjectile.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="classProjectile.html">Projectile</a> : <span class="keyword">public</span> <a class="code" href="classSprite.html">Sprite</a></div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_projectile.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_projectile.html">Projectile</a> : <span class="keyword">public</span> <a class="code" href="class_sprite.html">Sprite</a></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classProjectile.html#a537619388c0d1b61fd32c4802ffc720d">   20</a></span>&#160;  <span class="keyword">enum class</span> <a class="code" href="classProjectile.html#a537619388c0d1b61fd32c4802ffc720d">ProjectileOwner</a></div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_projectile.html#a537619388c0d1b61fd32c4802ffc720d">   20</a></span>&#160;  <span class="keyword">enum class</span> <a class="code" href="class_projectile.html#a537619388c0d1b61fd32c4802ffc720d">ProjectileOwner</a></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  {</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    kPlayer, kEnemy</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  };</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <a class="code" href="classProjectile.html#ac37f49ca5f540b6dc965453d2e9092ca">Projectile</a>(<span class="keyword">const</span> std::string texture, <a class="code" href="classRectangle.html">Rectangle</a> <span class="keyword">const</span>&amp; rect, <span class="keyword">const</span> <span class="keywordtype">int</span> damage,</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;             <span class="keyword">const</span> Velocity velocity, <a class="code" href="classProjectile.html#a537619388c0d1b61fd32c4802ffc720d">ProjectileOwner</a> owner);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <a class="code" href="class_projectile.html#ac37f49ca5f540b6dc965453d2e9092ca">Projectile</a>(<span class="keyword">const</span> std::string texture, <a class="code" href="class_rectangle.html">Rectangle</a> <span class="keyword">const</span>&amp; rect, <span class="keyword">const</span> <span class="keywordtype">int</span> damage,</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;             <span class="keyword">const</span> Velocity velocity, <a class="code" href="class_projectile.html#a537619388c0d1b61fd32c4802ffc720d">ProjectileOwner</a> owner);</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classProjectile.html#a8b32ce7d21ec9032812b528e5cb87cc7">update</a>();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_projectile.html#a8b32ce7d21ec9032812b528e5cb87cc7">update</a>();</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classProjectile.html#acf900179dc3ed7aa01e734950abb2cd5">   40</a></span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="classProjectile.html#acf900179dc3ed7aa01e734950abb2cd5">damage_</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="class_projectile.html#a5e33735db6370e198bcea9329ebf2b1b">   40</a></span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="class_projectile.html#a5e33735db6370e198bcea9329ebf2b1b">kDamage</a>;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classProjectile.html#aba3325a188b1330bf6352cf39afd3bb8">   43</a></span>&#160;  <span class="keyword">const</span> <a class="code" href="classProjectile.html#a537619388c0d1b61fd32c4802ffc720d">ProjectileOwner</a> <a class="code" href="classProjectile.html#aba3325a188b1330bf6352cf39afd3bb8">owner_</a>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="class_projectile.html#aba3325a188b1330bf6352cf39afd3bb8">   43</a></span>&#160;  <span class="keyword">const</span> <a class="code" href="class_projectile.html#a537619388c0d1b61fd32c4802ffc720d">ProjectileOwner</a> <a class="code" href="class_projectile.html#aba3325a188b1330bf6352cf39afd3bb8">owner_</a>;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;};</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* INCLUDE_PROJECTILE_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="classProjectile_html_ac37f49ca5f540b6dc965453d2e9092ca"><div class="ttname"><a href="classProjectile.html#ac37f49ca5f540b6dc965453d2e9092ca">Projectile::Projectile</a></div><div class="ttdeci">Projectile(const std::string texture, Rectangle const &amp;rect, const int damage, const Velocity velocity, ProjectileOwner owner)</div></div>
-<div class="ttc" id="classSprite_html"><div class="ttname"><a href="classSprite.html">Sprite</a></div><div class="ttdef"><b>Definition:</b> sprite.h:20</div></div>
-<div class="ttc" id="classProjectile_html_acf900179dc3ed7aa01e734950abb2cd5"><div class="ttname"><a href="classProjectile.html#acf900179dc3ed7aa01e734950abb2cd5">Projectile::damage_</a></div><div class="ttdeci">const int damage_</div><div class="ttdoc">Damage caused by the weapon. </div><div class="ttdef"><b>Definition:</b> projectile.h:40</div></div>
-<div class="ttc" id="classProjectile_html_a8b32ce7d21ec9032812b528e5cb87cc7"><div class="ttname"><a href="classProjectile.html#a8b32ce7d21ec9032812b528e5cb87cc7">Projectile::update</a></div><div class="ttdeci">void update()</div><div class="ttdoc">Request projectile to update for new frame. </div></div>
-<div class="ttc" id="classProjectile_html"><div class="ttname"><a href="classProjectile.html">Projectile</a></div><div class="ttdef"><b>Definition:</b> projectile.h:16</div></div>
-<div class="ttc" id="classRectangle_html"><div class="ttname"><a href="classRectangle.html">Rectangle</a></div><div class="ttdef"><b>Definition:</b> rectangle.h:16</div></div>
-<div class="ttc" id="classProjectile_html_aba3325a188b1330bf6352cf39afd3bb8"><div class="ttname"><a href="classProjectile.html#aba3325a188b1330bf6352cf39afd3bb8">Projectile::owner_</a></div><div class="ttdeci">const ProjectileOwner owner_</div><div class="ttdoc">Projectile owner. </div><div class="ttdef"><b>Definition:</b> projectile.h:43</div></div>
-<div class="ttc" id="classProjectile_html_a537619388c0d1b61fd32c4802ffc720d"><div class="ttname"><a href="classProjectile.html#a537619388c0d1b61fd32c4802ffc720d">Projectile::ProjectileOwner</a></div><div class="ttdeci">ProjectileOwner</div><div class="ttdoc">The projectiles owner, to know who the projectile is hostile to. </div><div class="ttdef"><b>Definition:</b> projectile.h:20</div></div>
+<div class="ttc" id="class_rectangle_html"><div class="ttname"><a href="class_rectangle.html">Rectangle</a></div><div class="ttdef"><b>Definition:</b> rectangle.h:16</div></div>
+<div class="ttc" id="class_sprite_html"><div class="ttname"><a href="class_sprite.html">Sprite</a></div><div class="ttdef"><b>Definition:</b> sprite.h:20</div></div>
+<div class="ttc" id="class_projectile_html_ac37f49ca5f540b6dc965453d2e9092ca"><div class="ttname"><a href="class_projectile.html#ac37f49ca5f540b6dc965453d2e9092ca">Projectile::Projectile</a></div><div class="ttdeci">Projectile(const std::string texture, Rectangle const &amp;rect, const int damage, const Velocity velocity, ProjectileOwner owner)</div></div>
+<div class="ttc" id="class_projectile_html_a5e33735db6370e198bcea9329ebf2b1b"><div class="ttname"><a href="class_projectile.html#a5e33735db6370e198bcea9329ebf2b1b">Projectile::kDamage</a></div><div class="ttdeci">const int kDamage</div><div class="ttdoc">Damage caused by the weapon. </div><div class="ttdef"><b>Definition:</b> projectile.h:40</div></div>
+<div class="ttc" id="class_projectile_html"><div class="ttname"><a href="class_projectile.html">Projectile</a></div><div class="ttdef"><b>Definition:</b> projectile.h:16</div></div>
+<div class="ttc" id="class_projectile_html_aba3325a188b1330bf6352cf39afd3bb8"><div class="ttname"><a href="class_projectile.html#aba3325a188b1330bf6352cf39afd3bb8">Projectile::owner_</a></div><div class="ttdeci">const ProjectileOwner owner_</div><div class="ttdoc">Projectile owner. </div><div class="ttdef"><b>Definition:</b> projectile.h:43</div></div>
+<div class="ttc" id="class_projectile_html_a537619388c0d1b61fd32c4802ffc720d"><div class="ttname"><a href="class_projectile.html#a537619388c0d1b61fd32c4802ffc720d">Projectile::ProjectileOwner</a></div><div class="ttdeci">ProjectileOwner</div><div class="ttdoc">The projectiles owner, to know who the projectile is hostile to. </div><div class="ttdef"><b>Definition:</b> projectile.h:20</div></div>
+<div class="ttc" id="class_projectile_html_a8b32ce7d21ec9032812b528e5cb87cc7"><div class="ttname"><a href="class_projectile.html#a8b32ce7d21ec9032812b528e5cb87cc7">Projectile::update</a></div><div class="ttdeci">void update()</div><div class="ttdoc">Request projectile to update for new frame. </div></div>
 </div><!-- fragment --></div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><b>projectile.h</b></li>
-    <li class="footer">Generated on Sun Dec 14 2014 18:44:38 for HackerGame by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated on Wed Dec 17 2014 12:18:22 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.6
+</small></address>
 </body>
 </html>

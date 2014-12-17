@@ -4,17 +4,10 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>HackerGame: /home/vakz/tdp005/include/play_state.h Source File</title>
+<title>My Project: /home/frejo105/TDP005/tdp005/include/play_state.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-  $(window).load(resizeHeight);
-</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,7 +17,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">HackerGame
+   <div id="projectname">My Project
    </div>
   </td>
  </tr>
@@ -37,29 +30,13 @@
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
-      <li class="current"><a href="files.html"><span>Files</span></a></li>
     </ul>
   </div>
-  <div id="navrow2" class="tabs2">
-    <ul class="tablist">
-      <li><a href="files.html"><span>File&#160;List</span></a></li>
-    </ul>
-  </div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
 </div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('play__state_8h_source.html','');});
-</script>
-<div id="doc-content">
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">play_state.h</div>  </div>
@@ -79,87 +56,121 @@ $(document).ready(function(){initNavTree('play__state_8h_source.html','');});
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;player.h&gt;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;list&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classPlayState.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="classPlayState.html">PlayState</a> : <span class="keyword">public</span> <a class="code" href="classAbstractGameState.html">AbstractGameState</a></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <a class="code" href="classPlayState.html">PlayState</a>();</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  ~<a class="code" href="classPlayState.html">PlayState</a>();</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <a class="code" href="classPlayState.html">PlayState</a>(<a class="code" href="classPlayState.html">PlayState</a> <span class="keyword">const</span>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <a class="code" href="classPlayState.html">PlayState</a>(<a class="code" href="classPlayState.html">PlayState</a>&amp;&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <a class="code" href="classPlayState.html">PlayState</a>&amp; <a class="code" href="classPlayState.html#aaef6cf4f832b97407714051c60ac1b09">operator=</a>(<a class="code" href="classPlayState.html">PlayState</a> <span class="keyword">const</span>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <a class="code" href="classPlayState.html">PlayState</a>&amp; <a class="code" href="classPlayState.html#aaef6cf4f832b97407714051c60ac1b09">operator=</a>(<a class="code" href="classPlayState.html">PlayState</a>&amp;&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <a class="code" href="classAbstractGameState.html#a1e8c2c693a073cc029d146cb4fb468cc">StateCommand</a> <a class="code" href="classPlayState.html#a22a67c736d953e613236f99cbb58eb2d">update</a>(std::list&lt;GameInput&gt; <span class="keyword">const</span>&amp; input);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  std::list&lt;Sprite const*&gt; <a class="code" href="classPlayState.html#aa5f9a2e6144826d5c848222cc43c060f">get_sprites</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  std::string <a class="code" href="classPlayState.html#a43c8183f00ed62c1187e19499070baf4">get_background</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  std::pair&lt;int, int&gt; <a class="code" href="classPlayState.html#aafa04816fa54d290a9ff518c17ae58e4">get_viewport</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="classPlayState.html#ac09108c1b4edd684791e9ee43d8776cd">   41</a></span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="classPlayState.html#ac09108c1b4edd684791e9ee43d8776cd">kWorldWidth</a> { 2400 };</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classPlayState.html#ab09981f39f6511d13145a028238f249e">   43</a></span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="classPlayState.html#ab09981f39f6511d13145a028238f249e">kWorldHeight</a> { 600 };</div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classPlayState.html#ae4c37f7b67a40b68f346208fcbad8e26">   45</a></span>&#160;  <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code" href="classPlayState.html#ae4c37f7b67a40b68f346208fcbad8e26">kFPSGoal</a> { 60 };</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> kGravity { 1 };</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keywordtype">int</span> score_ { 0 };</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keywordtype">size_t</span> time_ { 60 * <a class="code" href="classPlayState.html#ae4c37f7b67a40b68f346208fcbad8e26">kFPSGoal</a> };</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;walker_enemy.h&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;spitter_enemy.h&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;runner_enemy.h&gt;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_play_state.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_play_state.html">PlayState</a> : <span class="keyword">public</span> <a class="code" href="class_abstract_game_state.html">AbstractGameState</a></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <a class="code" href="class_play_state.html">PlayState</a>();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  ~<a class="code" href="class_play_state.html">PlayState</a>();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <a class="code" href="class_play_state.html">PlayState</a>(<a class="code" href="class_play_state.html">PlayState</a> <span class="keyword">const</span>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <a class="code" href="class_play_state.html">PlayState</a>(<a class="code" href="class_play_state.html">PlayState</a>&amp;&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <a class="code" href="class_play_state.html">PlayState</a>&amp; <a class="code" href="class_play_state.html#aaef6cf4f832b97407714051c60ac1b09">operator=</a>(<a class="code" href="class_play_state.html">PlayState</a> <span class="keyword">const</span>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <a class="code" href="class_play_state.html">PlayState</a>&amp; <a class="code" href="class_play_state.html#aaef6cf4f832b97407714051c60ac1b09">operator=</a>(<a class="code" href="class_play_state.html">PlayState</a>&amp;&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <a class="code" href="class_abstract_game_state.html#a1e8c2c693a073cc029d146cb4fb468cc">StateCommand</a> <a class="code" href="class_play_state.html#a22a67c736d953e613236f99cbb58eb2d">update</a>(std::list&lt;GameInput&gt; <span class="keyword">const</span>&amp; input);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  std::list&lt;Sprite const*&gt; <a class="code" href="class_play_state.html#aa5f9a2e6144826d5c848222cc43c060f">get_sprites</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  std::list&lt;TextTexture&gt; get_texts() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  std::string <a class="code" href="class_play_state.html#a43c8183f00ed62c1187e19499070baf4">get_background</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  std::pair&lt;int, int&gt; <a class="code" href="class_play_state.html#aafa04816fa54d290a9ff518c17ae58e4">get_viewport</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="class_play_state.html#ac09108c1b4edd684791e9ee43d8776cd">   45</a></span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="class_play_state.html#ac09108c1b4edd684791e9ee43d8776cd">kWorldWidth</a> { 2400 };</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="class_play_state.html#ab09981f39f6511d13145a028238f249e">   47</a></span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="class_play_state.html#ab09981f39f6511d13145a028238f249e">kWorldHeight</a> { 600 };</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="class_play_state.html#aec2e116778cd3ee3ed5fd84ca6c6847d">   49</a></span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="class_play_state.html#aec2e116778cd3ee3ed5fd84ca6c6847d">kFPSGoal</a> { 60 };</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> kTimeLimit{ 60 *  <a class="code" href="class_play_state.html#aec2e116778cd3ee3ed5fd84ca6c6847d">kFPSGoal</a>};</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keyword">enum class</span> Direction</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    kLeft, kRight, kAbove, kBelow</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  };</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <a class="code" href="classPlayer.html">Player</a> player_ { <span class="stringliteral">&quot;Hero_Standing_R.png&quot;</span>, { 50, 200, 30, 53 } };</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  std::list&lt;Rectangle&gt; terrain_ {};</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  std::list&lt;Projectile*&gt; active_projectiles_ {};</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  std::string background_ { <span class="stringliteral">&quot;playstate_background.png&quot;</span> };</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  std::list&lt;Player::MovementCommand&gt; translate_input(</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      std::list&lt;GameInput&gt; <span class="keyword">const</span>&amp; input);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <span class="keywordtype">void</span> generate_terrain();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="class_play_state.html#ad284161daba46369f10b0ea9818de2a7">   61</a></span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="class_play_state.html#ad284161daba46369f10b0ea9818de2a7">kGravity</a> { 1 };</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="class_play_state.html#a30e1c9845e997cfd27403cd5e296dc90">   64</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="class_play_state.html#a30e1c9845e997cfd27403cd5e296dc90">score_</a> { 1000 };</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="class_play_state.html#a9983140e2924237ce68405cacd6486df">   67</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="class_play_state.html#a9983140e2924237ce68405cacd6486df">time_</a> { kTimeLimit };</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="class_play_state.html#a9e57e80d8199fb24a35e161dac88b834">   70</a></span>&#160;  <a class="code" href="class_player.html">Player</a> <a class="code" href="class_play_state.html#a9e57e80d8199fb24a35e161dac88b834">player_</a> { <span class="stringliteral">&quot;Hero_Standing_R.png&quot;</span>, { 50, 200, 33, 53 } };</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="class_play_state.html#ad4809e9e5a3181c1582dd5a54f5edd94">   73</a></span>&#160;  std::list&lt;Rectangle&gt; <a class="code" href="class_play_state.html#ad4809e9e5a3181c1582dd5a54f5edd94">terrain_</a> {};</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="class_play_state.html#aac9acdeb0a60b70af6131e480f89ae2c">   76</a></span>&#160;  std::list&lt;Projectile*&gt; <a class="code" href="class_play_state.html#aac9acdeb0a60b70af6131e480f89ae2c">active_projectiles_</a> {};</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="class_play_state.html#a13edc105b03c1423d1ea28f4c6a207ac">   79</a></span>&#160;  std::list&lt;Enemy*&gt; <a class="code" href="class_play_state.html#a13edc105b03c1423d1ea28f4c6a207ac">enemies_</a> {};</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  std::list&lt;Rectangle *&gt; check_terrain_collision(<a class="code" href="classRectangle.html">Rectangle</a> <span class="keyword">const</span>&amp; r);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  <span class="keywordtype">void</span> handle_collision(<a class="code" href="classSprite.html">Sprite</a>&amp; moving_rect, <a class="code" href="classRectangle.html">Rectangle</a> <span class="keyword">const</span>&amp; moving_from,</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                        <a class="code" href="classRectangle.html">Rectangle</a> <span class="keyword">const</span>&amp; collision_target);</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <span class="keywordtype">void</span> do_player_update(std::list&lt;Player::MovementCommand&gt; commands);</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  <span class="keywordtype">void</span> do_projectile_updates();</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  <span class="keywordtype">void</span> delete_projectile(std::list&lt;Projectile*&gt;::iterator&amp; it);</div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="class_play_state.html#a8b2fcf0dcbdb78e7d9b2ea27289beba3">   82</a></span>&#160;  std::string <a class="code" href="class_play_state.html#a8b2fcf0dcbdb78e7d9b2ea27289beba3">background_</a> { <span class="stringliteral">&quot;playstate_background.png&quot;</span> };</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  std::list&lt;Player::MovementCommand&gt; <a class="code" href="class_play_state.html#ad56f32f3ac709892f3073a6270a372c2">translate_input</a>(</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;      std::list&lt;GameInput&gt; <span class="keyword">const</span>&amp; input);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_play_state.html#af6b38fca366a5d036e32c0f686537816">generate_terrain</a>();</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_play_state.html#adfd34cd25cacdff24891cc22182ea59f">generate_enemies</a>();</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  std::list&lt;Rectangle *&gt; <a class="code" href="class_play_state.html#a908bc0bac042d53e009b19443999500c">check_terrain_collision</a>(<a class="code" href="class_rectangle.html">Rectangle</a> <span class="keyword">const</span>&amp; r);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  Direction get_collision_direction(<a class="code" href="class_rectangle.html">Rectangle</a> <span class="keyword">const</span>&amp; moving_rect,</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                                    <a class="code" href="class_rectangle.html">Rectangle</a> <span class="keyword">const</span>&amp; moving_from,</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                                    <a class="code" href="class_rectangle.html">Rectangle</a> <span class="keyword">const</span>&amp; collision_target);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  Direction <a class="code" href="class_play_state.html#a3ffceddbc672eb67b97e9e6c55dbab19">handle_collision</a>(<a class="code" href="class_sprite.html">Sprite</a>&amp; moving_rect, <a class="code" href="class_rectangle.html">Rectangle</a> <span class="keyword">const</span>&amp; moving_from,</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                             <a class="code" href="class_rectangle.html">Rectangle</a> <span class="keyword">const</span>&amp; collision_target);</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;};</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* GAME_STATE_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="classAbstractGameState_html_a1e8c2c693a073cc029d146cb4fb468cc"><div class="ttname"><a href="classAbstractGameState.html#a1e8c2c693a073cc029d146cb4fb468cc">AbstractGameState::StateCommand</a></div><div class="ttdeci">StateCommand</div><div class="ttdef"><b>Definition:</b> abstract_game_state.h:28</div></div>
-<div class="ttc" id="classPlayState_html_aafa04816fa54d290a9ff518c17ae58e4"><div class="ttname"><a href="classPlayState.html#aafa04816fa54d290a9ff518c17ae58e4">PlayState::get_viewport</a></div><div class="ttdeci">std::pair&lt; int, int &gt; get_viewport() const </div></div>
-<div class="ttc" id="classSprite_html"><div class="ttname"><a href="classSprite.html">Sprite</a></div><div class="ttdef"><b>Definition:</b> sprite.h:20</div></div>
-<div class="ttc" id="classPlayState_html_a43c8183f00ed62c1187e19499070baf4"><div class="ttname"><a href="classPlayState.html#a43c8183f00ed62c1187e19499070baf4">PlayState::get_background</a></div><div class="ttdeci">std::string get_background() const </div></div>
-<div class="ttc" id="classPlayState_html_a22a67c736d953e613236f99cbb58eb2d"><div class="ttname"><a href="classPlayState.html#a22a67c736d953e613236f99cbb58eb2d">PlayState::update</a></div><div class="ttdeci">StateCommand update(std::list&lt; GameInput &gt; const &amp;input)</div></div>
-<div class="ttc" id="classRectangle_html"><div class="ttname"><a href="classRectangle.html">Rectangle</a></div><div class="ttdef"><b>Definition:</b> rectangle.h:16</div></div>
-<div class="ttc" id="classPlayState_html_ae4c37f7b67a40b68f346208fcbad8e26"><div class="ttname"><a href="classPlayState.html#ae4c37f7b67a40b68f346208fcbad8e26">PlayState::kFPSGoal</a></div><div class="ttdeci">const size_t kFPSGoal</div><div class="ttdoc">Maximum amount of frames per second. </div><div class="ttdef"><b>Definition:</b> play_state.h:45</div></div>
-<div class="ttc" id="classPlayState_html_ab09981f39f6511d13145a028238f249e"><div class="ttname"><a href="classPlayState.html#ab09981f39f6511d13145a028238f249e">PlayState::kWorldHeight</a></div><div class="ttdeci">const int kWorldHeight</div><div class="ttdoc">Height of the game world. </div><div class="ttdef"><b>Definition:</b> play_state.h:43</div></div>
-<div class="ttc" id="classPlayState_html_ac09108c1b4edd684791e9ee43d8776cd"><div class="ttname"><a href="classPlayState.html#ac09108c1b4edd684791e9ee43d8776cd">PlayState::kWorldWidth</a></div><div class="ttdeci">const int kWorldWidth</div><div class="ttdoc">Width of the game world. </div><div class="ttdef"><b>Definition:</b> play_state.h:41</div></div>
-<div class="ttc" id="classPlayState_html_aaef6cf4f832b97407714051c60ac1b09"><div class="ttname"><a href="classPlayState.html#aaef6cf4f832b97407714051c60ac1b09">PlayState::operator=</a></div><div class="ttdeci">PlayState &amp; operator=(PlayState const &amp;)=delete</div><div class="ttdoc">Deleted assignment operator. </div></div>
-<div class="ttc" id="classPlayState_html_aa5f9a2e6144826d5c848222cc43c060f"><div class="ttname"><a href="classPlayState.html#aa5f9a2e6144826d5c848222cc43c060f">PlayState::get_sprites</a></div><div class="ttdeci">std::list&lt; Sprite const * &gt; get_sprites() const </div></div>
-<div class="ttc" id="classPlayState_html"><div class="ttname"><a href="classPlayState.html">PlayState</a></div><div class="ttdef"><b>Definition:</b> play_state.h:19</div></div>
-<div class="ttc" id="classAbstractGameState_html"><div class="ttname"><a href="classAbstractGameState.html">AbstractGameState</a></div><div class="ttdef"><b>Definition:</b> abstract_game_state.h:19</div></div>
-<div class="ttc" id="classPlayer_html"><div class="ttname"><a href="classPlayer.html">Player</a></div><div class="ttdef"><b>Definition:</b> player.h:19</div></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_play_state.html#a103833d26bf0db0d6b418818b957c7e9">do_player_update</a>(std::list&lt;Player::MovementCommand&gt; commands);</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  <span class="keywordtype">void</span> do_enemy_update();</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_play_state.html#aa0ecfd8c0c465a2532f1a60469e056a3">do_projectile_updates</a>();</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_play_state.html#afe4f23246c8a8edfb27cfea775bd72f5">delete_projectile</a>(std::list&lt;Projectile*&gt;::iterator&amp; it);</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;  <span class="keywordtype">int</span> get_score() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;};</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* GAME_STATE_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="class_play_state_html_ad4809e9e5a3181c1582dd5a54f5edd94"><div class="ttname"><a href="class_play_state.html#ad4809e9e5a3181c1582dd5a54f5edd94">PlayState::terrain_</a></div><div class="ttdeci">std::list&lt; Rectangle &gt; terrain_</div><div class="ttdoc">A list of all terrain rectangles in the world. </div><div class="ttdef"><b>Definition:</b> play_state.h:73</div></div>
+<div class="ttc" id="class_play_state_html_a30e1c9845e997cfd27403cd5e296dc90"><div class="ttname"><a href="class_play_state.html#a30e1c9845e997cfd27403cd5e296dc90">PlayState::score_</a></div><div class="ttdeci">int score_</div><div class="ttdoc">Amount of score accumulated by the player. </div><div class="ttdef"><b>Definition:</b> play_state.h:64</div></div>
+<div class="ttc" id="class_play_state_html_aa5f9a2e6144826d5c848222cc43c060f"><div class="ttname"><a href="class_play_state.html#aa5f9a2e6144826d5c848222cc43c060f">PlayState::get_sprites</a></div><div class="ttdeci">std::list&lt; Sprite const * &gt; get_sprites() const </div></div>
+<div class="ttc" id="class_abstract_game_state_html"><div class="ttname"><a href="class_abstract_game_state.html">AbstractGameState</a></div><div class="ttdef"><b>Definition:</b> abstract_game_state.h:20</div></div>
+<div class="ttc" id="class_abstract_game_state_html_a1e8c2c693a073cc029d146cb4fb468cc"><div class="ttname"><a href="class_abstract_game_state.html#a1e8c2c693a073cc029d146cb4fb468cc">AbstractGameState::StateCommand</a></div><div class="ttdeci">StateCommand</div><div class="ttdef"><b>Definition:</b> abstract_game_state.h:31</div></div>
+<div class="ttc" id="class_rectangle_html"><div class="ttname"><a href="class_rectangle.html">Rectangle</a></div><div class="ttdef"><b>Definition:</b> rectangle.h:16</div></div>
+<div class="ttc" id="class_play_state_html_a22a67c736d953e613236f99cbb58eb2d"><div class="ttname"><a href="class_play_state.html#a22a67c736d953e613236f99cbb58eb2d">PlayState::update</a></div><div class="ttdeci">StateCommand update(std::list&lt; GameInput &gt; const &amp;input)</div></div>
+<div class="ttc" id="class_play_state_html_af6b38fca366a5d036e32c0f686537816"><div class="ttname"><a href="class_play_state.html#af6b38fca366a5d036e32c0f686537816">PlayState::generate_terrain</a></div><div class="ttdeci">void generate_terrain()</div><div class="ttdoc">Generate the game world terrain. </div></div>
+<div class="ttc" id="class_play_state_html_ad56f32f3ac709892f3073a6270a372c2"><div class="ttname"><a href="class_play_state.html#ad56f32f3ac709892f3073a6270a372c2">PlayState::translate_input</a></div><div class="ttdeci">std::list&lt; Player::MovementCommand &gt; translate_input(std::list&lt; GameInput &gt; const &amp;input)</div></div>
+<div class="ttc" id="class_sprite_html"><div class="ttname"><a href="class_sprite.html">Sprite</a></div><div class="ttdef"><b>Definition:</b> sprite.h:20</div></div>
+<div class="ttc" id="class_play_state_html_ac09108c1b4edd684791e9ee43d8776cd"><div class="ttname"><a href="class_play_state.html#ac09108c1b4edd684791e9ee43d8776cd">PlayState::kWorldWidth</a></div><div class="ttdeci">const int kWorldWidth</div><div class="ttdoc">Width of the game world. </div><div class="ttdef"><b>Definition:</b> play_state.h:45</div></div>
+<div class="ttc" id="class_play_state_html_a13edc105b03c1423d1ea28f4c6a207ac"><div class="ttname"><a href="class_play_state.html#a13edc105b03c1423d1ea28f4c6a207ac">PlayState::enemies_</a></div><div class="ttdeci">std::list&lt; Enemy * &gt; enemies_</div><div class="ttdoc">A list of all active enemies in the world. </div><div class="ttdef"><b>Definition:</b> play_state.h:79</div></div>
+<div class="ttc" id="class_play_state_html_aafa04816fa54d290a9ff518c17ae58e4"><div class="ttname"><a href="class_play_state.html#aafa04816fa54d290a9ff518c17ae58e4">PlayState::get_viewport</a></div><div class="ttdeci">std::pair&lt; int, int &gt; get_viewport() const </div></div>
+<div class="ttc" id="class_play_state_html_aaef6cf4f832b97407714051c60ac1b09"><div class="ttname"><a href="class_play_state.html#aaef6cf4f832b97407714051c60ac1b09">PlayState::operator=</a></div><div class="ttdeci">PlayState &amp; operator=(PlayState const &amp;)=delete</div><div class="ttdoc">Deleted assignment operator. </div></div>
+<div class="ttc" id="class_play_state_html_a8b2fcf0dcbdb78e7d9b2ea27289beba3"><div class="ttname"><a href="class_play_state.html#a8b2fcf0dcbdb78e7d9b2ea27289beba3">PlayState::background_</a></div><div class="ttdeci">std::string background_</div><div class="ttdoc">Background image. </div><div class="ttdef"><b>Definition:</b> play_state.h:82</div></div>
+<div class="ttc" id="class_play_state_html_ad284161daba46369f10b0ea9818de2a7"><div class="ttname"><a href="class_play_state.html#ad284161daba46369f10b0ea9818de2a7">PlayState::kGravity</a></div><div class="ttdeci">const int kGravity</div><div class="ttdoc">Game world gravity. </div><div class="ttdef"><b>Definition:</b> play_state.h:61</div></div>
+<div class="ttc" id="class_play_state_html_adfd34cd25cacdff24891cc22182ea59f"><div class="ttname"><a href="class_play_state.html#adfd34cd25cacdff24891cc22182ea59f">PlayState::generate_enemies</a></div><div class="ttdeci">void generate_enemies()</div><div class="ttdoc">Generate enemies in the world. </div></div>
+<div class="ttc" id="class_play_state_html_aec2e116778cd3ee3ed5fd84ca6c6847d"><div class="ttname"><a href="class_play_state.html#aec2e116778cd3ee3ed5fd84ca6c6847d">PlayState::kFPSGoal</a></div><div class="ttdeci">const int kFPSGoal</div><div class="ttdoc">Maximum amount of frames per second. </div><div class="ttdef"><b>Definition:</b> play_state.h:49</div></div>
+<div class="ttc" id="class_play_state_html_a9983140e2924237ce68405cacd6486df"><div class="ttname"><a href="class_play_state.html#a9983140e2924237ce68405cacd6486df">PlayState::time_</a></div><div class="ttdeci">int time_</div><div class="ttdoc">Maximum number of frames the player has to finish the game. </div><div class="ttdef"><b>Definition:</b> play_state.h:67</div></div>
+<div class="ttc" id="class_play_state_html_aac9acdeb0a60b70af6131e480f89ae2c"><div class="ttname"><a href="class_play_state.html#aac9acdeb0a60b70af6131e480f89ae2c">PlayState::active_projectiles_</a></div><div class="ttdeci">std::list&lt; Projectile * &gt; active_projectiles_</div><div class="ttdoc">All projectiles currently in existance. </div><div class="ttdef"><b>Definition:</b> play_state.h:76</div></div>
+<div class="ttc" id="class_play_state_html_a43c8183f00ed62c1187e19499070baf4"><div class="ttname"><a href="class_play_state.html#a43c8183f00ed62c1187e19499070baf4">PlayState::get_background</a></div><div class="ttdeci">std::string get_background() const </div></div>
+<div class="ttc" id="class_play_state_html_ab09981f39f6511d13145a028238f249e"><div class="ttname"><a href="class_play_state.html#ab09981f39f6511d13145a028238f249e">PlayState::kWorldHeight</a></div><div class="ttdeci">const int kWorldHeight</div><div class="ttdoc">Height of the game world. </div><div class="ttdef"><b>Definition:</b> play_state.h:47</div></div>
+<div class="ttc" id="class_play_state_html_a908bc0bac042d53e009b19443999500c"><div class="ttname"><a href="class_play_state.html#a908bc0bac042d53e009b19443999500c">PlayState::check_terrain_collision</a></div><div class="ttdeci">std::list&lt; Rectangle * &gt; check_terrain_collision(Rectangle const &amp;r)</div></div>
+<div class="ttc" id="class_player_html"><div class="ttname"><a href="class_player.html">Player</a></div><div class="ttdef"><b>Definition:</b> player.h:20</div></div>
+<div class="ttc" id="class_play_state_html_a9e57e80d8199fb24a35e161dac88b834"><div class="ttname"><a href="class_play_state.html#a9e57e80d8199fb24a35e161dac88b834">PlayState::player_</a></div><div class="ttdeci">Player player_</div><div class="ttdoc">The player. </div><div class="ttdef"><b>Definition:</b> play_state.h:70</div></div>
+<div class="ttc" id="class_play_state_html_a103833d26bf0db0d6b418818b957c7e9"><div class="ttname"><a href="class_play_state.html#a103833d26bf0db0d6b418818b957c7e9">PlayState::do_player_update</a></div><div class="ttdeci">void do_player_update(std::list&lt; Player::MovementCommand &gt; commands)</div></div>
+<div class="ttc" id="class_play_state_html_aa0ecfd8c0c465a2532f1a60469e056a3"><div class="ttname"><a href="class_play_state.html#aa0ecfd8c0c465a2532f1a60469e056a3">PlayState::do_projectile_updates</a></div><div class="ttdeci">void do_projectile_updates()</div></div>
+<div class="ttc" id="class_play_state_html_a3ffceddbc672eb67b97e9e6c55dbab19"><div class="ttname"><a href="class_play_state.html#a3ffceddbc672eb67b97e9e6c55dbab19">PlayState::handle_collision</a></div><div class="ttdeci">Direction handle_collision(Sprite &amp;moving_rect, Rectangle const &amp;moving_from, Rectangle const &amp;collision_target)</div></div>
+<div class="ttc" id="class_play_state_html"><div class="ttname"><a href="class_play_state.html">PlayState</a></div><div class="ttdef"><b>Definition:</b> play_state.h:22</div></div>
+<div class="ttc" id="class_play_state_html_afe4f23246c8a8edfb27cfea775bd72f5"><div class="ttname"><a href="class_play_state.html#afe4f23246c8a8edfb27cfea775bd72f5">PlayState::delete_projectile</a></div><div class="ttdeci">void delete_projectile(std::list&lt; Projectile * &gt;::iterator &amp;it)</div></div>
 </div><!-- fragment --></div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><b>play_state.h</b></li>
-    <li class="footer">Generated on Sun Dec 14 2014 18:44:38 for HackerGame by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated on Wed Dec 17 2014 12:18:22 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.6
+</small></address>
 </body>
 </html>

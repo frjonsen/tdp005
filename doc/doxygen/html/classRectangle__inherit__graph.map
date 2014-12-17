@@ -1,5 +1,0 @@
-<map id="Rectangle" name="Rectangle">
-<area shape="rect" id="node2" href="$classSprite.html" title="Sprite" alt="" coords="52,80,107,107"/>
-<area shape="rect" id="node3" href="$classPlayer.html" title="Player" alt="" coords="5,155,63,181"/>
-<area shape="rect" id="node4" href="$classProjectile.html" title="Projectile" alt="" coords="89,155,164,181"/>
-</map>

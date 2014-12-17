@@ -342,15 +342,17 @@ PlayState::Direction PlayState::get_collision_direction(
   int moving_right { moving_from.get_x () + moving_from.get_width () };
   if (moving_right <= collision_target.get_x ()) // Moving object was enteirly to the left
   {
+    std::cerr << "left" << std::endl;
     return Direction::kLeft;
   }
   else if (moving_from.get_x ()
-      >= collision_target.get_x () + collision_target.get_width ()) // Moving object was to the right
+      >=   collision_target.get_x () + collision_target.get_width ()) // Moving object was to the right
   {
     return Direction::kRight;
   }
   else if (moving_bottom <= collision_target.get_y ()) // Moving object was enteirly above
   {
+    std::cerr << "above" << std::endl;
     return Direction::kAbove;
   }
   else if (moving_from.get_y () // Moving object was enteirly below
@@ -358,12 +360,16 @@ PlayState::Direction PlayState::get_collision_direction(
   {
     return Direction::kBelow;
   }
-
+  /*
 // If unable to decide direction, make a qualified guess
-  if (moving_from.get_x () < collision_target.get_x ())
+  if (moving_from.get_y() < collision_target.get_y() + collision_target.get_height()/3) return Direction::kAbove;
+  if (moving_from.get_y() > collision_target.get_y() + collision_target.get_height()/3) return Direction::kBelow;
+  if (moving_from.get_x () < collision_target.get_x () + collision_target.get_width()/3)
   {
     return Direction::kLeft;
   }
+
+  */
   return Direction::kRight;
 }
 

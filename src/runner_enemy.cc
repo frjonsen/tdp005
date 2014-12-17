@@ -37,6 +37,8 @@ void RunnerEnemy::update()
       texture_.texture_name = "Cloud_walking.png";
       velocity_.x = kTopXVelocity;
     }
+    velocity_.x *= -1;
+    texture_.flip = !texture_.flip;
     run_timer_ = 0;
   }
 }
