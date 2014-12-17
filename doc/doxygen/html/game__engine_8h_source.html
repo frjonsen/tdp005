@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>My Project: /home/alest170/TDP005/tdp005/include/game_engine.h Source File</title>
+<title>My Project: /home/frejo105/TDP005/tdp005/include/game_engine.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -68,54 +68,63 @@
 <div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="class_game_engine.html#a2ec76558c16b4ceb995ec7f10802024f">   28</a></span>&#160;<span class="comment"></span>  <span class="keyword">const</span> std::string <a class="code" href="class_game_engine.html#a2ec76558c16b4ceb995ec7f10802024f">kGameTitle</a> { <span class="stringliteral">&quot;Geek Hero&quot;</span> };</div>
 <div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="class_game_engine.html#ab941e3d4ef0d96195284d507f12442cc">   30</a></span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="class_game_engine.html#ab941e3d4ef0d96195284d507f12442cc">kWindowHeight</a> { 600 };</div>
 <div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="class_game_engine.html#afa83aee8eb03e271d72c880f9a9a927f">   32</a></span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="class_game_engine.html#afa83aee8eb03e271d72c880f9a9a927f">kWindowWidth</a> { 800 };</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">size_t</span> kFrameTimeGoal { 1000 / 60 };</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="keywordtype">bool</span> engine_running_ { <span class="keyword">true</span> };</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <a class="code" href="class_abstract_game_state.html">AbstractGameState</a>* active_state_ { <span class="keyword">nullptr</span> };</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <a class="code" href="class_menu_state.html">MenuState</a> is_;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <a class="code" href="class_end_state.html">EndState</a> go_;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <a class="code" href="class_play_state.html">PlayState</a> ps_{};</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="class_game_engine.html#a89bb6f99b9996a9590eae06b0de3c963">   35</a></span>&#160;  <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code" href="class_game_engine.html#a89bb6f99b9996a9590eae06b0de3c963">kFrameTimeGoal</a> { 1000 / 60 };</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="class_game_engine.html#a0f8bb3e27d75b1c41c6fe7565f20db71">   38</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="class_game_engine.html#a0f8bb3e27d75b1c41c6fe7565f20db71">engine_running_</a> { <span class="keyword">true</span> };</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="class_game_engine.html#a06d021076e4a9ebebe0d61bb4fd5f121">   40</a></span>&#160;  <a class="code" href="class_abstract_game_state.html">AbstractGameState</a>* <a class="code" href="class_game_engine.html#a06d021076e4a9ebebe0d61bb4fd5f121">active_state_</a> { <span class="keyword">nullptr</span> };</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="comment">//GameOverState gos_;</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <a class="code" href="class_graphics_engine.html">GraphicsEngine</a> graphics_engine_;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keywordtype">void</span> handle_state_command(<a class="code" href="class_abstract_game_state.html#a1e8c2c693a073cc029d146cb4fb468cc">AbstractGameState::StateCommand</a> cmd);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keywordtype">void</span> handle_input_translation(std::list&lt;AbstractGameState::GameInput&gt;&amp;);</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="class_game_engine.html#aee1f9930b2f166ea4cf3c0546f2dfba5">   43</a></span>&#160;  <a class="code" href="class_menu_state.html">MenuState</a> <a class="code" href="class_game_engine.html#aee1f9930b2f166ea4cf3c0546f2dfba5">is_</a>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="class_game_engine.html#a9367d6cab0cdff3116b20a38671856ab">   45</a></span>&#160;  <a class="code" href="class_end_state.html">EndState</a> <a class="code" href="class_game_engine.html#a9367d6cab0cdff3116b20a38671856ab">go_</a>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="class_game_engine.html#a1b46bbb00c44a324d97d163a5df62b0a">   47</a></span>&#160;  <a class="code" href="class_play_state.html">PlayState</a> <a class="code" href="class_game_engine.html#a1b46bbb00c44a324d97d163a5df62b0a">ps_</a>{};</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <a class="code" href="class_game_engine.html">GameEngine</a>();</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="class_game_engine.html#a5d1106987c4dde62df3d23cba3315e96">   51</a></span>&#160;  <a class="code" href="class_graphics_engine.html">GraphicsEngine</a> <a class="code" href="class_game_engine.html#a5d1106987c4dde62df3d23cba3315e96">graphics_engine_</a>;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <a class="code" href="class_game_engine.html">GameEngine</a>(<a class="code" href="class_game_engine.html">GameEngine</a> <span class="keyword">const</span>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <a class="code" href="class_game_engine.html">GameEngine</a>(<a class="code" href="class_game_engine.html">GameEngine</a>&amp;&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <a class="code" href="class_game_engine.html">GameEngine</a>&amp; <a class="code" href="class_game_engine.html#a48b681c45eedc1d3c3f7b878a949ba61">operator=</a>(<a class="code" href="class_game_engine.html">GameEngine</a> <span class="keyword">const</span>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <a class="code" href="class_game_engine.html">GameEngine</a>&amp; <a class="code" href="class_game_engine.html#a48b681c45eedc1d3c3f7b878a949ba61">operator=</a>(<a class="code" href="class_game_engine.html">GameEngine</a>&amp;&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_game_engine.html#ab01970da2c68fefbf48b98c59d5627ae">run</a>();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_game_engine.html#af8c95f41b4150381b3b39510706f9a33">handle_state_command</a>(<a class="code" href="class_abstract_game_state.html#a1e8c2c693a073cc029d146cb4fb468cc">AbstractGameState::StateCommand</a> cmd);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_game_engine.html#a354fc50773f9249601f600b12fc1254b">handle_input_translation</a>(std::list&lt;AbstractGameState::GameInput&gt;&amp; tick_input);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <a class="code" href="class_game_engine.html">GameEngine</a>();</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;};</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* GAME_ENGINE_H_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <a class="code" href="class_game_engine.html">GameEngine</a>(<a class="code" href="class_game_engine.html">GameEngine</a> <span class="keyword">const</span>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <a class="code" href="class_game_engine.html">GameEngine</a>(<a class="code" href="class_game_engine.html">GameEngine</a>&amp;&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <a class="code" href="class_game_engine.html">GameEngine</a>&amp; <a class="code" href="class_game_engine.html#a48b681c45eedc1d3c3f7b878a949ba61">operator=</a>(<a class="code" href="class_game_engine.html">GameEngine</a> <span class="keyword">const</span>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <a class="code" href="class_game_engine.html">GameEngine</a>&amp; <a class="code" href="class_game_engine.html#a48b681c45eedc1d3c3f7b878a949ba61">operator=</a>(<a class="code" href="class_game_engine.html">GameEngine</a>&amp;&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_game_engine.html#ab01970da2c68fefbf48b98c59d5627ae">run</a>();</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;};</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* GAME_ENGINE_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="class_game_engine_html_a354fc50773f9249601f600b12fc1254b"><div class="ttname"><a href="class_game_engine.html#a354fc50773f9249601f600b12fc1254b">GameEngine::handle_input_translation</a></div><div class="ttdeci">void handle_input_translation(std::list&lt; AbstractGameState::GameInput &gt; &amp;tick_input)</div></div>
+<div class="ttc" id="class_game_engine_html_a89bb6f99b9996a9590eae06b0de3c963"><div class="ttname"><a href="class_game_engine.html#a89bb6f99b9996a9590eae06b0de3c963">GameEngine::kFrameTimeGoal</a></div><div class="ttdeci">const size_t kFrameTimeGoal</div><div class="ttdoc">Minimum time per frme. </div><div class="ttdef"><b>Definition:</b> game_engine.h:35</div></div>
+<div class="ttc" id="class_game_engine_html_a0f8bb3e27d75b1c41c6fe7565f20db71"><div class="ttname"><a href="class_game_engine.html#a0f8bb3e27d75b1c41c6fe7565f20db71">GameEngine::engine_running_</a></div><div class="ttdeci">bool engine_running_</div><div class="ttdoc">Should engine keep running. </div><div class="ttdef"><b>Definition:</b> game_engine.h:38</div></div>
 <div class="ttc" id="class_abstract_game_state_html"><div class="ttname"><a href="class_abstract_game_state.html">AbstractGameState</a></div><div class="ttdef"><b>Definition:</b> abstract_game_state.h:20</div></div>
 <div class="ttc" id="class_abstract_game_state_html_a1e8c2c693a073cc029d146cb4fb468cc"><div class="ttname"><a href="class_abstract_game_state.html#a1e8c2c693a073cc029d146cb4fb468cc">AbstractGameState::StateCommand</a></div><div class="ttdeci">StateCommand</div><div class="ttdef"><b>Definition:</b> abstract_game_state.h:31</div></div>
+<div class="ttc" id="class_game_engine_html_a5d1106987c4dde62df3d23cba3315e96"><div class="ttname"><a href="class_game_engine.html#a5d1106987c4dde62df3d23cba3315e96">GameEngine::graphics_engine_</a></div><div class="ttdeci">GraphicsEngine graphics_engine_</div><div class="ttdoc">Graphics engine used to render screen. </div><div class="ttdef"><b>Definition:</b> game_engine.h:51</div></div>
 <div class="ttc" id="class_game_engine_html_ab941e3d4ef0d96195284d507f12442cc"><div class="ttname"><a href="class_game_engine.html#ab941e3d4ef0d96195284d507f12442cc">GameEngine::kWindowHeight</a></div><div class="ttdeci">const int kWindowHeight</div><div class="ttdoc">Window Height. </div><div class="ttdef"><b>Definition:</b> game_engine.h:30</div></div>
 <div class="ttc" id="class_menu_state_html"><div class="ttname"><a href="class_menu_state.html">MenuState</a></div><div class="ttdef"><b>Definition:</b> menu_state.h:20</div></div>
 <div class="ttc" id="class_game_engine_html_ab01970da2c68fefbf48b98c59d5627ae"><div class="ttname"><a href="class_game_engine.html#ab01970da2c68fefbf48b98c59d5627ae">GameEngine::run</a></div><div class="ttdeci">void run()</div></div>
 <div class="ttc" id="class_end_state_html"><div class="ttname"><a href="class_end_state.html">EndState</a></div><div class="ttdef"><b>Definition:</b> end_state.h:18</div></div>
+<div class="ttc" id="class_game_engine_html_a1b46bbb00c44a324d97d163a5df62b0a"><div class="ttname"><a href="class_game_engine.html#a1b46bbb00c44a324d97d163a5df62b0a">GameEngine::ps_</a></div><div class="ttdeci">PlayState ps_</div><div class="ttdoc">Play state instance. </div><div class="ttdef"><b>Definition:</b> game_engine.h:47</div></div>
 <div class="ttc" id="class_game_engine_html_a2ec76558c16b4ceb995ec7f10802024f"><div class="ttname"><a href="class_game_engine.html#a2ec76558c16b4ceb995ec7f10802024f">GameEngine::kGameTitle</a></div><div class="ttdeci">const std::string kGameTitle</div><div class="ttdoc">Window title. </div><div class="ttdef"><b>Definition:</b> game_engine.h:28</div></div>
+<div class="ttc" id="class_game_engine_html_a06d021076e4a9ebebe0d61bb4fd5f121"><div class="ttname"><a href="class_game_engine.html#a06d021076e4a9ebebe0d61bb4fd5f121">GameEngine::active_state_</a></div><div class="ttdeci">AbstractGameState * active_state_</div><div class="ttdoc">Current active state. </div><div class="ttdef"><b>Definition:</b> game_engine.h:40</div></div>
 <div class="ttc" id="class_game_engine_html_a48b681c45eedc1d3c3f7b878a949ba61"><div class="ttname"><a href="class_game_engine.html#a48b681c45eedc1d3c3f7b878a949ba61">GameEngine::operator=</a></div><div class="ttdeci">GameEngine &amp; operator=(GameEngine const &amp;)=delete</div><div class="ttdoc">Deleted assignment operator. </div></div>
 <div class="ttc" id="class_game_engine_html_afa83aee8eb03e271d72c880f9a9a927f"><div class="ttname"><a href="class_game_engine.html#afa83aee8eb03e271d72c880f9a9a927f">GameEngine::kWindowWidth</a></div><div class="ttdeci">const int kWindowWidth</div><div class="ttdoc">Window Width. </div><div class="ttdef"><b>Definition:</b> game_engine.h:32</div></div>
 <div class="ttc" id="class_graphics_engine_html"><div class="ttname"><a href="class_graphics_engine.html">GraphicsEngine</a></div><div class="ttdef"><b>Definition:</b> graphics_engine.h:25</div></div>
+<div class="ttc" id="class_game_engine_html_aee1f9930b2f166ea4cf3c0546f2dfba5"><div class="ttname"><a href="class_game_engine.html#aee1f9930b2f166ea4cf3c0546f2dfba5">GameEngine::is_</a></div><div class="ttdeci">MenuState is_</div><div class="ttdoc">Menu state instance. </div><div class="ttdef"><b>Definition:</b> game_engine.h:43</div></div>
 <div class="ttc" id="class_game_engine_html"><div class="ttname"><a href="class_game_engine.html">GameEngine</a></div><div class="ttdef"><b>Definition:</b> game_engine.h:23</div></div>
+<div class="ttc" id="class_game_engine_html_a9367d6cab0cdff3116b20a38671856ab"><div class="ttname"><a href="class_game_engine.html#a9367d6cab0cdff3116b20a38671856ab">GameEngine::go_</a></div><div class="ttdeci">EndState go_</div><div class="ttdoc">End state instance. </div><div class="ttdef"><b>Definition:</b> game_engine.h:45</div></div>
+<div class="ttc" id="class_game_engine_html_af8c95f41b4150381b3b39510706f9a33"><div class="ttname"><a href="class_game_engine.html#af8c95f41b4150381b3b39510706f9a33">GameEngine::handle_state_command</a></div><div class="ttdeci">void handle_state_command(AbstractGameState::StateCommand cmd)</div></div>
 <div class="ttc" id="class_play_state_html"><div class="ttname"><a href="class_play_state.html">PlayState</a></div><div class="ttdef"><b>Definition:</b> play_state.h:22</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 17 2014 15:14:00 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 17 2014 14:57:57 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

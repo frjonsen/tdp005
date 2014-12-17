@@ -87,8 +87,14 @@ public:
 	 */
 	const TextureInfo& get_texture() const;
 
+	/// Get the current hp
 	int get_hp() const;
+	/**
+	 * Increase the current hp. Has no effect if hp parameter is negative
+	 * @param hp
+	 */
 	void gain_hp(const int hp);
+	/// Decrease current hp by certain amount. Has no effect if dmg parameter is negative
 	virtual void take_damage(int dmg);
 
 protected:

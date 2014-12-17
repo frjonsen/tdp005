@@ -58,7 +58,7 @@ Inheritance diagram for Sprite:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_sprite__inherit__graph.png" border="0" usemap="#_sprite_inherit__map" alt="Inheritance graph"/></div>
 <map name="_sprite_inherit__map" id="_sprite_inherit__map">
-<area shape="rect" id="node3" href="class_enemy.html" title="{Enemy\n|+ kType\l+ kIsRanged\l|+ reverse_direction()\l+ fire()\l# Enemy()\l}" alt="" coords="5,757,145,878"/><area shape="rect" id="node4" href="class_player.html" title="{Player\n|&#45; weapons_\l&#45; kJumpVelocity\l&#45; frames_since_firing_\l&#45; jumping_\l&#45; stunned_\l&#45; stunned_timer_\l&#45; current_weapon_\l&#45; animations_\l&#45; current_animation\l&#45; animation_timer_\l&#45; animation_change_frequency\l|+ Player()\l+ ~Player()\l+ reset_y_velocity()\l+ update()\l+ order_player()\l+ handle_gravity()\l+ set_stunned()\l+ fire()\l+ jump()\l+ randomize_weapon()\l&#45; handle_move()\l&#45; handle_animation()\l}" alt="" coords="170,625,368,1010"/><area shape="rect" id="node5" href="class_projectile.html" title="{Projectile\n|+ kDamage\l+ owner_\l|+ Projectile()\l+ update()\l}" alt="" coords="393,764,489,871"/><area shape="rect" id="node2" href="class_rectangle.html" title="{Rectangle\n|&#45; rect_\l|+ Rectangle()\l+ ~Rectangle()\l+ Rectangle()\l+ Rectangle()\l+ operator=()\l+ operator=()\l+ get_rect()\l+ get_y()\l+ get_x()\l+ get_width()\land 9 more...\l}" alt="" coords="215,5,324,229"/></map>
+<area shape="rect" id="node3" href="class_enemy.html" title="{Enemy\n|+ kType\l+ kIsRanged\l|+ reverse_direction()\l+ fire()\l# Enemy()\l}" alt="" coords="92,757,232,878"/><area shape="rect" id="node6" href="class_player.html" title="{Player\n|&#45; weapons_\l&#45; kJumpVelocity\l&#45; frames_since_firing_\l&#45; jumping_\l&#45; stunned_\l&#45; stunned_timer_\l&#45; current_weapon_\l&#45; animations_\l&#45; current_animation\l&#45; animation_timer_\l&#45; animation_change_frequency\l|+ Player()\l+ ~Player()\l+ reset_y_velocity()\l+ update()\l+ order_player()\l+ handle_gravity()\l+ set_stunned()\l+ fire()\l+ jump()\l+ randomize_weapon()\l&#45; handle_move()\l&#45; handle_animation()\l}" alt="" coords="257,625,455,1010"/><area shape="rect" id="node7" href="class_projectile.html" title="{Projectile\n|+ kDamage\l+ owner_\l|+ Projectile()\l+ update()\l}" alt="" coords="480,764,576,871"/><area shape="rect" id="node2" href="class_rectangle.html" title="{Rectangle\n|&#45; rect_\l|+ Rectangle()\l+ ~Rectangle()\l+ Rectangle()\l+ Rectangle()\l+ operator=()\l+ operator=()\l+ get_rect()\l+ get_y()\l+ get_x()\l+ get_width()\land 9 more...\l}" alt="" coords="301,5,411,229"/><area shape="rect" id="node4" href="class_runner_enemy.html" title="{RunnerEnemy\n|&#45; is_invulnerable_\l&#45; kRunningInterval\l&#45; kRunVelocity\l&#45; run_timer_\l|+ RunnerEnemy()\l+ RunnerEnemy()\l+ RunnerEnemy()\l+ operator=()\l+ operator=()\l+ update()\l+ handle_gravity()\l+ take_damage()\l}" alt="" coords="5,1081,133,1305"/><area shape="rect" id="node5" href="class_spitter_enemy.html" title="{SpitterEnemy\n|&#45; kProjectileVelocity\l&#45; kProjectileCooldown\l&#45; projectile_timer_\l&#45; animations\l&#45; current_animation\l&#45; animation_timer_\l&#45; animation_change_frequency\l|+ SpitterEnemy()\l+ SpitterEnemy()\l+ SpitterEnemy()\l+ operator=()\l+ operator=()\l+ update()\l+ fire()\l&#45; handle_animation()\l}" alt="" coords="158,1059,356,1327"/></map>
 </div>
 <div class="dynheader">
 Collaboration diagram for Sprite:</div>
@@ -106,13 +106,14 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memitem:a639174d8280b2ab3d20953e01218e2ca"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="struct_sprite_1_1_texture_info.html">TextureInfo</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sprite.html#a639174d8280b2ab3d20953e01218e2ca">get_texture</a> () const </td></tr>
 <tr class="separator:a639174d8280b2ab3d20953e01218e2ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7768a86968fac4cb4e91543282956a7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af7768a86968fac4cb4e91543282956a7"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>get_hp</b> () const </td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sprite.html#af7768a86968fac4cb4e91543282956a7">get_hp</a> () const </td></tr>
+<tr class="memdesc:af7768a86968fac4cb4e91543282956a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current hp. <br/></td></tr>
 <tr class="separator:af7768a86968fac4cb4e91543282956a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6db89d96c819656d87b909fe854c0f4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac6db89d96c819656d87b909fe854c0f4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>gain_hp</b> (const int hp)</td></tr>
+<tr class="memitem:ac6db89d96c819656d87b909fe854c0f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sprite.html#ac6db89d96c819656d87b909fe854c0f4">gain_hp</a> (const int hp)</td></tr>
 <tr class="separator:ac6db89d96c819656d87b909fe854c0f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78f9560e83484615d57fb5b8c29341ee"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a78f9560e83484615d57fb5b8c29341ee"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>take_damage</b> (int dmg)</td></tr>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sprite.html#a78f9560e83484615d57fb5b8c29341ee">take_damage</a> (int dmg)</td></tr>
+<tr class="memdesc:a78f9560e83484615d57fb5b8c29341ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decrease current hp by certain amount. Has no effect if dmg parameter is negative. <br/></td></tr>
 <tr class="separator:a78f9560e83484615d57fb5b8c29341ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_rectangle"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_rectangle')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_rectangle.html">Rectangle</a></td></tr>
 <tr class="memitem:a37802a3bd3159c50474506143361c4e1 inherit pub_methods_class_rectangle"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rectangle.html#a37802a3bd3159c50474506143361c4e1">Rectangle</a> (const int x, const int y, const int width, const int height)</td></tr>
@@ -239,6 +240,29 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ac6db89d96c819656d87b909fe854c0f4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Sprite::gain_hp </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>hp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Increase the current hp. Has no effect if hp parameter is negative </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hp</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a639174d8280b2ab3d20953e01218e2ca"></a>
 <div class="memitem">
 <div class="memproto">
@@ -285,7 +309,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
   </dd>
 </dl>
 
-<p>Reimplemented in <a class="el" href="class_player.html#a614d5ea79246d37f52601022efe6e7ca">Player</a>.</p>
+<p>Reimplemented in <a class="el" href="class_player.html#a614d5ea79246d37f52601022efe6e7ca">Player</a>, and <a class="el" href="class_runner_enemy.html#a45126314e825dcae18eec2963dc5d663">RunnerEnemy</a>.</p>
 
 </div>
 </div>
@@ -316,12 +340,12 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>/home/alest170/TDP005/tdp005/include/<a class="el" href="sprite_8h_source.html">sprite.h</a></li>
+<li>/home/frejo105/TDP005/tdp005/include/<a class="el" href="sprite_8h_source.html">sprite.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 17 2014 15:14:00 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 17 2014 14:57:57 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

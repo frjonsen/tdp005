@@ -50,9 +50,9 @@ public:
   const int kFPSGoal { 60 };
 
   /// Maximum amount of frames before player gets no score
-  const int kTimeLimit{ 60 *  kFPSGoal};
+  const int kTimeLimit { 60 * kFPSGoal };
 
-  ///
+  /// Directions
   enum class Direction
   {
     kLeft, kRight, kAbove, kBelow
@@ -73,19 +73,19 @@ private:
   Player player_ { "Hero_Standing_R.png", { 50, 200, 33, 53 } };
 
   /// A list of all terrain rectangles in the world
-  std::list<Rectangle> terrain_ {};
+  std::list<Rectangle> terrain_ { };
 
   /// All projectiles currently in existance
-  std::list<Projectile*> active_projectiles_ {};
+  std::list<Projectile*> active_projectiles_ { };
 
   /// A list of all active enemies in the world
-  std::list<Enemy*> enemies_ {};
+  std::list<Enemy*> enemies_ { };
 
   ///A list of all chests still in the world
-  std::list<Sprite*> chests_{};
+  std::list<Sprite*> chests_ { };
 
   /// A list of all malware in the world
-  std::list<Sprite*> malware_{};
+  std::list<Sprite*> malware_ { };
 
   /// Background image
   std::string background_ { "playstate_background.png" };
@@ -110,6 +110,14 @@ private:
    */
   std::list<Rectangle *> check_terrain_collision(Rectangle const& r);
 
+  /**
+   * Attempt to figure out from which direction a moving rectangle
+   * collides with a target
+   * @param moving_rect The rectangle after moving
+   * @param moving_from The rectangle before moving
+   * @param collision_target The target being collided with
+   * @return The direction from which the moving rectangle hits the target
+   */
   Direction get_collision_direction(Rectangle const& moving_rect,
                                     Rectangle const& moving_from,
                                     Rectangle const& collision_target);
@@ -131,11 +139,10 @@ private:
    */
   void do_player_update(std::list<Player::MovementCommand> commands);
 
+  /// Request all enemies to update themselves for new frame
   void do_enemy_update();
 
-  /**
-   * Request all projectiles to update for current tick
-   */
+  /// Request all projectiles to update for current tick
   void do_projectile_updates();
 
   /**
@@ -147,6 +154,7 @@ private:
    */
   void delete_projectile(std::list<Projectile*>::iterator& it);
 
+  /// Get the current score
   int get_score() const;
 
 };

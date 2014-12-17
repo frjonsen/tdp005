@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>My Project: /home/alest170/TDP005/tdp005/include/texture_handler.h Source File</title>
+<title>My Project: /home/frejo105/TDP005/tdp005/include/texture_handler.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -65,9 +65,9 @@
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
 <div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="class_texture_handler.html#a245dc1ee905ce6a12f0d8ebecbd761f9">   27</a></span>&#160;  <a class="code" href="class_renderer.html">Renderer</a>&amp; <a class="code" href="class_texture_handler.html#a245dc1ee905ce6a12f0d8ebecbd761f9">renderer_</a>;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="class_texture_handler.html#aec47e995fe65c67723b5923c596ebc24">   30</a></span>&#160;  TTF_Font* <a class="code" href="class_texture_handler.html#aec47e995fe65c67723b5923c596ebc24">font_</a>{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="class_texture_handler.html#aec47e995fe65c67723b5923c596ebc24">   30</a></span>&#160;  TTF_Font* <a class="code" href="class_texture_handler.html#aec47e995fe65c67723b5923c596ebc24">font_</a> { <span class="keyword">nullptr</span> };</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="class_texture_handler.html#a722db57d163feee394afd8bd9e2b17d4">   33</a></span>&#160;  std::map&lt;std::string, Texture*&gt; <a class="code" href="class_texture_handler.html#a722db57d163feee394afd8bd9e2b17d4">loaded_textures_</a>{};</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="class_texture_handler.html#a722db57d163feee394afd8bd9e2b17d4">   33</a></span>&#160;  std::map&lt;std::string, Texture*&gt; <a class="code" href="class_texture_handler.html#a722db57d163feee394afd8bd9e2b17d4">loaded_textures_</a> { };</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_texture_handler.html#a84d10e461f8757ce51c3dbe76037f5ab">load_texture</a>(std::string texture_name);</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
@@ -85,10 +85,10 @@
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <a class="code" href="class_texture.html">Texture</a>* <a class="code" href="class_texture_handler.html#a795a5a12b04c49d4bc22a48a73acde16">get_texture</a>(std::string texture_name);</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <a class="code" href="class_texture.html">Texture</a>* create_text_texture(TextTexture text);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;};</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* INCLUDE_TEXTURE_HANDLER_H_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <a class="code" href="class_texture.html">Texture</a>* <a class="code" href="class_texture_handler.html#a1afb91be6641f16b4a05172245798b0f">create_text_texture</a>(TextTexture text);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;};</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* INCLUDE_TEXTURE_HANDLER_H_ */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="class_texture_handler_html_aec47e995fe65c67723b5923c596ebc24"><div class="ttname"><a href="class_texture_handler.html#aec47e995fe65c67723b5923c596ebc24">TextureHandler::font_</a></div><div class="ttdeci">TTF_Font * font_</div><div class="ttdoc">Font used to render text. </div><div class="ttdef"><b>Definition:</b> texture_handler.h:30</div></div>
 <div class="ttc" id="class_renderer_html"><div class="ttname"><a href="class_renderer.html">Renderer</a></div><div class="ttdef"><b>Definition:</b> renderer.h:12</div></div>
 <div class="ttc" id="class_texture_handler_html_a245dc1ee905ce6a12f0d8ebecbd761f9"><div class="ttname"><a href="class_texture_handler.html#a245dc1ee905ce6a12f0d8ebecbd761f9">TextureHandler::renderer_</a></div><div class="ttdeci">Renderer &amp; renderer_</div><div class="ttdoc">Renderer used to initialize textures. </div><div class="ttdef"><b>Definition:</b> texture_handler.h:27</div></div>
@@ -96,6 +96,7 @@
 <div class="ttc" id="class_texture_handler_html_a84d10e461f8757ce51c3dbe76037f5ab"><div class="ttname"><a href="class_texture_handler.html#a84d10e461f8757ce51c3dbe76037f5ab">TextureHandler::load_texture</a></div><div class="ttdeci">void load_texture(std::string texture_name)</div><div class="ttdoc">Load texture from storage. </div></div>
 <div class="ttc" id="class_texture_handler_html_adb37fce7620b391fd3ee6b1c2d8596e5"><div class="ttname"><a href="class_texture_handler.html#adb37fce7620b391fd3ee6b1c2d8596e5">TextureHandler::operator=</a></div><div class="ttdeci">TextureHandler &amp; operator=(TextureHandler const &amp;)=delete</div><div class="ttdoc">Deleted assignment operator. </div></div>
 <div class="ttc" id="class_texture_handler_html_a722db57d163feee394afd8bd9e2b17d4"><div class="ttname"><a href="class_texture_handler.html#a722db57d163feee394afd8bd9e2b17d4">TextureHandler::loaded_textures_</a></div><div class="ttdeci">std::map&lt; std::string, Texture * &gt; loaded_textures_</div><div class="ttdoc">Cached textures. </div><div class="ttdef"><b>Definition:</b> texture_handler.h:33</div></div>
+<div class="ttc" id="class_texture_handler_html_a1afb91be6641f16b4a05172245798b0f"><div class="ttname"><a href="class_texture_handler.html#a1afb91be6641f16b4a05172245798b0f">TextureHandler::create_text_texture</a></div><div class="ttdeci">Texture * create_text_texture(TextTexture text)</div></div>
 <div class="ttc" id="class_texture_html"><div class="ttname"><a href="class_texture.html">Texture</a></div><div class="ttdef"><b>Definition:</b> texture.h:19</div></div>
 <div class="ttc" id="class_texture_handler_html"><div class="ttname"><a href="class_texture_handler.html">TextureHandler</a></div><div class="ttdef"><b>Definition:</b> texture_handler.h:21</div></div>
 <div class="ttc" id="class_texture_handler_html_a597685005576239c98b2a1b6ae6761c4"><div class="ttname"><a href="class_texture_handler.html#a597685005576239c98b2a1b6ae6761c4">TextureHandler::TextureHandler</a></div><div class="ttdeci">TextureHandler(Renderer &amp;renderer, std::string resource_path)</div></div>
@@ -103,7 +104,7 @@
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 17 2014 15:14:00 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 17 2014 14:57:57 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -72,11 +72,12 @@ Collaboration diagram for PlayState:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a63a511b4e1d9bf4f631f6ae5db789059"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><b>Direction</b> { <b>kLeft</b>, 
+<tr class="memitem:a63a511b4e1d9bf4f631f6ae5db789059"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_state.html#a63a511b4e1d9bf4f631f6ae5db789059">Direction</a> { <b>kLeft</b>, 
 <b>kRight</b>, 
 <b>kAbove</b>, 
 <b>kBelow</b>
  }</td></tr>
+<tr class="memdesc:a63a511b4e1d9bf4f631f6ae5db789059"><td class="mdescLeft">&#160;</td><td class="mdescRight">Directions. <br/></td></tr>
 <tr class="separator:a63a511b4e1d9bf4f631f6ae5db789059"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_types_class_abstract_game_state"><td colspan="2" onclick="javascript:toggleInherit('pub_types_class_abstract_game_state')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="class_abstract_game_state.html">AbstractGameState</a></td></tr>
 <tr class="memitem:a1e8c2c693a073cc029d146cb4fb468cc inherit pub_types_class_abstract_game_state"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_game_state.html#a1e8c2c693a073cc029d146cb4fb468cc">StateCommand</a> { <br/>
@@ -149,7 +150,7 @@ const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href=
 <tr class="memdesc:aec2e116778cd3ee3ed5fd84ca6c6847d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum amount of frames per second. <br/></td></tr>
 <tr class="separator:aec2e116778cd3ee3ed5fd84ca6c6847d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6474fd37df1961bd9f6e1bf241518f80"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6474fd37df1961bd9f6e1bf241518f80"></a>
-const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_state.html#a6474fd37df1961bd9f6e1bf241518f80">kTimeLimit</a> { 60 * <a class="el" href="class_play_state.html#aec2e116778cd3ee3ed5fd84ca6c6847d">kFPSGoal</a>}</td></tr>
+const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_state.html#a6474fd37df1961bd9f6e1bf241518f80">kTimeLimit</a> { 60 * <a class="el" href="class_play_state.html#aec2e116778cd3ee3ed5fd84ca6c6847d">kFPSGoal</a> }</td></tr>
 <tr class="memdesc:a6474fd37df1961bd9f6e1bf241518f80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum amount of frames before player gets no score. <br/></td></tr>
 <tr class="separator:a6474fd37df1961bd9f6e1bf241518f80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -168,22 +169,25 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="separator:adfd34cd25cacdff24891cc22182ea59f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a908bc0bac042d53e009b19443999500c"><td class="memItemLeft" align="right" valign="top">std::list&lt; <a class="el" href="class_rectangle.html">Rectangle</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_state.html#a908bc0bac042d53e009b19443999500c">check_terrain_collision</a> (<a class="el" href="class_rectangle.html">Rectangle</a> const &amp;r)</td></tr>
 <tr class="separator:a908bc0bac042d53e009b19443999500c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd50a1ffa31bd66c3024f40060b2a249"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abd50a1ffa31bd66c3024f40060b2a249"></a>
-Direction&#160;</td><td class="memItemRight" valign="bottom"><b>get_collision_direction</b> (<a class="el" href="class_rectangle.html">Rectangle</a> const &amp;moving_rect, <a class="el" href="class_rectangle.html">Rectangle</a> const &amp;moving_from, <a class="el" href="class_rectangle.html">Rectangle</a> const &amp;collision_target)</td></tr>
+<tr class="memitem:abd50a1ffa31bd66c3024f40060b2a249"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_play_state.html#a63a511b4e1d9bf4f631f6ae5db789059">Direction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_state.html#abd50a1ffa31bd66c3024f40060b2a249">get_collision_direction</a> (<a class="el" href="class_rectangle.html">Rectangle</a> const &amp;moving_rect, <a class="el" href="class_rectangle.html">Rectangle</a> const &amp;moving_from, <a class="el" href="class_rectangle.html">Rectangle</a> const &amp;collision_target)</td></tr>
 <tr class="separator:abd50a1ffa31bd66c3024f40060b2a249"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ffceddbc672eb67b97e9e6c55dbab19"><td class="memItemLeft" align="right" valign="top">Direction&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_state.html#a3ffceddbc672eb67b97e9e6c55dbab19">handle_collision</a> (<a class="el" href="class_sprite.html">Sprite</a> &amp;moving_rect, <a class="el" href="class_rectangle.html">Rectangle</a> const &amp;moving_from, <a class="el" href="class_rectangle.html">Rectangle</a> const &amp;collision_target)</td></tr>
+<tr class="memitem:a3ffceddbc672eb67b97e9e6c55dbab19"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_play_state.html#a63a511b4e1d9bf4f631f6ae5db789059">Direction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_state.html#a3ffceddbc672eb67b97e9e6c55dbab19">handle_collision</a> (<a class="el" href="class_sprite.html">Sprite</a> &amp;moving_rect, <a class="el" href="class_rectangle.html">Rectangle</a> const &amp;moving_from, <a class="el" href="class_rectangle.html">Rectangle</a> const &amp;collision_target)</td></tr>
 <tr class="separator:a3ffceddbc672eb67b97e9e6c55dbab19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a103833d26bf0db0d6b418818b957c7e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_state.html#a103833d26bf0db0d6b418818b957c7e9">do_player_update</a> (std::list&lt; <a class="el" href="class_player.html#a55ef2a0e4aa942b3f7b90271f104d3b4">Player::MovementCommand</a> &gt; commands)</td></tr>
 <tr class="separator:a103833d26bf0db0d6b418818b957c7e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa63bac3644020278b87876136d75e02c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa63bac3644020278b87876136d75e02c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>do_enemy_update</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_state.html#aa63bac3644020278b87876136d75e02c">do_enemy_update</a> ()</td></tr>
+<tr class="memdesc:aa63bac3644020278b87876136d75e02c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Request all enemies to update themselves for new frame. <br/></td></tr>
 <tr class="separator:aa63bac3644020278b87876136d75e02c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0ecfd8c0c465a2532f1a60469e056a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_state.html#aa0ecfd8c0c465a2532f1a60469e056a3">do_projectile_updates</a> ()</td></tr>
+<tr class="memitem:aa0ecfd8c0c465a2532f1a60469e056a3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa0ecfd8c0c465a2532f1a60469e056a3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_state.html#aa0ecfd8c0c465a2532f1a60469e056a3">do_projectile_updates</a> ()</td></tr>
+<tr class="memdesc:aa0ecfd8c0c465a2532f1a60469e056a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Request all projectiles to update for current tick. <br/></td></tr>
 <tr class="separator:aa0ecfd8c0c465a2532f1a60469e056a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe4f23246c8a8edfb27cfea775bd72f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_state.html#afe4f23246c8a8edfb27cfea775bd72f5">delete_projectile</a> (std::list&lt; <a class="el" href="class_projectile.html">Projectile</a> * &gt;::iterator &amp;it)</td></tr>
 <tr class="separator:afe4f23246c8a8edfb27cfea775bd72f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8011174a2bd62b029bbc0cea54cb7b5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab8011174a2bd62b029bbc0cea54cb7b5"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>get_score</b> () const </td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_state.html#ab8011174a2bd62b029bbc0cea54cb7b5">get_score</a> () const </td></tr>
+<tr class="memdesc:ab8011174a2bd62b029bbc0cea54cb7b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current score. <br/></td></tr>
 <tr class="separator:ab8011174a2bd62b029bbc0cea54cb7b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
@@ -205,23 +209,23 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 <tr class="memdesc:a9e57e80d8199fb24a35e161dac88b834"><td class="mdescLeft">&#160;</td><td class="mdescRight">The player. <br/></td></tr>
 <tr class="separator:a9e57e80d8199fb24a35e161dac88b834"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4809e9e5a3181c1582dd5a54f5edd94"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad4809e9e5a3181c1582dd5a54f5edd94"></a>
-std::list&lt; <a class="el" href="class_rectangle.html">Rectangle</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_state.html#ad4809e9e5a3181c1582dd5a54f5edd94">terrain_</a> {}</td></tr>
+std::list&lt; <a class="el" href="class_rectangle.html">Rectangle</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_state.html#ad4809e9e5a3181c1582dd5a54f5edd94">terrain_</a> { }</td></tr>
 <tr class="memdesc:ad4809e9e5a3181c1582dd5a54f5edd94"><td class="mdescLeft">&#160;</td><td class="mdescRight">A list of all terrain rectangles in the world. <br/></td></tr>
 <tr class="separator:ad4809e9e5a3181c1582dd5a54f5edd94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac9acdeb0a60b70af6131e480f89ae2c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aac9acdeb0a60b70af6131e480f89ae2c"></a>
-std::list&lt; <a class="el" href="class_projectile.html">Projectile</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_state.html#aac9acdeb0a60b70af6131e480f89ae2c">active_projectiles_</a> {}</td></tr>
+std::list&lt; <a class="el" href="class_projectile.html">Projectile</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_state.html#aac9acdeb0a60b70af6131e480f89ae2c">active_projectiles_</a> { }</td></tr>
 <tr class="memdesc:aac9acdeb0a60b70af6131e480f89ae2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">All projectiles currently in existance. <br/></td></tr>
 <tr class="separator:aac9acdeb0a60b70af6131e480f89ae2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13edc105b03c1423d1ea28f4c6a207ac"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a13edc105b03c1423d1ea28f4c6a207ac"></a>
-std::list&lt; <a class="el" href="class_enemy.html">Enemy</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_state.html#a13edc105b03c1423d1ea28f4c6a207ac">enemies_</a> {}</td></tr>
+std::list&lt; <a class="el" href="class_enemy.html">Enemy</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_state.html#a13edc105b03c1423d1ea28f4c6a207ac">enemies_</a> { }</td></tr>
 <tr class="memdesc:a13edc105b03c1423d1ea28f4c6a207ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">A list of all active enemies in the world. <br/></td></tr>
 <tr class="separator:a13edc105b03c1423d1ea28f4c6a207ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a901515a352f655d66baeec764cc57d66"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a901515a352f655d66baeec764cc57d66"></a>
-std::list&lt; <a class="el" href="class_sprite.html">Sprite</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_state.html#a901515a352f655d66baeec764cc57d66">chests_</a> {}</td></tr>
+std::list&lt; <a class="el" href="class_sprite.html">Sprite</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_state.html#a901515a352f655d66baeec764cc57d66">chests_</a> { }</td></tr>
 <tr class="memdesc:a901515a352f655d66baeec764cc57d66"><td class="mdescLeft">&#160;</td><td class="mdescRight">A list of all chests still in the world. <br/></td></tr>
 <tr class="separator:a901515a352f655d66baeec764cc57d66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb13f250a76d3976488b358225b34f8a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adb13f250a76d3976488b358225b34f8a"></a>
-std::list&lt; <a class="el" href="class_sprite.html">Sprite</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_state.html#adb13f250a76d3976488b358225b34f8a">malware_</a> {}</td></tr>
+std::list&lt; <a class="el" href="class_sprite.html">Sprite</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_state.html#adb13f250a76d3976488b358225b34f8a">malware_</a> { }</td></tr>
 <tr class="memdesc:adb13f250a76d3976488b358225b34f8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">A list of all malware in the world. <br/></td></tr>
 <tr class="separator:adb13f250a76d3976488b358225b34f8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b2fcf0dcbdb78e7d9b2ea27289beba3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8b2fcf0dcbdb78e7d9b2ea27289beba3"></a>
@@ -326,30 +330,6 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 
 </div>
 </div>
-<a class="anchor" id="aa0ecfd8c0c465a2532f1a60469e056a3"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PlayState::do_projectile_updates </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Request all projectiles to update for current tick </p>
-
-</div>
-</div>
 <a class="anchor" id="a43c8183f00ed62c1187e19499070baf4"></a>
 <div class="memitem">
 <div class="memproto">
@@ -374,6 +354,56 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 <dl class="section return"><dt>Returns</dt><dd>Filename of background </dd></dl>
 
 <p>Implements <a class="el" href="class_abstract_game_state.html#a6e2c383ac0bababbabdc3ef4e4be5699">AbstractGameState</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abd50a1ffa31bd66c3024f40060b2a249"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_play_state.html#a63a511b4e1d9bf4f631f6ae5db789059">Direction</a> PlayState::get_collision_direction </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_rectangle.html">Rectangle</a> const &amp;&#160;</td>
+          <td class="paramname"><em>moving_rect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_rectangle.html">Rectangle</a> const &amp;&#160;</td>
+          <td class="paramname"><em>moving_from</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_rectangle.html">Rectangle</a> const &amp;&#160;</td>
+          <td class="paramname"><em>collision_target</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Attempt to figure out from which direction a moving rectangle collides with a target </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">moving_rect</td><td>The rectangle after moving </td></tr>
+    <tr><td class="paramname">moving_from</td><td>The rectangle before moving </td></tr>
+    <tr><td class="paramname">collision_target</td><td>The target being collided with </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The direction from which the moving rectangle hits the target </dd></dl>
 
 </div>
 </div>
@@ -466,7 +496,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Direction PlayState::handle_collision </td>
+          <td class="memname"><a class="el" href="class_play_state.html#a63a511b4e1d9bf4f631f6ae5db789059">Direction</a> PlayState::handle_collision </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_sprite.html">Sprite</a> &amp;&#160;</td>
           <td class="paramname"><em>moving_rect</em>, </td>
@@ -574,12 +604,12 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>/home/alest170/TDP005/tdp005/include/<a class="el" href="play__state_8h_source.html">play_state.h</a></li>
+<li>/home/frejo105/TDP005/tdp005/include/<a class="el" href="play__state_8h_source.html">play_state.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 17 2014 15:14:00 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 17 2014 14:57:57 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

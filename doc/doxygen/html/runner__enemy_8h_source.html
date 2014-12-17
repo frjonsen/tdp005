@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>My Project: /home/alest170/TDP005/tdp005/include/runner_enemy.h Source File</title>
+<title>My Project: /home/frejo105/TDP005/tdp005/include/runner_enemy.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -54,39 +54,46 @@
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;enemy.h&gt;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">class </span>RunnerEnemy : <span class="keyword">public</span> <a class="code" href="class_enemy.html">Enemy</a></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  RunnerEnemy(<span class="keyword">const</span> <span class="keywordtype">int</span> x, <span class="keyword">const</span> <span class="keywordtype">int</span> y);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  RunnerEnemy(RunnerEnemy <span class="keyword">const</span>&amp; other) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  RunnerEnemy(RunnerEnemy&amp;&amp; other) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  RunnerEnemy&amp; <a class="code" href="class_sprite.html#a4522745fccce3140a92bf64d6e6e6e1a">operator=</a>(RunnerEnemy <span class="keyword">const</span>&amp; rhs) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  RunnerEnemy&amp; <a class="code" href="class_sprite.html#a4522745fccce3140a92bf64d6e6e6e1a">operator=</a>(RunnerEnemy&amp;&amp; rhs) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_sprite.html#a7449245a6f62a7897a54e9853b6cbec5">update</a>();</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_sprite.html#aae90c46c311149d17397dfa7ff95d9c2">handle_gravity</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> gravity);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keywordtype">void</span> take_damage(<span class="keywordtype">int</span> dmg);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keywordtype">bool</span> is_invulnerable_{<span class="keyword">false</span>};</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">size_t</span> kRunningInterval{300};</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> kRunVelocity;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keywordtype">size_t</span> run_timer_{0};</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;};</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* RUNNER_ENEMY_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="class_sprite_html_a4522745fccce3140a92bf64d6e6e6e1a"><div class="ttname"><a href="class_sprite.html#a4522745fccce3140a92bf64d6e6e6e1a">Sprite::operator=</a></div><div class="ttdeci">Sprite &amp; operator=(Sprite const &amp;)=delete</div><div class="ttdoc">Deleted assignment constructor. </div></div>
-<div class="ttc" id="class_sprite_html_a7449245a6f62a7897a54e9853b6cbec5"><div class="ttname"><a href="class_sprite.html#a7449245a6f62a7897a54e9853b6cbec5">Sprite::update</a></div><div class="ttdeci">virtual void update()</div><div class="ttdoc">Request sprite to update for new frame. </div></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_runner_enemy.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_runner_enemy.html">RunnerEnemy</a> : <span class="keyword">public</span> <a class="code" href="class_enemy.html">Enemy</a></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <a class="code" href="class_runner_enemy.html#a80810d2d462f6cdca9cd888a857c4262">RunnerEnemy</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> x, <span class="keyword">const</span> <span class="keywordtype">int</span> y);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <a class="code" href="class_runner_enemy.html#a80810d2d462f6cdca9cd888a857c4262">RunnerEnemy</a>(<a class="code" href="class_runner_enemy.html">RunnerEnemy</a> <span class="keyword">const</span>&amp; other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <a class="code" href="class_runner_enemy.html#a80810d2d462f6cdca9cd888a857c4262">RunnerEnemy</a>(<a class="code" href="class_runner_enemy.html">RunnerEnemy</a>&amp;&amp; other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <a class="code" href="class_runner_enemy.html">RunnerEnemy</a>&amp; <a class="code" href="class_runner_enemy.html#a1e17863162db43db9d66df3faea2f78e">operator=</a>(<a class="code" href="class_runner_enemy.html">RunnerEnemy</a> <span class="keyword">const</span>&amp; rhs) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <a class="code" href="class_runner_enemy.html">RunnerEnemy</a>&amp; <a class="code" href="class_runner_enemy.html#a1e17863162db43db9d66df3faea2f78e">operator=</a>(<a class="code" href="class_runner_enemy.html">RunnerEnemy</a>&amp;&amp; rhs) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_runner_enemy.html#a4b1de4108ee53905fbd17faf38eb8a2b">update</a>();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_runner_enemy.html#a45126314e825dcae18eec2963dc5d663">handle_gravity</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> gravity);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_runner_enemy.html#ade4e1524b2c72ae9bc589c547463e13b">take_damage</a>(<span class="keywordtype">int</span> dmg);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="class_runner_enemy.html#ad8d2dc41a6be4326afe1e5b27358b318">   51</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="class_runner_enemy.html#ad8d2dc41a6be4326afe1e5b27358b318">is_invulnerable_</a>{<span class="keyword">false</span>};</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="class_runner_enemy.html#a577a30a65c2d1cdcc8fd99d463489b78">   54</a></span>&#160;  <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code" href="class_runner_enemy.html#a577a30a65c2d1cdcc8fd99d463489b78">kRunningInterval</a>{300};</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="class_runner_enemy.html#a9a4b5b0be3b5c8ab7c63c519e14f11ad">   56</a></span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="class_runner_enemy.html#a9a4b5b0be3b5c8ab7c63c519e14f11ad">kRunVelocity</a>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="class_runner_enemy.html#ae97bc7ec2989456ff856618b5e9c6f84">   58</a></span>&#160;  <span class="keywordtype">size_t</span> <a class="code" href="class_runner_enemy.html#ae97bc7ec2989456ff856618b5e9c6f84">run_timer_</a>{0};</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;};</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* RUNNER_ENEMY_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="class_runner_enemy_html_a1e17863162db43db9d66df3faea2f78e"><div class="ttname"><a href="class_runner_enemy.html#a1e17863162db43db9d66df3faea2f78e">RunnerEnemy::operator=</a></div><div class="ttdeci">RunnerEnemy &amp; operator=(RunnerEnemy const &amp;rhs)=delete</div><div class="ttdoc">Deleted assigment operator. </div></div>
+<div class="ttc" id="class_runner_enemy_html_ad8d2dc41a6be4326afe1e5b27358b318"><div class="ttname"><a href="class_runner_enemy.html#ad8d2dc41a6be4326afe1e5b27358b318">RunnerEnemy::is_invulnerable_</a></div><div class="ttdeci">bool is_invulnerable_</div><div class="ttdoc">Whether Runner can take damage. If true, no damage will be taken. </div><div class="ttdef"><b>Definition:</b> runner_enemy.h:51</div></div>
+<div class="ttc" id="class_runner_enemy_html"><div class="ttname"><a href="class_runner_enemy.html">RunnerEnemy</a></div><div class="ttdef"><b>Definition:</b> runner_enemy.h:19</div></div>
+<div class="ttc" id="class_runner_enemy_html_a9a4b5b0be3b5c8ab7c63c519e14f11ad"><div class="ttname"><a href="class_runner_enemy.html#a9a4b5b0be3b5c8ab7c63c519e14f11ad">RunnerEnemy::kRunVelocity</a></div><div class="ttdeci">const int kRunVelocity</div><div class="ttdoc">Horizontal velocity when running. </div><div class="ttdef"><b>Definition:</b> runner_enemy.h:56</div></div>
+<div class="ttc" id="class_runner_enemy_html_a45126314e825dcae18eec2963dc5d663"><div class="ttname"><a href="class_runner_enemy.html#a45126314e825dcae18eec2963dc5d663">RunnerEnemy::handle_gravity</a></div><div class="ttdeci">void handle_gravity(const int gravity)</div><div class="ttdoc">Handle gravity based on world gravity constant. </div></div>
+<div class="ttc" id="class_runner_enemy_html_a4b1de4108ee53905fbd17faf38eb8a2b"><div class="ttname"><a href="class_runner_enemy.html#a4b1de4108ee53905fbd17faf38eb8a2b">RunnerEnemy::update</a></div><div class="ttdeci">void update()</div><div class="ttdoc">Request Runner to update for new frame. </div></div>
+<div class="ttc" id="class_runner_enemy_html_ade4e1524b2c72ae9bc589c547463e13b"><div class="ttname"><a href="class_runner_enemy.html#ade4e1524b2c72ae9bc589c547463e13b">RunnerEnemy::take_damage</a></div><div class="ttdeci">void take_damage(int dmg)</div></div>
+<div class="ttc" id="class_runner_enemy_html_ae97bc7ec2989456ff856618b5e9c6f84"><div class="ttname"><a href="class_runner_enemy.html#ae97bc7ec2989456ff856618b5e9c6f84">RunnerEnemy::run_timer_</a></div><div class="ttdeci">size_t run_timer_</div><div class="ttdoc">How long Runner has currently been in running or walking phase. </div><div class="ttdef"><b>Definition:</b> runner_enemy.h:58</div></div>
+<div class="ttc" id="class_runner_enemy_html_a577a30a65c2d1cdcc8fd99d463489b78"><div class="ttname"><a href="class_runner_enemy.html#a577a30a65c2d1cdcc8fd99d463489b78">RunnerEnemy::kRunningInterval</a></div><div class="ttdeci">const size_t kRunningInterval</div><div class="ttdoc">How often to change between running and walking. </div><div class="ttdef"><b>Definition:</b> runner_enemy.h:54</div></div>
 <div class="ttc" id="class_enemy_html"><div class="ttname"><a href="class_enemy.html">Enemy</a></div><div class="ttdef"><b>Definition:</b> enemy.h:16</div></div>
-<div class="ttc" id="class_sprite_html_aae90c46c311149d17397dfa7ff95d9c2"><div class="ttname"><a href="class_sprite.html#aae90c46c311149d17397dfa7ff95d9c2">Sprite::handle_gravity</a></div><div class="ttdeci">virtual void handle_gravity(const int gravity)</div></div>
+<div class="ttc" id="class_runner_enemy_html_a80810d2d462f6cdca9cd888a857c4262"><div class="ttname"><a href="class_runner_enemy.html#a80810d2d462f6cdca9cd888a857c4262">RunnerEnemy::RunnerEnemy</a></div><div class="ttdeci">RunnerEnemy(const int x, const int y)</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 17 2014 15:14:00 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 17 2014 14:57:57 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

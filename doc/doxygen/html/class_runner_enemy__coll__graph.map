@@ -1,0 +1,7 @@
+<map id="RunnerEnemy" name="RunnerEnemy">
+<area shape="rect" id="node2" href="$class_enemy.html" title="{Enemy\n|+ kType\l+ kIsRanged\l|+ reverse_direction()\l+ fire()\l# Enemy()\l}" alt="" coords="133,614,273,735"/>
+<area shape="rect" id="node3" href="$class_sprite.html" title="{Sprite\n|# kTopXVelocity\l# hp_\l|+ Sprite()\l+ ~Sprite()\l+ Sprite()\l+ Sprite()\l+ operator=()\l+ operator=()\l+ update()\l+ handle_gravity()\l+ reset_y_velocity()\l+ get_texture()\l+ get_hp()\l+ gain_hp()\l+ take_damage()\l}" alt="" coords="135,294,272,562"/>
+<area shape="rect" id="node4" href="$class_rectangle.html" title="{Rectangle\n|&#45; rect_\l|+ Rectangle()\l+ ~Rectangle()\l+ Rectangle()\l+ Rectangle()\l+ operator=()\l+ operator=()\l+ get_rect()\l+ get_y()\l+ get_x()\l+ get_width()\land 9 more...\l}" alt="" coords="5,5,115,229"/>
+<area shape="rect" id="node5" href="$struct_sprite_1_1_texture_info.html" title="{Sprite::TextureInfo\n|+ texture_name\l+ flip\l+ angle\l|}" alt="" coords="139,64,268,171"/>
+<area shape="rect" id="node6" href="$struct_sprite_1_1_velocity.html" title="{Sprite::Velocity\n|+ x\l+ y\l|}" alt="" coords="294,71,404,163"/>
+</map>

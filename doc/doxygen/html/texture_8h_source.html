@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>My Project: /home/alest170/TDP005/tdp005/include/texture.h Source File</title>
+<title>My Project: /home/frejo105/TDP005/tdp005/include/texture.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -60,37 +60,36 @@
 <div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_texture.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_texture.html">Texture</a></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="class_texture.html#a9c627950ff615b11ef19288b218b919b">Texture</a>(<a class="code" href="class_renderer.html">Renderer</a>&amp; renderer, SDL_Surface* surface, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="class_texture.html#a9c627950ff615b11ef19288b218b919b">Texture</a>(<a class="code" href="class_renderer.html">Renderer</a>&amp; renderer, <a class="code" href="class_surface.html">Surface</a>&amp; surface, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="class_texture.html#a9c627950ff615b11ef19288b218b919b">Texture</a>(<a class="code" href="class_texture.html">Texture</a> <span class="keyword">const</span>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    ~<a class="code" href="class_texture.html">Texture</a>();</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="class_texture.html">Texture</a>&amp; <a class="code" href="class_texture.html#a02f96ca28b4b433e762876d8a85a7c33">operator=</a>(<a class="code" href="class_texture.html">Texture</a> <span class="keyword">const</span>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    SDL_Texture* <a class="code" href="class_texture.html#addaf7b8cba9dbfa25928c1be46b9a41c">get_texture</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">int</span> kWidth;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">int</span> kHeight;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="class_texture.html#ac14256a1e0f21760807111b516c2344e">   48</a></span>&#160;    SDL_Texture* <a class="code" href="class_texture.html#ac14256a1e0f21760807111b516c2344e">texture_</a>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;};</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* TEXTURE_H_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <a class="code" href="class_texture.html#a9c627950ff615b11ef19288b218b919b">Texture</a>(<a class="code" href="class_renderer.html">Renderer</a>&amp; renderer, SDL_Surface* surface, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <a class="code" href="class_texture.html#a9c627950ff615b11ef19288b218b919b">Texture</a>(<a class="code" href="class_renderer.html">Renderer</a>&amp; renderer, <a class="code" href="class_surface.html">Surface</a>&amp; surface, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <a class="code" href="class_texture.html#a9c627950ff615b11ef19288b218b919b">Texture</a>(<a class="code" href="class_texture.html">Texture</a> <span class="keyword">const</span>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  ~<a class="code" href="class_texture.html">Texture</a>();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <a class="code" href="class_texture.html">Texture</a>&amp; <a class="code" href="class_texture.html#a02f96ca28b4b433e762876d8a85a7c33">operator=</a>(<a class="code" href="class_texture.html">Texture</a> <span class="keyword">const</span>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  SDL_Texture* <a class="code" href="class_texture.html#addaf7b8cba9dbfa25928c1be46b9a41c">get_texture</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="class_texture.html#a88204ddb2ec4124f8c28f43f4c4403be">   49</a></span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="class_texture.html#a88204ddb2ec4124f8c28f43f4c4403be">kWidth</a>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="class_texture.html#a52e9a3b77ab77c1611d94e75ebed32d5">   51</a></span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="class_texture.html#a52e9a3b77ab77c1611d94e75ebed32d5">kHeight</a>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="class_texture.html#ac14256a1e0f21760807111b516c2344e">   54</a></span>&#160;  SDL_Texture* <a class="code" href="class_texture.html#ac14256a1e0f21760807111b516c2344e">texture_</a>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;};</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* TEXTURE_H_ */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="class_texture_html_a9c627950ff615b11ef19288b218b919b"><div class="ttname"><a href="class_texture.html#a9c627950ff615b11ef19288b218b919b">Texture::Texture</a></div><div class="ttdeci">Texture(Renderer &amp;renderer, SDL_Surface *surface, int width, int height)</div></div>
 <div class="ttc" id="class_texture_html_addaf7b8cba9dbfa25928c1be46b9a41c"><div class="ttname"><a href="class_texture.html#addaf7b8cba9dbfa25928c1be46b9a41c">Texture::get_texture</a></div><div class="ttdeci">SDL_Texture * get_texture() const </div><div class="ttdoc">Get the internal SDL_Texture. </div></div>
 <div class="ttc" id="class_surface_html"><div class="ttname"><a href="class_surface.html">Surface</a></div><div class="ttdef"><b>Definition:</b> surface.h:16</div></div>
 <div class="ttc" id="class_texture_html_a02f96ca28b4b433e762876d8a85a7c33"><div class="ttname"><a href="class_texture.html#a02f96ca28b4b433e762876d8a85a7c33">Texture::operator=</a></div><div class="ttdeci">Texture &amp; operator=(Texture const &amp;)=delete</div><div class="ttdoc">Deleted assignment operator. </div></div>
 <div class="ttc" id="class_renderer_html"><div class="ttname"><a href="class_renderer.html">Renderer</a></div><div class="ttdef"><b>Definition:</b> renderer.h:12</div></div>
+<div class="ttc" id="class_texture_html_a52e9a3b77ab77c1611d94e75ebed32d5"><div class="ttname"><a href="class_texture.html#a52e9a3b77ab77c1611d94e75ebed32d5">Texture::kHeight</a></div><div class="ttdeci">const int kHeight</div><div class="ttdoc">Height of texture in pixels. </div><div class="ttdef"><b>Definition:</b> texture.h:51</div></div>
 <div class="ttc" id="class_texture_html"><div class="ttname"><a href="class_texture.html">Texture</a></div><div class="ttdef"><b>Definition:</b> texture.h:19</div></div>
-<div class="ttc" id="class_texture_html_ac14256a1e0f21760807111b516c2344e"><div class="ttname"><a href="class_texture.html#ac14256a1e0f21760807111b516c2344e">Texture::texture_</a></div><div class="ttdeci">SDL_Texture * texture_</div><div class="ttdoc">Internal SDL_Texture. </div><div class="ttdef"><b>Definition:</b> texture.h:48</div></div>
+<div class="ttc" id="class_texture_html_a88204ddb2ec4124f8c28f43f4c4403be"><div class="ttname"><a href="class_texture.html#a88204ddb2ec4124f8c28f43f4c4403be">Texture::kWidth</a></div><div class="ttdeci">const int kWidth</div><div class="ttdoc">Width of texture in pixels. </div><div class="ttdef"><b>Definition:</b> texture.h:49</div></div>
+<div class="ttc" id="class_texture_html_ac14256a1e0f21760807111b516c2344e"><div class="ttname"><a href="class_texture.html#ac14256a1e0f21760807111b516c2344e">Texture::texture_</a></div><div class="ttdeci">SDL_Texture * texture_</div><div class="ttdoc">Internal SDL_Texture. </div><div class="ttdef"><b>Definition:</b> texture.h:54</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 17 2014 15:14:00 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 17 2014 14:57:57 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

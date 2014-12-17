@@ -27,10 +27,10 @@ class TextureHandler
   Renderer& renderer_;
 
   /// Font used to render text
-  TTF_Font* font_{nullptr};
+  TTF_Font* font_ { nullptr };
 
   /// Cached textures
-  std::map<std::string, Texture*> loaded_textures_{};
+  std::map<std::string, Texture*> loaded_textures_ { };
 
   /// Load texture from storage
   void load_texture(std::string texture_name);
@@ -64,6 +64,11 @@ public:
    */
   Texture* get_texture(std::string texture_name);
 
+  /**
+   * Create a texture with a given text in white color
+   * @param text Text to show in texture
+   * @return Pointer to a texture
+   */
   Texture* create_text_texture(TextTexture text);
 };
 

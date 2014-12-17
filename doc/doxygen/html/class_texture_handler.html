@@ -83,8 +83,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a9cbf78526fd57fceed162fcde6cc2a86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a795a5a12b04c49d4bc22a48a73acde16"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_texture.html">Texture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture_handler.html#a795a5a12b04c49d4bc22a48a73acde16">get_texture</a> (std::string texture_name)</td></tr>
 <tr class="separator:a795a5a12b04c49d4bc22a48a73acde16"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1afb91be6641f16b4a05172245798b0f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1afb91be6641f16b4a05172245798b0f"></a>
-<a class="el" href="class_texture.html">Texture</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>create_text_texture</b> (TextTexture text)</td></tr>
+<tr class="memitem:a1afb91be6641f16b4a05172245798b0f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_texture.html">Texture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture_handler.html#a1afb91be6641f16b4a05172245798b0f">create_text_texture</a> (TextTexture text)</td></tr>
 <tr class="separator:a1afb91be6641f16b4a05172245798b0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
@@ -105,11 +104,11 @@ const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="e
 <tr class="memdesc:a245dc1ee905ce6a12f0d8ebecbd761f9"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_renderer.html">Renderer</a> used to initialize textures. <br/></td></tr>
 <tr class="separator:a245dc1ee905ce6a12f0d8ebecbd761f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec47e995fe65c67723b5923c596ebc24"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aec47e995fe65c67723b5923c596ebc24"></a>
-TTF_Font *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture_handler.html#aec47e995fe65c67723b5923c596ebc24">font_</a> {nullptr}</td></tr>
+TTF_Font *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture_handler.html#aec47e995fe65c67723b5923c596ebc24">font_</a> { nullptr }</td></tr>
 <tr class="memdesc:aec47e995fe65c67723b5923c596ebc24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Font used to render text. <br/></td></tr>
 <tr class="separator:aec47e995fe65c67723b5923c596ebc24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a722db57d163feee394afd8bd9e2b17d4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a722db57d163feee394afd8bd9e2b17d4"></a>
-std::map&lt; std::string, <a class="el" href="class_texture.html">Texture</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture_handler.html#a722db57d163feee394afd8bd9e2b17d4">loaded_textures_</a> {}</td></tr>
+std::map&lt; std::string, <a class="el" href="class_texture.html">Texture</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture_handler.html#a722db57d163feee394afd8bd9e2b17d4">loaded_textures_</a> { }</td></tr>
 <tr class="memdesc:a722db57d163feee394afd8bd9e2b17d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cached textures. <br/></td></tr>
 <tr class="separator:a722db57d163feee394afd8bd9e2b17d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -151,6 +150,30 @@ std::map&lt; std::string, <a class="el" href="class_texture.html">Texture</a> * 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a1afb91be6641f16b4a05172245798b0f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_texture.html">Texture</a>* TextureHandler::create_text_texture </td>
+          <td>(</td>
+          <td class="paramtype">TextTexture&#160;</td>
+          <td class="paramname"><em>text</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Create a texture with a given text in white color </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>Text to show in texture </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to a texture </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a795a5a12b04c49d4bc22a48a73acde16"></a>
 <div class="memitem">
 <div class="memproto">
@@ -176,12 +199,12 @@ std::map&lt; std::string, <a class="el" href="class_texture.html">Texture</a> * 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>/home/alest170/TDP005/tdp005/include/<a class="el" href="texture__handler_8h_source.html">texture_handler.h</a></li>
+<li>/home/frejo105/TDP005/tdp005/include/<a class="el" href="texture__handler_8h_source.html">texture_handler.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 17 2014 15:14:00 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 17 2014 14:57:57 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

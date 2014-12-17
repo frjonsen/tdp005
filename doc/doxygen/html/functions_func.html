@@ -58,6 +58,7 @@
       <li><a href="#index_g"><span>g</span></a></li>
       <li><a href="#index_h"><span>h</span></a></li>
       <li><a href="#index_i"><span>i</span></a></li>
+      <li><a href="#index_j"><span>j</span></a></li>
       <li><a href="#index_l"><span>l</span></a></li>
       <li><a href="#index_o"><span>o</span></a></li>
       <li><a href="#index_p"><span>p</span></a></li>
@@ -90,12 +91,18 @@
 <li>contain()
 : <a class="el" href="class_rectangle.html#a89181f8221c743d4ed97612296f4306a">Rectangle</a>
 </li>
+<li>create_text_texture()
+: <a class="el" href="class_texture_handler.html#a1afb91be6641f16b4a05172245798b0f">TextureHandler</a>
+</li>
 </ul>
 
 
 <h3><a class="anchor" id="index_d"></a>- d -</h3><ul>
 <li>delete_projectile()
 : <a class="el" href="class_play_state.html#afe4f23246c8a8edfb27cfea775bd72f5">PlayState</a>
+</li>
+<li>do_enemy_update()
+: <a class="el" href="class_play_state.html#aa63bac3644020278b87876136d75e02c">PlayState</a>
 </li>
 <li>do_player_update()
 : <a class="el" href="class_play_state.html#a103833d26bf0db0d6b418818b957c7e9">PlayState</a>
@@ -123,11 +130,15 @@
 <li>fire()
 : <a class="el" href="class_enemy.html#aa010e1beaf8edb9afa0ccc920a8b8f20">Enemy</a>
 , <a class="el" href="class_player.html#ad042cd97be77975c9a8613691d7293fb">Player</a>
+, <a class="el" href="class_spitter_enemy.html#a5c15e64f54cd89ed66a43924d3b02942">SpitterEnemy</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_g"></a>- g -</h3><ul>
+<li>gain_hp()
+: <a class="el" href="class_sprite.html#ac6db89d96c819656d87b909fe854c0f4">Sprite</a>
+</li>
 <li>GameEngine()
 : <a class="el" href="class_game_engine.html#a3577e939b14e8cb0677d508f2f6a6912">GameEngine</a>
 </li>
@@ -143,6 +154,9 @@
 , <a class="el" href="class_menu_state.html#a878cf387a0220a1d620522138d1a56c7">MenuState</a>
 , <a class="el" href="class_play_state.html#a43c8183f00ed62c1187e19499070baf4">PlayState</a>
 </li>
+<li>get_collision_direction()
+: <a class="el" href="class_play_state.html#abd50a1ffa31bd66c3024f40060b2a249">PlayState</a>
+</li>
 <li>get_date()
 : <a class="el" href="class_highscore.html#a865fa48333b489d4fafbaa4719a35577">Highscore</a>
 </li>
@@ -156,6 +170,9 @@
 <li>get_highscore()
 : <a class="el" href="class_highscore.html#aa24a7c53df10d34ca8afb3d2db1f4675">Highscore</a>
 </li>
+<li>get_hp()
+: <a class="el" href="class_sprite.html#af7768a86968fac4cb4e91543282956a7">Sprite</a>
+</li>
 <li>get_lines()
 : <a class="el" href="class_highscore.html#a60c224d8c3aefa8c64987c0c9afccae4">Highscore</a>
 </li>
@@ -164,6 +181,9 @@
 </li>
 <li>get_renderer()
 : <a class="el" href="class_renderer.html#ac58a71fbb02f2c7a92382f4ff2577f65">Renderer</a>
+</li>
+<li>get_score()
+: <a class="el" href="class_play_state.html#ab8011174a2bd62b029bbc0cea54cb7b5">PlayState</a>
 </li>
 <li>get_sprites()
 : <a class="el" href="class_abstract_game_state.html#a685c7a21cf8265b1c91595d4381fb5da">AbstractGameState</a>
@@ -212,15 +232,29 @@
 
 
 <h3><a class="anchor" id="index_h"></a>- h -</h3><ul>
+<li>handle_animation()
+: <a class="el" href="class_player.html#a41ad30465f1b286bea4177ae60213f9a">Player</a>
+, <a class="el" href="class_spitter_enemy.html#a1c791062a92cc9f9f75f4ca605e8185f">SpitterEnemy</a>
+</li>
 <li>handle_collision()
 : <a class="el" href="class_play_state.html#a3ffceddbc672eb67b97e9e6c55dbab19">PlayState</a>
 </li>
 <li>handle_gravity()
 : <a class="el" href="class_player.html#a614d5ea79246d37f52601022efe6e7ca">Player</a>
+, <a class="el" href="class_runner_enemy.html#a45126314e825dcae18eec2963dc5d663">RunnerEnemy</a>
 , <a class="el" href="class_sprite.html#aae90c46c311149d17397dfa7ff95d9c2">Sprite</a>
 </li>
 <li>handle_highscore()
 : <a class="el" href="class_highscore.html#a6abf66ef1d80014aabdadb93c46f884d">Highscore</a>
+</li>
+<li>handle_input_translation()
+: <a class="el" href="class_game_engine.html#a354fc50773f9249601f600b12fc1254b">GameEngine</a>
+</li>
+<li>handle_move()
+: <a class="el" href="class_player.html#a913b12633052fba4dac6e2d14c9b6f76">Player</a>
+</li>
+<li>handle_state_command()
+: <a class="el" href="class_game_engine.html#af8c95f41b4150381b3b39510706f9a33">GameEngine</a>
 </li>
 </ul>
 
@@ -235,6 +269,13 @@
 </ul>
 
 
+<h3><a class="anchor" id="index_j"></a>- j -</h3><ul>
+<li>jump()
+: <a class="el" href="class_player.html#a70e21ca98281b7d72f105f2693113d7e">Player</a>
+</li>
+</ul>
+
+
 <h3><a class="anchor" id="index_l"></a>- l -</h3><ul>
 <li>load_texture()
 : <a class="el" href="class_texture_handler.html#a84d10e461f8757ce51c3dbe76037f5ab">TextureHandler</a>
@@ -245,10 +286,12 @@
 <h3><a class="anchor" id="index_o"></a>- o -</h3><ul>
 <li>operator=()
 : <a class="el" href="class_game_engine.html#a48b681c45eedc1d3c3f7b878a949ba61">GameEngine</a>
-, <a class="el" href="class_graphics_engine.html#a9b003adc14b36b5d36b36a1d709cfe2f">GraphicsEngine</a>
+, <a class="el" href="class_graphics_engine.html#a064b82e374815350732993891b27d8b3">GraphicsEngine</a>
 , <a class="el" href="class_play_state.html#aaef6cf4f832b97407714051c60ac1b09">PlayState</a>
-, <a class="el" href="class_rectangle.html#a58117fd6ff856fe26f21d95f667df86b">Rectangle</a>
+, <a class="el" href="class_rectangle.html#a4e2f2a04430c59627d92b2cce17feb62">Rectangle</a>
 , <a class="el" href="class_renderer.html#a28f3e34c1127d4230c3f5479e716c853">Renderer</a>
+, <a class="el" href="class_runner_enemy.html#a1e17863162db43db9d66df3faea2f78e">RunnerEnemy</a>
+, <a class="el" href="class_spitter_enemy.html#ae45956c1f33d2108abf0a940f9feaccf">SpitterEnemy</a>
 , <a class="el" href="class_sprite.html#a4522745fccce3140a92bf64d6e6e6e1a">Sprite</a>
 , <a class="el" href="class_surface.html#a5c7c9341756dffc92d63a61933a4f480">Surface</a>
 , <a class="el" href="class_texture.html#a02f96ca28b4b433e762876d8a85a7c33">Texture</a>
@@ -269,7 +312,7 @@
 : <a class="el" href="class_player.html#a777107797f5d66afe79e63db20d397c4">Player</a>
 </li>
 <li>PlayState()
-: <a class="el" href="class_play_state.html#a798237e668196ee01a3a795a61daa311">PlayState</a>
+: <a class="el" href="class_play_state.html#a87ebc08c33a3c29fe5dea47e0f87bd0a">PlayState</a>
 </li>
 <li>Projectile()
 : <a class="el" href="class_projectile.html#ac37f49ca5f540b6dc965453d2e9092ca">Projectile</a>
@@ -278,6 +321,9 @@
 
 
 <h3><a class="anchor" id="index_r"></a>- r -</h3><ul>
+<li>randomize_weapon()
+: <a class="el" href="class_player.html#a37ee1f702e71e56116366f62fcdc8159">Player</a>
+</li>
 <li>Rectangle()
 : <a class="el" href="class_rectangle.html#a37802a3bd3159c50474506143361c4e1">Rectangle</a>
 </li>
@@ -311,6 +357,9 @@
 </li>
 <li>run()
 : <a class="el" href="class_game_engine.html#ab01970da2c68fefbf48b98c59d5627ae">GameEngine</a>
+</li>
+<li>RunnerEnemy()
+: <a class="el" href="class_runner_enemy.html#a80810d2d462f6cdca9cd888a857c4262">RunnerEnemy</a>
 </li>
 </ul>
 
@@ -347,21 +396,28 @@
 <li>set_y()
 : <a class="el" href="class_rectangle.html#a8131965d0faba223a45e600cb0e77d30">Rectangle</a>
 </li>
+<li>SpitterEnemy()
+: <a class="el" href="class_spitter_enemy.html#a930f480acd9cae3c38c480483aa5dc88">SpitterEnemy</a>
+</li>
 <li>Sprite()
-: <a class="el" href="class_sprite.html#a0f628a2eb3f223424c81067d99a3c16e">Sprite</a>
+: <a class="el" href="class_sprite.html#ac6a5b4877de59d3e6d651f4ab93e4d1c">Sprite</a>
 </li>
 <li>Surface()
-: <a class="el" href="class_surface.html#a9b6bf79e8d774ab44ad1e66053f91cdc">Surface</a>
+: <a class="el" href="class_surface.html#ae241769d4af11466aeca70c73a40cfb3">Surface</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_t"></a>- t -</h3><ul>
+<li>take_damage()
+: <a class="el" href="class_runner_enemy.html#ade4e1524b2c72ae9bc589c547463e13b">RunnerEnemy</a>
+, <a class="el" href="class_sprite.html#a78f9560e83484615d57fb5b8c29341ee">Sprite</a>
+</li>
 <li>Texture()
 : <a class="el" href="class_texture.html#a9c627950ff615b11ef19288b218b919b">Texture</a>
 </li>
 <li>TextureHandler()
-: <a class="el" href="class_texture_handler.html#a1e980f198f0f1ec4bea0f670d8f72e88">TextureHandler</a>
+: <a class="el" href="class_texture_handler.html#a597685005576239c98b2a1b6ae6761c4">TextureHandler</a>
 </li>
 <li>translate_input()
 : <a class="el" href="class_play_state.html#ad56f32f3ac709892f3073a6270a372c2">PlayState</a>
@@ -377,6 +433,8 @@
 , <a class="el" href="class_player.html#a82c3476f3e65a4e2ac6bcd040771bdd4">Player</a>
 , <a class="el" href="class_play_state.html#a22a67c736d953e613236f99cbb58eb2d">PlayState</a>
 , <a class="el" href="class_projectile.html#a8b32ce7d21ec9032812b528e5cb87cc7">Projectile</a>
+, <a class="el" href="class_runner_enemy.html#a4b1de4108ee53905fbd17faf38eb8a2b">RunnerEnemy</a>
+, <a class="el" href="class_spitter_enemy.html#ac4034605a0bcd505807e314e4cf8cb50">SpitterEnemy</a>
 , <a class="el" href="class_sprite.html#a7449245a6f62a7897a54e9853b6cbec5">Sprite</a>
 </li>
 </ul>
@@ -390,6 +448,9 @@
 
 
 <h3><a class="anchor" id="index_w"></a>- w -</h3><ul>
+<li>Weapon()
+: <a class="el" href="struct_player_1_1_weapon.html#af7389db1db5770c07d6bdcfd9b00ba88">Player::Weapon</a>
+</li>
 <li>Window()
 : <a class="el" href="class_window.html#a60ba4cb171066b70f03b6485521d162e">Window</a>
 </li>
@@ -397,7 +458,7 @@
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 17 2014 15:14:00 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 17 2014 14:57:57 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

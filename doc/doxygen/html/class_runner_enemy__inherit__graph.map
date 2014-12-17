@@ -1,0 +1,5 @@
+<map id="RunnerEnemy" name="RunnerEnemy">
+<area shape="rect" id="node2" href="$class_enemy.html" title="{Enemy\n|+ kType\l+ kIsRanged\l|+ reverse_direction()\l+ fire()\l# Enemy()\l}" alt="" coords="4,625,144,746"/>
+<area shape="rect" id="node3" href="$class_sprite.html" title="{Sprite\n|# texture_\l# velocity_\l# kTopXVelocity\l# hp_\l|+ Sprite()\l+ ~Sprite()\l+ Sprite()\l+ Sprite()\l+ operator=()\l+ operator=()\l+ update()\l+ handle_gravity()\l+ reset_y_velocity()\l+ get_texture()\l+ get_hp()\l+ gain_hp()\l+ take_damage()\l}" alt="" coords="6,278,143,575"/>
+<area shape="rect" id="node4" href="$class_rectangle.html" title="{Rectangle\n|&#45; rect_\l|+ Rectangle()\l+ ~Rectangle()\l+ Rectangle()\l+ Rectangle()\l+ operator=()\l+ operator=()\l+ get_rect()\l+ get_y()\l+ get_x()\l+ get_width()\land 9 more...\l}" alt="" coords="20,5,129,229"/>
+</map>

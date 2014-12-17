@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>My Project: /home/alest170/TDP005/tdp005/include/spitter_enemy.h Source File</title>
+<title>My Project: /home/frejo105/TDP005/tdp005/include/spitter_enemy.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -55,53 +55,64 @@
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;enemy.h&gt;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">class </span>SpitterEnemy : <span class="keyword">public</span> <a class="code" href="class_enemy.html">Enemy</a></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  SpitterEnemy(<span class="keyword">const</span> <span class="keywordtype">int</span> x, <span class="keyword">const</span> <span class="keywordtype">int</span> y);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  SpitterEnemy(SpitterEnemy <span class="keyword">const</span>&amp; other) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  SpitterEnemy(SpitterEnemy&amp;&amp; other) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  SpitterEnemy&amp; <a class="code" href="class_sprite.html#a4522745fccce3140a92bf64d6e6e6e1a">operator=</a>(SpitterEnemy <span class="keyword">const</span>&amp; rhs) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  SpitterEnemy&amp; <a class="code" href="class_sprite.html#a4522745fccce3140a92bf64d6e6e6e1a">operator=</a>(SpitterEnemy&amp;&amp; rhs) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_sprite.html#a7449245a6f62a7897a54e9853b6cbec5">update</a>();</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <a class="code" href="class_projectile.html">Projectile</a>* <a class="code" href="class_enemy.html#aa010e1beaf8edb9afa0ccc920a8b8f20">fire</a>(<a class="code" href="class_sprite.html">Sprite</a> <span class="keyword">const</span>&amp; player);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keywordtype">void</span> handle_animation();</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="class_spitter_enemy.html">   21</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_spitter_enemy.html">SpitterEnemy</a> : <span class="keyword">public</span> <a class="code" href="class_enemy.html">Enemy</a></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <a class="code" href="class_spitter_enemy.html#a930f480acd9cae3c38c480483aa5dc88">SpitterEnemy</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> x, <span class="keyword">const</span> <span class="keywordtype">int</span> y);</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keywordtype">int</span> kProjectileVelocity{5};</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keywordtype">int</span> kProjectileCooldown{60};</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keywordtype">int</span> projectile_timer_{-1};</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <a class="code" href="class_spitter_enemy.html#a930f480acd9cae3c38c480483aa5dc88">SpitterEnemy</a>(<a class="code" href="class_spitter_enemy.html">SpitterEnemy</a> <span class="keyword">const</span>&amp; other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <a class="code" href="class_spitter_enemy.html#a930f480acd9cae3c38c480483aa5dc88">SpitterEnemy</a>(<a class="code" href="class_spitter_enemy.html">SpitterEnemy</a>&amp;&amp; other) = <span class="keyword">delete</span>;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keyword">const</span> std::vector&lt;std::string&gt; animations</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="stringliteral">&quot;Slime_1.png&quot;</span>,</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="stringliteral">&quot;Slime_2.png&quot;</span>,</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="stringliteral">&quot;Slime_3.png&quot;</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  };</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keywordtype">int</span> current_animation{0};</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keywordtype">size_t</span> animation_timer_{0};</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keywordtype">size_t</span> animation_change_frequency{25};</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;};</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SPITTER_ENEMY_H_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <a class="code" href="class_spitter_enemy.html">SpitterEnemy</a>&amp; <a class="code" href="class_spitter_enemy.html#ae45956c1f33d2108abf0a940f9feaccf">operator=</a>(<a class="code" href="class_spitter_enemy.html">SpitterEnemy</a> <span class="keyword">const</span>&amp; rhs) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <a class="code" href="class_spitter_enemy.html">SpitterEnemy</a>&amp; <a class="code" href="class_spitter_enemy.html#ae45956c1f33d2108abf0a940f9feaccf">operator=</a>(<a class="code" href="class_spitter_enemy.html">SpitterEnemy</a>&amp;&amp; rhs) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_spitter_enemy.html#ac4034605a0bcd505807e314e4cf8cb50">update</a>();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <a class="code" href="class_projectile.html">Projectile</a>* <a class="code" href="class_spitter_enemy.html#a5c15e64f54cd89ed66a43924d3b02942">fire</a>(<a class="code" href="class_sprite.html">Sprite</a> <span class="keyword">const</span>&amp; player);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_spitter_enemy.html#a1c791062a92cc9f9f75f4ca605e8185f">handle_animation</a>();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="class_spitter_enemy.html#ab628b911dbd3197a5d92894443e5694c">   58</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="class_spitter_enemy.html#ab628b911dbd3197a5d92894443e5694c">kProjectileVelocity</a>{5};</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="class_spitter_enemy.html#a1c274a629284dfb31a6c7cb7b30663ae">   61</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="class_spitter_enemy.html#a1c274a629284dfb31a6c7cb7b30663ae">kProjectileCooldown</a>{60};</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="class_spitter_enemy.html#ab5e5609c87d65c2ca09a6d3df8bfb1b2">   64</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="class_spitter_enemy.html#ab5e5609c87d65c2ca09a6d3df8bfb1b2">projectile_timer_</a>{-1};</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keyword">const</span> std::vector&lt;std::string&gt; <a class="code" href="class_spitter_enemy.html#af50ad03656032cd4f95f0c227feba272">animations</a></div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="class_spitter_enemy.html#af50ad03656032cd4f95f0c227feba272">   68</a></span>&#160;  {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="stringliteral">&quot;Slime_1.png&quot;</span>,</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="stringliteral">&quot;Slime_2.png&quot;</span>,</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="stringliteral">&quot;Slime_3.png&quot;</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  };</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="class_spitter_enemy.html#a13c47ba5ad1aa7cdfa055c6882fe0b4f">   75</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="class_spitter_enemy.html#a13c47ba5ad1aa7cdfa055c6882fe0b4f">current_animation</a>{0};</div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="class_spitter_enemy.html#a561540b69c449965e0b6f49cc9e052b0">   77</a></span>&#160;  <span class="keywordtype">size_t</span> <a class="code" href="class_spitter_enemy.html#a561540b69c449965e0b6f49cc9e052b0">animation_timer_</a>{0};</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="class_spitter_enemy.html#ab3a550437de1ead50d7b162839d59ac1">   79</a></span>&#160;  <span class="keywordtype">size_t</span> <a class="code" href="class_spitter_enemy.html#ab3a550437de1ead50d7b162839d59ac1">animation_change_frequency</a>{25};</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;};</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SPITTER_ENEMY_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="class_spitter_enemy_html_a561540b69c449965e0b6f49cc9e052b0"><div class="ttname"><a href="class_spitter_enemy.html#a561540b69c449965e0b6f49cc9e052b0">SpitterEnemy::animation_timer_</a></div><div class="ttdeci">size_t animation_timer_</div><div class="ttdoc">How long current texture has been in use. </div><div class="ttdef"><b>Definition:</b> spitter_enemy.h:77</div></div>
+<div class="ttc" id="class_spitter_enemy_html_ab628b911dbd3197a5d92894443e5694c"><div class="ttname"><a href="class_spitter_enemy.html#ab628b911dbd3197a5d92894443e5694c">SpitterEnemy::kProjectileVelocity</a></div><div class="ttdeci">int kProjectileVelocity</div><div class="ttdoc">Velocity of projectile. </div><div class="ttdef"><b>Definition:</b> spitter_enemy.h:58</div></div>
+<div class="ttc" id="class_spitter_enemy_html_a5c15e64f54cd89ed66a43924d3b02942"><div class="ttname"><a href="class_spitter_enemy.html#a5c15e64f54cd89ed66a43924d3b02942">SpitterEnemy::fire</a></div><div class="ttdeci">Projectile * fire(Sprite const &amp;player)</div></div>
+<div class="ttc" id="class_spitter_enemy_html_a930f480acd9cae3c38c480483aa5dc88"><div class="ttname"><a href="class_spitter_enemy.html#a930f480acd9cae3c38c480483aa5dc88">SpitterEnemy::SpitterEnemy</a></div><div class="ttdeci">SpitterEnemy(const int x, const int y)</div></div>
+<div class="ttc" id="class_spitter_enemy_html_a1c791062a92cc9f9f75f4ca605e8185f"><div class="ttname"><a href="class_spitter_enemy.html#a1c791062a92cc9f9f75f4ca605e8185f">SpitterEnemy::handle_animation</a></div><div class="ttdeci">void handle_animation()</div><div class="ttdoc">Handle the animatin. </div></div>
+<div class="ttc" id="class_spitter_enemy_html_ab3a550437de1ead50d7b162839d59ac1"><div class="ttname"><a href="class_spitter_enemy.html#ab3a550437de1ead50d7b162839d59ac1">SpitterEnemy::animation_change_frequency</a></div><div class="ttdeci">size_t animation_change_frequency</div><div class="ttdoc">How often to chnge texture. </div><div class="ttdef"><b>Definition:</b> spitter_enemy.h:79</div></div>
 <div class="ttc" id="class_sprite_html"><div class="ttname"><a href="class_sprite.html">Sprite</a></div><div class="ttdef"><b>Definition:</b> sprite.h:20</div></div>
-<div class="ttc" id="class_sprite_html_a4522745fccce3140a92bf64d6e6e6e1a"><div class="ttname"><a href="class_sprite.html#a4522745fccce3140a92bf64d6e6e6e1a">Sprite::operator=</a></div><div class="ttdeci">Sprite &amp; operator=(Sprite const &amp;)=delete</div><div class="ttdoc">Deleted assignment constructor. </div></div>
+<div class="ttc" id="class_spitter_enemy_html_ac4034605a0bcd505807e314e4cf8cb50"><div class="ttname"><a href="class_spitter_enemy.html#ac4034605a0bcd505807e314e4cf8cb50">SpitterEnemy::update</a></div><div class="ttdeci">void update()</div></div>
+<div class="ttc" id="class_spitter_enemy_html"><div class="ttname"><a href="class_spitter_enemy.html">SpitterEnemy</a></div><div class="ttdef"><b>Definition:</b> spitter_enemy.h:21</div></div>
+<div class="ttc" id="class_spitter_enemy_html_a1c274a629284dfb31a6c7cb7b30663ae"><div class="ttname"><a href="class_spitter_enemy.html#a1c274a629284dfb31a6c7cb7b30663ae">SpitterEnemy::kProjectileCooldown</a></div><div class="ttdeci">int kProjectileCooldown</div><div class="ttdoc">Cooldown before Spitter will fire again. </div><div class="ttdef"><b>Definition:</b> spitter_enemy.h:61</div></div>
 <div class="ttc" id="class_projectile_html"><div class="ttname"><a href="class_projectile.html">Projectile</a></div><div class="ttdef"><b>Definition:</b> projectile.h:16</div></div>
-<div class="ttc" id="class_sprite_html_a7449245a6f62a7897a54e9853b6cbec5"><div class="ttname"><a href="class_sprite.html#a7449245a6f62a7897a54e9853b6cbec5">Sprite::update</a></div><div class="ttdeci">virtual void update()</div><div class="ttdoc">Request sprite to update for new frame. </div></div>
+<div class="ttc" id="class_spitter_enemy_html_ab5e5609c87d65c2ca09a6d3df8bfb1b2"><div class="ttname"><a href="class_spitter_enemy.html#ab5e5609c87d65c2ca09a6d3df8bfb1b2">SpitterEnemy::projectile_timer_</a></div><div class="ttdeci">int projectile_timer_</div><div class="ttdoc">How long since weapon went on cooldown. Should be negative if off cooldown. </div><div class="ttdef"><b>Definition:</b> spitter_enemy.h:64</div></div>
+<div class="ttc" id="class_spitter_enemy_html_a13c47ba5ad1aa7cdfa055c6882fe0b4f"><div class="ttname"><a href="class_spitter_enemy.html#a13c47ba5ad1aa7cdfa055c6882fe0b4f">SpitterEnemy::current_animation</a></div><div class="ttdeci">int current_animation</div><div class="ttdoc">Index of current animation texture. </div><div class="ttdef"><b>Definition:</b> spitter_enemy.h:75</div></div>
+<div class="ttc" id="class_spitter_enemy_html_ae45956c1f33d2108abf0a940f9feaccf"><div class="ttname"><a href="class_spitter_enemy.html#ae45956c1f33d2108abf0a940f9feaccf">SpitterEnemy::operator=</a></div><div class="ttdeci">SpitterEnemy &amp; operator=(SpitterEnemy const &amp;rhs)=delete</div><div class="ttdoc">Deleted assignment operator. </div></div>
 <div class="ttc" id="class_enemy_html"><div class="ttname"><a href="class_enemy.html">Enemy</a></div><div class="ttdef"><b>Definition:</b> enemy.h:16</div></div>
-<div class="ttc" id="class_enemy_html_aa010e1beaf8edb9afa0ccc920a8b8f20"><div class="ttname"><a href="class_enemy.html#aa010e1beaf8edb9afa0ccc920a8b8f20">Enemy::fire</a></div><div class="ttdeci">virtual Projectile * fire(Sprite const &amp;player)</div><div class="ttdoc">Projectiles fired if enemy type can fire. </div></div>
+<div class="ttc" id="class_spitter_enemy_html_af50ad03656032cd4f95f0c227feba272"><div class="ttname"><a href="class_spitter_enemy.html#af50ad03656032cd4f95f0c227feba272">SpitterEnemy::animations</a></div><div class="ttdeci">const std::vector&lt; std::string &gt; animations</div><div class="ttdoc">Animation textures. </div><div class="ttdef"><b>Definition:</b> spitter_enemy.h:68</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 17 2014 15:14:00 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 17 2014 14:57:57 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

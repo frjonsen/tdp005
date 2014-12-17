@@ -31,22 +31,37 @@ class GameEngine
   /// Window Width
   const int kWindowWidth { 800 };
 
+  /// Minimum time per frme
   const size_t kFrameTimeGoal { 1000 / 60 };
 
+  /// Should engine keep running
   bool engine_running_ { true };
+  /// Current active state
   AbstractGameState* active_state_ { nullptr };
 
+  /// Menu state instance
   MenuState is_;
+  /// End state instance
   EndState go_;
+  /// Play state instance
   PlayState ps_{};
 
 
-  //GameOverState gos_;
-
+  /// Graphics engine used to render screen
   GraphicsEngine graphics_engine_;
 
+  /**
+   * Used to handle the StateCommand returned by state after
+   * requesting an update
+   * @param cmd The command to handle
+   */
   void handle_state_command(AbstractGameState::StateCommand cmd);
-  void handle_input_translation(std::list<AbstractGameState::GameInput>&);
+
+  /**
+   * Translate the input given by SDL to enums the states understand
+   * @param tick_input Output parameter to store GameInputs in
+   */
+  void handle_input_translation(std::list<AbstractGameState::GameInput>& tick_input);
 
 public:
   GameEngine();
