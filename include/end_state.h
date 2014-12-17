@@ -12,7 +12,9 @@
 #include <string>
 #include <map>
 
-
+/**
+ * State representing the end of the game
+ */
 class EndState : public AbstractGameState
 {
 public:
@@ -22,23 +24,26 @@ public:
   std::list<TextTexture> get_texts() const;
   std::string get_background() const;
 
+  /// Sets the end type for state. If reached by loss or win
   void set_end_type(std::string end_type_);
 
 private:
+  /// Names of end state types
   enum class EndDirectory
   {
     kKilled, kFell, kWin
   };
 
+  /// Map of backgrounds for end states
   std::map<EndDirectory, std::string> current_background_ { {
       EndDirectory::kKilled, "game_over_caffeine.png" }, {
       EndDirectory::kFell, "game_over_fly.png" }, {
       EndDirectory::kWin, "game_over_win.png" } };
 
+  /// Current end state type
   EndDirectory current_ { EndDirectory::kWin };
 
-  Sprite score_ { "coffe.png", { 475, 380, 51, 40 }, 0 };
-
+  /// Currently active background
   std::string background_src_{ current_background_.at(current_) };
 
 };
