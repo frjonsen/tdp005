@@ -8,6 +8,7 @@
 #include <end_state.h>
 #include <SDL2/SDL.h>
 #include <iostream>
+#include <highscore_handler.h>
 
 void EndState::set_end_type(std::string end_type_)
 {
@@ -41,7 +42,7 @@ std::list<Sprite const*> EndState::get_sprites() const
 std::list <TextTexture> EndState::get_texts() const
 {
   TextTexture geek_score_{"9000", 426, 411};
-//  std::cout << geek_score_.kText << std::endl;
+
   std::list<TextTexture> score_list_
   {
     geek_score_
@@ -52,5 +53,7 @@ std::list <TextTexture> EndState::get_texts() const
 
 std::string EndState::get_background() const
 {
+  Highscore hej{1111};
+  hej.handle_highscore();
   return background_src_;
 }
