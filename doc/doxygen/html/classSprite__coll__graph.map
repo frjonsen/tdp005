@@ -1,0 +1,5 @@
+<map id="Sprite" name="Sprite">
+<area shape="rect" id="node2" href="$classRectangle.html" title="Rectangle" alt="" coords="5,5,85,32"/>
+<area shape="rect" id="node3" href="$structSprite_1_1TextureInfo.html" title="Sprite::TextureInfo" alt="" coords="111,5,240,32"/>
+<area shape="rect" id="node4" href="$structSprite_1_1Velocity.html" title="Sprite::Velocity" alt="" coords="266,5,376,32"/>
+</map>

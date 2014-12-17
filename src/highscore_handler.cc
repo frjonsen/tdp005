@@ -13,10 +13,12 @@
 #include <time.h>
 #include <sstream>
 
-Highscore::Highscore(int gamescore_)
-    : score_ { gamescore_ } {}
+ void Highscore::add_score(int points_)
+ {
+   score_ = points_;
+ }
 
-std::string get_date()
+std::string Highscore::get_date()
 {
   time_t theTime = time ( NULL );
   struct tm *aTime = localtime ( &theTime );
@@ -28,10 +30,11 @@ std::string get_date()
   std::string date_ = std::to_string ( year ) + "-" + std::to_string ( month )
       + "-" + std::to_string ( day );
 
+  delete aTime;
   return date_;
 }
 
-std::vector<std::string> get_lines(std::istream& stream)
+std::vector<std::string> Highscore::get_lines(std::istream& stream)
 {
   std::vector<std::string> lines;
   std::string line;
@@ -54,7 +57,7 @@ std::vector<std::string> Highscore::get_highscore()
   return lines;
 }
 
-std::pair<int, std::string> parse_lines(std::string line)
+std::pair<int, std::string> Highscore::parse_lines(std::string line)
     {
       std::string number;
       std::string date;

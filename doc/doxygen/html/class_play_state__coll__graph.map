@@ -1,0 +1,9 @@
+<map id="PlayState" name="PlayState">
+<area shape="rect" id="node2" href="$class_abstract_game_state.html" title="{AbstractGameState\n||+ ~AbstractGameState()\l+ update()\l+ get_viewport()\l+ get_sprites()\l+ get_background()\l+ get_texts()\l}" alt="" coords="27,737,191,887"/>
+<area shape="rect" id="node3" href="$class_player.html" title="{Player\n|&#45; weapons_\l&#45; kJumpVelocity\l&#45; frames_since_firing_\l&#45; jumping_\l&#45; stunned_\l&#45; stunned_timer_\l&#45; animations_\l&#45; current_animation\l&#45; animation_timer_\l&#45; animation_change_frequency\l|+ Player()\l+ ~Player()\l+ reset_y_velocity()\l+ update()\l+ order_player()\l+ handle_gravity()\l+ set_stunned()\l+ fire()\l+ jump()\l+ randomize_weapon()\l&#45; handle_move()\l&#45; handle_animation()\l}" alt="" coords="215,627,413,997"/>
+<area shape="rect" id="node4" href="$class_sprite.html" title="{Sprite\n|# kTopXVelocity\l# hp_\l|+ Sprite()\l+ ~Sprite()\l+ Sprite()\l+ Sprite()\l+ operator=()\l+ operator=()\l+ update()\l+ handle_gravity()\l+ reset_y_velocity()\l+ get_texture()\l+ get_hp()\l+ gain_hp()\l+ take_damage()\l}" alt="" coords="135,294,272,562"/>
+<area shape="rect" id="node5" href="$class_rectangle.html" title="{Rectangle\n|&#45; rect_\l|+ Rectangle()\l+ ~Rectangle()\l+ Rectangle()\l+ Rectangle()\l+ operator=()\l+ operator=()\l+ get_rect()\l+ get_y()\l+ get_x()\l+ get_width()\land 9 more...\l}" alt="" coords="5,5,115,229"/>
+<area shape="rect" id="node6" href="$struct_sprite_1_1_texture_info.html" title="{Sprite::TextureInfo\n|+ texture_name\l+ flip\l+ angle\l|}" alt="" coords="139,64,268,171"/>
+<area shape="rect" id="node7" href="$struct_sprite_1_1_velocity.html" title="{Sprite::Velocity\n|+ x\l+ y\l|}" alt="" coords="294,71,404,163"/>
+<area shape="rect" id="node8" href="$struct_player_1_1_weapon.html" title="Contains weapon statistics. " alt="" coords="297,345,436,511"/>
+</map>

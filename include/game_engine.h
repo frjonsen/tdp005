@@ -30,6 +30,7 @@ class GameEngine
   const int kWindowHeight { 600 };
   /// Window Width
   const int kWindowWidth { 800 };
+
   const size_t kFrameTimeGoal { 1000 / 60 };
 
   bool engine_running_ { true };

@@ -50,8 +50,10 @@
   </div>
   <div id="navrow4" class="tabs3">
     <ul class="tablist">
+      <li><a href="#index_a"><span>a</span></a></li>
       <li><a href="#index_c"><span>c</span></a></li>
       <li><a href="#index_d"><span>d</span></a></li>
+      <li><a href="#index_e"><span>e</span></a></li>
       <li><a href="#index_f"><span>f</span></a></li>
       <li><a href="#index_g"><span>g</span></a></li>
       <li><a href="#index_h"><span>h</span></a></li>
@@ -70,6 +72,13 @@
 </div><!-- top -->
 <div class="contents">
 &#160;
+
+<h3><a class="anchor" id="index_a"></a>- a -</h3><ul>
+<li>add_score()
+: <a class="el" href="class_highscore.html#a743b4a34e540d44315a396b3e74603c3">Highscore</a>
+</li>
+</ul>
+
 
 <h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
 <li>check_terrain_collision()
@@ -103,9 +112,17 @@
 </ul>
 
 
+<h3><a class="anchor" id="index_e"></a>- e -</h3><ul>
+<li>Enemy()
+: <a class="el" href="class_enemy.html#a01540f5d914e357acfafcd5a9bbd931b">Enemy</a>
+</li>
+</ul>
+
+
 <h3><a class="anchor" id="index_f"></a>- f -</h3><ul>
 <li>fire()
-: <a class="el" href="class_player.html#a79b7c4d47d33fd8a977e56a72205098f">Player</a>
+: <a class="el" href="class_enemy.html#aa010e1beaf8edb9afa0ccc920a8b8f20">Enemy</a>
+, <a class="el" href="class_player.html#ad042cd97be77975c9a8613691d7293fb">Player</a>
 </li>
 </ul>
 
@@ -122,8 +139,12 @@
 </li>
 <li>get_background()
 : <a class="el" href="class_abstract_game_state.html#a6e2c383ac0bababbabdc3ef4e4be5699">AbstractGameState</a>
+, <a class="el" href="class_end_state.html#a11094ad941bcc1d2a2003bbe1bfd833c">EndState</a>
 , <a class="el" href="class_menu_state.html#a878cf387a0220a1d620522138d1a56c7">MenuState</a>
 , <a class="el" href="class_play_state.html#a43c8183f00ed62c1187e19499070baf4">PlayState</a>
+</li>
+<li>get_date()
+: <a class="el" href="class_highscore.html#a865fa48333b489d4fafbaa4719a35577">Highscore</a>
 </li>
 <li>get_enclosing_rect()
 : <a class="el" href="class_rectangle.html#a99208deec7ea20a8e45041fd01f3dc80">Rectangle</a>
@@ -131,6 +152,12 @@
 <li>get_height()
 : <a class="el" href="class_rectangle.html#a250c174f88cfbbbc238d2f8b7e28aed6">Rectangle</a>
 , <a class="el" href="class_surface.html#a80093b6cb587bb6ced448d547b3f8fd4">Surface</a>
+</li>
+<li>get_highscore()
+: <a class="el" href="class_highscore.html#aa24a7c53df10d34ca8afb3d2db1f4675">Highscore</a>
+</li>
+<li>get_lines()
+: <a class="el" href="class_highscore.html#a60c224d8c3aefa8c64987c0c9afccae4">Highscore</a>
 </li>
 <li>get_rect()
 : <a class="el" href="class_rectangle.html#a6fa293b74d0e8041a066fd4e1b7706f3">Rectangle</a>
@@ -140,11 +167,18 @@
 </li>
 <li>get_sprites()
 : <a class="el" href="class_abstract_game_state.html#a685c7a21cf8265b1c91595d4381fb5da">AbstractGameState</a>
+, <a class="el" href="class_end_state.html#aad8b398920a909328326325ce672e369">EndState</a>
 , <a class="el" href="class_menu_state.html#ac6a300ff843af9f4a1e6605c33f1b83c">MenuState</a>
 , <a class="el" href="class_play_state.html#aa5f9a2e6144826d5c848222cc43c060f">PlayState</a>
 </li>
 <li>get_surface()
 : <a class="el" href="class_surface.html#a2d70ec8ca4a14004bab2d9883baf7bf8">Surface</a>
+</li>
+<li>get_texts()
+: <a class="el" href="class_abstract_game_state.html#acde9059775098c6d97064d515f0c4624">AbstractGameState</a>
+, <a class="el" href="class_end_state.html#a5e20e6fb59aeb512cafc61cd8a0297d5">EndState</a>
+, <a class="el" href="class_menu_state.html#a922e72797b1f8711a0ca3feeef903e80">MenuState</a>
+, <a class="el" href="class_play_state.html#ad3db909d4a8a9ff8c0f13294cb803415">PlayState</a>
 </li>
 <li>get_texture()
 : <a class="el" href="class_sprite.html#a639174d8280b2ab3d20953e01218e2ca">Sprite</a>
@@ -172,7 +206,7 @@
 : <a class="el" href="class_rectangle.html#a7f74e9b49d497c89a1e070b940bf63d2">Rectangle</a>
 </li>
 <li>GraphicsEngine()
-: <a class="el" href="class_graphics_engine.html#afc76e83cd69fb4be52f25c3876848bc8">GraphicsEngine</a>
+: <a class="el" href="class_graphics_engine.html#a3503a9292d9c287ee0e3f217c73d754f">GraphicsEngine</a>
 </li>
 </ul>
 
@@ -184,6 +218,9 @@
 <li>handle_gravity()
 : <a class="el" href="class_player.html#a614d5ea79246d37f52601022efe6e7ca">Player</a>
 , <a class="el" href="class_sprite.html#aae90c46c311149d17397dfa7ff95d9c2">Sprite</a>
+</li>
+<li>handle_highscore()
+: <a class="el" href="class_highscore.html#a6abf66ef1d80014aabdadb93c46f884d">Highscore</a>
 </li>
 </ul>
 
@@ -225,11 +262,14 @@
 
 
 <h3><a class="anchor" id="index_p"></a>- p -</h3><ul>
+<li>parse_lines()
+: <a class="el" href="class_highscore.html#a404512f194b40b2a8f46cffe08b55036">Highscore</a>
+</li>
 <li>Player()
 : <a class="el" href="class_player.html#a777107797f5d66afe79e63db20d397c4">Player</a>
 </li>
 <li>PlayState()
-: <a class="el" href="class_play_state.html#a87ebc08c33a3c29fe5dea47e0f87bd0a">PlayState</a>
+: <a class="el" href="class_play_state.html#a798237e668196ee01a3a795a61daa311">PlayState</a>
 </li>
 <li>Projectile()
 : <a class="el" href="class_projectile.html#ac37f49ca5f540b6dc965453d2e9092ca">Projectile</a>
@@ -253,6 +293,9 @@
 <li>render_present()
 : <a class="el" href="class_renderer.html#af116d7590f1e5f232ceb1d84b35286aa">Renderer</a>
 </li>
+<li>render_text()
+: <a class="el" href="class_graphics_engine.html#aefa381fb1ce2488c510b2dc1f5d8620f">GraphicsEngine</a>
+</li>
 <li>Renderer()
 : <a class="el" href="class_renderer.html#ab754154ec14584667ea0319d69c438f9">Renderer</a>
 </li>
@@ -263,6 +306,9 @@
 <li>return_handler()
 : <a class="el" href="class_menu_state.html#aa8f84edcb613ad268b119f710e4cf761">MenuState</a>
 </li>
+<li>reverse_direction()
+: <a class="el" href="class_enemy.html#ae393def21175ce6ae79ce23424f5f640">Enemy</a>
+</li>
 <li>run()
 : <a class="el" href="class_game_engine.html#ab01970da2c68fefbf48b98c59d5627ae">GameEngine</a>
 </li>
@@ -272,6 +318,9 @@
 <h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
 <li>set_background()
 : <a class="el" href="class_graphics_engine.html#a2d49487370127a4e587681a0333b042f">GraphicsEngine</a>
+</li>
+<li>set_end_type()
+: <a class="el" href="class_end_state.html#a1a5b671384b01b244b6509c715e28f48">EndState</a>
 </li>
 <li>set_height()
 : <a class="el" href="class_rectangle.html#aa213d73a69967007ace682e75b2c6f5c">Rectangle</a>
@@ -299,10 +348,10 @@
 : <a class="el" href="class_rectangle.html#a8131965d0faba223a45e600cb0e77d30">Rectangle</a>
 </li>
 <li>Sprite()
-: <a class="el" href="class_sprite.html#a871c0994839f8f589d8d4f90706c740c">Sprite</a>
+: <a class="el" href="class_sprite.html#a0f628a2eb3f223424c81067d99a3c16e">Sprite</a>
 </li>
 <li>Surface()
-: <a class="el" href="class_surface.html#ae241769d4af11466aeca70c73a40cfb3">Surface</a>
+: <a class="el" href="class_surface.html#a9b6bf79e8d774ab44ad1e66053f91cdc">Surface</a>
 </li>
 </ul>
 
@@ -323,6 +372,7 @@
 <h3><a class="anchor" id="index_u"></a>- u -</h3><ul>
 <li>update()
 : <a class="el" href="class_abstract_game_state.html#a04f5c709c18c4658f818bed6c2e62c9d">AbstractGameState</a>
+, <a class="el" href="class_end_state.html#a2bdd470a30ae06c901dadf9d3bd56a26">EndState</a>
 , <a class="el" href="class_menu_state.html#a31ab8044b6d580f98fc3abc0aef14aca">MenuState</a>
 , <a class="el" href="class_player.html#a82c3476f3e65a4e2ac6bcd040771bdd4">Player</a>
 , <a class="el" href="class_play_state.html#a22a67c736d953e613236f99cbb58eb2d">PlayState</a>
@@ -347,7 +397,7 @@
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 17 2014 12:18:23 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 17 2014 15:14:00 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -1,3 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_renderer.html" title="Renderer" alt="" coords="5,5,80,32"/>
+<area shape="rect" id="node1" href="$class_rectangle.html" title="Rectangle" alt="" coords="6,56,87,83"/>
+<area shape="rect" id="node2" href="$class_sprite.html" title="Sprite" alt="" coords="136,56,192,83"/>
+<area shape="rect" id="node3" href="$class_enemy.html" title="Enemy" alt="" coords="247,5,310,32"/>
+<area shape="rect" id="node4" href="$class_player.html" title="Player" alt="" coords="249,56,308,83"/>
+<area shape="rect" id="node5" href="$class_projectile.html" title="Projectile" alt="" coords="241,107,317,133"/>
 </map>

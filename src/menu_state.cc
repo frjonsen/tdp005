@@ -32,7 +32,7 @@ MenuState::StateCommand MenuState::return_handler()
 MenuState::StateCommand MenuState::update(
     std::list<MenuState::GameInput> const& input)
 {
-  background_src_ = {current_background_.at (current_) };
+  background_src_ = {backgrounds_.at (current_) };
 
   for (GameInput i : input)
   {

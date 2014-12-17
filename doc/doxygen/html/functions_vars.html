@@ -60,6 +60,7 @@
       <li><a href="#index_j"><span>j</span></a></li>
       <li><a href="#index_k"><span>k</span></a></li>
       <li><a href="#index_l"><span>l</span></a></li>
+      <li><a href="#index_m"><span>m</span></a></li>
       <li><a href="#index_n"><span>n</span></a></li>
       <li><a href="#index_o"><span>o</span></a></li>
       <li><a href="#index_p"><span>p</span></a></li>
@@ -92,12 +93,19 @@
 , <a class="el" href="class_play_state.html#a8b2fcf0dcbdb78e7d9b2ea27289beba3">PlayState</a>
 </li>
 <li>background_src_
-: <a class="el" href="class_menu_state.html#a71b778352cfe75366ae0cd4d679a6e92">MenuState</a>
+: <a class="el" href="class_end_state.html#a031dc874bdac479e02eaa4ec81b72c0c">EndState</a>
+, <a class="el" href="class_menu_state.html#a71b778352cfe75366ae0cd4d679a6e92">MenuState</a>
+</li>
+<li>backgrounds_
+: <a class="el" href="class_menu_state.html#a9f9a43adac37a44478caeaa8896e8f5c">MenuState</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
+<li>chests_
+: <a class="el" href="class_play_state.html#a901515a352f655d66baeec764cc57d66">PlayState</a>
+</li>
 <li>coffe_cup_
 : <a class="el" href="class_menu_state.html#a16ab495f22fd0735d8b04c60e9b0b7bf">MenuState</a>
 </li>
@@ -111,10 +119,11 @@
 : <a class="el" href="struct_player_1_1_weapon.html#a466f57b75252825e481b88d455311ebc">Player::Weapon</a>
 </li>
 <li>current_
-: <a class="el" href="class_menu_state.html#a663f19ebecafd1bb544dd3677c7b7b2c">MenuState</a>
+: <a class="el" href="class_end_state.html#a1751bf749b2c09c124bea67a96cc9428">EndState</a>
+, <a class="el" href="class_menu_state.html#a663f19ebecafd1bb544dd3677c7b7b2c">MenuState</a>
 </li>
 <li>current_background_
-: <a class="el" href="class_menu_state.html#a8fbf7612177269350bb533010cd36cc3">MenuState</a>
+: <a class="el" href="class_end_state.html#abf2abe00e67710d715358ebe2934e9f5">EndState</a>
 </li>
 <li>current_weapon_
 : <a class="el" href="class_player.html#abba357622fe7644e7221dfeaff0bf29f">Player</a>
@@ -182,11 +191,20 @@
 <li>kHeight
 : <a class="el" href="class_window.html#a63eec2bd20e553f45ac9abb93c487fdb">Window</a>
 </li>
+<li>kIsRanged
+: <a class="el" href="class_enemy.html#ac43a13c0410e284cc4d9b404c6a5b608">Enemy</a>
+</li>
 <li>kJumpVelocity
 : <a class="el" href="class_player.html#ae2820c07889e8bf5529f91510047fe72">Player</a>
 </li>
+<li>kTimeLimit
+: <a class="el" href="class_play_state.html#a6474fd37df1961bd9f6e1bf241518f80">PlayState</a>
+</li>
 <li>kTopXVelocity
 : <a class="el" href="class_sprite.html#a8bd7a5481b14d05924eab4894ab80057">Sprite</a>
+</li>
+<li>kType
+: <a class="el" href="class_enemy.html#a940b9d2e524aab3d5e34d2300aa003f5">Enemy</a>
 </li>
 <li>kWidth
 : <a class="el" href="class_window.html#a00c0658023f3e51b9fa00ef69b47f1f4">Window</a>
@@ -211,6 +229,13 @@
 <h3><a class="anchor" id="index_l"></a>- l -</h3><ul>
 <li>loaded_textures_
 : <a class="el" href="class_texture_handler.html#a722db57d163feee394afd8bd9e2b17d4">TextureHandler</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_m"></a>- m -</h3><ul>
+<li>malware_
+: <a class="el" href="class_play_state.html#adb13f250a76d3976488b358225b34f8a">PlayState</a>
 </li>
 </ul>
 
@@ -262,7 +287,8 @@
 
 <h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
 <li>score_
-: <a class="el" href="class_play_state.html#a30e1c9845e997cfd27403cd5e296dc90">PlayState</a>
+: <a class="el" href="class_highscore.html#a50a6bb216ccbed7140d443a2e0d0f1a1">Highscore</a>
+, <a class="el" href="class_play_state.html#a30e1c9845e997cfd27403cd5e296dc90">PlayState</a>
 </li>
 <li>selected_
 : <a class="el" href="class_menu_state.html#ad6f4aea2a615890722dbb425c92d0e54">MenuState</a>
@@ -340,7 +366,7 @@
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 17 2014 12:18:23 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 17 2014 15:14:00 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

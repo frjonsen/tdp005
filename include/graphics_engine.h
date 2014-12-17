@@ -127,14 +127,30 @@ public:
 
   /**
    * Update the window. Clears everything previously drawn,
-   * and redraws all sprites and the set background.
+   * and redraws all sprites and set the background.
    * @param sprites A list of all sprites to be drawn.
    */
   void redraw_screen(std::list<Sprite const*> const& sprites);
+
+  /**
+   * Update the window. Clears everything previously drawn,
+   * and redraws all sprites and set the background
+   * @param sprites list of all sprites to be drawn
+   * @param texts list of all text textures to be drawn
+   */
   void redraw_screen(std::list<Sprite const*> const& sprites,
                      std::list<TextTexture> const& texts);
 
+  /**
+   * Renders a single text texture
+   * @param text texture of the text to be rendered
+   */
   void render_text(TextTexture text);
+
+  /**
+   * Renders several text textures
+   * @param texts list of text textures
+   */
   void render_text(std::list<TextTexture> texts);
 };
 

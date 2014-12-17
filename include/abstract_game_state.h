@@ -69,7 +69,10 @@ public:
    * @return Filename of background
    */
   virtual std::string get_background() const = 0;
-
+/**
+ * Get the TextTextures used in class
+ * @return List containing TextTextures
+ */
   virtual std::list<TextTexture> get_texts() const = 0;
 
 };

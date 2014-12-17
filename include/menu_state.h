@@ -27,8 +27,6 @@ public:
   std::list<TextTexture> get_texts() const;
   std::string get_background() const;
 
-  void set_background();
-
 private:
   /// Names of current selected menu item
   enum class MenuPointer
@@ -43,7 +41,7 @@ private:
   };
 
   /// Map of background images for current menu section
-  std::map<MenuDirectory, std::string> current_background_ { {
+  std::map<MenuDirectory, std::string> backgrounds_ { {
       MenuDirectory::kRoot, "root_background.png" }, {
       MenuDirectory::kHighscore, "highscore_background.png" }, {
       MenuDirectory::kControls, "controls_background.png" } };
@@ -55,7 +53,7 @@ private:
   MenuDirectory current_ { MenuDirectory::kRoot };
 
   /// Background image
-  std::string background_src_ { current_background_.at (current_) };
+  std::string background_src_ { backgrounds_.at (current_) };
 
   /// Map of x:y coordinates for menu selector
   std::map<MenuPointer, std::pair<int, int>> selector_coordinates_ { {
@@ -75,7 +73,11 @@ private:
   /// Texture of the menu selector
   Sprite coffe_cup_ { "coffe.png", { coffe_x, coffe_y, 51, 40 }, 0 };
 
-  /// Handles return key in menu
+  /**
+   * Handles return events for update function
+   * Changes menu directory or state
+   * @return StateCommand if changed to play state
+   */
   StateCommand return_handler();
 
 };

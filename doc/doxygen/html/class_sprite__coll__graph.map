@@ -1,0 +1,5 @@
+<map id="Sprite" name="Sprite">
+<area shape="rect" id="node2" href="$class_rectangle.html" title="{Rectangle\n|&#45; rect_\l|+ Rectangle()\l+ ~Rectangle()\l+ Rectangle()\l+ Rectangle()\l+ operator=()\l+ operator=()\l+ get_rect()\l+ get_y()\l+ get_x()\l+ get_width()\land 9 more...\l}" alt="" coords="5,5,115,229"/>
+<area shape="rect" id="node3" href="$struct_sprite_1_1_texture_info.html" title="{Sprite::TextureInfo\n|+ texture_name\l+ flip\l+ angle\l|}" alt="" coords="139,64,268,171"/>
+<area shape="rect" id="node4" href="$struct_sprite_1_1_velocity.html" title="{Sprite::Velocity\n|+ x\l+ y\l|}" alt="" coords="294,71,404,163"/>
+</map>
