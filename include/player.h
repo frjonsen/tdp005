@@ -181,21 +181,21 @@ private:
   Weapon current_weapon_ { weapons_.at (WeaponName::kWhileGun) };
 
   const std::map<TextureColor, std::string> standing_textures_ { {
-      TextureColor::kYellow, "Hero_Standing_R.png" }, {
-      TextureColor::kBlue, "Hero_Standing_R.png" }, {
+      TextureColor::kYellow, "Hero_Standing_Y.png" }, {
+      TextureColor::kBlue, "Hero_Standing_B.png" }, {
       TextureColor::kRed, "Hero_Standing_R.png" } };
 
   const std::map<TextureColor, std::vector<std::string>> animations_ { {
       TextureColor::kYellow, {
-          "Hero_Run_1_R.png", "Hero_Run_2_R.png", "Hero_Run_3_R.png",
-          "Hero_Run_4_R.png", "Hero_Run_5_R.png", "Hero_Run_6_R.png",
-          "Hero_Run_7_R.png", "Hero_Run_8_R.png" } }, { TextureColor::kRed, {
+          "Hero_Run_1_Y.png", "Hero_Run_2_Y.png", "Hero_Run_3_Y.png",
+          "Hero_Run_4_Y.png", "Hero_Run_5_Y.png", "Hero_Run_6_Y.png",
+          "Hero_Run_7_Y.png", "Hero_Run_8_Y.png" } }, { TextureColor::kRed, {
       "Hero_Run_1_R.png", "Hero_Run_2_R.png", "Hero_Run_3_R.png",
       "Hero_Run_4_R.png", "Hero_Run_5_R.png", "Hero_Run_6_R.png",
       "Hero_Run_7_R.png", "Hero_Run_8_R.png" } }, { TextureColor::kBlue, {
-      "Hero_Run_1_R.png", "Hero_Run_2_R.png", "Hero_Run_3_R.png",
-      "Hero_Run_4_R.png", "Hero_Run_5_R.png", "Hero_Run_6_R.png",
-      "Hero_Run_7_R.png", "Hero_Run_8_R.png" } } };
+      "Hero_Run_1_B.png", "Hero_Run_2_B.png", "Hero_Run_3_B.png",
+      "Hero_Run_4_B.png", "Hero_Run_5_B.png", "Hero_Run_6_B.png",
+      "Hero_Run_7_B.png", "Hero_Run_8_B.png" } } };
 
   /// Index of the texture currently used
   int current_animation_ { 0 };
