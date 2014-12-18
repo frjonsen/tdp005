@@ -202,6 +202,10 @@ private:
    */
   void delete_projectile(std::list<Projectile*>::iterator& it);
 
+  /**
+   * Checks if player has spent any time in the actual game
+   * @return True if game has started
+   */
   bool has_game_started() const;
 };
 
