@@ -61,7 +61,31 @@ public:
     kLeft, kRight, kAbove, kBelow
   };
 
+  enum class PlayerType
+  {
+    kFast,
+    kNormal,
+    kTank
+  };
+
+  PlayState* operator()(PlayerType type);
+
 private:
+
+  struct PlayerStats
+  {
+    PlayerStats(Player::TextureColor c, int h, int v) : color{c}, hp{h}, x_velocity{v} {}
+    Player::TextureColor color;
+    int hp;
+    int x_velocity;
+  };
+
+  std::map<PlayerType, PlayerStats> stats_map_
+  {
+    { PlayerType::kFast, { Player::TextureColor::kBlue, 50, 10 }},
+    { PlayerType::kNormal, { Player::TextureColor::kYellow, 100, 5}},
+    { PlayerType::kTank, { Player::TextureColor::kRed, 200, 3 }}
+  };
 
   /// Game world gravity
   const int kGravity { 1 };
@@ -73,7 +97,9 @@ private:
   int time_ { kTimeLimit };
 
   /// The player
-  Player player_ { "Hero_Standing_R.png", { 50, 200, 33, 53 } };
+  Player* player_ { new Player() };
+
+  Sprite* powerup_ { new Sprite("if_gun.png", { 700, 10, 40, 40 })};
 
   /// A list of all terrain rectangles in the world
   std::list<Rectangle> terrain_ { };
@@ -162,8 +188,6 @@ private:
    * @param it Iterator currently pointing at the element to be deleted
    */
   void delete_projectile(std::list<Projectile*>::iterator& it);
-
-
 
 };
 

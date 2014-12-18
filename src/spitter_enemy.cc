@@ -23,11 +23,10 @@ void SpitterEnemy::update()
 
 void SpitterEnemy::handle_animation()
 {
-
-  texture_.texture_name = animations.at (current_animation);
   ++animation_timer_;
   if (animation_timer_ > animation_change_frequency)
   {
+    texture_.texture_name = animations.at (current_animation);
     current_animation = (current_animation + 1) % animations.size ();
     animation_timer_ = 0;
   }

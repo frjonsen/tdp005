@@ -120,6 +120,7 @@ void GameEngine::handle_input_translation(
   if (state[SDL_SCANCODE_SPACE])
   {
     tick_input.push_back (GameInput::kSpace);
+    ps_(PlayState::PlayerType::kFast);
   }
   if (state[SDL_SCANCODE_Q])
   {

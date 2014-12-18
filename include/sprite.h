@@ -53,19 +53,10 @@ public:
 	 */
 	Sprite(std::string texture, Rectangle const& rectangle, int hp = 0,
 			const int top_velocity = 0);
+
+	Sprite& operator=(Sprite const&);
+
 	virtual ~Sprite();
-
-	/// Deleted copy constructor
-	Sprite(Sprite const&) = delete;
-
-	/// Deleted move constructor
-	Sprite(Sprite const&&) = delete;
-
-	/// Deleted assignment constructor
-	Sprite& operator=(Sprite const&) = delete;
-
-	/// Deleted move-assignment constructor
-	Sprite& operator=(Sprite&&) = delete;
 
 	/// Request sprite to update for new frame
 	virtual void update();
@@ -86,6 +77,12 @@ public:
 	 * @return Filename of texture
 	 */
 	const TextureInfo& get_texture() const;
+
+	/**
+	 * Set new texture file to use
+	 * @param texture_name Filename of texture to use
+	 */
+	void set_sprite(std::string texture_name);
 
 	/// Get the current hp
 	int get_hp() const;
