@@ -85,6 +85,18 @@ public:
    * Get the sprite for the currently in-use weapon
    */
   std::string get_weapon_sprite() const;
+
+  /// Reset player
+  void reset();
+
+  /// Get number of extra lives player currently has
+  int get_extra_lives() const;
+
+  /// Decrement player lives
+  void gain_extra_life();
+
+  /// Incement player lives
+  void lose_extra_life();
 private:
   /// The current texture color
   TextureColor current_color_;
@@ -147,6 +159,9 @@ private:
   /// The vertical velocity a jump has
   const int kJumpVelocity;
 
+  /// Starting hp
+  const int kStartingHp;
+
   /// How many frames since the player's weapon was last fired
   int frames_since_firing_ { -1 };
 
@@ -155,6 +170,9 @@ private:
 
   /// Is player stunned
   bool stunned_;
+
+  /// Player extra lives
+  int lives_{3};
 
   /// How long is player stunned. Should be set to 0 if not stunned
   size_t stunned_timer_ { 0 };

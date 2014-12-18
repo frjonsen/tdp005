@@ -54,11 +54,29 @@ AbstractGameState::StateCommand PlayState::update(
   }
   if ((player_->get_y ()) > 600)
   {
-    return StateCommand::kFell;
+    player_->lose_extra_life ();
+    if (player_->get_extra_lives () < 0)
+    {
+      return StateCommand::kFell;
+    }
+    else
+    {
+      move_to_checkpoint ();
+    }
+
   }
   if (player_->get_hp () <= 0)
   {
-    return StateCommand::kKilled;
+    player_->lose_extra_life ();
+
+    if (player_->get_extra_lives () < 0)
+    {
+      return StateCommand::kKilled;
+    }
+    else
+    {
+      move_to_checkpoint ();
+    }
   }
 
   return StateCommand::kNone;
@@ -331,6 +349,7 @@ void PlayState::do_player_update(std::list<Player::MovementCommand> commands)
     if (player_->intersect (**it))
     {
       player_->gain_hp (15);
+      player_->gain_extra_life ();
       player_->randomize_weapon ();
       std::list<Sprite*>::iterator temp { it };
       --it;
@@ -463,4 +482,17 @@ PlayState* PlayState::operator()(PlayState::PlayerType type)
     player_ = new Player (stats.color, stats.hp, stats.x_velocity);
   }
   return this;
+}
+
+void PlayState::move_to_checkpoint()
+{
+  player_->reset ();
+  for (std::vector<std::pair<int, int>>::reverse_iterator it {
+      checkpoints_.rbegin () }; it != checkpoints_.rend (); ++it)
+    if (player_->get_x () > it->first)
+    {
+      player_->set_x (it->first);
+      player_->set_y (it->second);
+      return;
+    }
 }

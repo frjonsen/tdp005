@@ -8,7 +8,7 @@
 #include <runner_enemy.h>
 
 RunnerEnemy::RunnerEnemy(const int x, const int y)
-    : Enemy ("Cloud_walking.png", { x, y, 25, 35 }, 40, 2, EnemyType::kRunner,
+    : Enemy ("Cloud_walking.png", { x, y, 25, 35 }, 40, -2, EnemyType::kRunner,
              false), kRunVelocity { kTopXVelocity * 3 }
 {
   velocity_.x = kTopXVelocity;
@@ -37,7 +37,7 @@ void RunnerEnemy::update()
       texture_.texture_name = "Cloud_walking.png";
       velocity_.x = kTopXVelocity;
     }
-    velocity_.x *= -1;
+    velocity_.x *= texture_.flip ? -1 : 1;
     texture_.flip = !texture_.flip;
     run_timer_ = 0;
   }

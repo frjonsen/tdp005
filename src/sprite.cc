@@ -59,3 +59,8 @@ void Sprite::take_damage(int dmg)
 {
   if (dmg > 0) hp_ -= dmg;
 }
+
+void Sprite::set_hp(int hp)
+{
+  if (hp > 0) hp_ = hp;
+}

@@ -15,6 +15,8 @@
 #include <walker_enemy.h>
 #include <spitter_enemy.h>
 #include <runner_enemy.h>
+#include <utility>
+#include <vector>
 
 /**
  * State representing the actual game
@@ -63,9 +65,7 @@ public:
 
   enum class PlayerType
   {
-    kFast,
-    kNormal,
-    kTank
+    kFast, kNormal, kTank
   };
 
   PlayState* operator()(PlayerType type);
@@ -74,18 +74,23 @@ private:
 
   struct PlayerStats
   {
-    PlayerStats(Player::TextureColor c, int h, int v) : color{c}, hp{h}, x_velocity{v} {}
+    PlayerStats(Player::TextureColor c, int h, int v)
+        : color { c }, hp { h }, x_velocity { v }
+    {
+    }
     Player::TextureColor color;
     int hp;
     int x_velocity;
   };
 
-  std::map<PlayerType, PlayerStats> stats_map_
-  {
-    { PlayerType::kFast, { Player::TextureColor::kBlue, 50, 10 }},
-    { PlayerType::kNormal, { Player::TextureColor::kYellow, 100, 5}},
-    { PlayerType::kTank, { Player::TextureColor::kRed, 200, 3 }}
-  };
+  std::map<PlayerType, PlayerStats> stats_map_ { { PlayerType::kFast, {
+      Player::TextureColor::kBlue, 50, 10 } }, { PlayerType::kNormal, {
+      Player::TextureColor::kYellow, 100, 5 } }, { PlayerType::kTank, {
+      Player::TextureColor::kRed, 200, 3 } } };
+
+  std::vector<std::pair<int, int>> checkpoints_ { { 50, 220 }, { 930, 270 } };
+
+
 
   /// Game world gravity
   const int kGravity { 1 };
@@ -97,24 +102,24 @@ private:
   int time_ { kTimeLimit };
 
   /// The player
-  Player* player_ { new Player() };
+  Player* player_ { new Player () };
 
-  Sprite* powerup_ { new Sprite("if_gun.png", { 700, 10, 40, 40 })};
+  Sprite* powerup_ { new Sprite ("if_gun.png", { 700, 10, 40, 40 }) };
 
   /// A list of all terrain rectangles in the world
-  std::list<Rectangle> terrain_ { };
+  std::list<Rectangle> terrain_ {};
 
   /// All projectiles currently in existance
-  std::list<Projectile*> active_projectiles_ { };
+  std::list<Projectile*> active_projectiles_ {};
 
   /// A list of all active enemies in the world
-  std::list<Enemy*> enemies_ { };
+  std::list<Enemy*> enemies_ {};
 
   ///A list of all powerups still in the world
-  std::list<Sprite*> powerups_ { };
+  std::list<Sprite*> powerups_ {};
 
   /// A list of all malware in the world
-  std::list<Sprite*> malware_ { };
+  std::list<Sprite*> malware_ {};
 
   /// Background image
   std::string background_ { "playstate_background.png" };
@@ -179,6 +184,8 @@ private:
 
   /// Request all projectiles to update for current tick
   void do_projectile_updates();
+
+  void move_to_checkpoint();
 
   /**
    * Delete a single projectile from the list of active projectiles.

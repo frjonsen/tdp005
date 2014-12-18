@@ -91,6 +91,14 @@ public:
 	 * @param hp
 	 */
 	void gain_hp(const int hp);
+
+	/**
+	 * Set sprite hp. Must be positive.
+	 * @param hp
+	 */
+	void set_hp(const int hp);
+
+
 	/// Decrease current hp by certain amount. Has no effect if dmg parameter is negative
 	virtual void take_damage(int dmg);
 

@@ -11,7 +11,7 @@
 #include <cmath>
 
 Player::Player(TextureColor color, int hp, int x_velocity, int jump_velocity)
-    : Sprite ("Hero_Standing_R.png", { 50, 200, 33, 53 }, hp, x_velocity), current_color_{color}, kJumpVelocity { jump_velocity }, frames_since_firing_ {
+    : Sprite ("Hero_Standing_R.png", { 50, 220, 33, 53 }, hp, x_velocity), current_color_{color}, kJumpVelocity { jump_velocity }, kStartingHp{hp}, frames_since_firing_ {
         -1 }, jumping_ { false }, stunned_ { false }
 {
 
@@ -188,4 +188,28 @@ std::string Player::get_weapon_sprite() const{
   }
   // Will never reach this point, only to make compiler happy
   return "for_gun.png";
+}
+
+void Player::reset()
+{
+  current_weapon_ = weapons_.at(WeaponName::kWhileGun);
+  velocity_.x = 0;
+  stunned_ = false;
+  jumping_ = false;
+  set_hp(kStartingHp);
+}
+
+int Player::get_extra_lives() const
+{
+  return lives_;
+}
+
+void Player::lose_extra_life()
+{
+  --lives_;
+}
+
+void Player::gain_extra_life()
+{
+  ++lives_;
 }

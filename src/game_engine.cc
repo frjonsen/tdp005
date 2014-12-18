@@ -22,7 +22,6 @@ void GameEngine::run()
 {
   using GameInput = AbstractGameState::GameInput;
   size_t time_per_frame { 1000 / size_t(ps_.kFPSGoal) };
-
   while (engine_running_)
   {
     size_t start_time { SDL_GetTicks () };
