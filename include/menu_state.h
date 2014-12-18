@@ -44,7 +44,8 @@ private:
   std::map<MenuDirectory, std::string> backgrounds_ { {
       MenuDirectory::kRoot, "root_background.png" }, {
       MenuDirectory::kHighscore, "highscore_background.png" }, {
-      MenuDirectory::kControls, "controls_background.png" } };
+      MenuDirectory::kControls, "controls_background.png" }, {
+      MenuDirectory::kCharacterSelect, "character_background.png"} };
 
   /// Selected menu item
   MenuPointer selected_ { MenuPointer::kPlay };

@@ -16,15 +16,38 @@ MenuState::StateCommand MenuState::return_handler()
 {
   if( selected_ == MenuPointer::kPlay )
   {
-    return StateCommand::kPlay;
+    if ( current_ == MenuDirectory::kCharacterSelect )
+    {
+      return StateCommand::kPlay;
+    }
+    else
+    {
+     current_ = MenuDirectory::kCharacterSelect;
+    }
   }
+
   else if( selected_ == MenuPointer::kHighscore )
   {
-    current_ = MenuDirectory::kHighscore;
+    if ( current_ == MenuDirectory::kCharacterSelect )
+    {
+      return StateCommand::kPlay;
+    }
+    else
+    {
+      current_ = MenuDirectory::kHighscore;
+    }
   }
+
   else if( selected_ == MenuPointer::kControls )
   {
-    current_ = MenuDirectory::kControls;
+    if ( current_ == MenuDirectory::kCharacterSelect )
+    {
+      return StateCommand::kPlay;
+    }
+    else
+    {
+     current_ = MenuDirectory::kControls;
+    }
   }
 
   return StateCommand::kMenu;
@@ -82,7 +105,7 @@ std::list<Sprite const*> MenuState::get_sprites() const
   std::list<Sprite const*> empty;
   std::list<Sprite const*> CoffeVector { &coffe_cup_ };
 
-  if( current_ == MenuDirectory::kRoot )
+  if( current_ == MenuDirectory::kRoot || current_ == MenuDirectory::kCharacterSelect )
   {
     return CoffeVector;
   }
@@ -114,4 +137,3 @@ std::string MenuState::get_background() const
   return background_src_;
 
 }
-
