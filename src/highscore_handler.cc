@@ -13,6 +13,7 @@
 #include <time.h>
 #include <sstream>
 
+
  void Highscore::add_score(int points_)
  {
    score_ = points_;
