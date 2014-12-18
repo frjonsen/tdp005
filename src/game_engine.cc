@@ -32,10 +32,13 @@ void GameEngine::run()
     // Ask activate state to update for this tick
     AbstractGameState::StateCommand cmd { active_state_->update (tick_input) };
     handle_state_command (cmd);
+    // Update all graphical aspects
     graphics_engine_.set_background (active_state_->get_background ());
     graphics_engine_.set_viewport (active_state_->get_viewport ());
     graphics_engine_.redraw_screen (active_state_->get_sprites (), active_state_->get_texts());
 
+    // If the update was completed faster than the minimum time, wait.
+    // This is to ensure game doesn't speed up too much on fast computers
     size_t end_time { SDL_GetTicks () };
     size_t difference { end_time - start_time };
     if (difference < time_per_frame)
@@ -71,11 +74,6 @@ void GameEngine::handle_state_command(AbstractGameState::StateCommand cmd)
       break;
     case StateCommand::kFell:
       active_state_ = go_(EndState::EndDirectory::kFell, ps_.get_score());
-      go_.set_end_type("kFell");
-      active_state_ = &go_;
-      break;
-    case StateCommand::kOutOfTime:
-      active_state_ = &go_;
       break;
     case StateCommand::kNone:
       // Do nothing
@@ -119,8 +117,8 @@ void GameEngine::handle_input_translation(
   if (state[SDL_SCANCODE_SPACE])
   {
     tick_input.push_back (GameInput::kSpace);
-    ps_(PlayState::PlayerType::kFast);
   }
+  // Special case. If user pressed Q, exit the game
   if (state[SDL_SCANCODE_Q])
   {
     engine_running_ = false;

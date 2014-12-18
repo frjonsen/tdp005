@@ -6,7 +6,6 @@
  */
 
 #include <SDL2/SDL.h>
-
 #include <menu_state.h>
 #include <highscore_handler.h>
 
