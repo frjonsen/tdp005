@@ -10,6 +10,18 @@
 #include <iostream>
 #include <highscore_handler.h>
 
+ EndState* operator()(EndState::EndDirectory end_type, int score)
+ {
+   Highscore check;
+
+   if ( end_type == EndState::EndDirectory::kWin )
+   {
+     check.add_score(score);
+     check.handle_highscore();
+   }
+   return this;
+ }
+
 void EndState::set_end_type(std::string end_type_)
 {
   if ( end_type_ == "kKilled" )
