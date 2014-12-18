@@ -33,6 +33,11 @@ public:
     kPlay, kMenu, kExit, kKilled, kFell, kWin, kNone
   };
 
+  enum class PlayerType
+  {
+    kFast, kNormal, kTank
+  };
+
   /**
    * The commands sent by the game engine expected
    * to be handled by the state.

@@ -63,10 +63,6 @@ public:
     kLeft, kRight, kAbove, kBelow
   };
 
-  enum class PlayerType
-  {
-    kFast, kNormal, kTank
-  };
 
   /**
    * Set which PlayerType to use. Cannot be set after game has already started

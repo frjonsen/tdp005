@@ -14,30 +14,14 @@
  {
    Highscore check;
    score_ = std::to_string(score);
-
-   if ( end_type == EndState::EndDirectory::kWin )
+   current_ = end_type;
+   if ( current_ == EndState::EndDirectory::kWin )
    {
      check.add_score(score);
      check.handle_highscore();
    }
    return this;
  }
-
-void EndState::set_end_type(std::string end_type_)
-{
-  if ( end_type_ == "kKilled" )
-  {
-    EndState::current_ =  EndState::EndDirectory::kKilled;
-  }
-  else if ( end_type_ == "kFell" )
-  {
-    EndState::current_ = EndState::EndDirectory::kFell;
-  }
-  else
-  {
-    EndState::current_ = EndState::EndDirectory::kWin;
-  }
-}
 
 EndState::StateCommand EndState::update(std::list<EndState::GameInput> const& input)
 {

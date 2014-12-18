@@ -24,9 +24,6 @@ public:
   std::list<TextTexture> get_texts() const;
   std::string get_background() const;
 
-  /// Sets the end type for state. If reached by loss or win
-  void set_end_type(std::string end_type_);
-
   /// Names of end state types
   enum class EndDirectory
   {
@@ -34,8 +31,6 @@ public:
   };
 
   EndState* operator()(EndState::EndDirectory end_type, int score);
-
-
 
 private:
   std::string score_{""};

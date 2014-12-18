@@ -94,23 +94,18 @@ std::list<Sprite const*> MenuState::get_sprites() const
 
 std::list<TextTexture> MenuState::get_texts() const
 {
-
+  std::list<TextTexture> scores;
   if( current_ == MenuDirectory::kHighscore )
   {
     Highscore scoreboard_;
 
-    TextTexture first_place_ { scoreboard_.get_highscore ().at ( 0 ), 374, 280 };
-    TextTexture second_place_ { scoreboard_.get_highscore ().at ( 1 ), 374, 361 };
-    TextTexture third_place_ { scoreboard_.get_highscore ().at ( 2 ), 374, 442 };
-
-    std::list<TextTexture> scores_ { first_place_, second_place_, third_place_ };
-
-    return scores_;
+    if (scoreboard_.get_highscore().size() > 1) scores.push_back({ scoreboard_.get_highscore ().at ( 0 ), 374, 280 });
+    if (scoreboard_.get_highscore().size() > 2) scores.push_back({ scoreboard_.get_highscore ().at ( 1 ), 374, 361 });
+    if (scoreboard_.get_highscore().size() > 3) scores.push_back({ scoreboard_.get_highscore ().at ( 2 ), 374, 442 });
   }
 
-  std::list<TextTexture> empty;
 
-  return empty;
+  return scores;
 }
 
 //Returns the location of the currently used background as a string.
