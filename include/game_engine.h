@@ -22,7 +22,7 @@
  */
 class GameEngine
 {
-
+private:
   // Constants
   /// Window title
   const std::string kGameTitle { "Geek Hero" };
