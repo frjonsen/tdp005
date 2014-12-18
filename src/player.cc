@@ -10,12 +10,13 @@
 #include <random>
 #include <cmath>
 
-Player::Player(std::string texture, Rectangle const& rectangle)
-    : Sprite (texture, rectangle, 100, 5), kJumpVelocity { 15 }, frames_since_firing_ {
+Player::Player(TextureColor color, int hp, int x_velocity, int jump_velocity)
+    : Sprite ("Hero_Standing_R.png", { 50, 200, 33, 53 }, hp, x_velocity), current_color_{color}, kJumpVelocity { jump_velocity }, frames_since_firing_ {
         -1 }, jumping_ { false }, stunned_ { false }
 {
 
 }
+
 
 Player::~Player()
 {
@@ -112,7 +113,6 @@ std::list<Projectile*> Player::fire()
     if (i % 2) difference += 0.1;
     positive = !positive;
   }
-  std::cerr << projectiles.size() << std::endl;
   return projectiles;
 }
 
@@ -146,17 +146,17 @@ void Player::handle_animation()
 {
   if (velocity_.x != 0)
   {
-    texture_.texture_name = animations_.at (current_animation_);
     ++animation_timer_;
     if (animation_timer_ > animation_change_frequency_)
     {
+      texture_.texture_name = animations_.at(current_color_).at (current_animation_);
       current_animation_ = (current_animation_ + 1) % animations_.size ();
       animation_timer_ = 0;
     }
   }
   else
   {
-    texture_.texture_name = "Hero_Standing_R.png";
+    texture_.texture_name = standing_textures_.at(current_color_);
     animation_timer_ = 0;
     current_animation_ = 0;
   }
@@ -174,4 +174,18 @@ void Player::randomize_weapon()
   std::uniform_int_distribution<int> d { 0, 2 };
   WeaponName new_weapon { WeaponName (d (r)) };
   current_weapon_ = weapons_.at (new_weapon);
+}
+
+std::string Player::get_weapon_sprite() const{
+  switch (current_weapon_.name)
+  {
+    case WeaponName::kForGun:
+      return "for_gun.png";
+    case WeaponName::kIfGun:
+      return "if_gun.png";
+    case WeaponName::kWhileGun:
+      return "while_gun.png";
+  }
+  // Will never reach this point, only to make compiler happy
+  return "for_gun.png";
 }

@@ -30,6 +30,8 @@ PlayState::~PlayState()
   {
     delete p;
   }
+  delete player_;
+  delete powerup_;
 }
 
 AbstractGameState::StateCommand PlayState::update(
@@ -41,15 +43,20 @@ AbstractGameState::StateCommand PlayState::update(
   do_projectile_updates ();
 
   if (time_ > 0) --time_;
-  if (((player_.get_x ()) > 2280) && ((player_.get_y ()) < 110))
+
+  powerup_->set_sprite (player_->get_weapon_sprite ());
+  powerup_->set_x (720 + get_viewport ().first);
+  powerup_->set_y (10 + get_viewport ().second);
+
+  if (((player_->get_x ()) > 2280) && ((player_->get_y ()) < 110))
   {
     return StateCommand::kWin;
   }
-  if ((player_.get_y ()) > 600)
+  if ((player_->get_y ()) > 600)
   {
     return StateCommand::kFell;
   }
-  if (player_.get_hp () <= 0)
+  if (player_->get_hp () <= 0)
   {
     return StateCommand::kKilled;
   }
@@ -59,7 +66,17 @@ AbstractGameState::StateCommand PlayState::update(
 
 std::pair<int, int> PlayState::get_viewport() const
 {
-  return std::make_pair (player_.get_x () - 400, 0);
+  int window_width = 800;
+  int x { player_->get_x () - window_width / 2 };
+  if (x < 0)
+  {
+    x = 0;
+  }
+  else if (x > kWorldWidth - window_width)
+  {
+    x = kWorldWidth - window_width;
+  }
+  return std::make_pair (x, 0);
 }
 
 std::list<Sprite const*> PlayState::get_sprites() const
@@ -81,15 +98,18 @@ std::list<Sprite const*> PlayState::get_sprites() const
   {
     all_sprites.push_back (m);
   }
-  all_sprites.push_back (&player_);
+  all_sprites.push_back (player_);
+  all_sprites.push_back (powerup_);
+
   return all_sprites;
 }
 
 std::list<TextTexture> PlayState::get_texts() const
 {
-  return std::list<TextTexture> {
-      { std::to_string (player_.get_hp ()), 100, 10 }, { std::to_string (
-          get_score ()), 300, 10 }, { std::to_string (time_ / 60), 500, 10 } };
+  return std::list<TextTexture> { {
+      "Score: " + std::to_string (get_score ()), 50, 10 }, { std::to_string (
+      time_ / 60), 640, 10 }, { "Caffeine: "
+      + std::to_string (player_->get_hp ()) + "%", 300, 10 } };
 }
 
 std::string PlayState::get_background() const
@@ -149,12 +169,10 @@ void PlayState::generate_malware()
   const int m_width { 35 };
   const int m_height { 30 };
 
-  malware_.push_back(
-      new Sprite { malware_texture, {1810, 100, m_width, m_height}}
-  );
-  malware_.push_back(
-      new Sprite { malware_texture, {1025, 460, m_width, m_height}}
-  );
+  malware_.push_back (new Sprite { malware_texture, {
+      1810, 100, m_width, m_height } });
+  malware_.push_back (new Sprite { malware_texture, {
+      1025, 460, m_width, m_height } });
 }
 
 std::list<Player::MovementCommand> PlayState::translate_input(
@@ -179,7 +197,7 @@ std::list<Player::MovementCommand> PlayState::translate_input(
         break;
       case GameInput::kSpace:
       {
-        std::list<Projectile*> projectiles = player_.fire ();
+        std::list<Projectile*> projectiles = player_->fire ();
         for (Projectile*& p : projectiles)
         {
           active_projectiles_.push_back (p);
@@ -210,7 +228,7 @@ void PlayState::do_projectile_updates()
       continue;
     }
 
-  // Do enemy collision
+    // Do enemy collision
     if ((*p_it)->owner_ == Projectile::ProjectileOwner::kPlayer)
     {
       for (std::list<Enemy*>::iterator e_it { enemies_.begin () };
@@ -230,18 +248,29 @@ void PlayState::do_projectile_updates()
           break;
         }
       }
+      // Do malware collision
+      for (std::list<Sprite*>::iterator m_it { malware_.begin () };
+          m_it != malware_.end (); ++m_it)
+      {
+        if ((*p_it)->intersect (**m_it))
+        {
+          score_ += 1000;
+          delete *m_it;
+          malware_.erase (m_it);
+          delete_projectile (p_it);
+          break;
+        }
+      }
     }
     else if ((*p_it)->owner_ == Projectile::ProjectileOwner::kEnemy
-        && (*p_it)->intersect (player_))
+        && (*p_it)->intersect (*player_))
     {
-      player_.take_damage ((*p_it)->kDamage);
+      player_->take_damage ((*p_it)->kDamage);
       delete_projectile (p_it);
-      break;
+      continue;
     }
+
   }
-
-  // Do malware collision
-
 }
 
 void PlayState::delete_projectile(std::list<Projectile*>::iterator& it)
@@ -255,17 +284,17 @@ void PlayState::delete_projectile(std::list<Projectile*>::iterator& it)
 
 void PlayState::do_player_update(std::list<Player::MovementCommand> commands)
 {
-  Rectangle before { player_ };
-  player_.order_player (commands);
-  player_.handle_gravity (kGravity);
+  Rectangle before { *player_ };
+  player_->order_player (commands);
+  player_->handle_gravity (kGravity);
 
 // Do terrain collision
-  std::list<Rectangle *> collisions { check_terrain_collision (player_) };
+  std::list<Rectangle *> collisions { check_terrain_collision (*player_) };
   if (collisions.size () != 0)
   {
     for (Rectangle * r : collisions)
     {
-      handle_collision (player_, before, *r);
+      handle_collision (*player_, before, *r);
     }
   }
 
@@ -273,9 +302,9 @@ void PlayState::do_player_update(std::list<Player::MovementCommand> commands)
   for (std::list<Enemy*>::iterator it { enemies_.begin () };
       it != enemies_.end (); ++it)
   {
-    if ((*it)->intersect (player_))
+    if ((*it)->intersect (*player_))
     {
-      Direction direction { handle_collision (player_, before, **it) };
+      Direction direction { handle_collision (*player_, before, **it) };
       if ((*it)->kType == Enemy::EnemyType::kWalker
           && direction == Direction::kAbove) // Player hit enemy from above
       {
@@ -283,15 +312,15 @@ void PlayState::do_player_update(std::list<Player::MovementCommand> commands)
         --it;
         delete *temp;
         enemies_.erase (temp);
-        player_.jump ();
+        player_->jump ();
         score_ += 400;
       }
       else
       {
-        handle_collision (player_, before, **it);
+        handle_collision (*player_, before, **it);
         int x_velocity { direction == Direction::kRight ? 10 : -10 };
-        player_.take_damage (10);
-        player_.set_stunned (30, x_velocity);
+        player_->take_damage (10);
+        player_->set_stunned (30, x_velocity);
       }
     }
   }
@@ -299,10 +328,10 @@ void PlayState::do_player_update(std::list<Player::MovementCommand> commands)
   for (std::list<Sprite*>::iterator it { powerups_.begin () };
       it != powerups_.end (); ++it)
   {
-    if (player_.intersect (**it))
+    if (player_->intersect (**it))
     {
-      player_.gain_hp (15);
-      player_.randomize_weapon ();
+      player_->gain_hp (15);
+      player_->randomize_weapon ();
       std::list<Sprite*>::iterator temp { it };
       --it;
       delete *temp;
@@ -321,7 +350,7 @@ void PlayState::do_enemy_update()
     (*it)->update ();
     if ((*it)->kIsRanged)
     {
-      Projectile* p { (*it)->fire (player_) };
+      Projectile* p { (*it)->fire (*player_) };
       if (p != nullptr)
       {
         active_projectiles_.push_back (p);
@@ -422,4 +451,16 @@ int PlayState::get_score() const
 {
   double time_factor { double (time_) / kTimeLimit };
   return score_ * time_factor;
+}
+
+PlayState* PlayState::operator()(PlayState::PlayerType type)
+{
+  // Disallow changing character type after game has started
+  if (time_ == kTimeLimit)
+  {
+    PlayerStats stats { stats_map_.at (type) };
+    delete player_;
+    player_ = new Player (stats.color, stats.hp, stats.x_velocity);
+  }
+  return this;
 }
