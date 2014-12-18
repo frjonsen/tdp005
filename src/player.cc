@@ -7,6 +7,8 @@
 
 #include "player.h"
 #include <iostream>
+#include <random>
+#include <cmath>
 
 Player::Player(std::string texture, Rectangle const& rectangle)
     : Sprite (texture, rectangle, 100, 5), kJumpVelocity { 15 }, frames_since_firing_ {
@@ -76,9 +78,10 @@ void Player::reset_y_velocity()
 
 std::list<Projectile*> Player::fire()
 {
+  std::list<Projectile*> projectiles {};
   if (frames_since_firing_ >= 0)
   {
-    std::list<Projectile*>{};
+    return projectiles;
   }
   int spawn_x { texture_.flip ? get_x () : get_x () + get_width () };
   int spawn_y { get_y () + 30 - current_weapon_.projectile_height };
@@ -89,9 +92,28 @@ std::list<Projectile*> Player::fire()
   Rectangle projectile_rect (spawn_x, spawn_y, current_weapon_.projectile_width,
                              current_weapon_.projectile_height);
   frames_since_firing_ = 0;
-  return std::list<Projectile*> {new Projectile (current_weapon_.projectile_texture, projectile_rect,
-                         current_weapon_.damage, { velocity, 0 },
-                         Projectile::ProjectileOwner::kPlayer) };
+  projectiles.push_back (
+      new Projectile (current_weapon_.projectile_texture, projectile_rect,
+                      current_weapon_.damage, { velocity, 0 },
+                      Projectile::ProjectileOwner::kPlayer));
+  bool positive { true };
+  float difference{0.1};
+  for (int i { 0 }; i < current_weapon_.nr_of_projectiles - 1; ++i)
+  {
+    int m{positive ? 1 : -1};
+    int y_velocity{int (ceil (velocity * difference))*m};
+    projectiles.push_back (
+        new Projectile (
+            current_weapon_.projectile_texture, projectile_rect,
+            current_weapon_.damage,
+            { int (ceil (velocity * 1-difference)), y_velocity },
+            Projectile::ProjectileOwner::kPlayer));
+
+    if (i % 2) difference += 0.1;
+    positive = !positive;
+  }
+  std::cerr << projectiles.size() << std::endl;
+  return projectiles;
 }
 
 void Player::set_stunned(const size_t time, int velocity_x = 0)
@@ -148,5 +170,8 @@ void Player::jump()
 
 void Player::randomize_weapon()
 {
-
+  std::random_device r;
+  std::uniform_int_distribution<int> d { 0, 2 };
+  WeaponName new_weapon { WeaponName (d (r)) };
+  current_weapon_ = weapons_.at (new_weapon);
 }

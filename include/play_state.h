@@ -81,8 +81,8 @@ private:
   /// A list of all active enemies in the world
   std::list<Enemy*> enemies_ { };
 
-  ///A list of all chests still in the world
-  std::list<Sprite*> chests_ { };
+  ///A list of all powerups still in the world
+  std::list<Sprite*> powerups_ { };
 
   /// A list of all malware in the world
   std::list<Sprite*> malware_ { };
@@ -102,6 +102,12 @@ private:
 
   /// Generate enemies in the world
   void generate_enemies();
+
+  /// Generate powerups in the world
+  void generate_powerups();
+
+  /// Generate malware in the world
+  void generate_malware();
 
   /**
    * Check if any terrain is currently colliding with rectangle r

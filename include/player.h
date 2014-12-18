@@ -90,7 +90,7 @@ private:
   size_t stunned_timer_ { 0 };
 
   /// The weapon player is currently using
-  Weapon current_weapon_ { weapons_.at ( WeaponName::kIfGun ) };
+  Weapon current_weapon_ { weapons_.at ( WeaponName::kForGun ) };
 
   /// Textures used for running animatin
   const std::vector<std::string> animations_ { "Hero_Run_1_R.png",
