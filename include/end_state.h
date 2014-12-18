@@ -27,12 +27,15 @@ public:
   /// Sets the end type for state. If reached by loss or win
   void set_end_type(std::string end_type_);
 
-private:
+  EndState* operator()(EndState::EndDirectory end_type, int score);
+
   /// Names of end state types
   enum class EndDirectory
   {
     kKilled, kFell, kWin
   };
+
+private:
 
   /// Map of backgrounds for end states
   std::map<EndDirectory, std::string> current_background_ { {

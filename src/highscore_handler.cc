@@ -30,7 +30,6 @@ std::string Highscore::get_date()
   std::string date_ = std::to_string ( year ) + "-" + std::to_string ( month )
       + "-" + std::to_string ( day );
 
-
   return date_;
 }
 
@@ -85,19 +84,20 @@ void Highscore::handle_highscore()
   std::cout << "efter loop: \n" << "score: "<< score_<< "Datum: " << get_date() << std::endl;
 
   pair_vect_.push_back(std::make_pair(score_, (get_date())));
-  std::cout << "\nefter push back" << std::get<0>(pair_vect_.at(3)) << "-" << std::get<1>(pair_vect_.at(3)) << std::endl;
+
   std::sort(pair_vect_.begin(),pair_vect_.end());
+  std::reverse(pair_vect_.begin(), pair_vect_.end());
 
+  write.open("highscore.txt", std::ios::trunc);
 
-  write.open("highscore.txt");
-
-  for( unsigned int i = 0; i < pair_vect_.size(); ++i )
+  for( unsigned int i = 0; i < ((pair_vect_.size()) -1); ++i )
   {
-    int pair_score = std::get<0>(pair_vect_.at(i));
+    std::string pair_score = std::to_string(std::get<0>(pair_vect_.at(i)));
     std::string pair_date = std::get<1>(pair_vect_.at(i));
     std::string output = pair_score + " " + pair_date;
+    std::cout << output << std::endl;
 
-    write << 34;
+    write << output << std::endl;
   }
   write.close();
 
