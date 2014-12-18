@@ -10,7 +10,7 @@
 #include <iostream>
 #include <highscore_handler.h>
 
- EndState* operator()(EndDirectory end_type, int score)
+ EndState* EndState::operator()(EndState::EndDirectory end_type, int score)
  {
    Highscore check;
 

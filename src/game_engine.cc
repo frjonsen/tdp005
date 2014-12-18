@@ -65,7 +65,7 @@ void GameEngine::handle_state_command(AbstractGameState::StateCommand cmd)
      active_state_ = &is_;
       break;
     case StateCommand::kWin:
-      active_state_ = &go_(EndState::EndDirectory::kFell, ps_.get_score());
+      active_state_ = go_(EndState::EndDirectory::kFell, ps_.get_score());
       break;
     case StateCommand::kKilled:
       go_.set_end_type("kKilled");

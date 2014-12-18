@@ -41,6 +41,9 @@ public:
   std::string get_background() const;
   std::pair<int, int> get_viewport() const;
 
+  /// Get the current score
+  int get_score() const;
+
   /// Width of the game world
   const int kWorldWidth { 2400 };
   /// Height of the game world
@@ -160,8 +163,7 @@ private:
    */
   void delete_projectile(std::list<Projectile*>::iterator& it);
 
-  /// Get the current score
-  int get_score() const;
+
 
 };
 
