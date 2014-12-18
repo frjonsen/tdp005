@@ -61,7 +61,7 @@ Projectile* SpitterEnemy::fire(Sprite const& player)
   if (player.get_x () < get_x ()) x_velocity *= -1;
 
   Projectile *p = new Projectile {
-      "normal_projectile.png", { get_x (), get_y () + 20, 7, 6 }, 40, {
+      "enemy_projectile.png", { get_x (), get_y () + 20, 22, 21 }, 40, {
           x_velocity, y_velocity }, Projectile::ProjectileOwner::kEnemy };
   ++projectile_timer_;
   return p;
