@@ -8,27 +8,27 @@
 #include <SDL2/SDL.h>
 #include <menu_state.h>
 #include <highscore_handler.h>
-
-
+#include <iostream>
 
 //Handles the return key for the update function.
 MenuState::StateCommand MenuState::return_handler()
 {
-  if( selected_ == MenuPointer::kPlay )
+  if (selected_ == MenuPointer::kPlay)
   {
-    if ( current_ == MenuDirectory::kCharacterSelect )
+    if (current_ == MenuDirectory::kCharacterSelect)
     {
       return StateCommand::kPlay;
     }
     else
     {
-     current_ = MenuDirectory::kCharacterSelect;
+      std::cerr << "selecting" << std::endl;
+      current_ = MenuDirectory::kCharacterSelect;
     }
   }
 
-  else if( selected_ == MenuPointer::kHighscore )
+  else if (selected_ == MenuPointer::kHighscore)
   {
-    if ( current_ == MenuDirectory::kCharacterSelect )
+    if (current_ == MenuDirectory::kCharacterSelect)
     {
       return StateCommand::kPlay;
     }
@@ -38,15 +38,15 @@ MenuState::StateCommand MenuState::return_handler()
     }
   }
 
-  else if( selected_ == MenuPointer::kControls )
+  else if (selected_ == MenuPointer::kControls)
   {
-    if ( current_ == MenuDirectory::kCharacterSelect )
+    if (current_ == MenuDirectory::kCharacterSelect)
     {
       return StateCommand::kPlay;
     }
     else
     {
-     current_ = MenuDirectory::kControls;
+      current_ = MenuDirectory::kControls;
     }
   }
 
@@ -81,7 +81,11 @@ MenuState::StateCommand MenuState::update(
       }
       break;
       case GameInput::kReturn:
-      return return_handler ();
+      if (!keydown_)
+      {
+        keydown_ = true;
+        return return_handler ();
+      }
       break;
       case GameInput::kEscape:
       current_ = MenuDirectory::kRoot;
@@ -105,7 +109,8 @@ std::list<Sprite const*> MenuState::get_sprites() const
   std::list<Sprite const*> empty;
   std::list<Sprite const*> CoffeVector { &coffe_cup_ };
 
-  if( current_ == MenuDirectory::kRoot || current_ == MenuDirectory::kCharacterSelect )
+  if (current_ == MenuDirectory::kRoot
+      || current_ == MenuDirectory::kCharacterSelect)
   {
     return CoffeVector;
   }
@@ -118,15 +123,17 @@ std::list<Sprite const*> MenuState::get_sprites() const
 std::list<TextTexture> MenuState::get_texts() const
 {
   std::list<TextTexture> scores;
-  if( current_ == MenuDirectory::kHighscore )
+  if (current_ == MenuDirectory::kHighscore)
   {
     Highscore scoreboard_;
 
-    if (scoreboard_.get_highscore().size() > 1) scores.push_back({ scoreboard_.get_highscore ().at ( 0 ), 374, 280 });
-    if (scoreboard_.get_highscore().size() > 2) scores.push_back({ scoreboard_.get_highscore ().at ( 1 ), 374, 361 });
-    if (scoreboard_.get_highscore().size() > 3) scores.push_back({ scoreboard_.get_highscore ().at ( 2 ), 374, 442 });
+    if (scoreboard_.get_highscore ().size () > 1) scores.push_back ( {
+        scoreboard_.get_highscore ().at (0), 374, 280 });
+    if (scoreboard_.get_highscore ().size () > 2) scores.push_back ( {
+        scoreboard_.get_highscore ().at (1), 374, 361 });
+    if (scoreboard_.get_highscore ().size () > 3) scores.push_back ( {
+        scoreboard_.get_highscore ().at (2), 374, 442 });
   }
-
 
   return scores;
 }
