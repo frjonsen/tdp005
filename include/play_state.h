@@ -202,6 +202,7 @@ private:
    */
   void delete_projectile(std::list<Projectile*>::iterator& it);
 
+  bool has_game_started() const;
 };
 
 #endif /* GAME_STATE_H_ */

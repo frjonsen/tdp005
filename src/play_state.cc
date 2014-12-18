@@ -31,7 +31,7 @@ PlayState::~PlayState()
   {
     delete p;
   }
-  for (Sprite* t :  traps_)
+  for (Sprite* t : traps_)
   {
     delete t;
   }
@@ -208,7 +208,8 @@ void PlayState::generate_traps()
   const int t_width { 200 };
   const int t_height { 59 };
 
-  traps_.push_back(new Sprite { trap_texture, {2200, 460, t_width, t_height}});
+  traps_.push_back (
+      new Sprite { trap_texture, { 2199, 442, t_width, t_height } });
 }
 
 std::list<Player::MovementCommand> PlayState::translate_input(
@@ -305,7 +306,6 @@ void PlayState::do_projectile_updates()
       delete_projectile (p_it);
       continue;
     }
-
   }
 }
 
@@ -373,6 +373,17 @@ void PlayState::do_player_update(std::list<Player::MovementCommand> commands)
       --it;
       delete *temp;
       powerups_.erase (temp);
+    }
+  }
+
+  for (std::list<Sprite*>::iterator it { traps_.begin () }; it != traps_.end ();
+      ++it)
+  {
+    if (player_->intersect (**it))
+    {
+      player_->lose_extra_life ();
+      player_->reset ();
+      move_to_checkpoint ();
     }
   }
 }
@@ -493,7 +504,7 @@ int PlayState::get_score() const
 PlayState* PlayState::operator()(PlayState::PlayerType type)
 {
   // Disallow changing character type after game has started
-  if (time_ == kTimeLimit)
+  if (has_game_started())
   {
     PlayerStats stats { stats_map_.at (type) };
     delete player_;
@@ -513,4 +524,9 @@ void PlayState::move_to_checkpoint()
       player_->set_y (it->second);
       return;
     }
+}
+
+bool PlayState::has_game_started() const
+{
+  return time_ != kTimeLimit;
 }
