@@ -199,6 +199,7 @@ private:
   /// Request all projectiles to update for current tick
   void do_projectile_updates();
 
+  /// Move the player to the last passed checkpoint and reset hp
   void move_to_checkpoint();
 
   /**
