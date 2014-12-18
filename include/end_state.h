@@ -27,13 +27,15 @@ public:
   /// Sets the end type for state. If reached by loss or win
   void set_end_type(std::string end_type_);
 
-  EndState* operator()(EndState::EndDirectory end_type, int score);
-
   /// Names of end state types
   enum class EndDirectory
   {
     kKilled, kFell, kWin
   };
+
+  EndState* operator()(EndState::EndDirectory end_type, int score);
+
+
 
 private:
 

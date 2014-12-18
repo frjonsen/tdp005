@@ -101,12 +101,12 @@ std::list<Projectile*> Player::fire()
   for (int i { 0 }; i < current_weapon_.nr_of_projectiles - 1; ++i)
   {
     int m{positive ? 1 : -1};
-    int y_velocity{int (ceil (velocity * difference))*m};
+    int y_velocity{int (round (velocity * difference))*m};
     projectiles.push_back (
         new Projectile (
             current_weapon_.projectile_texture, projectile_rect,
             current_weapon_.damage,
-            { int (ceil (velocity * 1-difference)), y_velocity },
+            { int (round (velocity * 1-difference)), y_velocity },
             Projectile::ProjectileOwner::kPlayer));
 
     if (i % 2) difference += 0.1;
