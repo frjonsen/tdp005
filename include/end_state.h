@@ -38,6 +38,7 @@ public:
 
 
 private:
+  std::string score_{""};
 
   /// Map of backgrounds for end states
   std::map<EndDirectory, std::string> current_background_ { {

@@ -37,7 +37,7 @@ private:
   /// Names of current active menu section
   enum class MenuDirectory
   {
-    kRoot, kHighscore, kControls
+    kRoot, kHighscore, kControls, kCharacterSelect
   };
 
   /// Map of background images for current menu section

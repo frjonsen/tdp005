@@ -112,8 +112,6 @@ void GameEngine::handle_input_translation(
   if (state[SDL_SCANCODE_ESCAPE])
   {
     tick_input.push_back (GameInput::kEscape);
-    active_state_ = &is_;
-
   }
   if (state[SDL_SCANCODE_RETURN])
   {
