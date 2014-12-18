@@ -51,7 +51,7 @@ public:
 	 * @param top_velocity /// The top horizontal velocity the object can move at.
 	 * Set to zero if object should be stationary
 	 */
-	Sprite(std::string texture, Rectangle const& rectangle, int hp,
+	Sprite(std::string texture, Rectangle const& rectangle, int hp = 0,
 			const int top_velocity = 0);
 	virtual ~Sprite();
 
