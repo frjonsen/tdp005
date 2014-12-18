@@ -98,11 +98,11 @@ private:
       "Hero_Run_5_R.png", "Hero_Run_6_R.png", "Hero_Run_7_R.png",
       "Hero_Run_8_R.png" };
   /// Index of the texture currently used
-  int current_animation { 0 };
+  int current_animation_ { 0 };
   /// Timer for texture change
   size_t animation_timer_ { 0 };
   /// The frequency for how often to change texture
-  size_t animation_change_frequency { 10 };
+  size_t animation_change_frequency_ { 10 };
 
   /// Move player based on horizontal and vertical velocity
   void handle_move();

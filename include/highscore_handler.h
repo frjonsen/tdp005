@@ -37,14 +37,14 @@ public:
    */
   std::vector<std::string> get_highscore();
 
-private:
-  /// Score from won game
-  int score_;
-
   /**
    * Gets current local date
    */
   std::string get_date();
+
+private:
+  /// Score from won game
+  int score_;
 
   /**
    * Gets lines from highscore.txt

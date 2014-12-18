@@ -146,11 +146,11 @@ void Player::handle_animation()
 {
   if (velocity_.x != 0)
   {
-    texture_.texture_name = animations_.at (current_animation);
+    texture_.texture_name = animations_.at (current_animation_);
     ++animation_timer_;
-    if (animation_timer_ > animation_change_frequency)
+    if (animation_timer_ > animation_change_frequency_)
     {
-      current_animation = (current_animation + 1) % animations_.size ();
+      current_animation_ = (current_animation_ + 1) % animations_.size ();
       animation_timer_ = 0;
     }
   }
@@ -158,7 +158,7 @@ void Player::handle_animation()
   {
     texture_.texture_name = "Hero_Standing_R.png";
     animation_timer_ = 0;
-    current_animation = 0;
+    current_animation_ = 0;
   }
 }
 

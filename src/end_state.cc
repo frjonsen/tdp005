@@ -53,6 +53,9 @@ std::list <TextTexture> EndState::get_texts() const
 
 std::string EndState::get_background() const
 {
+  Highscore hej;
+  hej.add_score(4444);
 
+  hej.handle_highscore();
   return background_src_;
 }

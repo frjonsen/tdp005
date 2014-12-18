@@ -30,7 +30,7 @@ std::string Highscore::get_date()
   std::string date_ = std::to_string ( year ) + "-" + std::to_string ( month )
       + "-" + std::to_string ( day );
 
-  delete aTime;
+
   return date_;
 }
 
@@ -52,8 +52,6 @@ std::vector<std::string> Highscore::get_highscore()
   std::vector<std::string> lines { get_lines ( file ) };
   file.close ();
 
-  std::cout << lines.at ( 0 ) << std::endl;
-
   return lines;
 }
 
@@ -62,34 +60,41 @@ std::pair<int, std::string> Highscore::parse_lines(std::string line)
       std::string number;
       std::string date;
       std::stringstream ss{line};
+      std::pair<int, std::string> parsed_pair_;
 
       ss >> number;
       ss >> date;
-      //std::cout << number << std::endl;
-     // std::cout << date << std::endl;
 
-      return std::make_pair(std::stoi(number), date);
+      parsed_pair_ = std::make_pair (std::stoi(number), date);
+
+      return parsed_pair_;
     }
 
 void Highscore::handle_highscore()
 {
   std::vector<std::string> iHighscore{get_highscore()};
-  std::vector<std::pair<int, std::string>> splitted;
+  std::vector<std::pair<int, std::string>> pair_vect_;
   std::ofstream write;
+
+  std::cout << "so far so good" << std::endl;
 
   for ( unsigned int i = 0; i < iHighscore.size(); ++i )
   {
-    splitted.push_back(parse_lines(iHighscore.at(i)));
+    pair_vect_.push_back(parse_lines(iHighscore.at(i)));
   }
-  splitted.push_back(std::make_pair(score_, get_date()));
-  sort(splitted.begin(),splitted.end());
+  std::cout << "efter loop: \n" << "score: "<< score_<< "Datum: " << get_date() << std::endl;
+
+  pair_vect_.push_back(std::make_pair(score_, (get_date())));
+  std::cout << "\nefter push back" << std::get<0>(pair_vect_.at(3)) << "-" << std::get<1>(pair_vect_.at(3)) << std::endl;
+  std::sort(pair_vect_.begin(),pair_vect_.end());
+
 
   write.open("highscore.txt");
 
-  for( unsigned int i = 0; i < splitted.size(); ++i )
+  for( unsigned int i = 0; i < pair_vect_.size(); ++i )
   {
-    int pair_score = std::get<0>(splitted.at(i));
-    std::string pair_date = std::get<1>(splitted.at(i));
+    int pair_score = std::get<0>(pair_vect_.at(i));
+    std::string pair_date = std::get<1>(pair_vect_.at(i));
     std::string output = pair_score + " " + pair_date;
 
     write << 34;
