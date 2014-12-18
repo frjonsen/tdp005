@@ -6,7 +6,6 @@
  */
 
 #include <SDL2/SDL.h>
-
 #include <menu_state.h>
 #include <highscore_handler.h>
 
@@ -120,4 +119,3 @@ std::string MenuState::get_background() const
   return background_src_;
 
 }
-
