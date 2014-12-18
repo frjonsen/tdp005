@@ -10,6 +10,7 @@
 
 PlayState::PlayState()
 {
+  // Generate the map
   generate_terrain ();
   generate_enemies ();
   generate_powerups ();
@@ -31,7 +32,7 @@ PlayState::~PlayState()
   {
     delete p;
   }
-  for (Sprite* t :  traps_)
+  for (Sprite* t : traps_)
   {
     delete t;
   }
@@ -49,14 +50,18 @@ AbstractGameState::StateCommand PlayState::update(
 
   if (time_ > 0) --time_;
 
+  // Move the powerup sprite to where it should be, taking
+  // the viewport into account
   powerup_->set_sprite (player_->get_weapon_sprite ());
   powerup_->set_x (720 + get_viewport ().first);
   powerup_->set_y (10 + get_viewport ().second);
 
+  // Check if player has won
   if (((player_->get_x ()) > 2280) && ((player_->get_y ()) < 110))
   {
     return StateCommand::kWin;
   }
+  // Check if player has fallen down a hole
   if ((player_->get_y ()) > 600)
   {
     player_->lose_extra_life ();
@@ -68,8 +73,8 @@ AbstractGameState::StateCommand PlayState::update(
     {
       move_to_checkpoint ();
     }
-
   }
+  // Check if player has taken enough damage to die
   if (player_->get_hp () <= 0)
   {
     player_->lose_extra_life ();
@@ -90,6 +95,7 @@ AbstractGameState::StateCommand PlayState::update(
 std::pair<int, int> PlayState::get_viewport() const
 {
   int window_width = 800;
+  // Ensure viewport cannot end up outside the map
   int x { player_->get_x () - window_width / 2 };
   if (x < 0)
   {
@@ -133,6 +139,7 @@ std::list<Sprite const*> PlayState::get_sprites() const
 
 std::list<TextTexture> PlayState::get_texts() const
 {
+  // Texts in the header of the window
   return std::list<TextTexture> { {
       "Score: " + std::to_string (get_score ()), 50, 10 }, { std::to_string (
       time_ / 60), 640, 10 }, { "Caffeine: "
@@ -208,7 +215,8 @@ void PlayState::generate_traps()
   const int t_width { 200 };
   const int t_height { 59 };
 
-  traps_.push_back(new Sprite { trap_texture, {2200, 460, t_width, t_height}});
+  traps_.push_back (
+      new Sprite { trap_texture, { 2199, 442, t_width, t_height } });
 }
 
 std::list<Player::MovementCommand> PlayState::translate_input(
@@ -256,10 +264,11 @@ void PlayState::do_projectile_updates()
   {
     (*p_it)->update ();
 
+    // Check if projectile is colliding with terrain
     std::list<Rectangle*> terrain_collisions { check_terrain_collision (**p_it) };
-
     if (terrain_collisions.size () > 0)
     {
+      // If colliding, simply delet
       delete_projectile (p_it);
       continue;
     }
@@ -272,6 +281,9 @@ void PlayState::do_projectile_updates()
       {
         if ((*p_it)->intersect (**e_it))
         {
+          // If intersecting, deal damage to enemy, then delete projectile
+          // If enough damage has been done to enemy to make its hp go
+          // below 0, delete enemy as well and award points to player
           (*e_it)->take_damage ((*p_it)->kDamage);
           if ((*e_it)->get_hp () < 0)
           {
@@ -290,6 +302,8 @@ void PlayState::do_projectile_updates()
       {
         if ((*p_it)->intersect (**m_it))
         {
+          // If intersecting, delete projectile and malwaware, and award
+          // points to player
           score_ += 1000;
           delete *m_it;
           malware_.erase (m_it);
@@ -301,17 +315,18 @@ void PlayState::do_projectile_updates()
     else if ((*p_it)->owner_ == Projectile::ProjectileOwner::kEnemy
         && (*p_it)->intersect (*player_))
     {
+      // If an enemys projectile is intersecting with the player,
+      // deal damage to player
       player_->take_damage ((*p_it)->kDamage);
       delete_projectile (p_it);
       continue;
     }
-
   }
 }
 
 void PlayState::delete_projectile(std::list<Projectile*>::iterator& it)
 {
-// Assign it to temp to avoid risk of invalidated iterator
+  // Assign it to temp to avoid risk of invalidated iterator
   std::list<Projectile*>::iterator temp { it };
   --it;
   delete *temp;
@@ -340,6 +355,7 @@ void PlayState::do_player_update(std::list<Player::MovementCommand> commands)
   {
     if ((*it)->intersect (*player_))
     {
+      // If enemy is of type Walker and player hit it from above, kill the enemy
       Direction direction { handle_collision (*player_, before, **it) };
       if ((*it)->kType == Enemy::EnemyType::kWalker
           && direction == Direction::kAbove) // Player hit enemy from above
@@ -351,6 +367,8 @@ void PlayState::do_player_update(std::list<Player::MovementCommand> commands)
         player_->jump ();
         score_ += 400;
       }
+      // In any other case, if player is colliding with damage,
+      // player takes damage and is pushed back
       else
       {
         handle_collision (*player_, before, **it);
@@ -361,6 +379,8 @@ void PlayState::do_player_update(std::list<Player::MovementCommand> commands)
     }
   }
 
+  // Test for collision with powerups
+  // If colliding, player gains hp, an extra life, and a random weapon
   for (std::list<Sprite*>::iterator it { powerups_.begin () };
       it != powerups_.end (); ++it)
   {
@@ -375,6 +395,18 @@ void PlayState::do_player_update(std::list<Player::MovementCommand> commands)
       powerups_.erase (temp);
     }
   }
+
+  // If player hits a trap, player dies.
+  for (std::list<Sprite*>::iterator it { traps_.begin () }; it != traps_.end ();
+      ++it)
+  {
+    if (player_->intersect (**it))
+    {
+      player_->lose_extra_life ();
+      player_->reset ();
+      move_to_checkpoint ();
+    }
+  }
 }
 
 void PlayState::do_enemy_update()
@@ -385,6 +417,7 @@ void PlayState::do_enemy_update()
   {
     Rectangle before { **it };
     (*it)->update ();
+    // If enemy is ranged, fire a projectile
     if ((*it)->kIsRanged)
     {
       Projectile* p { (*it)->fire (*player_) };
@@ -402,6 +435,7 @@ void PlayState::do_enemy_update()
     {
       for (Rectangle * r : collisions)
       {
+        // If enemy hits terrain horizontally, walk in the opposite way
         Direction d { handle_collision (**it, before, *r) };
         if (d == Direction::kLeft || d == Direction::kRight) (*it)->reverse_direction ();
       }
@@ -418,18 +452,18 @@ PlayState::Direction PlayState::handle_collision(
                                                  collision_target) };
   switch (direction)
   {
-    case Direction::kLeft: // Moving object was enteirly to the left
+    case Direction::kLeft: // Moving object collided from the left
       sprite.set_x (collision_target.get_x () - sprite.get_width () - 1);
       break;
-    case Direction::kRight: // Moving object was to the right
+    case Direction::kRight: // Moving object collided from the right
       sprite.set_x (
           collision_target.get_x () + collision_target.get_width () + 1);
       break;
-    case Direction::kAbove:
+    case Direction::kAbove: // Moving object collided from above
       sprite.set_y (collision_target.get_y () - sprite.get_height ());
       sprite.reset_y_velocity ();
       break;
-    case Direction::kBelow:
+    case Direction::kBelow: // Moving object collided from below
       sprite.set_y (collision_target.get_y () + collision_target.get_height ());
       sprite.reset_y_velocity ();
       break;
@@ -493,7 +527,7 @@ int PlayState::get_score() const
 PlayState* PlayState::operator()(PlayState::PlayerType type)
 {
   // Disallow changing character type after game has started
-  if (time_ == kTimeLimit)
+  if (has_game_started ())
   {
     PlayerStats stats { stats_map_.at (type) };
     delete player_;
@@ -505,6 +539,7 @@ PlayState* PlayState::operator()(PlayState::PlayerType type)
 void PlayState::move_to_checkpoint()
 {
   player_->reset ();
+  // Check which checkpoints was last passed
   for (std::vector<std::pair<int, int>>::reverse_iterator it {
       checkpoints_.rbegin () }; it != checkpoints_.rend (); ++it)
     if (player_->get_x () > it->first)
@@ -513,4 +548,10 @@ void PlayState::move_to_checkpoint()
       player_->set_y (it->second);
       return;
     }
+}
+
+bool PlayState::has_game_started() const
+{
+  // If any time as elapsed, game is considered started
+  return time_ != kTimeLimit;
 }

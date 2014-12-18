@@ -30,17 +30,21 @@ GraphicsEngine::~GraphicsEngine()
 
 void GraphicsEngine::redraw_screen(std::list<Sprite const*> const& sprites)
 {
+  // Find out which sprites are actually visible,
+  // to avoid drawing things outside the screen
   std::list<Sprite const*> visible_sprites;
   get_visible_sprites (sprites, visible_sprites);
+
   renderer_.clear ();
   draw_background ();
   draw_screen (sprites);
 }
 
-void GraphicsEngine::redraw_screen(std::list<Sprite const*> const& sprites, std::list<TextTexture> const& texts)
+void GraphicsEngine::redraw_screen(std::list<Sprite const*> const& sprites,
+                                   std::list<TextTexture> const& texts)
 {
-  redraw_screen(sprites);
-  render_text(texts);
+  redraw_screen (sprites);
+  render_text (texts);
   renderer_.render_present ();
 }
 
@@ -51,11 +55,12 @@ void GraphicsEngine::draw_screen(std::list<Sprite const*> const& sprites)
   {
     Texture* texture { texture_handler_.get_texture (
         s->get_texture ().texture_name) };
+    // Create a rectangle corrected for the viewport, to ensure the texture
+    // is shown at the appropriate coordinates in the window
     Rectangle corrected_for_viewport { s->get_x () - viewport_.x, s->get_y ()
         - viewport_.y, texture->kWidth, texture->kHeight };
 
-    //renderer_.render_copy (texture, s->get_enclosing_rect (),
-    //                       corrected_for_viewport);
+    // Check if the texture should be flipped horizontally
     SDL_RendererFlip flip = SDL_FLIP_NONE;
     if (s->get_texture ().flip) flip = SDL_FLIP_HORIZONTAL;
     renderer_.render_copy_ex (texture,
@@ -77,11 +82,10 @@ void GraphicsEngine::get_visible_sprites(
     std::list<Sprite const*> const& sprites,
     std::list<Sprite const*>& visible) const
 {
-
+  // If the texture intersects with the window, it should be visible to the player
   Rectangle window { viewport_.x, viewport_.y, window_.kWidth, window_.kHeight };
   for (Sprite const* s : sprites)
   {
-
     if (s->intersect (window))
     {
       visible.push_back (s);
@@ -91,6 +95,8 @@ void GraphicsEngine::get_visible_sprites(
 
 void GraphicsEngine::set_viewport(Viewport viewport)
 {
+  // Correct the viewport, to ensure it will not attempt to show
+  // things "outside" the window
   if (viewport.x < 0) viewport.x = 0;
   if (viewport.y < 0) viewport.y = 0;
   if (viewport.x + window_.kWidth > kWorldWidth) viewport.x = kWorldWidth
@@ -108,7 +114,7 @@ void GraphicsEngine::set_background(std::string texture)
 void GraphicsEngine::render_text(TextTexture text)
 {
   Texture* t { texture_handler_.create_text_texture (text) };
-  Rectangle enclosing{ 0, 0, t->kWidth, t->kHeight };
+  Rectangle enclosing { 0, 0, t->kWidth, t->kHeight };
   Rectangle position { text.kX, text.kY, t->kWidth, t->kHeight };
   renderer_.render_copy (t, enclosing, position);
   delete t;
@@ -118,6 +124,6 @@ void GraphicsEngine::render_text(std::list<TextTexture> texts)
 {
   for (TextTexture& t : texts)
   {
-    render_text(t);
+    render_text (t);
   }
 }

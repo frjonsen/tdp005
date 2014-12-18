@@ -25,7 +25,9 @@ Player::~Player()
 
 void Player::update()
 {
+  // If weapon has been fired, increment
   if (frames_since_firing_ >= 0) ++frames_since_firing_;
+  // If cooldown is completed
   if (frames_since_firing_ > current_weapon_.cooldown) frames_since_firing_ =
       -1;
   handle_animation ();
@@ -84,23 +86,30 @@ std::list<Projectile*> Player::fire()
   {
     return projectiles;
   }
+  // Calculate where projectile should spawn
   int spawn_x { texture_.flip ? get_x () : get_x () + get_width () };
   int spawn_y { get_y () + 30 - current_weapon_.projectile_height };
 
+  // Calculate direction the projectile should fly
   int velocity {
       texture_.flip ? -current_weapon_.projectile_velocity :
                       current_weapon_.projectile_velocity };
   Rectangle projectile_rect (spawn_x, spawn_y, current_weapon_.projectile_width,
                              current_weapon_.projectile_height);
   frames_since_firing_ = 0;
+  // If an odd number of projectiles is to be fired, fire one at 0 degrees
+  if (current_weapon_.nr_of_projectiles % 2 == 1){
   projectiles.push_back (
       new Projectile (current_weapon_.projectile_texture, projectile_rect,
                       current_weapon_.damage, { velocity, 0 },
                       Projectile::ProjectileOwner::kPlayer));
+  }
   bool positive { true };
   float difference{0.1};
-  for (int i { 0 }; i < current_weapon_.nr_of_projectiles - 1; ++i)
+  // If additional projectiles should be fire, keep should with some degree angle.
+  for (int i { 0 }; int(projectiles.size()) < current_weapon_.nr_of_projectiles; ++i)
   {
+    // Whether projectile should be fired downwards or upwards
     int m{positive ? 1 : -1};
     int y_velocity{int (round (velocity * difference))*m};
     projectiles.push_back (
@@ -129,10 +138,7 @@ void Player::handle_move()
   if (stunned_)
   {
     --stunned_timer_;
-    if (stunned_timer_ == 0)
-    {
-      stunned_ = false;
-    }
+    if (stunned_timer_ == 0) stunned_ = false;
   }
   else
   {

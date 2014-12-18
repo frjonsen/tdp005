@@ -68,7 +68,18 @@ public:
     kFast, kNormal, kTank
   };
 
+  /**
+   * Set which PlayerType to use. Cannot be set after game has already started
+   * @param type
+   * @return this
+   */
   PlayState* operator()(PlayerType type);
+
+  /**
+     * Checks if player has spent any time in the actual game
+     * @return True if game has started
+     */
+    bool has_game_started() const;
 
 private:
 
@@ -201,6 +212,7 @@ private:
    * @param it Iterator currently pointing at the element to be deleted
    */
   void delete_projectile(std::list<Projectile*>::iterator& it);
+
 
 };
 

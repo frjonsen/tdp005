@@ -29,7 +29,6 @@ void WalkerEnemy::handle_animation()
 {
   if (velocity_.x != 0)
   {
-
     ++animation_timer_;
     if (animation_timer_ > animation_change_frequency)
     {

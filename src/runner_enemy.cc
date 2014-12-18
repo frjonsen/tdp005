@@ -8,7 +8,7 @@
 #include <runner_enemy.h>
 
 RunnerEnemy::RunnerEnemy(const int x, const int y)
-    : Enemy ("Cloud_walking.png", { x, y, 25, 35 }, 40, -2, EnemyType::kRunner,
+    : Enemy ("Cloud_walking.png", { x, y, 58, 35 }, 40, -2, EnemyType::kRunner,
              false), kRunVelocity { kTopXVelocity * 3 }
 {
   velocity_.x = kTopXVelocity;
