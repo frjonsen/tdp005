@@ -76,13 +76,10 @@ void Highscore::handle_highscore()
   std::vector<std::pair<int, std::string>> pair_vect_;
   std::ofstream write;
 
-  std::cout << "so far so good" << std::endl;
-
   for ( unsigned int i = 0; i < iHighscore.size(); ++i )
   {
     pair_vect_.push_back(parse_lines(iHighscore.at(i)));
   }
-  std::cout << "efter loop: \n" << "score: "<< score_<< "Datum: " << get_date() << std::endl;
 
   pair_vect_.push_back(std::make_pair(score_, (get_date())));
 
@@ -96,7 +93,6 @@ void Highscore::handle_highscore()
     std::string pair_score = std::to_string(std::get<0>(pair_vect_.at(i)));
     std::string pair_date = std::get<1>(pair_vect_.at(i));
     std::string output = pair_score + " " + pair_date;
-    std::cout << output << std::endl;
 
     write << output << std::endl;
   }

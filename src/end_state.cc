@@ -13,6 +13,7 @@
  EndState* EndState::operator()(EndState::EndDirectory end_type, int score)
  {
    Highscore check;
+   score_ = std::to_string(score);
 
    if ( end_type == EndState::EndDirectory::kWin )
    {
@@ -53,14 +54,20 @@ std::list<Sprite const*> EndState::get_sprites() const
 
 std::list <TextTexture> EndState::get_texts() const
 {
-  TextTexture geek_score_{"9000", 426, 411};
 
-  std::list<TextTexture> score_list_
+  if ( current_ == EndState::EndDirectory::kWin )
   {
-    geek_score_
-  };
+    TextTexture game_score_{score_, 426, 411};
 
+    std::list<TextTexture> score_list_
+    {
+      game_score_
+    };
   return score_list_;
+  }
+
+  std::list<TextTexture> empty;
+  return empty;
 }
 
 std::string EndState::get_background() const
