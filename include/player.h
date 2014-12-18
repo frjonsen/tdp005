@@ -172,7 +172,7 @@ private:
   bool stunned_;
 
   /// Player extra lives
-  int lives_{3};
+  int lives_{2};
 
   /// How long is player stunned. Should be set to 0 if not stunned
   size_t stunned_timer_ { 0 };

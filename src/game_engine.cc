@@ -55,15 +55,12 @@ void GameEngine::handle_state_command(AbstractGameState::StateCommand cmd)
   switch (cmd)
   {
     case StateCommand::kPlay:
-      active_state_ = &ps_;
+      active_state_ = ps_(is_.get_selected_character());
       break;
     case StateCommand::kExit:
       engine_running_ = false;
       break;
     case StateCommand::kMenu:
-      // TODO: Add some way to set whether "Resume" or "Start New Game"
-      // (Overload () operator to take a string and return *this?
-      //active_state_ = &(is_("Resume"));
      active_state_ = &is_;
       break;
     case StateCommand::kWin:

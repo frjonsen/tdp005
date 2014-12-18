@@ -139,8 +139,9 @@ private:
    * @param input The input given by the user
    * @return A list of player movements
    */
-  std::list<Player::MovementCommand> translate_input(
-      std::list<GameInput> const& input);
+  StateCommand translate_input(
+      std::list<GameInput> const& input,
+      std::list<Player::MovementCommand>& commands);
   /// Generate the game world terrain
   void generate_terrain();
 

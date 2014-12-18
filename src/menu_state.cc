@@ -17,11 +17,11 @@ MenuState::StateCommand MenuState::return_handler()
   {
     if (current_ == MenuDirectory::kCharacterSelect)
     {
+      selected_character_ = PlayerType::kTank;
       return StateCommand::kPlay;
     }
     else
     {
-      std::cerr << "selecting" << std::endl;
       current_ = MenuDirectory::kCharacterSelect;
     }
   }
@@ -30,10 +30,12 @@ MenuState::StateCommand MenuState::return_handler()
   {
     if (current_ == MenuDirectory::kCharacterSelect)
     {
+      selected_character_ = PlayerType::kNormal;
       return StateCommand::kPlay;
     }
     else
     {
+
       current_ = MenuDirectory::kHighscore;
     }
   }
@@ -42,6 +44,7 @@ MenuState::StateCommand MenuState::return_handler()
   {
     if (current_ == MenuDirectory::kCharacterSelect)
     {
+      selected_character_ = PlayerType::kFast;
       return StateCommand::kPlay;
     }
     else
@@ -120,6 +123,11 @@ std::list<Sprite const*> MenuState::get_sprites() const
   }
 }
 
+AbstractGameState::PlayerType MenuState::get_selected_character() const
+{
+  return selected_character_;
+}
+
 std::list<TextTexture> MenuState::get_texts() const
 {
   std::list<TextTexture> scores;
@@ -127,11 +135,11 @@ std::list<TextTexture> MenuState::get_texts() const
   {
     Highscore scoreboard_;
 
-    if (scoreboard_.get_highscore ().size () > 1) scores.push_back ( {
+    if (scoreboard_.get_highscore ().size () >= 1) scores.push_back ( {
         scoreboard_.get_highscore ().at (0), 374, 280 });
-    if (scoreboard_.get_highscore ().size () > 2) scores.push_back ( {
+    if (scoreboard_.get_highscore ().size () >= 2) scores.push_back ( {
         scoreboard_.get_highscore ().at (1), 374, 361 });
-    if (scoreboard_.get_highscore ().size () > 3) scores.push_back ( {
+    if (scoreboard_.get_highscore ().size () >= 3) scores.push_back ( {
         scoreboard_.get_highscore ().at (2), 374, 442 });
   }
 

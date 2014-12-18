@@ -26,6 +26,7 @@ public:
   std::list<Sprite const*> get_sprites() const;
   std::list<TextTexture> get_texts() const;
   std::string get_background() const;
+  PlayerType get_selected_character() const;
 
 private:
   /// Names of current selected menu item
@@ -52,6 +53,8 @@ private:
 
   /// Current active menu section
   MenuDirectory current_ { MenuDirectory::kRoot };
+
+  PlayerType selected_character_{PlayerType::kNormal};
 
   /// Background image
   std::string background_src_ { backgrounds_.at (current_) };

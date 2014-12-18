@@ -43,7 +43,9 @@ PlayState::~PlayState()
 AbstractGameState::StateCommand PlayState::update(
     std::list<GameInput> const& input)
 {
-  std::list<Player::MovementCommand> commands { translate_input (input) };
+  std::list<Player::MovementCommand> commands;
+  StateCommand sc = translate_input (input, commands);
+  if (sc == StateCommand::kMenu) return sc;
   do_enemy_update ();
   do_player_update (commands);
   do_projectile_updates ();
@@ -219,12 +221,11 @@ void PlayState::generate_traps()
       new Sprite { trap_texture, { 2199, 442, t_width, t_height } });
 }
 
-std::list<Player::MovementCommand> PlayState::translate_input(
-    std::list<GameInput> const& input)
+AbstractGameState::StateCommand PlayState::translate_input(
+    std::list<GameInput> const& input,
+    std::list<Player::MovementCommand>& commands)
 {
   using MovementCommand = Player::MovementCommand;
-
-  std::list<Player::MovementCommand> commands;
 
   for (GameInput i : input)
   {
@@ -248,12 +249,14 @@ std::list<Player::MovementCommand> PlayState::translate_input(
         }
       }
         break;
+      case GameInput::kEscape:
+        return StateCommand::kMenu;
       default:
         break;
     }
   }
 
-  return commands;
+  return StateCommand::kNone;
 }
 
 void PlayState::do_projectile_updates()
@@ -527,7 +530,7 @@ int PlayState::get_score() const
 PlayState* PlayState::operator()(PlayState::PlayerType type)
 {
   // Disallow changing character type after game has started
-  if (has_game_started ())
+  if (!has_game_started ())
   {
     PlayerStats stats { stats_map_.at (type) };
     delete player_;
