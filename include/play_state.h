@@ -121,6 +121,9 @@ private:
   /// A list of all malware in the world
   std::list<Sprite*> malware_ {};
 
+  /// A list of all traps in the world
+  std::list<Sprite*> traps_ {};
+
   /// Background image
   std::string background_ { "playstate_background.png" };
 
@@ -142,6 +145,9 @@ private:
 
   /// Generate malware in the world
   void generate_malware();
+
+  /// Generate traps in the world
+  void generate_traps();
 
   /**
    * Check if any terrain is currently colliding with rectangle r

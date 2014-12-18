@@ -14,6 +14,7 @@ PlayState::PlayState()
   generate_enemies ();
   generate_powerups ();
   generate_malware ();
+  generate_traps ();
 }
 
 PlayState::~PlayState()
@@ -29,6 +30,10 @@ PlayState::~PlayState()
   for (Sprite* p : powerups_)
   {
     delete p;
+  }
+  for (Sprite* t :  traps_)
+  {
+    delete t;
   }
   delete player_;
   delete powerup_;
@@ -116,6 +121,10 @@ std::list<Sprite const*> PlayState::get_sprites() const
   {
     all_sprites.push_back (m);
   }
+  for (Sprite* t : traps_)
+  {
+    all_sprites.push_back (t);
+  }
   all_sprites.push_back (player_);
   all_sprites.push_back (powerup_);
 
@@ -191,6 +200,15 @@ void PlayState::generate_malware()
       1810, 100, m_width, m_height } });
   malware_.push_back (new Sprite { malware_texture, {
       1025, 460, m_width, m_height } });
+}
+
+void PlayState::generate_traps()
+{
+  const std::string trap_texture { "stakes.png" };
+  const int t_width { 200 };
+  const int t_height { 59 };
+
+  traps_.push_back(new Sprite { trap_texture, {2200, 460, t_width, t_height}});
 }
 
 std::list<Player::MovementCommand> PlayState::translate_input(
